@@ -16,7 +16,6 @@ vim.opt.autoindent = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.swapfile = false
--- vim.opt.termguicolors = true
 vim.opt.timeoutlen = 1000
 vim.opt.undofile = true
 vim.opt.updatetime = 300 -- faster completion
@@ -31,5 +30,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
+vim.opt.termguicolors = true
+vim.opt.tm = 300 -- for faster WhichKey toggle
 
 vim.opt.shortmess:append "c"
