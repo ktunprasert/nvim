@@ -1,5 +1,5 @@
 -- Global neovim dotfiles for configuring exactly your Neovim
 --
---
--- User Options
+-- User settings
 require "user.options"
+require "user.keymaps"
