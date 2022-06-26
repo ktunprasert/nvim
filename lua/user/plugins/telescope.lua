@@ -5,6 +5,17 @@ local keymap = require 'lib.utils'.keymap
 telescope.setup {
     defaults = {
         path_display = { truncate = 1, shorten = 5 },
+        vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--hidden",
+            "--glob=!.git/",
+        },
         mappings = {
             i = {
                 ['<Esc>'] = actions.close,

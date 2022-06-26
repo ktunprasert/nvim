@@ -79,8 +79,8 @@ local mappings = {
     ["c"] = { "<Esc><cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
     s = {
         name = "Search [Telescope]",
-        f = { ":Telescope find_files<CR>", "Find Files" },
-        F = { [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]], "Find All Files" },
+        f = { ":Telescope git_files<CR>", "Find Files" },
+        F = { ":Telescope find_files<CR>", "Find All Files" },
         b = { ":Telescope buffers<CR>", "Buffers" },
         r = { ":Telescope oldfiles<CR>", "Recent Files" },
         k = { ":Telescope keymaps<CR>", "Keymaps" },
