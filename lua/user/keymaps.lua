@@ -55,9 +55,21 @@ keymap("n", "<S-h>", ":bprevious<CR>")
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
+-- Move lines up and down
+-- Normal --
+keymap("n", "<A-k>", ":m .-2<CR>==")
+keymap("n", "<A-j>", ":m .+<CR>==")
+-- Insert --
+keymap("i", "<A-k>", "<Esc>:m -2<CR>==gi")
+keymap("i", "<A-j>", "<Esc>:m +<CR>==gi")
+-- Visual --
+keymap("v", "<A-k>", ":m '<-2<CR>==gv")
+keymap("v", "<A-j>", ":m '>+1<CR>==gv")
+
 -- Append ; or , at end of line in insert mode
-keymap("i", ";;", "<Esc>A;<Esc>")
-keymap("i", ",,", "<Esc>A,<Esc>")
+-- also keeps the cursor editing at current place
+keymap("i", ";;", "<Esc>mz<Esc>A;<Esc>`zi")
+keymap("i", ",,", "<Esc>mz<Esc>A,<Esc>`zi")
 
 -- Resize windows with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>")
