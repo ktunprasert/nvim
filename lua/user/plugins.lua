@@ -44,6 +44,7 @@ return packer.startup(function(use)
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
+
     -- My Plugins
     use {
         "nvim-telescope/telescope.nvim",
@@ -52,6 +53,12 @@ return packer.startup(function(use)
             {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
         },
         config = function() require("user.plugins.telescope") end
+    }
+    use "tpope/vim-surround"
+    use {
+        "lewis6991/gitsigns.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function() require("gitsigns").setup { current_line_blame = true } end
     }
 
     -- Automatically set up your configuration after cloning packer.nvim
