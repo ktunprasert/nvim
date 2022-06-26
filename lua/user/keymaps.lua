@@ -32,6 +32,9 @@ keymap("v", ";", ":")
 -- Replay macro
 keymap("n", ",,", "@@")
 
+-- Quickly escape from insert mode
+keymap("i", "jk", "<Esc>")
+
 -- Force paste from yank with comma
 keymap("n", ",p", "\"0p")
 keymap("n", ",P", "\"0P")
