@@ -1,0 +1,73 @@
+set nocompatible            " disable compatibility to old-time vi
+set showmatch               " show matching 
+set ignorecase              " case insensitive 
+set mouse=v                 " middle-click paste with 
+set hlsearch                " highlight search 
+set incsearch               " incremental search
+set tabstop=4               " number of columns occupied by a tab 
+set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
+set expandtab               " converts tabs to white space
+set shiftwidth=4            " width for autoindents
+set autoindent              " indent a new line the same amount as the line just typed
+set number                  " add line numbers
+set wildmode=longest,list   " get bash-like tab completions
+set cc=80                   " set an 80 column border for good coding style
+filetype plugin indent on   "allow auto-indenting depending on file type
+syntax on                   " syntax highlighting
+set mouse=a                 " enable mouse click
+set clipboard=unnamedplus   " using system clipboard
+filetype plugin on
+set ttyfast                 " Speed up scrolling in Vim
+set noswapfile              " disable creating swap file
+set undodir=~/.vimdid
+set undofile
+set splitright
+set splitbelow
+set nowrap
+set scrolloff=8
+
+" Command mode without pressing shift
+nnoremap ; :
+vnoremap ; :
+
+" Replay macro easily
+nnoremap ,, @@
+
+" Delete Key to escape certain modes and put back to normal
+nnoremap <Del> <Esc>
+vnoremap <Del> <Esc>gV
+onoremap <Del> <Esc>
+cnoremap <Del> <C-C><Esc>
+inoremap <Del> <Esc>`^
+
+" Force pasting from Yank in case you need to delete and paste something
+nmap ,p "0p
+nmap ,P "0P
+
+" Force create file if don't exist
+map gf :edit <cfile><CR>
+
+" Yank without Jank
+" vnoremap y myy`hay
+" vnoremap Y myY`y
+
+" Easy indent
+vmap < <gv
+vmap > >gv
+
+" Easy insertion for line trailing ; or , from insert mode
+inoremap ;; <Esc>A;<Esc>
+inoremap ,, <Esc>A,<Esc>
+
+" Resize window with arrows
+nmap <C-Up> :resize +2<CR>
+nmap <C-Down> :resize -2<CR>
+nmap <C-Left> :vert resize -2<CR>
+nmap <C-Right> :vert resize +2<CR>
+
+" New line from normal mode
+nnoremap <C-Enter> <Esc>o<Esc>
+
+" Edit config!
+nnoremap <Space><Space>ec :exe ":edit" stdpath('config').'/init.vim'<CR>
+
