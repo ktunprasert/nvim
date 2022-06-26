@@ -5,6 +5,8 @@ local keymap = require 'lib.utils'.keymap
 telescope.setup {
     defaults = {
         path_display = { truncate = 1, shorten = 5 },
+        initial_mode = "insert",
+        file_ignore_patterns = { '.git/', 'node_modules/', 'vendor/', '*.exe' },
         vimgrep_arguments = {
             "rg",
             "--color=never",
@@ -35,8 +37,6 @@ telescope.setup {
             },
         },
     },
-    initial_mode = "insert",
-    file_ignore_patterns = { '.git/', 'node_modules/', 'vendor/', '*.exe' },
     pickers = {
         find_files = {
             hidden = true,
@@ -44,23 +44,16 @@ telescope.setup {
         oldfiles = {
             prompt_title = 'History',
         },
+        live_grep = {
+            only_sort_text = true,
+        },
     },
     extensions = {
         fzf = {
             fuzzy = true,
-            override_generic_sorter = true,
-            override_file_sorter = true,
             case_mode = 'smart_case',
         },
     },
 }
 
 require('telescope').load_extension('fzf')
-
--- keymap('n', '<leader>sf', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
--- keymap('n', '<leader>sF', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]]) -- luacheck: no max line length
--- -- keymap('n', '<leader>r', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
--- keymap('n', '<leader>sb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
--- keymap('n', '<leader>sr', [[<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<CR>]])
--- keymap('n', '<leader>sh', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
--- keymap('n', '<leader>sk', ':Telescope keymaps<CR>')

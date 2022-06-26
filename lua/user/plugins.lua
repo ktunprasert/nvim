@@ -49,10 +49,15 @@ return packer.startup(function(use)
 
     -- My Plugins
     use {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    }
+    use {
         "nvim-telescope/telescope.nvim",
         requires = {
             {'nvim-lua/plenary.nvim'},
-            {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+            {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+            {'nvim-telescope/telescope-live-grep-raw.nvim'},
         },
         config = function() require("user.plugins.telescope") end
     }

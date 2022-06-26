@@ -77,10 +77,12 @@ local vmappings = {
 
 local mappings = {
     ["c"] = { "<Esc><cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
+    ["f"] = { ":Telescope git_files<CR>", "Find Files" },
     s = {
         name = "Search [Telescope]",
-        f = { ":Telescope git_files<CR>", "Find Files" },
-        F = { ":Telescope find_files<CR>", "Find All Files" },
+        f = { ":Telescope find_files<CR>", "Find All Files" },
+        t = { "<cmd>Telescope live_grep<cr>", "Text" },
+        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
         b = { ":Telescope buffers<CR>", "Buffers" },
         r = { ":Telescope oldfiles<CR>", "Recent Files" },
         k = { ":Telescope keymaps<CR>", "Keymaps" },
