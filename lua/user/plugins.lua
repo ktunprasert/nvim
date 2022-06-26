@@ -60,6 +60,10 @@ return packer.startup(function(use)
         requires = "nvim-lua/plenary.nvim",
         config = function() require("gitsigns").setup { current_line_blame = true } end
     }
+    use {
+        "folke/which-key.nvim",
+        config = function() require("user.plugins.whichkey") end
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

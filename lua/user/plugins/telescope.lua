@@ -46,10 +46,10 @@ telescope.setup {
 
 require('telescope').load_extension('fzf')
 
-keymap('n', '<leader>sf', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
-keymap('n', '<leader>sF', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]]) -- luacheck: no max line length
--- keymap('n', '<leader>r', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
-keymap('n', '<leader>sb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
-keymap('n', '<leader>sr', [[<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<CR>]])
-keymap('n', '<leader>sh', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
-keymap('n', '<leader>sk', ':Telescope keymaps<CR>')
+-- keymap('n', '<leader>sf', [[<cmd>lua require('telescope.builtin').find_files()<CR>]])
+-- keymap('n', '<leader>sF', [[<cmd>lua require('telescope.builtin').find_files({ no_ignore = true, prompt_title = 'All Files' })<CR>]]) -- luacheck: no max line length
+-- -- keymap('n', '<leader>r', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]])
+-- keymap('n', '<leader>sb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]])
+-- keymap('n', '<leader>sr', [[<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<CR>]])
+-- keymap('n', '<leader>sh', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]])
+-- keymap('n', '<leader>sk', ':Telescope keymaps<CR>')
