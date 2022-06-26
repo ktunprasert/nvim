@@ -64,6 +64,10 @@ return packer.startup(function(use)
         "folke/which-key.nvim",
         config = function() require("user.plugins.whichkey") end
     }
+    use {
+        "numToStr/Comment.nvim",
+        config = function() require("user.plugins.comment") end
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

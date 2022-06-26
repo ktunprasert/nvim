@@ -72,11 +72,11 @@ local vopts = {
 }
 
 local vmappings = {
-    ["c"] = { "<Esc>", "Comment" }, -- todo: add commenting plugin
+    ["c"] = { "<Esc><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" }, -- todo: add commenting plugin
 }
 
 local mappings = {
-    ["c"] = { "<Esc>", "Comment" }, -- todo: add commenting plugin
+    ["c"] = { "<Esc><cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
     s = {
         name = "Search [Telescope]",
         f = { ":Telescope find_files<CR>", "Find Files" },
