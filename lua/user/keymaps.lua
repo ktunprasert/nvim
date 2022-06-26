@@ -1,13 +1,4 @@
-local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
-
--- Shorten function name
-function keymap(mode, key, cmd, options)
-    if options == nil then
-        options = opts
-    end
-    vim.api.nvim_set_keymap(mode, key, cmd, options)
-end
+local keymap = require('lib.utils').keymap
 
 -- Space as <Leader>
 keymap("", "<Space>", "<Nop>")
@@ -22,8 +13,11 @@ vim.g.maplocalleader = " "
 --   t : Term(inal)
 --   c : Command
 
+-- Ctrl + S to save file :)
+keymap("n", "<C-s>", ":w<CR>")
+
 -- Force create file if doesn't exist
-keymap("", "gf", "<cfile><CR>")
+keymap("", "gf", ":e <cfile><CR>")
 
 -- Command mode without shift
 keymap("n", ";", ":")
