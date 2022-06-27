@@ -47,6 +47,11 @@ return packer.startup(function(use)
 
     -- Themes
     use "folke/tokyonight.nvim"
+    use "ellisonleao/gruvbox.nvim"
+    use {
+        "tiagovla/tokyodark.nvim",
+        config = function() require("user.themes.tokyodark") end
+    }
 
     -- My Plugins
     use {
@@ -77,12 +82,17 @@ return packer.startup(function(use)
         "numToStr/Comment.nvim",
         config = function() require("user.plugins.comment") end
     }
-
     use {
         "phaazon/hop.nvim",
         event = "BufRead",
         config = function() require("user.plugins.hop") end
     }
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        config = function() require("user.plugins.lualine") end
+    }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
