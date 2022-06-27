@@ -89,6 +89,7 @@ local mappings = {
         ['"'] = { ":Telescope registers<CR>", "Registers" },
         p = { [[<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<CR>]], "Colourscheme Preview" },
     },
+    ["/"] = { ":HopPattern<CR>", "Hop by Pattern" },
 }
 
 whichkey.register(mappings, opts)
