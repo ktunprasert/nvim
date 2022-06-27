@@ -78,6 +78,7 @@ local vmappings = {
 local mappings = {
     ["c"] = { "<Esc><cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
     ["f"] = { ":Telescope git_files<CR>", "Find Files" },
+    ["p"] = { ":Telescope projects<CR>", "Projects" },
     s = {
         name = "Search [Telescope]",
         f = { ":Telescope find_files<CR>", "Find All Files" },

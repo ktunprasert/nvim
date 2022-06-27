@@ -92,6 +92,10 @@ return packer.startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function() require("user.plugins.lualine") end
     }
+    use {
+        "ahmedkhalf/project.nvim",
+        config = function() require("user.plugins.project") end
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
