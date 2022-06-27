@@ -7,7 +7,6 @@ local hop_options = { silent = true }
 
 keymap("n", "<Tab>s", ":HopChar1<CR>", hop_options)
 keymap("n", "<Tab>d", ":HopChar2<CR>", hop_options)
-keymap("n", "<C-f>", ":HopChar2<CR>", hop_options)
 
 keymap("n", "<Tab>w", ":HopWordCurrentLine<CR>", hop_options)
 keymap("n", "<Tab>W", ":HopWord<CR>", hop_options)
@@ -23,3 +22,4 @@ keymap("n", "<Tab>G", ":HopAnywhereMW<CR>", hop_options)
 
 keymap("n", "<Tab>/", ":HopPattern<CR>", hop_options)
 keymap("n", "<Tab>f", ":HopPattern<CR>", hop_options)
+keymap("n", "<C-f>", ":HopPattern<CR>", hop_options)
