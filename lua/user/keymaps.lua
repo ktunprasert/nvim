@@ -72,4 +72,5 @@ keymap("n", "<C-Left>", ":vert resize -2<CR>")
 keymap("n", "<C-Right>", ":vert resize +2<CR>")
 
 -- Edit config from anywhere
-keymap("n", "<Leader><Leader>ec", ":edit stdpath('config').'/init.lua'<CR>")
+keymap("n", "<Leader><Leader>ec", "<cmd>exe 'edit' stdpath('config')<CR>")
+keymap("n", "<Leader><Leader>ed", "<cmd>exe 'cd' stdpath('config')<CR>")

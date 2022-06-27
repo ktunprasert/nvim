@@ -31,6 +31,14 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.termguicolors = true
+vim.cmd [[set guifont=Iosevka:h11]]
 vim.opt.tm = 300 -- for faster WhichKey toggle
 
 vim.opt.shortmess:append "c"
+
+if os.getenv('SHELL') == "C:\\Program Files\\Git\\usr\\bin\\bash.exe" then
+    print("Windows Git Bash Found - setting shell compatibility")
+    vim.cmd [[let &shellcmdflag = '-c']]
+    vim.cmd [[set shellxquote=(]]
+    vim.cmd [[set shellslash]]
+end
