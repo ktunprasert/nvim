@@ -33,6 +33,7 @@ vim.opt.sidescrolloff = 8
 vim.opt.termguicolors = true
 vim.cmd [[set guifont=Iosevka:h11]]
 vim.opt.tm = 300 -- for faster WhichKey toggle
+vim.opt.autochdir = true
 
 vim.opt.shortmess:append "c"
 
