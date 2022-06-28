@@ -62,8 +62,8 @@ keymap("v", "<A-j>", ":m '>+1<CR>==gv")
 
 -- Append ; or , at end of line in insert mode
 -- also keeps the cursor editing at current place
-keymap("i", ";;", "<Esc>mz<Esc>A;<Esc>`zi")
-keymap("i", ",,", "<Esc>mz<Esc>A,<Esc>`zi")
+-- keymap("i", ";;", "<Esc>mz<Esc>A;<Esc>`zi")
+-- keymap("i", ",,", "<Esc>mz<Esc>A,<Esc>`zi")
 
 -- Resize windows with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>")

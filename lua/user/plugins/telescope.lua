@@ -20,7 +20,6 @@ telescope.setup {
         },
         mappings = {
             i = {
-                ['<Esc>'] = actions.close,
                 ['<C-c>'] = actions.close,
 
                 ['<C-j>'] = actions.move_selection_next,
