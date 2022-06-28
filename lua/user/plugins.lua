@@ -96,7 +96,10 @@ return packer.startup(function(use)
         "ahmedkhalf/project.nvim",
         config = function() require("user.plugins.project") end
     }
-
+    use {
+        "chaoren/vim-wordmotion",
+        config = function() require("user.plugins.wordmotion") end
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
