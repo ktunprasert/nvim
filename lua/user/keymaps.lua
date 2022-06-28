@@ -39,6 +39,17 @@ keymap("n", "<C-j>", "<C-w>j")
 keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
 
+-- Better tab navigations
+keymap("n", "<A-Right>", "gt")
+keymap("n", "<A-Left>", "gT")
+keymap("n", "<A-1>", "1gt")
+keymap("n", "<A-2>", "2gt")
+keymap("n", "<A-3>", "3gt")
+keymap("n", "<A-4>", "4gt")
+keymap("n", "<A-5>", "5gt")
+keymap("n", "<A-6>", "6gt")
+
+-- Toggle File Explorer
 keymap("n", "<Leader>e", ":Lex 30<CR>")
 
 -- Navigate buffers
@@ -74,3 +85,5 @@ keymap("n", "<C-Right>", ":vert resize +2<CR>")
 -- Edit config from anywhere
 keymap("n", "<Leader><Leader>ec", "<cmd>exe 'edit' stdpath('config')<CR>")
 keymap("n", "<Leader><Leader>ed", "<cmd>exe 'cd' stdpath('config')<CR>")
+
+keymap("n", "<F5>", "<cmd>noh<CR>")
