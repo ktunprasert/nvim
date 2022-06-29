@@ -41,5 +41,4 @@ if os.getenv('SHELL') == "C:\\Program Files\\Git\\usr\\bin\\bash.exe" then
     print("Windows Git Bash Found - setting shell compatibility")
     vim.cmd [[let &shellcmdflag = '-c']]
     vim.cmd [[set shellxquote=(]]
-    vim.cmd [[set shellslash]]
 end
