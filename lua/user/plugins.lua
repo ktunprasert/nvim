@@ -100,6 +100,11 @@ return packer.startup(function(use)
         "chaoren/vim-wordmotion",
         config = function() require("user.plugins.wordmotion") end
     }
+    use {
+        "akinsho/toggleterm.nvim",
+        tag = 'v1.*',
+        config = function() require("user.plugins.toggleterm") end
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
