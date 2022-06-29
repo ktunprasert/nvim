@@ -39,6 +39,10 @@ keymap("n", "<C-j>", "<C-w>j")
 keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
 
+-- Easily split vert and horizontal
+keymap("n", "<C-\\>", ":vs<CR>")
+keymap("n", "<C-_>", ":sp<CR>")
+
 -- Better tab navigations
 keymap("n", "<A-Right>", "gt")
 keymap("n", "<A-Left>", "gT")
@@ -51,6 +55,7 @@ keymap("n", "<A-6>", "6gt")
 
 -- Toggle File Explorer
 keymap("n", "<C-e>", ":Lex 30<CR>")
+keymap("n", "<Leader>e", ":Lex 30<CR>")
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>")
