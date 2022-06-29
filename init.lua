@@ -5,3 +5,5 @@ require "user.options"
 require "user.keymaps"
 require "user.plugins"
 
+-- Set Theme
+vim.cmd("colorscheme gruvbox")
