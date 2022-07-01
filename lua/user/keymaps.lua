@@ -62,7 +62,7 @@ keymap("n", "<Leader>e", ":NvimTreeToggle<CR>")
 -- Navigate buffers
 keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>")
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>")
-keymap("n", "<C-x>", ":bdelete!<CR>")
+-- keymap("n", "<C-x>", ":bdelete!<CR>")
 
 -- Easy indent (or just spam '=')
 keymap("v", "<", "<gv")
