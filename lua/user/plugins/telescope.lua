@@ -29,6 +29,9 @@ telescope.setup {
                 ['<C-Up>'] = actions.cycle_history_prev,
 
                 ['<CR>'] = actions.select_default + actions.center,
+
+                ['<A-l>'] = actions.select_vertical + actions.center,
+                ['<A-j>'] = actions.select_horizontal + actions.center,
             },
             n = {
                 ['<C-j>'] = actions.move_selection_next,
