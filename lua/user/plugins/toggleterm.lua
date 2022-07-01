@@ -1,4 +1,8 @@
-local toggleterm = require "toggleterm"
+local ok, toggleterm = pcall(require, "toggleterm")
+if not ok then
+    return
+end
+
 local keymap = require('lib.utils').keymap
 
 function checkWin()

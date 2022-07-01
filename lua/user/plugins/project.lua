@@ -1,4 +1,8 @@
-local project = require "project_nvim"
+local ok, project = pcall(require, "project_nvim")
+if not ok then
+    return
+end
+
 
 project.setup {
     ---@usage set to true to disable setting the current-woriking directory

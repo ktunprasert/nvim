@@ -1,4 +1,7 @@
-local session_lens = require("session-lens")
+local ok, session_lens = pcall(require, "session-lens")
+if not ok then
+    return
+end
 
 session_lens.setup {
     path_display = {"shorten"},

@@ -1,10 +1,6 @@
-local ok, cmp = pcall(require, "cmp")
-if not ok then
-    return
-end
-
-local ok, luasnip = pcall(require, "luasnip")
-if not ok then
+local cmp_ok, cmp = pcall(require, "cmp")
+local luasnip_ok, luasnip = pcall(require, "luasnip")
+if (not ok) or (not luasnip_ok) then
     return
 end
 

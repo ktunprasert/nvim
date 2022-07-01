@@ -1,4 +1,7 @@
-local auto_session = require("auto-session")
+local ok, auto_session = pcall(require, "auto-session")
+if not ok then
+    return
+end
 
 auto_session.setup {
     log_level = 'info',

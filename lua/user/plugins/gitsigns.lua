@@ -1,4 +1,8 @@
-local gitsigns = require("gitsigns")
+local ok, gitsigns = pcall(require, "gitsigns")
+if not ok then
+    return
+end
+
 local keymap = require('lib.utils').keymap
 
 gitsigns.setup {
