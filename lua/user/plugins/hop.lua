@@ -25,4 +25,3 @@ keymap("n", "<Tab>G", ":HopAnywhereMW<CR>", hop_options)
 
 keymap("n", "<Tab>/", ":HopPattern<CR>", hop_options)
 keymap("n", "<Tab>f", ":HopPattern<CR>", hop_options)
-keymap("n", "<C-f>", ":HopPattern<CR>", hop_options)

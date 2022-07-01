@@ -59,3 +59,5 @@ telescope.setup {
 }
 
 require('telescope').load_extension('fzf')
+
+keymap("n", "<C-f>", ":Telescope current_buffer_fuzzy_find<CR>")

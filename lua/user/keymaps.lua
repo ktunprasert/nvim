@@ -60,8 +60,6 @@ keymap("n", "<C-e>", ":NvimTreeToggle<CR>")
 keymap("n", "<Leader>e", ":NvimTreeToggle<CR>")
 
 -- Navigate buffers
--- keymap("n", "<S-l>", ":bnext<CR>")
--- keymap("n", "<S-h>", ":bprevious<CR>")
 keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>")
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>")
 keymap("n", "<C-x>", ":bdelete!<CR>")
