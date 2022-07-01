@@ -37,6 +37,9 @@ vim.opt.autochdir = true
 
 vim.opt.shortmess:append "c"
 
+-- For auto-session
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+
 if os.getenv('SHELL') == "C:\\Program Files\\Git\\usr\\bin\\bash.exe" then
     print("Windows Git Bash Found - setting shell compatibility")
     vim.cmd [[let &shellcmdflag = '-c']]

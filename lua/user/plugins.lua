@@ -120,7 +120,15 @@ return packer.startup(function(use)
         tag = 'nightly', -- optional, updated every week. (see issue #1193)
         config = function() require("user.plugins.nvim-tree") end
     }
-
+    use {
+        'rmagatti/auto-session',
+        config = function() require("user.plugins.sessions.auto-session") end
+    }
+    use {
+        'rmagatti/session-lens',
+        requires = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'},
+        config = function() require("user.plugins.sessions.session-lens") end
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
