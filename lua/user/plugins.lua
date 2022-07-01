@@ -58,11 +58,9 @@ return packer.startup(function(use)
     --    ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
     --    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝ ~ Themes
     use "folke/tokyonight.nvim"
-    use "ellisonleao/gruvbox.nvim"
-    use {
-        "tiagovla/tokyodark.nvim",
-        config = function() require("user.themes.tokyodark") end
-    }
+    use { "ellisonleao/gruvbox.nvim", config = function() require("gruvbox").setup { contrast = "hard" } end } 
+    use { "tiagovla/tokyodark.nvim", config = function() require("user.themes.tokyodark") end }
+    use { "EdenEast/nightfox.nvim", config = function() require("nightfox").setup { options = { dim_inactive = true}} end}
 
     -- ██╗     ███████╗██████╗     ██████╗███╗   ███╗██████╗ 
     -- ██║     ██╔════╝██╔══██╗   ██╔════╝████╗ ████║██╔══██╗
