@@ -7,7 +7,8 @@ function keymap(mode, key, cmd, options)
     if options == nil then
         options = opts
     end
-    vim.api.nvim_set_keymap(mode, key, cmd, options)
+    -- vim.api.nvim_set_keymap(mode, key, cmd, options)
+    vim.keymap.set(mode, key, cmd, options)
 end
 
 M.keymap = keymap 
