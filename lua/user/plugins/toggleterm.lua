@@ -1,4 +1,5 @@
 local toggleterm = require "toggleterm"
+local keymap = require('lib.utils').keymap
 
 function checkWin()
     return vim.fn.has('win64') == 1 and 'wsl fish' or 'fish'
@@ -18,3 +19,12 @@ toggleterm.setup {
       },
     },
 }
+
+local Terminal = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({ cmd = "lg", hidden = true })
+
+function _lazygit_toggle()
+    lazygit:toggle()
+end
+
+keymap("n", "<leader>G", "<cmd>lua _lazygit_toggle()<CR>")
