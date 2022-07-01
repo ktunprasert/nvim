@@ -88,7 +88,7 @@ return packer.startup(function(use)
         config = function() require("user.plugins.hop") end
     }
     use {
-        'nvim-lualine/lualine.nvim',
+        "nvim-lualine/lualine.nvim",
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function() require("user.plugins.lualine") end
     }

@@ -5,7 +5,7 @@ function checkWin()
 end
 
 toggleterm.setup {
-    direction = "float",
+    direction = "horizontal",
     shell = checkWin(),
     open_mapping = [[<C-t>]],
     shading_factor = 2,
