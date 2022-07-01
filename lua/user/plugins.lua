@@ -64,6 +64,23 @@ return packer.startup(function(use)
         config = function() require("user.themes.tokyodark") end
     }
 
+    -- ██╗     ███████╗██████╗     ██████╗███╗   ███╗██████╗ 
+    -- ██║     ██╔════╝██╔══██╗   ██╔════╝████╗ ████║██╔══██╗
+    -- ██║     ███████╗██████╔╝   ██║     ██╔████╔██║██████╔╝
+    -- ██║     ╚════██║██╔═══╝    ██║     ██║╚██╔╝██║██╔═══╝ 
+    -- ███████╗███████║██║███████╗╚██████╗██║ ╚═╝ ██║██║     
+    -- ╚══════╝╚══════╝╚═╝╚══════╝ ╚═════╝╚═╝     ╚═╝╚═╝     ~ LSP and Autocompletion
+    -- CMP dependencies
+    use "hrsh7th/nvim-cmp" -- The completion plugin
+    use "hrsh7th/cmp-buffer" -- buffer completions
+    use "hrsh7th/cmp-path" -- path completions
+    use "hrsh7th/cmp-cmdline" -- cmdline completions
+    use "saadparwaiz1/cmp_luasnip" -- snippet completions
+
+    -- Snippets engine
+    use "L3MON4D3/LuaSnip"
+    use "rafamadriz/friendly-snippets"
+
     -- ████████╗███████╗██╗     ███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗
     -- ╚══██╔══╝██╔════╝██║     ██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝
     --    ██║   █████╗  ██║     █████╗  ███████╗██║     ██║   ██║██████╔╝█████╗  
