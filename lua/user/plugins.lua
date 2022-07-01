@@ -40,12 +40,23 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-    -- chris@machine plugins
+
+    -- ███████╗███████╗████████╗██╗   ██╗██████╗ 
+    -- ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗
+    -- ███████╗█████╗     ██║   ██║   ██║██████╔╝
+    -- ╚════██║██╔══╝     ██║   ██║   ██║██╔═══╝ 
+    -- ███████║███████╗   ██║   ╚██████╔╝██║     
+    -- ╚══════╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ~ Setup
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
 
-    -- Themes
+    -- ████████╗██╗  ██╗███████╗███╗   ███╗███████╗███████╗
+    -- ╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝██╔════╝
+    --    ██║   ███████║█████╗  ██╔████╔██║█████╗  ███████╗
+    --    ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  ╚════██║
+    --    ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
+    --    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝ ~ Themes
     use "folke/tokyonight.nvim"
     use "ellisonleao/gruvbox.nvim"
     use {
@@ -53,7 +64,12 @@ return packer.startup(function(use)
         config = function() require("user.themes.tokyodark") end
     }
 
-    -- My Plugins
+    -- ████████╗███████╗██╗     ███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗
+    -- ╚══██╔══╝██╔════╝██║     ██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝
+    --    ██║   █████╗  ██║     █████╗  ███████╗██║     ██║   ██║██████╔╝█████╗  
+    --    ██║   ██╔══╝  ██║     ██╔══╝  ╚════██║██║     ██║   ██║██╔═══╝ ██╔══╝  
+    --    ██║   ███████╗███████╗███████╗███████║╚██████╗╚██████╔╝██║     ███████╗
+    --    ╚═╝   ╚══════╝╚══════╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝ ~ Telescope
     use {
         "nvim-telescope/telescope-fzf-native.nvim",
         run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
@@ -68,6 +84,13 @@ return packer.startup(function(use)
         },
         config = function() require("user.plugins.telescope") end
     }
+
+    -- ██╗   ██╗████████╗██╗██╗     ██╗████████╗██╗   ██╗
+    -- ██║   ██║╚══██╔══╝██║██║     ██║╚══██╔══╝╚██╗ ██╔╝
+    -- ██║   ██║   ██║   ██║██║     ██║   ██║    ╚████╔╝ 
+    -- ██║   ██║   ██║   ██║██║     ██║   ██║     ╚██╔╝  
+    -- ╚██████╔╝   ██║   ██║███████╗██║   ██║      ██║   
+    --  ╚═════╝    ╚═╝   ╚═╝╚══════╝╚═╝   ╚═╝      ╚═╝   ~ Utility
     use "tpope/vim-surround"
     use {
         "lewis6991/gitsigns.nvim",
@@ -83,22 +106,9 @@ return packer.startup(function(use)
         config = function() require("user.plugins.comment") end
     }
     use {
-        "phaazon/hop.nvim",
-        event = "BufRead",
-        config = function() require("user.plugins.hop") end
-    }
-    use {
         "nvim-lualine/lualine.nvim",
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function() require("user.plugins.lualine") end
-    }
-    use {
-        "ahmedkhalf/project.nvim",
-        config = function() require("user.plugins.project") end
-    }
-    use {
-        "chaoren/vim-wordmotion",
-        config = function() require("user.plugins.wordmotion") end
     }
     use {
         "akinsho/toggleterm.nvim",
@@ -129,6 +139,27 @@ return packer.startup(function(use)
         requires = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'},
         config = function() require("user.plugins.sessions.session-lens") end
     }
+    use {
+        "ahmedkhalf/project.nvim",
+        config = function() require("user.plugins.project") end
+    }
+
+    -- ███╗   ██╗ █████╗ ██╗   ██╗██╗ ██████╗  █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+    -- ████╗  ██║██╔══██╗██║   ██║██║██╔════╝ ██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+    -- ██╔██╗ ██║███████║██║   ██║██║██║  ███╗███████║   ██║   ██║██║   ██║██╔██╗ ██║
+    -- ██║╚██╗██║██╔══██║╚██╗ ██╔╝██║██║   ██║██╔══██║   ██║   ██║██║   ██║██║╚██╗██║
+    -- ██║ ╚████║██║  ██║ ╚████╔╝ ██║╚██████╔╝██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║
+    -- ╚═╝  ╚═══╝╚═╝  ╚═╝  ╚═══╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ~ Navigation
+    use {
+        "phaazon/hop.nvim",
+        event = "BufRead",
+        config = function() require("user.plugins.hop") end
+    }
+    use {
+        "chaoren/vim-wordmotion",
+        config = function() require("user.plugins.wordmotion") end
+    }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
