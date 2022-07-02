@@ -89,6 +89,9 @@ local mappings = {
         name = "Git",
         g = { ":Telescope git_files<CR>", "Git Files" },
         h = { name = "Preview Hunk" },
+        c = { ":Telescope git_commits<CR>", "View Commits" },
+        b = { ":Telescope git_branches<CR>", "View Branches" },
+
     },
     s = {
         name = "Search [Telescope]",
@@ -101,6 +104,10 @@ local mappings = {
         ['"'] = { ":Telescope registers<CR>", "Registers" },
         p = { [[<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<CR>]], "Colourscheme Preview" },
         s = { ':Telescope session-lens search_session<CR>', "Sessions" },
+        o = { ":Telescope lsp_document_symbols<CR>", "Document Symbols" },
+        O = { ":Telescope lsp_workspace_symbols<CR>", "Workspace Symbols" },
+        r = { ":Telescope lsp_references<CR>", "References" },
+
     },
     ["/"] = { ":HopPattern<CR>", "Hop by Pattern" },
 }
