@@ -99,7 +99,7 @@ local mappings = {
         b = { ":Telescope buffers<CR>", "Buffers" },
         k = { ":Telescope keymaps<CR>", "Keymaps" },
         ['"'] = { ":Telescope registers<CR>", "Registers" },
-        p = { [[<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<CR>]], "Colourscheme Preview" },
+        p = { [[<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<CR>]], "Colourscheme Preview" },
         s = { ':Telescope session-lens search_session<CR>', "Sessions" },
     },
     ["/"] = { ":HopPattern<CR>", "Hop by Pattern" },
