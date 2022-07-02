@@ -46,12 +46,6 @@ keymap("n", "<C-_>", ":sp<CR>")
 -- Better tab navigations
 keymap("n", "<A-Right>", "gt")
 keymap("n", "<A-Left>", "gT")
-keymap("n", "<A-1>", "1gt")
-keymap("n", "<A-2>", "2gt")
-keymap("n", "<A-3>", "3gt")
-keymap("n", "<A-4>", "4gt")
-keymap("n", "<A-5>", "5gt")
-keymap("n", "<A-6>", "6gt")
 
 -- Toggle File Explorer
 keymap("n", "<C-e>", ":NvimTreeFocus<CR>")
@@ -62,7 +56,23 @@ keymap("n", "<C-p>", ":Telescope find_files<CR>")
 -- Navigate buffers
 keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>")
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>")
--- keymap("n", "<C-x>", ":bdelete!<CR>")
+
+local jumpbuf = function(n)
+    return ":lua require('bufferline').go_to_buffer(" .. n .. ")<CR>"
+end
+keymap("n", "<A-1>", jumpbuf(1))
+keymap("n", "<A-2>", jumpbuf(2))
+keymap("n", "<A-3>", jumpbuf(3))
+keymap("n", "<A-4>", jumpbuf(4))
+keymap("n", "<A-5>", jumpbuf(5))
+keymap("n", "<A-6>", jumpbuf(6))
+keymap("n", "<A-7>", jumpbuf(7))
+keymap("n", "<A-8>", jumpbuf(8))
+keymap("n", "<A-9>", jumpbuf(9))
+keymap("n", "<A-10>", jumpbuf(10))
+
+-- Kill Window
+keymap("n", "<Leader>x", "<C-w>q")
 
 -- Easy indent (or just spam '=')
 keymap("v", "<", "<gv")
