@@ -46,3 +46,8 @@ if os.getenv('SHELL') == "C:\\Program Files\\Git\\usr\\bin\\bash.exe" then
     vim.cmd [[let &shellcmdflag = '-c']]
     vim.cmd [[set shellxquote=(]]
 end
+
+-- For Neovide
+if vim.g.neovide then
+    vim.g.neovide_refresh_rate=140
+end
