@@ -1,6 +1,6 @@
 local cmp_ok, cmp = pcall(require, "cmp")
 local luasnip_ok, luasnip = pcall(require, "luasnip")
-if (not ok) or (not luasnip_ok) then
+if (not cmp_ok) and (not luasnip_ok) then
     return
 end
 
