@@ -58,7 +58,7 @@ return packer.startup(function(use)
     --    ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
     --    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝ ~ Themes
     use "folke/tokyonight.nvim"
-    use { "ellisonleao/gruvbox.nvim", config = function() require("gruvbox").setup { contrast = "hard" } vim.cmd("colorscheme gruvbox") end } 
+    use { "ellisonleao/gruvbox.nvim", config = function() require("gruvbox").setup { contrast = "hard" } vim.cmd("colorscheme gruvbox") end }
     use { "tiagovla/tokyodark.nvim", config = function() require("user.themes.tokyodark") end }
     use { "EdenEast/nightfox.nvim", config = function() require("nightfox").setup { options = { dim_inactive = true}} end}
 
@@ -85,6 +85,12 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- simple LSP installer - just werks
     use "nvim-telescope/telescope-ui-select.nvim"
+
+    -- Treesitter
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+    }
 
     -- ████████╗███████╗██╗     ███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗
     -- ╚══██╔══╝██╔════╝██║     ██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝
