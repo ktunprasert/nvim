@@ -54,10 +54,8 @@ keymap("n", "<A-5>", "5gt")
 keymap("n", "<A-6>", "6gt")
 
 -- Toggle File Explorer
--- keymap("n", "<C-e>", ":Lex 30<CR>")
--- keymap("n", "<Leader>e", ":Lex 30<CR>")
-keymap("n", "<C-e>", ":NvimTreeToggle<CR>")
-keymap("n", "<Leader>e", ":NvimTreeToggle<CR>")
+keymap("n", "<C-e>", ":NvimTreeFocus<CR>")
+keymap("n", "<Leader>e", ":NvimTreeFocus<CR>")
 
 keymap("n", "<C-p>", ":Telescope find_files<CR>")
 
