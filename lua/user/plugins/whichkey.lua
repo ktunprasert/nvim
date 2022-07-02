@@ -107,6 +107,7 @@ local mappings = {
         o = { ":Telescope lsp_document_symbols<CR>", "Document Symbols" },
         O = { ":Telescope lsp_workspace_symbols<CR>", "Workspace Symbols" },
         r = { ":Telescope lsp_references<CR>", "References" },
+        c = { ":Telescope commands<CR>", "Commands" },
 
     },
     ["/"] = { ":HopPattern<CR>", "Hop by Pattern" },
