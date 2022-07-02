@@ -59,9 +59,14 @@ telescope.setup {
             fuzzy = true,
             case_mode = 'smart_case',
         },
+        ['ui-select'] = {
+            require("telescope.themes").get_dropdown {
+            }
+        }
     },
 }
 
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('ui-select')
 
 keymap("n", "<C-f>", ":Telescope current_buffer_fuzzy_find<CR>")
