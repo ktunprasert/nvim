@@ -81,11 +81,18 @@ local vmappings = {
 
 local mappings = {
     ["c"] = { "<Esc><cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
-    ["f"] = { ":Telescope git_files<CR>", "Find Files" },
+    ["f"] = { ":NvimTreeFindFile<CR>", "Find Files" },
     ["p"] = { ":Telescope projects<CR>", "Projects" },
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
+    G = { name = "LazyGit" },
+    g = {
+        name = "Git",
+        g = { ":Telescope git_files<CR>", "Git Files" },
+        h = { name = "Preview Hunk" },
+    },
     s = {
         name = "Search [Telescope]",
+        g = { ":Telescope git_files<CR>", "Git Files" },
         f = { ":Telescope find_files<CR>", "Find All Files" },
         t = { "<cmd>Telescope live_grep<cr>", "Text" },
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },

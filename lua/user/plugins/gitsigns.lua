@@ -8,8 +8,8 @@ local keymap = require('lib.utils').keymap
 gitsigns.setup {
     current_line_blame = true,
     numhl = true,
-
 }
+
 local gs = package.loaded.gitsigns
 
 keymap('n', ']c', function()
@@ -24,4 +24,4 @@ keymap('n', '[c', function()
     return '<Ignore>'
 end, {expr=true})
 
-keymap('n', 'gh', gs.preview_hunk)
+keymap('n', '<Leader>gh', gs.preview_hunk)
