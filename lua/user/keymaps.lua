@@ -59,6 +59,8 @@ keymap("n", "<A-6>", "6gt")
 keymap("n", "<C-e>", ":NvimTreeToggle<CR>")
 keymap("n", "<Leader>e", ":NvimTreeToggle<CR>")
 
+keymap("n", "<C-p>", ":Telescope find_files<CR>")
+
 -- Navigate buffers
 keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>")
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>")
