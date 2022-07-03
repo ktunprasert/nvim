@@ -109,7 +109,8 @@ local mappings = {
         O = { ":Telescope lsp_workspace_symbols<CR>", "Workspace Symbols" },
         r = { ":Telescope lsp_references<CR>", "References" },
         c = { ":Telescope commands<CR>", "Commands" },
-
+        d = { ":Telescope diagnostics bufnr=0<CR>", "Diagnostics current buffer" },
+        D = { ":Telescope diagnostics<CR>", "Global diagnostics" },
     },
     ["/"] = { ":HopPattern<CR>", "Hop by Pattern" },
 }
