@@ -186,6 +186,11 @@ return packer.startup(function(use)
         config = function() require("user.plugins.wordmotion") end
     }
 
+    -- Own Plugins
+    use {
+        "ktunprasert/gui-font-resize.nvim",
+        config = function() require("gui-font-resize").setup() end
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
