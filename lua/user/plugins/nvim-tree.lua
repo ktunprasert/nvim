@@ -7,6 +7,8 @@ end
 nvim_tree.setup {
     sort_by = "case_sensitive",
     view = {
+        side = "right",
+        hide_root_folder = false,
         adaptive_size = true,
         mappings = {
             list = {
