@@ -20,8 +20,10 @@ nvim_tree.setup {
         },
     },
     renderer = {
+        add_trailing = true,
         group_empty = true,
         icons = {
+            git_placement = "before",
             glyphs = {
                 git = {
                     unstaged = "",
@@ -35,6 +37,6 @@ nvim_tree.setup {
     },
     update_focused_file = {
         enable = true,
-        update_root = true,
+        update_root = false,
     },
 }
