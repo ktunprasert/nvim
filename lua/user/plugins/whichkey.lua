@@ -82,6 +82,7 @@ local vmappings = {
 local mappings = {
     ["c"] = { "<Esc><cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
     ["f"] = { ":NvimTreeFindFile<CR>", "Find Files" },
+    F = { ":Format<CR>", "Format current file" },
     ["p"] = { ":Telescope projects<CR>", "Projects" },
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
     G = { name = "LazyGit" },
@@ -103,7 +104,7 @@ local mappings = {
         b = { ":Telescope buffers<CR>", "Buffers" },
         k = { ":Telescope keymaps<CR>", "Keymaps" },
         ['"'] = { ":Telescope registers<CR>", "Registers" },
-        p = { [[<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<CR>]], "Colourscheme Preview" },
+        p = { [[<cmd>lua require'telescope.builtin'.colorscheme({enable_preview = true})<CR>]], "Colourscheme Preview" },
         s = { ':Telescope session-lens search_session<CR>', "Sessions" },
         o = { ":Telescope lsp_document_symbols<CR>", "Document Symbols" },
         O = { ":Telescope lsp_workspace_symbols<CR>", "Workspace Symbols" },
