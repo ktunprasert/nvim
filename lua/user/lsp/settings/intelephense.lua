@@ -1,3 +1,4 @@
+local key = os.getenv("INTELEPHENSE")
 return {
-    licenceKey = os.getenv("INTELEPHENSE")
+    init_options = string.format([[{"licenceKey": "%s"}]], key)
 }
