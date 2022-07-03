@@ -32,7 +32,7 @@ vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.termguicolors = true
 vim.cmd [[set guifont=Iosevka:h11]]
-vim.opt.tm = 300 -- for faster WhichKey toggle
+vim.opt.tm = 200 -- for faster WhichKey toggle
 vim.opt.autochdir = true
 vim.opt.cursorline = true
 
@@ -49,5 +49,5 @@ end
 
 -- For Neovide
 if vim.g.neovide then
-    vim.g.neovide_refresh_rate=140
+    require("user.gui.neovide")
 end
