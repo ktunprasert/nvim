@@ -11,16 +11,16 @@ function keymap(mode, key, cmd, options)
     vim.keymap.set(mode, key, cmd, options)
 end
 
-M.keymap = keymap 
+M.keymap = keymap
 
 M.buf_keymap = function(bufnr, mode, lhs, rhs, opts)
-  vim.api.nvim_buf_set_keymap(
-    bufnr,
-    mode,
-    lhs,
-    rhs,
-    vim.tbl_extend('keep', opts or {}, { noremap = true, silent = true })
-  )
+    vim.api.nvim_buf_set_keymap(
+        bufnr,
+        mode,
+        lhs,
+        rhs,
+        vim.tbl_extend('keep', opts or {}, { noremap = true, silent = true })
+    )
 end
 
 return M
