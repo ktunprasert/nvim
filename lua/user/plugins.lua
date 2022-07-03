@@ -86,6 +86,12 @@ return packer.startup(function(use)
     use "williamboman/nvim-lsp-installer" -- simple LSP installer - just werks
     use "nvim-telescope/telescope-ui-select.nvim"
 
+    -- Linter/Formatter
+   use {
+        "jose-elias-alvarez/null-ls.nvim", -- for formatters and linter
+        config = function () require("user.lsp.null-ls") end
+    }
+
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
