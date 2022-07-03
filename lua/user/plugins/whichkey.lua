@@ -88,11 +88,11 @@ local mappings = {
     g = {
         name = "Git",
         g = { ":Telescope git_files<CR>", "Git Files" },
-        h = { name = "Preview Hunk" },
+        h = { ":Gitsigns preview_hunk<CR>", "Preview Hunk" },
         c = { ":Telescope git_commits<CR>", "View Commits" },
         b = { ":Telescope git_branches<CR>", "View Branches" },
-        s = { name = "View Hunks" },
-        ['!'] = { name = "Reset buffer to revision" },
+        s = { ":Gitsigns setqflist<CR>", "View Hunks" },
+        ['!'] = { ":Gitsigns reset_buffer<CR>", "Reset buffer to revision" },
     },
     s = {
         name = "Search [Telescope]",
