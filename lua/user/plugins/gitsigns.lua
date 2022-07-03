@@ -25,3 +25,5 @@ keymap('n', '[c', function()
 end, {expr=true})
 
 keymap('n', '<Leader>gh', gs.preview_hunk)
+keymap('n', '<Leader>gs', gs.setqflist)
+keymap('n', '<Leader>g!', gs.reset_buffer)

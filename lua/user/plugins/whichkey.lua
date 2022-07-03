@@ -91,7 +91,8 @@ local mappings = {
         h = { name = "Preview Hunk" },
         c = { ":Telescope git_commits<CR>", "View Commits" },
         b = { ":Telescope git_branches<CR>", "View Branches" },
-
+        s = { name = "View Hunks" },
+        ['!'] = { name = "Reset buffer to revision" },
     },
     s = {
         name = "Search [Telescope]",
