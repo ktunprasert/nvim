@@ -41,11 +41,11 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
 
-    -- ███████╗███████╗████████╗██╗   ██╗██████╗ 
+    -- ███████╗███████╗████████╗██╗   ██╗██████╗
     -- ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗
     -- ███████╗█████╗     ██║   ██║   ██║██████╔╝
-    -- ╚════██║██╔══╝     ██║   ██║   ██║██╔═══╝ 
-    -- ███████║███████╗   ██║   ╚██████╔╝██║     
+    -- ╚════██║██╔══╝     ██║   ██║   ██║██╔═══╝
+    -- ███████║███████╗   ██║   ╚██████╔╝██║
     -- ╚══════╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ~ Setup
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
@@ -59,14 +59,15 @@ return packer.startup(function(use)
     --    ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
     --    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝ ~ Themes
     -- use "folke/tokyonight.nvim"
-    use { "ellisonleao/gruvbox.nvim", config = function() require("gruvbox").setup { contrast = "hard" } vim.cmd("colorscheme gruvbox") end }
+    use { "ellisonleao/gruvbox.nvim",
+        config = function() require("gruvbox").setup { contrast = "hard" } vim.cmd("colorscheme gruvbox") end }
     -- use { "tiagovla/tokyodark.nvim", config = function() require("user.themes.tokyodark") end }
 
-    -- ██╗     ███████╗██████╗     ██████╗███╗   ███╗██████╗ 
+    -- ██╗     ███████╗██████╗     ██████╗███╗   ███╗██████╗
     -- ██║     ██╔════╝██╔══██╗   ██╔════╝████╗ ████║██╔══██╗
     -- ██║     ███████╗██████╔╝   ██║     ██╔████╔██║██████╔╝
-    -- ██║     ╚════██║██╔═══╝    ██║     ██║╚██╔╝██║██╔═══╝ 
-    -- ███████╗███████║██║███████╗╚██████╗██║ ╚═╝ ██║██║     
+    -- ██║     ╚════██║██╔═══╝    ██║     ██║╚██╔╝██║██╔═══╝
+    -- ███████╗███████║██║███████╗╚██████╗██║ ╚═╝ ██║██║
     -- ╚══════╝╚══════╝╚═╝╚══════╝ ╚═════╝╚═╝     ╚═╝╚═╝     ~ LSP and Autocompletion
     -- CMP dependencies
     use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -87,9 +88,9 @@ return packer.startup(function(use)
     use "nvim-telescope/telescope-ui-select.nvim"
 
     -- Linter/Formatter
-   use {
+    use {
         "jose-elias-alvarez/null-ls.nvim", -- for formatters and linter
-        config = function () require("user.lsp.null-ls") end
+        config = function() require("user.lsp.null-ls") end
     }
 
     -- Treesitter
@@ -101,8 +102,8 @@ return packer.startup(function(use)
 
     -- ████████╗███████╗██╗     ███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗
     -- ╚══██╔══╝██╔════╝██║     ██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝
-    --    ██║   █████╗  ██║     █████╗  ███████╗██║     ██║   ██║██████╔╝█████╗  
-    --    ██║   ██╔══╝  ██║     ██╔══╝  ╚════██║██║     ██║   ██║██╔═══╝ ██╔══╝  
+    --    ██║   █████╗  ██║     █████╗  ███████╗██║     ██║   ██║██████╔╝█████╗
+    --    ██║   ██╔══╝  ██║     ██╔══╝  ╚════██║██║     ██║   ██║██╔═══╝ ██╔══╝
     --    ██║   ███████╗███████╗███████╗███████║╚██████╗╚██████╔╝██║     ███████╗
     --    ╚═╝   ╚══════╝╚══════╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝ ~ Telescope
     use {
@@ -112,17 +113,17 @@ return packer.startup(function(use)
     use {
         "nvim-telescope/telescope.nvim",
         requires = {
-            {'kyazdani42/nvim-web-devicons'},
-            {'nvim-telescope/telescope-live-grep-raw.nvim'},
+            { 'kyazdani42/nvim-web-devicons' },
+            { 'nvim-telescope/telescope-live-grep-raw.nvim' },
         },
         config = function() require("user.plugins.telescope") end
     }
 
     -- ██╗   ██╗████████╗██╗██╗     ██╗████████╗██╗   ██╗
     -- ██║   ██║╚══██╔══╝██║██║     ██║╚══██╔══╝╚██╗ ██╔╝
-    -- ██║   ██║   ██║   ██║██║     ██║   ██║    ╚████╔╝ 
-    -- ██║   ██║   ██║   ██║██║     ██║   ██║     ╚██╔╝  
-    -- ╚██████╔╝   ██║   ██║███████╗██║   ██║      ██║   
+    -- ██║   ██║   ██║   ██║██║     ██║   ██║    ╚████╔╝
+    -- ██║   ██║   ██║   ██║██║     ██║   ██║     ╚██╔╝
+    -- ╚██████╔╝   ██║   ██║███████╗██║   ██║      ██║
     --  ╚═════╝    ╚═╝   ╚═╝╚══════╝╚═╝   ╚═╝      ╚═╝   ~ Utility
     use "tpope/vim-surround"
     use {
@@ -169,7 +170,7 @@ return packer.startup(function(use)
     }
     use {
         'rmagatti/session-lens',
-        requires = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'},
+        requires = { 'rmagatti/auto-session', 'nvim-telescope/telescope.nvim' },
         config = function() require("user.plugins.sessions.session-lens") end
     }
     use {
