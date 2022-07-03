@@ -69,7 +69,6 @@ keymap("n", "<A-6>", jumpbuf(6))
 keymap("n", "<A-7>", jumpbuf(7))
 keymap("n", "<A-8>", jumpbuf(8))
 keymap("n", "<A-9>", jumpbuf(9))
-keymap("n", "<A-10>", jumpbuf(10))
 
 -- Kill Window
 keymap("n", "<Leader>x", "<C-w>q")
