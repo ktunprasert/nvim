@@ -5,7 +5,9 @@ end
 
 bufferline.setup {
     options = {
-        numbers = "buffer_id",
+        numbers = function(opts)
+            return string.format('%s{%s}', opts.raise(opts.ordinal), opts.id)
+        end,
         separator_style = "thin",
         enforce_regular_tabs = false,
         always_show_bufferline = true,
