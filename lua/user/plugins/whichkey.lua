@@ -85,6 +85,7 @@ local mappings = {
     F = { ":Format<CR>", "Format current file" },
     ["p"] = { ":Telescope projects<CR>", "Projects" },
     r = { ":Telescope oldfiles<CR>", "Recent Files" },
+    d = { "<cmd>bd<CR>", "Delete Buffer" },
     G = { name = "LazyGit" },
     g = {
         name = "Git",
