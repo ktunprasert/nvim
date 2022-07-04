@@ -2,12 +2,17 @@ local M = {}
 
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
+
 -- Shorten function name
-function keymap(mode, key, cmd, options)
+local function keymap(mode, key, cmd, options, desc)
     if options == nil then
         options = opts
     end
-    -- vim.api.nvim_set_keymap(mode, key, cmd, options)
+
+    if desc ~= nil then
+        options.desc = desc
+    end
+
     vim.keymap.set(mode, key, cmd, options)
 end
 
