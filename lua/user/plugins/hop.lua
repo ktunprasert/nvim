@@ -39,6 +39,14 @@ keymap(modes, "<Tab>t", "<cmd>HopChar2CurrentLineAC<CR>", hop_options)
 keymap(modes, "<Tab>T", "<cmd>HopChar2CurrentLineBC<CR>", hop_options)
 
 local hint = require "hop.hint"
+
+keymap(modes, "<Tab>$", function()
+    hop.hint_lines()
+    vim.schedule(function()
+        vim.cmd([[normal $]])
+    end)
+end, hop_options)
+
 keymap(modes, "<Tab>e", function()
     hop.hint_words({
         hint_position = hint.HintPosition.END,
