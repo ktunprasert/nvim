@@ -13,6 +13,13 @@ vim.g.maplocalleader = " "
 --   t : Term(inal)
 --   c : Command
 
+-- Append ; or , at end of line in insert mode
+-- also keeps the cursor editing at current place
+keymap("i", "<A-;>", "<Esc>mz<Esc>A;<Esc>`za")
+keymap("i", "<A-,>", "<Esc>mz<Esc>A,<Esc>`za")
+keymap("n", "<A-;>", "<Esc>mz<Esc>A;<Esc>`za<Esc>")
+keymap("n", "<A-,>", "<Esc>mz<Esc>A,<Esc>`za<Esc>")
+
 -- Ctrl + S to save file :)
 keymap("n", "<C-s>", ":w<CR>")
 
@@ -87,11 +94,6 @@ keymap("i", "<A-j>", "<Esc>:m +<CR>==gi")
 -- Visual --
 keymap("v", "<A-k>", ":m '<-2<CR>==gv")
 keymap("v", "<A-j>", ":m '>+1<CR>==gv")
-
--- Append ; or , at end of line in insert mode
--- also keeps the cursor editing at current place
--- keymap("i", ";;", "<Esc>mz<Esc>A;<Esc>`zi")
--- keymap("i", ",,", "<Esc>mz<Esc>A,<Esc>`zi")
 
 -- Resize windows with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>")
