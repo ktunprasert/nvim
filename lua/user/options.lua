@@ -7,7 +7,7 @@ vim.opt.conceallevel = 0
 vim.opt.fileencoding = "utf-8"
 vim.opt.hlsearch = true
 vim.opt.mouse = "a"
-vim.opt.pumheight= 10
+vim.opt.pumheight = 10
 vim.opt.showmode = false
 vim.opt.showtabline = 2
 vim.opt.smartcase = true
@@ -16,7 +16,6 @@ vim.opt.autoindent = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.swapfile = false
-vim.opt.timeoutlen = 1000
 vim.opt.undofile = true
 vim.opt.updatetime = 300 -- faster completion
 vim.opt.hidden = true
@@ -32,14 +31,16 @@ vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.termguicolors = true
 vim.cmd [[set guifont=Iosevka:h11]]
-vim.opt.tm = 200 -- for faster WhichKey toggle
+vim.opt.tm = 500 -- for faster WhichKey toggle
 vim.opt.autochdir = true
 vim.opt.cursorline = true
-
+vim.opt.cursorcolumn = true
+vim.cmd([[ au WinLeave * set nocursorline nocursorcolumn ]])
+vim.cmd([[ au WinEnter * set cursorline cursorcolumn ]])
 vim.opt.shortmess:append "c"
 
 -- For auto-session
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 if os.getenv('SHELL') == "C:\\Program Files\\Git\\usr\\bin\\bash.exe" then
     print("Windows Git Bash Found - setting shell compatibility")
