@@ -102,6 +102,7 @@ local mappings = {
         f = { ":Telescope find_files<CR>", "Find All Files" },
         t = { "<cmd>Telescope live_grep<cr>", "Text" },
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+        H = { "<cmd>Telescope git_bcommits<cr>", "View Git History for current buffer" },
         b = { ":Telescope buffers<CR>", "Buffers" },
         k = { ":Telescope keymaps<CR>", "Keymaps" },
         ['"'] = { ":Telescope registers<CR>", "Registers" },
