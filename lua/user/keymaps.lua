@@ -12,6 +12,7 @@ vim.g.maplocalleader = " "
 --   x : Visual Block
 --   t : Term(inal)
 --   c : Command
+--   o : Operation
 
 -- Append ; or , at end of line in insert mode
 -- also keeps the cursor editing at current place

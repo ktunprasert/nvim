@@ -10,7 +10,7 @@ hop.setup {
 }
 
 local hop_options = { silent = true }
-local modes = { "n", "v" }
+local modes = { "n", "v", "o" }
 
 keymap(modes, "<Tab>s", "<cmd>HopChar2<CR>", hop_options)
 keymap(modes, "<Tab>d", "<cmd>HopChar2<CR>", hop_options)
