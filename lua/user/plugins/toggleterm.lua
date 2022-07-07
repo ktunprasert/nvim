@@ -28,7 +28,7 @@ local Terminal = require('toggleterm.terminal').Terminal
 
 local lg_cmd = "lg $(pwd)"
 if vim.v.servername ~= nil then
-    lg_cmd = string.format("NVIM_SERVER=%s lg $(pwd)", vim.v.servername)
+    lg_cmd = string.format("NVIM_SERVER=%s lg -ucf ~/.config/nvim/lazygit.toml $(pwd)", vim.v.servername)
 end
 
 local lazygit = Terminal:new({
@@ -37,12 +37,6 @@ local lazygit = Terminal:new({
 })
 
 -- For Editing back from LazyGit
--- $ nvim --listen localhost:6666
--- This WILL work even without the --listen option
--- ~/.config/lazygit/config.yml
--- os:
---   editCommand: 'nvim --server $NVIM_SERVER'
---   editCommandTemplate: "{{editor}} --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, {{line}})<CR>'"
 function _edit(fn, line_number)
     local edit_cmd = string.format(":e %s", fn)
     if line_number ~= nil then
