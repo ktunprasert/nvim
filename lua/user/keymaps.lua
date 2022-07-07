@@ -19,6 +19,11 @@ keymap("i", "<A-;>", "<Esc>mz<Esc>A;<Esc>`za")
 keymap("i", "<A-,>", "<Esc>mz<Esc>A,<Esc>`za")
 keymap("n", "<A-;>", "<Esc>mz<Esc>A;<Esc>`za<Esc>")
 keymap("n", "<A-,>", "<Esc>mz<Esc>A,<Esc>`za<Esc>")
+-- Same but for newlines
+keymap("i", "<A-n>", "<Esc>mz<Esc>o<Esc>`za")
+keymap("i", "<A-S-n>", "<Esc>mz<Esc>O<Esc>`za")
+keymap("n", "<A-n>", "<Esc>mz<Esc>o<Esc>`za<Esc>")
+keymap("n", "<A-S-n>", "<Esc>mz<Esc>O<Esc>`za<Esc>")
 
 -- Ctrl + S to save file :)
 keymap("n", "<C-s>", ":w<CR>")
