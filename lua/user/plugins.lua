@@ -178,6 +178,7 @@ return packer.startup(function(use)
         config = function() require("user.plugins.project") end
     }
     use { "windwp/nvim-autopairs", config = function() require("user.plugins.autopairs") end }
+    use { "folke/zen-mode.nvim", config = function() require("zen-mode").setup() end }
 
     -- ███╗   ██╗ █████╗ ██╗   ██╗██╗ ██████╗  █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
     -- ████╗  ██║██╔══██╗██║   ██║██║██╔════╝ ██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
