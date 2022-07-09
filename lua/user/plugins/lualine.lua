@@ -8,46 +8,26 @@ local components = {
         "diagnostics",
         sources = { "nvim_diagnostic" },
         symbols = { error = " ", warn = " ", info = " ", hint = " " },
-    },
-    treesitter = {
-        function()
-            local b = vim.api.nvim_get_current_buf()
-            if next(vim.treesitter.highlighter.active[b]) then
-                return ""
-            end
-            return ""
-        end,
-        -- color = { fg = green },
+        component_separators = { left = '', right = '' },
     },
     lsp = {
         function(msg)
-            msg = msg or "LS Inactive"
+            msg = msg or ""
             local buf_clients = vim.lsp.buf_get_clients()
             if next(buf_clients) == nil then
                 if type(msg) == "boolean" or #msg == 0 then
-                    return "LS Inactive"
+                    return ""
                 end
                 return msg
             end
             local buf_ft = vim.bo.filetype
             local buf_client_names = {}
 
-            -- add client
             for _, client in pairs(buf_clients) do
                 if client.name ~= "null-ls" then
                     table.insert(buf_client_names, client.name)
                 end
             end
-
-            -- add formatter
-            -- local formatters = require "lvim.lsp.null-ls.formatters"
-            -- local supported_formatters = formatters.list_registered(buf_ft)
-            -- vim.list_extend(buf_client_names, supported_formatters)
-
-            -- add linter
-            -- local linters = require "lvim.lsp.null-ls.linters"
-            -- local supported_linters = linters.list_registered(buf_ft)
-            -- vim.list_extend(buf_client_names, supported_linters)
 
             local unique_client_names = vim.fn.uniq(buf_client_names)
             return table.concat(unique_client_names, "|")
@@ -69,15 +49,25 @@ lualine.setup {
     options = {
         icons_enabled = true,
         component_separators = { left = '|', right = '|' },
+        section_separators = { left = '', right = '' },
         globalstatus = true,
     },
     sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch", "filename", "diff" },
-        lualine_c = { components.diagnostics, components.treesitter },
-        lualine_x = {},
-        lualine_y = { components.lsp, components.encoding, components.filetype, "progress" },
-        lualine_z = { "location", "tabs" },
+        lualine_b = {
+            {
+                "branch",
+                fmt = function(branch)
+                    local session = require('auto-session-library').current_session_name()
+                    return string.format("%s/%s", session, branch)
+                end
+            },
+            "filename"
+        },
+        lualine_c = { "diff" },
+        lualine_x = { components.diagnostics },
+        lualine_y = { components.lsp, components.filetype },
+        lualine_z = { "progress", "os.date('%H:%M')" },
     },
     extensions = {
         "nvim-tree",
