@@ -62,7 +62,10 @@ lualine.setup {
                     return string.format("%s/%s", session, branch)
                 end
             },
-            "filename"
+            {
+                "filename",
+                path = 1,
+            },
         },
         lualine_c = { "diff" },
         lualine_x = { components.diagnostics },
