@@ -58,6 +58,9 @@ lualine.setup {
             {
                 "branch",
                 fmt = function(branch)
+                    if vim.v.argv[2] ~= nil then
+                        return branch
+                    end
                     local session = require('auto-session-library').current_session_name()
                     return string.format("%s/%s", session, branch)
                 end
