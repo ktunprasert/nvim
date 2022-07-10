@@ -58,10 +58,16 @@ return packer.startup(function(use)
     --    ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  ╚════██║
     --    ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
     --    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝ ~ Themes
-    -- use "folke/tokyonight.nvim"
-    use { "ellisonleao/gruvbox.nvim",
-        config = function() require("gruvbox").setup { contrast = "hard" } vim.cmd("colorscheme gruvbox") end }
-    -- use { "tiagovla/tokyodark.nvim", config = function() require("user.themes.tokyodark") end }
+    use {
+        "ellisonleao/gruvbox.nvim",
+        config = function() require("gruvbox").setup { contrast = "hard" } end
+    }
+    use { "tiagovla/tokyodark.nvim" }
+    use "rebelot/kanagawa.nvim"
+    use {
+        "yashguptaz/calvera-dark.nvim",
+        config = function() require("user.themes.calvera") end
+    }
 
     -- ██╗     ███████╗██████╗     ██████╗███╗   ███╗██████╗
     -- ██║     ██╔════╝██╔══██╗   ██╔════╝████╗ ████║██╔══██╗
