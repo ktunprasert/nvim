@@ -77,6 +77,7 @@ return packer.startup(function(use)
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lua"
+    use { 'tzachar/cmp-tabnine', run = './install.sh' }
 
     -- Snippets engine
     use "L3MON4D3/LuaSnip"
