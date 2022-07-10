@@ -45,6 +45,11 @@ local components = {
     }
 }
 
+local function is_git_repo()
+    local is_repo = vim.fn.system('git rev-parse --is-inside-worktree')
+    return vim.v.shell_error == 0
+end
+
 lualine.setup {
     options = {
         icons_enabled = true,
@@ -58,7 +63,7 @@ lualine.setup {
             {
                 "branch",
                 fmt = function(branch)
-                    if vim.v.argv[2] ~= nil then
+                    if vim.v.argv[2] ~= nil or is_git_repo() then
                         return branch
                     end
                     local session = require('auto-session-library').current_session_name()
