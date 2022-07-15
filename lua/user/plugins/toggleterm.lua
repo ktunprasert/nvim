@@ -6,7 +6,7 @@ end
 local keymap = require('lib.utils').keymap
 
 function checkWin()
-    return vim.fn.has('win64') == 1 and 'wsl fish' or 'fish'
+    return vim.fn.has('win64') == 1 and 'bash' or 'fish'
 end
 
 toggleterm.setup {
@@ -28,7 +28,8 @@ local Terminal = require('toggleterm.terminal').Terminal
 
 local lg_cmd = "lg $(pwd)"
 if vim.v.servername ~= nil then
-    lg_cmd = string.format("NVIM_SERVER=%s lg -ucf ~/.config/nvim/lazygit.toml $(pwd)", vim.v.servername)
+    local config_path = vim.fn.stdpath('config'):gsub('\\','/')
+    lg_cmd = string.format('NVIM_SERVER=%s lg -ucf %s/lazygit.toml $(pwd)', vim.v.servername, config_path)
 end
 
 local lazygit = Terminal:new({
