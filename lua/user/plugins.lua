@@ -185,7 +185,15 @@ return packer.startup(function(use)
         config = function() require("user.plugins.project") end
     }
     use { "windwp/nvim-autopairs", config = function() require("user.plugins.autopairs") end }
-    use { "folke/zen-mode.nvim", config = function() require("zen-mode").setup() end }
+    use { "folke/zen-mode.nvim", config = function() require("zen-mode").setup({
+            window = {
+                width = 150,
+                options = {
+                    wrap = true,
+                }
+            }
+        })
+    end }
     use { "xiyaowong/nvim-transparent", config = function() require("transparent").setup({ enable = true }) end }
 
     -- ███╗   ██╗ █████╗ ██╗   ██╗██╗ ██████╗  █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
