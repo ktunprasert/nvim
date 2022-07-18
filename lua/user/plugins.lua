@@ -93,6 +93,7 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- simple LSP installer - just werks
     use "nvim-telescope/telescope-ui-select.nvim"
+    use { "ray-x/lsp_signature.nvim", config = function() require("user.lsp.lsp_signature") end }
 
     -- Linter/Formatter
     use {
