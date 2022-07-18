@@ -29,7 +29,7 @@ local Terminal = require('toggleterm.terminal').Terminal
 local lg_cmd = "lg $(pwd)"
 if vim.v.servername ~= nil then
     local config_path = vim.fn.stdpath('config'):gsub('\\','/')
-    lg_cmd = string.format('NVIM_SERVER=%s lg -ucf %s/lazygit.toml $(pwd)', vim.v.servername, config_path)
+    lg_cmd = string.format('NVIM_SERVER=%s lg -ucf %s/lazygit.toml -p $(pwd)', vim.v.servername, config_path)
 end
 
 local lazygit = Terminal:new({
