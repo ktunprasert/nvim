@@ -40,6 +40,8 @@ telescope.setup {
             n = {
                 ['<C-j>'] = actions.move_selection_next,
                 ['<C-k>'] = actions.move_selection_previous,
+                ['q'] = actions.toggle_selection + actions.move_selection_next,
+                ['Q'] = actions.toggle_selection + actions.move_selection_previous,
             },
         },
         prompt_prefix = "   ",
