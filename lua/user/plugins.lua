@@ -164,14 +164,14 @@ return packer.startup(function(use)
         requires = "kyazdani42/nvim-web-devicons",
         config = function() require("user.plugins.bufferline") end
     }
-    use {
-        'kyazdani42/nvim-tree.lua',
-        requires = {
-            'kyazdani42/nvim-web-devicons', -- optional, for file icons
-        },
-        tag = 'nightly', -- optional, updated every week. (see issue #1193)
-        config = function() require("user.plugins.nvim-tree") end
-    }
+    -- use {
+    --     'kyazdani42/nvim-tree.lua',
+    --     requires = {
+    --         'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    --     },
+    --     tag = 'nightly', -- optional, updated every week. (see issue #1193)
+    --     config = function() require("user.plugins.nvim-tree") end
+    -- }
     use {
         'rmagatti/auto-session',
         config = function() require("user.plugins.sessions.auto-session") end
@@ -197,6 +197,37 @@ return packer.startup(function(use)
     end }
     use { "xiyaowong/nvim-transparent", config = function() require("transparent").setup({ enable = true }) end }
     use { "jinh0/eyeliner.nvim", config = function() require("user.plugins.eyeliner") end }
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        requires = {
+            "kyazdani42/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+            {
+                's1n7ax/nvim-window-picker',
+                tag = "v1.*",
+                config = function()
+                    require 'window-picker'.setup({
+                        autoselect_one = true,
+                        include_current = false,
+                        selection_chars = 'ABCDEFGHIJK',
+                        filter_rules = {
+                            bo = {
+                                -- if the file type is one of following, the window will be ignored
+                                filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
+
+                                -- if the buffer type is one of following, the window will be ignored
+                                buftype = { 'terminal' },
+                            },
+                        },
+                        other_win_hl_color = '#e35e4f',
+                    })
+                end,
+            }
+        },
+        config = function() require("user.plugins.neotree") end,
+    }
+
     -- ███╗   ██╗ █████╗ ██╗   ██╗██╗ ██████╗  █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
     -- ████╗  ██║██╔══██╗██║   ██║██║██╔════╝ ██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
     -- ██╔██╗ ██║███████║██║   ██║██║██║  ███╗███████║   ██║   ██║██║   ██║██╔██╗ ██║

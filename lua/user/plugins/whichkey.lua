@@ -81,7 +81,7 @@ local vmappings = {
 
 local mappings = {
     ["c"] = { "<Esc><cmd>lua require('Comment.api').toggle_current_linewise()<CR>", "Comment" },
-    ["f"] = { ":NvimTreeFindFile<CR>", "Find Files" },
+    ["f"] = { ":NeoTreeReveal<CR>", "Find Files" },
     F = { ":Format<CR>", "Format current file" },
     ["p"] = { ":Telescope projects<CR>", "Projects" },
     r = { ":Telescope oldfiles<CR>", "Recent Files" },

@@ -73,7 +73,7 @@ lualine.setup {
         lualine_z = { "progress", "os.date('%H:%M')" },
     },
     extensions = {
-        "nvim-tree",
+        -- "nvim-tree",
         "toggleterm",
     }
 }

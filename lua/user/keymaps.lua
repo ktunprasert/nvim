@@ -64,8 +64,8 @@ keymap("n", "<A-Right>", "gt")
 keymap("n", "<A-Left>", "gT")
 
 -- Toggle File Explorer
-keymap("n", "<C-e>", ":NvimTreeFocus<CR>")
-keymap("n", "<Leader>e", ":NvimTreeFocus<CR>")
+keymap("n", "<C-e>", ":NeoTreeFocus<CR>")
+keymap("n", "<Leader>e", ":NeoTreeFocus<CR>")
 
 keymap("n", "<C-p>", ":Telescope find_files<CR>")
 
