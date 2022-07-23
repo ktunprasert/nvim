@@ -38,6 +38,7 @@ vim.opt.cursorcolumn = true
 vim.cmd([[ au WinLeave * set nocursorline nocursorcolumn ]])
 vim.cmd([[ au WinEnter * set cursorline cursorcolumn ]])
 vim.opt.shortmess:append "c"
+vim.opt.relativenumber = true
 
 -- For auto-session
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
