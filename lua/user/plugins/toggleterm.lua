@@ -52,6 +52,7 @@ end
 
 keymap("n", "<leader>G", "<cmd>lua _lazygit_toggle()<CR>")
 
+keymap("n", "<Leader>t", "<cmd>ToggleTerm<CR>")
 keymap("n", "1<Leader>t", "<cmd>ToggleTerm 1<CR>")
 keymap("n", "2<Leader>t", "<cmd>ToggleTerm 2<CR>")
 keymap("n", "3<Leader>t", "<cmd>ToggleTerm 3<CR>")
