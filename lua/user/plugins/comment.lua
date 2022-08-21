@@ -12,8 +12,4 @@ comment.setup {
         basic = true,
         extra = false,
     },
-
-    toggler = {
-        line = "<Leader>c",
-    },
 }
