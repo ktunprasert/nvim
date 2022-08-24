@@ -157,7 +157,13 @@ return packer.startup(function(use)
         tag = 'v1.*',
         config = function() require("user.plugins.toggleterm") end
     }
-    use "lukas-reineke/indent-blankline.nvim"
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function() require("indent_blankline").setup {
+                show_current_context = true,
+                show_current_context_start = true,
+        } end
+    }
     use {
         "akinsho/bufferline.nvim",
         tag = "v2.*",
