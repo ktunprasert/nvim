@@ -1,5 +1,6 @@
 local keymap = require("lib.utils").keymap
 
+vim.opt.clipboard = ""
 vim.g.neovide_refresh_rate = 144
 
 keymap("n", "<A-Up>", "<cmd>GUIFontSizeUp<CR>")
