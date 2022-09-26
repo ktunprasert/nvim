@@ -201,7 +201,7 @@ return packer.startup(function(use)
             }
         })
     end }
-    use { "xiyaowong/nvim-transparent", config = function() require("transparent").setup({ enable = true }) end }
+    use { "xiyaowong/nvim-transparent", config = function() require("transparent").setup({ enable = not vim.g.neovide }) end }
     use { "jinh0/eyeliner.nvim", config = function() require("user.plugins.eyeliner") end }
     use {
         "nvim-neo-tree/neo-tree.nvim",
