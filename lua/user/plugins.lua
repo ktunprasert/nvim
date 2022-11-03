@@ -60,7 +60,8 @@ return packer.startup(function(use)
     --    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝ ~ Themes
     use {
         "ellisonleao/gruvbox.nvim",
-        config = function() require("gruvbox").setup { contrast = "hard" } end
+        config = function() require("gruvbox").setup { contrast = "hard" } end,
+        commit = 'cb7a8a867cfaa7f0e8ded57eb931da88635e7007',
     }
     use { "tiagovla/tokyodark.nvim" }
     use "rebelot/kanagawa.nvim"
