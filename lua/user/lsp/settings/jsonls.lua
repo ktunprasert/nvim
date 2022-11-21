@@ -161,6 +161,11 @@ local schemas = {
         fileMatch = { "resume.json" },
         url = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
     },
+    {
+        description = "Composer",
+        fileMatch = { "composer.json" },
+        url = "https://raw.githubusercontent.com/composer/composer/main/res/composer-schema.json",
+    },
 }
 
 local opts = {
