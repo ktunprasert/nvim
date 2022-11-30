@@ -63,3 +63,12 @@ if is_wsl then
       augroup END
     ]]
 end
+
+-- Turn off relative number when in command mode
+vim.cmd [[
+augroup numbertoggle
+  autocmd!
+      autocmd CmdlineLeave * :set rnu
+      autocmd CmdlineEnter * :set nornu | redraw
+augroup END
+]]
