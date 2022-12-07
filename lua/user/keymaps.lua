@@ -66,6 +66,7 @@ keymap("n", "<A-Left>", "gT")
 -- Toggle File Explorer
 keymap("n", "<C-e>", ":NeoTreeFocus<CR>")
 keymap("n", "<Leader>e", ":NeoTreeFocus<CR>")
+keymap("n", "<A-e>", ":NeoTreeFloatToggle<CR>")
 
 keymap("n", "<C-p>", ":Telescope find_files<CR>")
 
