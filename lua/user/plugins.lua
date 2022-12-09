@@ -108,6 +108,10 @@ return packer.startup(function(use)
         config = function() require("user.plugins.treesitter") end,
         run = ":TSUpdate",
     }
+    use {
+        config = function() require("user.plugins.symbols-outline").setup() end,
+        "simrat39/symbols-outline.nvim",
+    }
 
     -- ████████╗███████╗██╗     ███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗
     -- ╚══██╔══╝██╔════╝██║     ██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝
