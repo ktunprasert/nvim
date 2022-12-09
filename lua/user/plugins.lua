@@ -109,7 +109,7 @@ return packer.startup(function(use)
         run = ":TSUpdate",
     }
     use {
-        config = function() require("user.plugins.symbols-outline").setup() end,
+        config = function() require("user.plugins.symbols-outline") end,
         "simrat39/symbols-outline.nvim",
     }
 
