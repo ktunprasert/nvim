@@ -1,6 +1,8 @@
-local ok, lualine = pcall(require, "symbols-outline")
+local ok, symbols = pcall(require, "symbols-outline")
 if not ok then
     return
 end
 
-lualine.setup()
+symbols.setup({
+    auto_close = true,
+})
