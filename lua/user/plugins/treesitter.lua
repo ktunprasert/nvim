@@ -39,6 +39,9 @@ tsconfigs.setup {
                 -- You can optionally set descriptions to the mappings (used in the desc parameter of
                 -- nvim_buf_set_keymap) which plugins like which-key display
                 ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+                ["gc"] = "@comment.outer",
+                ["gab"] = "@block.outer",
+                ["gib"] = "@block.inner",
             },
             -- You can choose the select mode (default is charwise 'v')
             --
@@ -69,21 +72,29 @@ tsconfigs.setup {
             goto_next_start = {
                 ["]m"] = "@function.outer",
                 ["]f"] = "@function.outer",
+                ["]b"] = "@block.outer",
+                ["]t"] = "@conditional.outer",
+                ["g\\"] = "@comment.outer",
                 ["]]"] = { query = "@class.outer", desc = "Next class start" },
             },
             goto_next_end = {
                 ["]M"] = "@function.outer",
                 ["]F"] = "@function.outer",
+                ["]B"] = "@block.outer",
+                ["]T"] = "@conditional.outer",
                 ["]["] = "@class.outer",
             },
             goto_previous_start = {
                 ["[m"] = "@function.outer",
                 ["[f"] = "@function.outer",
+                ["[b"] = "@block.outer",
+                ["g/"] = "@comment.outer",
                 ["[["] = "@class.outer",
             },
             goto_previous_end = {
                 ["[M"] = "@function.outer",
                 ["[F"] = "@function.outer",
+                ["[B"] = "@block.outer",
                 ["[]"] = "@class.outer",
             },
         },
