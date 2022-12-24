@@ -261,6 +261,17 @@ return packer.startup(function(use)
             "rcarriga/nvim-notify",
         }
     })
+    use {
+        "s1n7ax/nvim-window-picker",
+        config = function()
+            require("window-picker").setup({
+                selection_chars = "ABCDEFGHIJK",
+                include_current_win = true,
+                se_winbar = "always",
+            })
+        end,
+    }
+
     -- ███╗   ██╗ █████╗ ██╗   ██╗██╗ ██████╗  █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
     -- ████╗  ██║██╔══██╗██║   ██║██║██╔════╝ ██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
     -- ██╔██╗ ██║███████║██║   ██║██║██║  ███╗███████║   ██║   ██║██║   ██║██╔██╗ ██║

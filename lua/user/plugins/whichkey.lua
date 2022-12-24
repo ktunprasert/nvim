@@ -80,6 +80,10 @@ local vmappings = {
 }
 
 local mappings = {
+    W = { function()
+        local window_id = require("window-picker").pick_window() or vim.api.nvim_get_current_win()
+        vim.api.nvim_set_current_win(window_id)
+    end, "Pick Window" },
     ["c"] = { "<Esc><cmd>lua require('Comment.api').toggle.linewise()<CR>", "Comment" },
     ["f"] = { ":NeoTreeReveal<CR>", "Find Files" },
     F = { ":Format<CR>", "Format current file" },
