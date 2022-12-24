@@ -45,7 +45,7 @@ end
 
 local function lsp_highlight_document(client)
     -- Set autocommands conditional on server_capabilities
-    if client.server_capabilities.documentFormattingProvider then
+    if client.server_capabilities.documentHighlightProvider then
         vim.api.nvim_exec(
             [[
         augroup lsp_document_highlight
@@ -85,10 +85,6 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-    if client.name == "tsserver" then
-        client.resolved_capabilities.document_formatting = false
-    end
-
     if client.server_capabilities.documentSymbolProvider then
         local navic = require("nvim-navic")
         navic.attach(client, bufnr)
@@ -96,10 +92,7 @@ M.on_attach = function(client, bufnr)
 
     lsp_keymaps(bufnr)
 
-    if client.name ~= "jsonls" then
-        lsp_highlight_document(client)
-    end
-    -- lsp_highlight_document(client)
+    lsp_highlight_document(client)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
