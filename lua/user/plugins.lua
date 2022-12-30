@@ -141,7 +141,14 @@ return packer.startup(function(use)
     -- ██║   ██║   ██║   ██║██║     ██║   ██║     ╚██╔╝
     -- ╚██████╔╝   ██║   ██║███████╗██║   ██║      ██║
     --  ╚═════╝    ╚═╝   ╚═╝╚══════╝╚═╝   ╚═╝      ╚═╝   ~ Utility
-    use "tpope/vim-surround"
+    -- use "tpope/vim-surround"
+    use { "kylechui/nvim-surround", config = function()
+        require("nvim-surround").setup({
+            aliases = {
+                ["<"] = "t",
+            },
+        })
+    end }
     use {
         "lewis6991/gitsigns.nvim",
         requires = "nvim-lua/plenary.nvim",
