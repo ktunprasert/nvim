@@ -100,5 +100,6 @@ telescope.setup {
 
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('ui-select')
+require('telescope').load_extension('noice')
 
 keymap("n", "<C-f>", ":Telescope current_buffer_fuzzy_find<CR>")
