@@ -15,6 +15,11 @@ noice.setup({
             ["cmp.entry.get_documentation"] = true,
         },
     },
+    notify = {
+        enabled = true,
+        view = "mini"
+    },
+
     -- you can enable a preset for easier configuration
     presets = {
         bottom_search = false, -- use a classic bottom cmdline for search
