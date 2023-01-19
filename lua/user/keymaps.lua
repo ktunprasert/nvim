@@ -135,3 +135,7 @@ vim.keymap.set("i", "<C-k>", function() return vim.fn.pumvisible() == 1 and '<C-
 -- -- Command --
 vim.keymap.set("c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true})
 vim.keymap.set("c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true})
+
+keymap("n", "<A-Up>", "<cmd>GUIFontSizeUp<CR>")
+keymap("n", "<A-Down>", "<cmd>GUIFontSizeDown<CR>")
+keymap("n", "<A-0>", "<cmd>GUIFontSizeSet<CR>")
