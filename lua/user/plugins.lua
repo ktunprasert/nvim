@@ -135,6 +135,8 @@ return packer.startup(function(use)
         config = function() require("user.plugins.telescope") end
     }
 
+    use { "nvim-telescope/telescope-hop.nvim" }
+
     -- ██╗   ██╗████████╗██╗██╗     ██╗████████╗██╗   ██╗
     -- ██║   ██║╚══██╔══╝██║██║     ██║╚══██╔══╝╚██╗ ██╔╝
     -- ██║   ██║   ██║   ██║██║     ██║   ██║    ╚████╔╝
