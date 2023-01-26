@@ -6,5 +6,5 @@ end
 auto_session.setup {
     log_level = 'info',
     pre_save_cmds = { "NeoTreeClose" },
-    auto_session_enable_last_session = true,
+    -- auto_session_enable_last_session = true,
 }
