@@ -12,8 +12,8 @@ hop.setup {
 local hop_options = { silent = true }
 local modes = { "n", "v", "o" }
 
--- local hop_leader = "<C-Space>"
-local hop_leader = "<Tab>"
+local hop_leader = "<C-Space>"
+-- local hop_leader = "<Tab>"
 
 keymap(modes, hop_leader .. "s", "<cmd>HopChar2<CR>", hop_options)
 keymap(modes, hop_leader .. "d", "<cmd>HopChar2<CR>", hop_options)
