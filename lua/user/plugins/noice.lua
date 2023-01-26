@@ -15,6 +15,9 @@ noice.setup({
             ["cmp.entry.get_documentation"] = true,
         },
     },
+    messages = {
+        view = "mini",
+    },
     notify = {
         enabled = true,
         view = "mini"
