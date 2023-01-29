@@ -374,7 +374,12 @@ require("lazy").setup({
     {
         "SmiteshP/nvim-navic",
         dependencies = "neovim/nvim-lspconfig",
-        config = function() require("user.plugins.navic") end,
+        lazy = false,
+        init = function()
+            vim.g.navic_silence = true
+            require("nvim-navic").setup({ highlight = true, depth_limit = 5 })
+            vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+        end,
     },
 
     {
