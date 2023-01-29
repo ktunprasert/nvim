@@ -12,6 +12,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+local opts = { noremap = true, silent = true }
 require("lazy").setup({
     -- ███████╗███████╗████████╗██╗   ██╗██████╗
     -- ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗
@@ -111,6 +112,48 @@ require("lazy").setup({
 
     { "nvim-treesitter/nvim-treesitter-textobjects", lazy = false },
 
+    {
+        "ziontee113/syntax-tree-surfer",
+        name = "sts",
+        config = true,
+        branch = "2.1",
+        keys = {
+            { mode = "n", "vx", '<cmd>STSSelectMasterNode<cr>', opts },
+            { mode = "n", "vn", '<cmd>STSSelectCurrentNode<cr>', opts },
+
+            { mode = "n", "-", function()
+                require("syntax-tree-surfer").filtered_jump({
+                    "default",
+                    "variable_declaration",
+                    "short_var_declaration",
+                    "identifier",
+                }, false)
+            end, opts },
+            { mode = "n", "+", function()
+                require("syntax-tree-surfer").filtered_jump({
+                    "default",
+                    "variable_declaration",
+                    "short_var_declaration",
+                    "identifier",
+                }, true)
+            end, opts },
+
+            { mode = "x", "<Tab>", '<cmd>STSSelectNextSiblingNode<cr>', opts },
+            { mode = "x", "<S-Tab>", '<cmd>STSSelectPrevSiblingNode<cr>', opts },
+
+            { mode = "x", "<Down>", '<cmd>STSSelectNextSiblingNode<cr>', opts },
+            { mode = "x", "<Up>", '<cmd>STSSelectPrevSiblingNode<cr>', opts },
+
+            { mode = "x", "<Left>", '<cmd>STSSelectParentNode<cr>', opts },
+            { mode = "x", "<Right>", '<cmd>STSSelectChildNode<cr>', opts },
+
+            { mode = "x", "<BS>", '<cmd>STSSelectParentNode<cr>', opts },
+            { mode = "x", "<CR>", '<cmd>STSSelectChildNode<cr>', opts },
+
+            { mode = "x", "<A-h>", '<cmd>STSSwapPrevVisual<cr>', opts },
+            { mode = "x", "<A-l>", '<cmd>STSSwapNextVisual<cr>', opts },
+        }
+    },
 
     -- ████████╗███████╗██╗     ███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗
     -- ╚══██╔══╝██╔════╝██║     ██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝
@@ -360,6 +403,7 @@ require("lazy").setup({
         "subnut/nvim-ghost.nvim",
         build = ":call nvim_ghost#installer#install()"
     },
+
     -- ███╗   ██╗ █████╗ ██╗   ██╗██╗ ██████╗  █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
     -- ████╗  ██║██╔══██╗██║   ██║██║██╔════╝ ██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
     -- ██╔██╗ ██║███████║██║   ██║██║██║  ███╗███████║   ██║   ██║██║   ██║██╔██╗ ██║
