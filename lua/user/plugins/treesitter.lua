@@ -23,9 +23,11 @@ tsconfigs.setup {
             enable = true,
             swap_next = {
                 ["<leader>a"] = "@parameter.inner",
+                ["<A-l>"] = "@parameter.inner",
             },
             swap_previous = {
                 ["<leader>A"] = "@parameter.inner",
+                ["<A-h>"] = "@parameter.inner",
             },
         },
         select = {
