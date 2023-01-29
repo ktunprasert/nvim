@@ -150,6 +150,11 @@ require("lazy").setup({
             { mode = "x", "<BS>", '<cmd>STSSelectParentNode<cr>', opts },
             { mode = "x", "<CR>", '<cmd>STSSelectChildNode<cr>', opts },
 
+            { mode = "x", "<C-Up>", '<cmd>STSSwapPrevVisual<cr>', opts },
+            { mode = "x", "<C-Down>", '<cmd>STSSwapNextVisual<cr>', opts },
+            { mode = "x", "<C-Left>", '<cmd>STSSwapPrevVisual<cr>', opts },
+            { mode = "x", "<C-Right>", '<cmd>STSSwapNextVisual<cr>', opts },
+
             { mode = "x", "<A-h>", '<cmd>STSSwapPrevVisual<cr>', opts },
             { mode = "x", "<A-l>", '<cmd>STSSwapNextVisual<cr>', opts },
         }
