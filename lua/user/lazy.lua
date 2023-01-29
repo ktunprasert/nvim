@@ -13,6 +13,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local opts = { noremap = true, silent = true }
+local lazyOpts = {
+    install = {
+        colorscheme = { "gruvbox" },
+    }
+}
+
 require("lazy").setup({
     -- ███████╗███████╗████████╗██╗   ██╗██████╗
     -- ██╔════╝██╔════╝╚══██╔══╝██║   ██║██╔══██╗
@@ -432,10 +438,4 @@ require("lazy").setup({
         "ktunprasert/gui-font-resize.nvim",
         config = true,
     },
-},
-    {
-        install = {
-            colorscheme = { "gruvbox" },
-        }
-    }
-)
+}, lazyOpts)
