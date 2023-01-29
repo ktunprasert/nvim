@@ -429,8 +429,8 @@ require("lazy").setup({
     },
     {
         "chaoren/vim-wordmotion",
-        lazy = true,
-        config = function() vim.g.wordmotion_prefix = "<Leader>" end
+        lazy = false,
+        config = function() vim.g.wordmotion_prefix = "<Space>" end
     },
     {
         "ggandor/leap.nvim",
@@ -456,6 +456,21 @@ require("lazy").setup({
                 max_highlighted_traversal_targets = 50,
             }
         }
+    },
+    {
+        "RRethy/vim-illuminate",
+        keys = {
+            { mode = "n", "<Up>", function()
+                require("illuminate").goto_prev_reference(true)
+            end, "Prev node under cursor" },
+
+            { mode = "n", "<Down>", function()
+                require("illuminate").goto_next_reference(true)
+            end, "Next node under cursor" }
+        },
+        init = function()
+            require("illuminate").configure({ opts = 200 })
+        end
     },
 
     -- Own Plugins
