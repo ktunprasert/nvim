@@ -432,6 +432,16 @@ require("lazy").setup({
         lazy = true,
         config = function() vim.g.wordmotion_prefix = "<Leader>" end
     },
+    {
+        "ggandor/leap.nvim",
+        keys = {
+            { mode = "n", "\\", "<Plug>(leap-forward-to)" },
+            { mode = "n", "|", "<Plug>(leap-backward-to)" },
+        },
+        opts = {
+            labeled_modes = "v",
+        },
+    },
 
     -- Own Plugins
     {
