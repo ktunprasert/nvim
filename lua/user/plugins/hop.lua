@@ -15,31 +15,35 @@ local modes = { "n", "v", "o" }
 local hop_leader = "<C-Space>"
 -- local hop_leader = "<Tab>"
 
-keymap(modes, hop_leader .. "s", "<cmd>HopChar2<CR>", hop_options)
-keymap(modes, hop_leader .. "d", "<cmd>HopChar2<CR>", hop_options)
-keymap(modes, hop_leader .. "<Space>", "<cmd>HopChar2<CR>", hop_options)
+function hop_keymap(km, exec)
+    return keymap(modes, hop_leader .. km, exec, hop_options)
+end
 
-keymap(modes, hop_leader .. "w", "<cmd>HopWordCurrentLine<CR>", hop_options)
-keymap(modes, hop_leader .. "W", "<cmd>HopWord<CR>", hop_options)
-keymap(modes, hop_leader .. hop_leader, "<cmd>HopWord<CR>", hop_options)
+hop_keymap("s", "<cmd>HopChar2<CR>")
+hop_keymap("d", "<cmd>HopChar2<CR>")
+hop_keymap("<Space>", "<cmd>HopChar2<CR>")
 
-keymap(modes, hop_leader .. "h", "<cmd>HopAnywhereCurrentLineBC<CR>", hop_options)
-keymap(modes, hop_leader .. "l", "<cmd>HopAnywhereCurrentLineAC<CR>", hop_options)
+hop_keymap("w", "<cmd>HopWordCurrentLine<CR>")
+hop_keymap("W", "<cmd>HopWord<CR>")
+hop_keymap(hop_leader, "<cmd>HopWord<CR>")
 
-keymap(modes, hop_leader .. "k", "<cmd>HopLineBC<CR>", hop_options)
-keymap(modes, hop_leader .. "j", "<cmd>HopLineAC<CR>", hop_options)
-keymap(modes, hop_leader .. "0", "<cmd>HopLine<CR>", hop_options)
-keymap(modes, hop_leader .. "<CR>", "<cmd>HopLineMW<CR>", hop_options)
+hop_keymap("h", "<cmd>HopAnywhereCurrentLineBC<CR>")
+hop_keymap("l", "<cmd>HopAnywhereCurrentLineAC<CR>")
 
-keymap(modes, hop_leader .. "g", "<cmd>HopWordMW<CR>", hop_options)
+hop_keymap("k", "<cmd>HopLineBC<CR>")
+hop_keymap("j", "<cmd>HopLineAC<CR>")
+hop_keymap("0", "<cmd>HopLine<CR>")
+hop_keymap("<CR>", "<cmd>HopLineMW<CR>")
 
-keymap(modes, hop_leader .. "/", "<cmd>HopPattern<CR>", hop_options)
+hop_keymap("g", "<cmd>HopWordMW<CR>")
 
-keymap(modes, hop_leader .. "f", "<cmd>HopChar1CurrentLineAC<CR>", hop_options)
-keymap(modes, hop_leader .. "F", "<cmd>HopChar1CurrentLineBC<CR>", hop_options)
+hop_keymap("/", "<cmd>HopPattern<CR>")
 
-keymap(modes, hop_leader .. "t", "<cmd>HopChar2CurrentLineAC<CR>", hop_options)
-keymap(modes, hop_leader .. "T", "<cmd>HopChar2CurrentLineBC<CR>", hop_options)
+hop_keymap("f", "<cmd>HopChar1CurrentLineAC<CR>")
+hop_keymap("F", "<cmd>HopChar1CurrentLineBC<CR>")
+
+hop_keymap("t", "<cmd>HopChar2CurrentLineAC<CR>")
+hop_keymap("T", "<cmd>HopChar2CurrentLineBC<CR>")
 
 local hint = require "hop.hint"
 
