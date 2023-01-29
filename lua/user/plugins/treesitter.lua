@@ -6,7 +6,7 @@ end
 local ensure = {
     "lua", "json",
     "javascript", "python", "dockerfile", "bash",
-    -- "php", "phpdoc"
+    "php", "phpdoc",
     "go", "gomod",
 }
 
@@ -39,6 +39,7 @@ tsconfigs.setup {
                 -- You can optionally set descriptions to the mappings (used in the desc parameter of
                 -- nvim_buf_set_keymap) which plugins like which-key display
                 ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+
                 ["gc"] = "@comment.outer",
                 ["gab"] = "@block.outer",
                 ["gib"] = "@block.inner",
@@ -75,6 +76,7 @@ tsconfigs.setup {
                 ["]b"] = "@block.outer",
                 ["]t"] = "@conditional.outer",
                 ["g\\"] = "@comment.outer",
+                ["]l"] = "@variable",
                 ["]]"] = { query = "@class.outer", desc = "Next class start" },
             },
             goto_next_end = {
