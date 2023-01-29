@@ -32,11 +32,11 @@ require("lazy").setup({
     {
         "ellisonleao/gruvbox.nvim",
         lazy = false,
+        priority = 1000,
         config = function()
             require("gruvbox").setup { contrast = "hard" }
             vim.cmd([[colorscheme gruvbox]])
         end,
-        -- commit = 'cb7a8a867cfaa7f0e8ded57eb931da88635e7007',
     },
     { "tiagovla/tokyodark.nvim" },
     { "rebelot/kanagawa.nvim" },
