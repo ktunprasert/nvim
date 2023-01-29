@@ -469,7 +469,7 @@ require("lazy").setup({
     {
         "chaoren/vim-wordmotion",
         lazy = false,
-        config = function() vim.g.wordmotion_prefix = "<Space>" end
+        init = function() vim.g.wordmotion_prefix = "<Space>" end
     },
     {
         "ggandor/leap.nvim",
