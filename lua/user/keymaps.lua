@@ -78,7 +78,7 @@ keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>")
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>")
 
 local jumpbuf = function(n)
-    return ":lua require('bufferline').go_to_buffer(" .. n .. ")<CR>"
+    return ":lua require('bufferline').go_to_buffer(" .. n .. ", false)<CR>"
 end
 keymap("n", "<A-1>", jumpbuf(1))
 keymap("n", "<A-2>", jumpbuf(2))
@@ -126,15 +126,16 @@ keymap("n", "<C-Del>", "<cmd>e!<CR>")
 
 -- Change the suggestion scrolling - toggling suggestion with Ctrl + Space in Insert mode
 -- Insert --
-vim.keymap.set("i", "<C-Space>", function() return vim.fn.pumvisible() == 0 and '<C-N>' or '<C-Space>' end, {expr = true})
-vim.keymap.set("i", "<Tab>", function() return vim.fn.pumvisible() == 1 and '<C-N>' or '<Tab>' end, {expr = true})
-vim.keymap.set("i", "<S-Tab>", function() return vim.fn.pumvisible() == 1 and '<C-P>' or '<S-Tab>' end, {expr = true})
-vim.keymap.set("i", "<C-j>", function() return vim.fn.pumvisible() == 1 and '<C-N>' or '<C-j>' end, {expr = true})
-vim.keymap.set("i", "<C-k>", function() return vim.fn.pumvisible() == 1 and '<C-P>' or '<C-k>' end, {expr = true})
+vim.keymap.set("i", "<C-Space>", function() return vim.fn.pumvisible() == 0 and '<C-N>' or '<C-Space>' end,
+    { expr = true })
+vim.keymap.set("i", "<Tab>", function() return vim.fn.pumvisible() == 1 and '<C-N>' or '<Tab>' end, { expr = true })
+vim.keymap.set("i", "<S-Tab>", function() return vim.fn.pumvisible() == 1 and '<C-P>' or '<S-Tab>' end, { expr = true })
+vim.keymap.set("i", "<C-j>", function() return vim.fn.pumvisible() == 1 and '<C-N>' or '<C-j>' end, { expr = true })
+vim.keymap.set("i", "<C-k>", function() return vim.fn.pumvisible() == 1 and '<C-P>' or '<C-k>' end, { expr = true })
 
 -- -- Command --
-vim.keymap.set("c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true})
-vim.keymap.set("c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true})
+vim.keymap.set("c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true })
+vim.keymap.set("c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true })
 
 keymap("n", "<A-Up>", "<cmd>GUIFontSizeUp<CR>")
 keymap("n", "<A-Down>", "<cmd>GUIFontSizeDown<CR>")
