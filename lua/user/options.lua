@@ -34,10 +34,6 @@ vim.opt.guifont = "Iosevka:h12,Iosevka_Nerd_Font:h12,Garuda:h12"
 vim.opt.guifontwide = "Garuda:h12"
 vim.opt.tm = 500 -- for faster WhichKey toggle
 vim.opt.autochdir = true
-vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
-vim.cmd([[ au WinLeave * set nocursorline nocursorcolumn ]])
-vim.cmd([[ au WinEnter * set cursorline cursorcolumn ]])
 vim.opt.shortmess:append "c"
 vim.opt.relativenumber = true
 
