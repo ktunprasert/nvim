@@ -442,6 +442,21 @@ require("lazy").setup({
             labeled_modes = "v",
         },
     },
+    {
+        "ggandor/flit.nvim",
+        dependencies = "ggandor/leap.nvim",
+        opts = {
+            keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+            -- A string like "nv", "nvo", "o", etc.
+            labeled_modes = "v",
+            multiline = true,
+            -- Like `leap`s similar argument (call-specific overrides).
+            -- E.g.: opts = { equivalence_classes = {} }
+            opts = {
+                max_highlighted_traversal_targets = 50,
+            }
+        }
+    },
 
     -- Own Plugins
     {
