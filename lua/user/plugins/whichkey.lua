@@ -85,6 +85,7 @@ local mappings = {
         vim.api.nvim_set_current_win(window_id)
     end, "Pick Window" },
     Q = { "<Cmd>qa<CR>", "Quit" },
+    l = { "<Cmd>Lazy<CR>", "Lazy" },
     ["c"] = { "<Esc><cmd>lua require('Comment.api').toggle.linewise()<CR>", "Comment" },
     ["f"] = { ":NeoTreeReveal<CR>", "Find Files" },
     F = { ":Format<CR>", "Format current file" },
