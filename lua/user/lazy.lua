@@ -160,23 +160,6 @@ require("lazy").setup({
             { mode = "n", "vx", '<cmd>STSSelectMasterNode<cr>', opts },
             { mode = "n", "vn", '<cmd>STSSelectCurrentNode<cr>', opts },
 
-            { mode = "n", "-", function()
-                require("syntax-tree-surfer").filtered_jump({
-                    "default",
-                    "variable_declaration",
-                    "short_var_declaration",
-                    "identifier",
-                }, false)
-            end, opts },
-            { mode = "n", "+", function()
-                require("syntax-tree-surfer").filtered_jump({
-                    "default",
-                    "variable_declaration",
-                    "short_var_declaration",
-                    "identifier",
-                }, true)
-            end, opts },
-
             { mode = "x", "<Tab>", '<cmd>STSSelectNextSiblingNode<cr>', opts },
             { mode = "x", "<S-Tab>", '<cmd>STSSelectPrevSiblingNode<cr>', opts },
 
