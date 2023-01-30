@@ -152,6 +152,15 @@ require("lazy").setup({
     },
 
     {
+        "drybalka/tree-climber.nvim",
+        init = function()
+            local keyopts = { noremap = true, silent = true }
+            vim.keymap.set({ 'n', 'o' }, '<Left>', require('tree-climber').goto_prev, keyopts)
+            vim.keymap.set({ 'n', 'o' }, '<Right>', require('tree-climber').goto_next, keyopts)
+        end,
+    },
+
+    {
         "ziontee113/syntax-tree-surfer",
         name = "sts",
         config = true,
