@@ -84,6 +84,7 @@ local mappings = {
         local window_id = require("window-picker").pick_window() or vim.api.nvim_get_current_win()
         vim.api.nvim_set_current_win(window_id)
     end, "Pick Window" },
+    Q = { "<Cmd>qa<CR>", "Quit" },
     ["c"] = { "<Esc><cmd>lua require('Comment.api').toggle.linewise()<CR>", "Comment" },
     ["f"] = { ":NeoTreeReveal<CR>", "Find Files" },
     F = { ":Format<CR>", "Format current file" },
@@ -121,6 +122,9 @@ local mappings = {
         D = { ":Telescope diagnostics<CR>", "Global diagnostics" },
     },
     ["/"] = { ":HopPattern<CR>", "Hop by Pattern" },
+    b = {
+        d = { "<Cmd>bd!<CR>", "Force delete buffer" },
+    },
 }
 
 whichkey.register(mappings, opts)
