@@ -14,6 +14,11 @@ The following requirements are required for running the configuration distro
 
 Neovim version `0.8` and above is required
 
+### Potential Manual Effort Required
+- `lua/user/lsp/null-ls.lua` disable binding for missing binary (eg. prettier)
+- `lua/user/plugins/toggleterm.lua`: define alternative shell if not using `fish`
+- `lua/user/keymaps.lua`: resolve any keymap conflicts 
+
 ## Initial setup
 
 ### TreeSitter
