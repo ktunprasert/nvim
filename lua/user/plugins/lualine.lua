@@ -69,7 +69,7 @@ lualine.setup {
         },
         lualine_c = { "diff" },
         lualine_x = { components.diagnostics },
-        lualine_y = { components.lsp, components.filetype },
+        lualine_y = { "fileformat", components.lsp, components.filetype },
         lualine_z = { "progress", "os.date('%H:%M')" },
     },
     extensions = {

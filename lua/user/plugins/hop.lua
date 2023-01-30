@@ -3,6 +3,11 @@ if not ok then
     return
 end
 
+local sok, sts = pcall(require, "syntax-tree-surfer")
+if not sok then
+    return
+end
+
 local keymap = require 'lib.utils'.keymap
 
 hop.setup {
@@ -12,34 +17,78 @@ hop.setup {
 local hop_options = { silent = true }
 local modes = { "n", "v", "o" }
 
--- local hop_leader = "<C-Space>"
-local hop_leader = "<Tab>"
 
-keymap(modes, hop_leader .. "s", "<cmd>HopChar2<CR>", hop_options)
-keymap(modes, hop_leader .. "d", "<cmd>HopChar2<CR>", hop_options)
-keymap(modes, hop_leader .. "<Space>", "<cmd>HopChar2<CR>", hop_options)
+local hop_leader = "<C-Space>"
+-- local hop_leader = "<Tab>"
 
-keymap(modes, hop_leader .. "w", "<cmd>HopWordCurrentLine<CR>", hop_options)
-keymap(modes, hop_leader .. "W", "<cmd>HopWord<CR>", hop_options)
-keymap(modes, hop_leader .. hop_leader, "<cmd>HopWord<CR>", hop_options)
+local function hop_keymap(km, exec, opts)
+    local _opts = hop_options
+    if opts then
+        _opts = vim.tbl_deep_extend("force", hop_options, opts)
+    end
+    return keymap(modes, hop_leader .. km, exec, _opts)
+end
 
-keymap(modes, hop_leader .. "h", "<cmd>HopAnywhereCurrentLineBC<CR>", hop_options)
-keymap(modes, hop_leader .. "l", "<cmd>HopAnywhereCurrentLineAC<CR>", hop_options)
+hop_keymap("s", "<cmd>HopChar2<CR>")
+hop_keymap("d", "<cmd>HopChar2<CR>")
+hop_keymap("<Space>", "<cmd>HopChar2<CR>")
 
-keymap(modes, hop_leader .. "k", "<cmd>HopLineBC<CR>", hop_options)
-keymap(modes, hop_leader .. "j", "<cmd>HopLineAC<CR>", hop_options)
-keymap(modes, hop_leader .. "0", "<cmd>HopLine<CR>", hop_options)
-keymap(modes, hop_leader .. "<CR>", "<cmd>HopLineMW<CR>", hop_options)
+hop_keymap("w", "<cmd>HopWordCurrentLine<CR>")
+hop_keymap("W", "<cmd>HopWord<CR>")
+hop_keymap(hop_leader, "<cmd>HopWord<CR>")
 
-keymap(modes, hop_leader .. "g", "<cmd>HopWordMW<CR>", hop_options)
+hop_keymap("h", "<cmd>HopAnywhereCurrentLineBC<CR>")
+hop_keymap("l", "<cmd>HopAnywhereCurrentLineAC<CR>")
 
-keymap(modes, hop_leader .. "/", "<cmd>HopPattern<CR>", hop_options)
+hop_keymap("k", "<cmd>HopLineBC<CR>")
+hop_keymap("j", "<cmd>HopLineAC<CR>")
+hop_keymap("0", "<cmd>HopLine<CR>")
+hop_keymap("<CR>", "<cmd>HopLineMW<CR>")
 
-keymap(modes, hop_leader .. "f", "<cmd>HopChar1CurrentLineAC<CR>", hop_options)
-keymap(modes, hop_leader .. "F", "<cmd>HopChar1CurrentLineBC<CR>", hop_options)
+hop_keymap("g", "<cmd>HopWordMW<CR>")
 
-keymap(modes, hop_leader .. "t", "<cmd>HopChar2CurrentLineAC<CR>", hop_options)
-keymap(modes, hop_leader .. "T", "<cmd>HopChar2CurrentLineBC<CR>", hop_options)
+hop_keymap("/", "<cmd>HopPattern<CR>")
+
+hop_keymap("a", function()
+    sts.targeted_jump({
+        "arguments",
+        "field"
+    })
+end, { desc = "Hop to closest field or arguments" })
+
+hop_keymap("c", function()
+    sts.targeted_jump({
+        "identifier",
+        "comment",
+        "chunk"
+    })
+end, { desc = "Hop to closest node or comment" })
+
+hop_keymap("v", function()
+    sts.targeted_jump({
+        "variable_declaration"
+    })
+end, { desc = "Hop to closest variable" })
+
+hop_keymap("f", function()
+    sts.targeted_jump({
+        "function",
+        "arrrow_function",
+        "function_definition"
+    })
+end, { desc = "Hop to closest function" })
+
+hop_keymap("i", function()
+    sts.targeted_jump({
+        "if_statement",
+        "else_cause",
+        "else_statement",
+        "elseif_statement",
+        "for_statement",
+        "while_statement",
+        "switch_statement"
+    })
+end, { desc = "Hop to closest control block" })
 
 local hint = require "hop.hint"
 

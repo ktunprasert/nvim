@@ -13,13 +13,15 @@ end
 
 local tabnine = require('cmp_tabnine.config')
 tabnine:setup({
-	max_lines = 1000;
-	max_num_results = 5;
-	sort = true;
-	run_on_every_keystroke = true;
-	snippet_placeholder = '..';
-	show_prediction_strength = true;
+    max_lines = 1000;
+    max_num_results = 5;
+    sort = true;
+    run_on_every_keystroke = true;
+    snippet_placeholder = '..';
+    show_prediction_strength = true;
 })
+
+local compare = require('cmp.config.compare')
 
 local kind_icons = {
     Text = "",
@@ -127,5 +129,19 @@ cmp.setup {
     experimental = {
         ghost_text = false,
         native_menu = false,
+    },
+    sorting = {
+        priority_weight = 2,
+        comparators = {
+            require('cmp_tabnine.compare'),
+            compare.offset,
+            compare.exact,
+            compare.score,
+            compare.recently_used,
+            compare.kind,
+            compare.sort_text,
+            compare.length,
+            compare.order,
+        },
     },
 }

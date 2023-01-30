@@ -9,7 +9,6 @@ local keymap = require 'lib.utils'.keymap
 telescope.setup {
     defaults = {
         path_display = { truncate = 1, shorten = 5 },
-        initial_mode = "insert",
         file_ignore_patterns = { '.git/', 'node_modules/', 'vendor/', '*.exe' },
         vimgrep_arguments = {
             "rg",
@@ -21,6 +20,7 @@ telescope.setup {
             "--smart-case",
             "--hidden",
             "--glob=!.git/",
+            "--trim",
         },
         mappings = {
             i = {
@@ -36,6 +36,12 @@ telescope.setup {
 
                 ['<A-l>'] = actions.select_vertical + actions.center,
                 ['<A-j>'] = actions.select_horizontal + actions.center,
+
+                ["<C-Space>"] = function(prompt_bufno)
+                    telescope.extensions.hop._hop(prompt_bufno, { callback = actions.select_default })
+                end,
+
+                ["<C-u>"] = false,
             },
             n = {
                 ['<C-j>'] = actions.move_selection_next,
@@ -44,15 +50,13 @@ telescope.setup {
                 ['Q'] = actions.toggle_selection + actions.move_selection_previous,
             },
         },
-        prompt_prefix = "   ",
-        selection_caret = "  ",
+        prompt_prefix = "  ",
+        selection_caret = "> ",
         entry_prefix = "  ",
         selection_strategy = "reset",
-        sorting_strategy = "ascending",
         layout_strategy = "horizontal",
         layout_config = {
             horizontal = {
-                prompt_position = "top",
                 preview_width = 0.55,
                 results_width = 0.8,
             },
@@ -67,7 +71,6 @@ telescope.setup {
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
         winblend = 0,
         border = {},
-        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         color_devicons = true,
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
         file_previewer = require("telescope.previewers").vim_buffer_cat.new,
@@ -78,6 +81,7 @@ telescope.setup {
     pickers = {
         find_files = {
             hidden = true,
+            find_command = { "fd", "-t", "f" },
         },
         oldfiles = {
             prompt_title = 'History',
@@ -87,18 +91,39 @@ telescope.setup {
         },
     },
     extensions = {
-        fzf = {
-            fuzzy = true,
-            case_mode = 'smart_case',
-        },
         ['ui-select'] = {
             require("telescope.themes").get_dropdown {
             }
-        }
+        },
+
+        hop = {
+            -- the shown `keys` are the defaults, no need to set `keys` if defaults work for you ;)
+            keys = {
+                "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
+                "a", "s", "d", "f", "g", "h", "j", "k", "l", ";",
+                "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
+                "A", "S", "D", "F", "G", "H", "J", "K", "L", ":",
+                "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", },
+            -- Highlight groups to link to signs and lines; the below configuration refers to demo
+            -- sign_hl typically only defines foreground to possibly be combined with line_hl
+            sign_hl = { "WarningMsg", "Title" },
+            -- optional, typically a table of two highlight groups that are alternated between
+            line_hl = { "CursorLine", "Normal" },
+            -- options specific to `hop_loop`
+            -- true temporarily disables Telescope selection highlighting
+            clear_selection_hl = false,
+            -- highlight hopped to entry with telescope selection highlight
+            -- note: mutually exclusive with `clear_selection_hl`
+            trace_entry = true,
+            -- jump to entry where hoop loop was started from
+            reset_selection = true,
+        },
     },
 }
 
-require('telescope').load_extension('fzf')
-require('telescope').load_extension('ui-select')
+telescope.load_extension('hop')
+telescope.load_extension('ui-select')
+telescope.load_extension('noice')
+telescope.load_extension('session-lens')
 
 keymap("n", "<C-f>", ":Telescope current_buffer_fuzzy_find<CR>")

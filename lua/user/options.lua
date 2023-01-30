@@ -7,7 +7,7 @@ vim.opt.conceallevel = 0
 vim.opt.fileencoding = "utf-8"
 vim.opt.hlsearch = true
 vim.opt.mouse = "a"
-vim.opt.pumheight = 10
+vim.opt.pumheight = 30
 vim.opt.showmode = false
 vim.opt.showtabline = 2
 vim.opt.smartcase = true
@@ -30,13 +30,10 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.termguicolors = true
-vim.cmd [[set guifont=Iosevka:h11]]
+vim.opt.guifont = "Iosevka:h12,Iosevka_Nerd_Font:h12,Garuda:h12"
+vim.opt.guifontwide = "Garuda:h12"
 vim.opt.tm = 500 -- for faster WhichKey toggle
 vim.opt.autochdir = true
-vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
-vim.cmd([[ au WinLeave * set nocursorline nocursorcolumn ]])
-vim.cmd([[ au WinEnter * set cursorline cursorcolumn ]])
 vim.opt.shortmess:append "c"
 vim.opt.relativenumber = true
 

@@ -14,6 +14,7 @@ null_ls.setup({
         -- TODO: Add Binaries so we can perform Formatting and Diagnostics
         formatting.prettier.with({}),
         -- formatting.black.with({ extra_args = { "--fast" } }),
+        formatting.prettier.with({ extra_args = {}}),
         -- formatting.stylua,
         -- diagnostics.flake8
     },

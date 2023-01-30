@@ -26,17 +26,6 @@ toggleterm.setup {
 
 local Terminal = require('toggleterm.terminal').Terminal
 
-local lg_cmd = "lg $(pwd)"
-if vim.v.servername ~= nil then
-    local config_path = vim.fn.stdpath('config'):gsub('\\','/')
-    lg_cmd = string.format('NVIM_SERVER=%s lg -ucf %s/lazygit.toml -p $(pwd)', vim.v.servername, config_path)
-end
-
-local lazygit = Terminal:new({
-    count = 5,
-    cmd = lg_cmd,
-})
-
 -- For Editing back from LazyGit
 function _edit(fn, line_number)
     local edit_cmd = string.format(":e %s", fn)
@@ -47,6 +36,22 @@ function _edit(fn, line_number)
 end
 
 function _lazygit_toggle()
+    local git_root_cmd = "git rev-parse --show-toplevel"
+    local lg_cmd = string.format("lg -p $(%s)", git_root_cmd)
+    if vim.v.servername ~= nil then
+        local config_path = vim.fn.stdpath('config'):gsub('\\', '/')
+        lg_cmd = string.format(
+            'NVIM_SERVER=%s lg -ucf %s/lazygit.toml -p $(%s)',
+            vim.v.servername,
+            config_path,
+            git_root_cmd
+        )
+    end
+
+    local lazygit = Terminal:new({
+        count = 5,
+        cmd = lg_cmd,
+    })
     lazygit:toggle()
 end
 
