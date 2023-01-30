@@ -109,6 +109,10 @@ cmp.setup {
                 buffer = "[Buffer]",
                 path = "[Path]",
             })[entry.source.name]
+
+            local maxwidth = 200
+            vim_item.abbr = string.sub(vim_item.abbr, 1, maxwidth)
+
             return vim_item
         end,
     },
@@ -127,7 +131,7 @@ cmp.setup {
         documentation = cmp.config.window.bordered()
     },
     experimental = {
-        ghost_text = false,
+        ghost_text = true,
         native_menu = false,
     },
     sorting = {
