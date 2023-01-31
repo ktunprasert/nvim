@@ -8,16 +8,17 @@ The following requirements are required for running the configuration distro
 | ---------------------------------------------------- | ---------------------------------------------- |
 | git                                                  | Plugins management                             |
 | npm                                                  | Installing formatters as providers for null-ls |
-| [rg](https://github.com/jesseduffield/lazygit/)      | Live text search within the project            |
+| [rg](https://github.com/BurntSushi/ripgrep)          | Live text search within the project            |
 | [fd](https://github.com/sharkdp/fd)                  | File searching with Telescope                  |
 | [lazygit](https://github.com/jesseduffield/lazygit/) | Managing Git repositories                      |
 
 Neovim version `0.8` and above is required
 
 ### Potential Manual Effort Required
+
 - `lua/user/lsp/null-ls.lua` disable binding for missing binary (eg. prettier)
 - `lua/user/plugins/toggleterm.lua`: define alternative shell if not using `fish`
-- `lua/user/keymaps.lua`: resolve any keymap conflicts 
+- `lua/user/keymaps.lua`: resolve any keymap conflicts
 
 ## Initial setup
 
