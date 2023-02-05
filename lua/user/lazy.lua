@@ -234,15 +234,12 @@ require("lazy").setup({
     {
         "numToStr/Comment.nvim",
         opts = {
-            -- ignores empty lines
             ignore = "^$",
-
             mappings = {
                 basic = true,
                 extra = false,
             },
         }
-        -- config = function() require("user.plugins.comment") end
     },
     {
         "nvim-lualine/lualine.nvim",
