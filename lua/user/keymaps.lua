@@ -109,10 +109,10 @@ keymap("v", "<A-k>", ":m '<-2<CR>==gv")
 keymap("v", "<A-j>", ":m '>+1<CR>==gv")
 
 -- Resize windows with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>")
-keymap("n", "<C-Down>", ":resize -2<CR>")
-keymap("n", "<C-Left>", ":vert resize -2<CR>")
-keymap("n", "<C-Right>", ":vert resize +2<CR>")
+keymap("n", "<C-Up>", ":resize +4<CR>")
+keymap("n", "<C-Down>", ":resize -4<CR>")
+keymap("n", "<C-Left>", ":vert resize -4<CR>")
+keymap("n", "<C-Right>", ":vert resize +4<CR>")
 
 -- Edit config from anywhere
 keymap("n", "<Leader><Leader>ec", "<cmd>exe 'edit' stdpath('config')<CR>")
