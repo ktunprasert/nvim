@@ -370,7 +370,7 @@ require("lazy").setup({
 
     {
         "folke/noice.nvim",
-        lazy = false,
+        event = "VimEnter",
         opts = {
             routes = {
                 {
