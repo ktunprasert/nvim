@@ -1,6 +1,6 @@
 -- :help options
 vim.opt.backup = false
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
 vim.opt.cmdheight = 2
 vim.opt.completeopt = { "menuone", "noselect" } -- for cmp
 vim.opt.conceallevel = 0
@@ -36,6 +36,9 @@ vim.opt.tm = 500 -- for faster WhichKey toggle
 vim.opt.autochdir = true
 vim.opt.shortmess:append "c"
 vim.opt.relativenumber = true
+vim.opt.colorcolumn = "80"
+vim.opt.cursorline = true
+
 
 -- For auto-session
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
@@ -51,7 +54,10 @@ if vim.g.neovide then
     require("user.gui.neovide")
 end
 
-local is_wsl = (function() local output = vim.fn.systemlist "uname -r" return not not string.find(output[1] or "", "WSL") end)()
+local is_wsl = (
+    function() local output = vim.fn.systemlist "uname -r" return not not string.find(output[1] or "", "WSL") end
+    )()
+
 if is_wsl then
     vim.cmd [[
       augroup Yank
