@@ -1,5 +1,5 @@
 gui:
   showIcons: true
 os:
-  editCommand: 'nvim --server $NVIM_SERVER'
+  editCommand: 'nvim --server $NVIM'
   editCommandTemplate: "{{editor}} --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, {{line}})<CR>'"
