@@ -131,9 +131,9 @@ require("lazy").setup({
                 end,
             },
         },
-        opts = function()
+        config = function()
             local ai = require("mini.ai")
-            return {
+            ai.setup({
                 n_lines = 500,
                 custom_textobjects = {
                     o = ai.gen_spec.treesitter({
@@ -143,11 +143,7 @@ require("lazy").setup({
                     f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
                     c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
                 },
-            }
-        end,
-        config = function(_, _opts)
-            local ai = require("mini.ai")
-            ai.setup(_opts)
+            })
         end,
     },
 
