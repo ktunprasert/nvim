@@ -274,6 +274,7 @@ require("lazy").setup({
     },
     {
         'rmagatti/auto-session',
+        lazy = false,
         opts = {
             log_level = 'info',
             pre_save_cmds = { "NeoTreeClose" },
