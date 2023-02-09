@@ -1,1 +1,1 @@
-vim.cmd[[set sw=2]]
+vim.opt.shiftwidth = 2
