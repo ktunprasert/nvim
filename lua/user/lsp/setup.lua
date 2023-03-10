@@ -33,5 +33,5 @@ for _, s in pairs(servers) do
     else
         server_opts = opts
     end
-    require("lspconfig")[s].setup(opts)
+    require("lspconfig")[s].setup(server_opts)
 end
