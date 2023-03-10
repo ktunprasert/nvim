@@ -86,6 +86,7 @@ local mappings = {
     end, "Pick Window" },
     Q = { "<Cmd>qa<CR>", "Quit" },
     l = { "<Cmd>Lazy<CR>", "Lazy" },
+    m = { "<Cmd>Mason<CR>", "Mason" },
     ["c"] = { "<Esc><cmd>lua require('Comment.api').toggle.linewise()<CR>", "Comment" },
     ["f"] = { ":NeoTreeReveal<CR>", "Find Files" },
     F = { ":Format<CR>", "Format current file" },

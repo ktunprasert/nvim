@@ -83,8 +83,10 @@ require("lazy").setup({
     { "rafamadriz/friendly-snippets", lazy = false },
 
     -- LSP
+    { "williamboman/mason.nvim", config = true },
+    { "williamboman/mason-lspconfig.nvim", config = true },
     { "neovim/nvim-lspconfig", lazy = false }, -- enable LSP
-    { "williamboman/nvim-lsp-installer", lazy = false }, -- simple LSP installer - just werks
+
     { "nvim-telescope/telescope-ui-select.nvim", lazy = false },
     {
         "ray-x/lsp_signature.nvim",
