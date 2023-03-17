@@ -11,6 +11,7 @@ vim.opt.pumheight = 30
 vim.opt.showmode = false
 vim.opt.showtabline = 2
 vim.opt.smartcase = true
+vim.opt.ignorecase = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.splitbelow = true
