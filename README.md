@@ -49,7 +49,17 @@ Install the language server for the languages you will be using
 or visit [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) for
 more information
 
-### TabNine
+### Copilot
+
+In order to use the Copilot AI autocompletion you must run the following command
+
+```vim
+:Copilot auth
+```
+
+Follow the instructions
+
+### TabNine [Deprecated]
 
 In order to use the TabNine AI autocompletion you must run the following command
 
