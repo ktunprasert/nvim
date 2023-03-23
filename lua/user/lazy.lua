@@ -69,14 +69,30 @@ require("lazy").setup({
     -- ███████╗███████║██║███████╗╚██████╗██║ ╚═╝ ██║██║
     -- ╚══════╝╚══════╝╚═╝╚══════╝ ╚═════╝╚═╝     ╚═╝╚═╝     ~ LSP and Autocompletion
     -- CMP dependencies
-    { "hrsh7th/nvim-cmp", lazy = false }, -- The completion plugin
-    { "hrsh7th/cmp-buffer", lazy = false }, -- buffer completions
-    { "hrsh7th/cmp-path", lazy = false }, -- path completions
-    { "hrsh7th/cmp-cmdline", lazy = false }, -- cmdline completions
+    { "hrsh7th/nvim-cmp",         lazy = false }, -- The completion plugin
+    { "hrsh7th/cmp-buffer",       lazy = false }, -- buffer completions
+    { "hrsh7th/cmp-path",         lazy = false }, -- path completions
+    { "hrsh7th/cmp-cmdline",      lazy = false }, -- cmdline completions
     { "saadparwaiz1/cmp_luasnip", lazy = false }, -- snippet completions
-    { "hrsh7th/cmp-nvim-lsp", lazy = false },
-    { "hrsh7th/cmp-nvim-lua", lazy = false },
-    { "tzachar/cmp-tabnine", lazy = false, build = './install.sh' },
+    { "hrsh7th/cmp-nvim-lsp",     lazy = false },
+    { "hrsh7th/cmp-nvim-lua",     lazy = false },
+    { "tzachar/cmp-tabnine",      lazy = false, build = './install.sh' },
+    {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        opts = {
+            suggestion = { enabled = false },
+            panel = { enabled = false },
+        },
+    },
+    {
+        "zbirenbaum/copilot-cmp",
+        dependencies = { "copilot.lua" },
+        config = function()
+            require("copilot_cmp").setup()
+        end
+    },
 
     -- Snippets engine
     { "L3MON4D3/LuaSnip", lazy = false },

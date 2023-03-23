@@ -101,6 +101,7 @@ cmp.setup {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
             local source_name = ({
+                copilot = "[AI]",
                 cmp_tabnine = "[AI]",
                 nvim_lsp = "[LSP]",
                 luasnip = "[SNIP]",
@@ -118,7 +119,8 @@ cmp.setup {
         end,
     },
     sources = {
-        { name = "cmp_tabnine" },
+        { name = "copilot" },
+        -- { name = "cmp_tabnine" },
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
@@ -138,6 +140,7 @@ cmp.setup {
     sorting = {
         priority_weight = 2,
         comparators = {
+            require('copilot_cmp.comparators').prioritize,
             require('cmp_tabnine.compare'),
             compare.offset,
             compare.exact,
