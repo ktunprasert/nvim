@@ -35,19 +35,24 @@ Install syntax highlighter for any language you will be using with
 or visit [treesitter](https://github.com/nvim-treesitter/nvim-treesitter/) for
 more information
 
-### LSP
+### LSP & Linters & Formatters & Dap
 
 Install the language server for the languages you will be using
 
 ```vim
-:LspInstall gopls
-:LspInstall intelephense
-" or interactively
-:LspInstallInfo
+:Mason
 ```
 
-or visit [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) for
+or visit [mason](https://github.com/williamboman/mason-lspconfig.nvim) for
 more information
+
+Sources installed via Mason will be available through Null-ls as well
+for example installing python's black formatter then setting up a null-ls source
+
+### Null-ls
+
+Use providers such as `prettier` to format JSON, YAML, TypeScript and JavaScript
+files. See more information at [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim/)
 
 ### Copilot
 
@@ -59,6 +64,7 @@ In order to use the Copilot AI autocompletion you must run the following command
 
 Follow the instructions
 
+
 ### TabNine [Deprecated]
 
 In order to use the TabNine AI autocompletion you must run the following command
@@ -69,8 +75,3 @@ In order to use the TabNine AI autocompletion you must run the following command
 
 This will automatically open a TabNine configuration page in your browser which
 will require authentication
-
-### Null-ls
-
-Use providers such as `prettier` to format JSON, YAML, TypeScript and JavaScript
-files. See more information at [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim/)
