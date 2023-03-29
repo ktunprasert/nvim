@@ -48,6 +48,15 @@ keymap("n", ",P", "\"0P")
 
 -- Zen Mode
 keymap("n", "<A-f>", "<cmd>ZenMode<CR>")
+keymap("n", "<A-g>", "<cmd>NoNeckPain<CR>")
+keymap("n", "1<A-f>", function()
+    require("zen-mode").toggle({
+        window = {
+            width = 100,
+            options = { wrap = true }
+        }
+    })
+end)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h")

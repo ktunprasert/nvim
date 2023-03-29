@@ -332,6 +332,17 @@ require("lazy").setup({
         }
     },
     {
+        "shortcuts/no-neck-pain.nvim",
+        lazy = false,
+        opts = {
+            buffers = {
+                scratchPad = {
+                    enabled = true,
+                },
+            }
+        },
+    },
+    {
         "xiyaowong/nvim-transparent",
         cond = false,
         -- config = function() require("transparent").setup({ enable = false }) end,
