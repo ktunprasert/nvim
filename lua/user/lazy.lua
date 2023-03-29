@@ -26,7 +26,7 @@ require("lazy").setup({
     -- ╚════██║██╔══╝     ██║   ██║   ██║██╔═══╝
     -- ███████║███████╗   ██║   ╚██████╔╝██║
     -- ╚══════╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ~ Setup
-    { "nvim-lua/popup.nvim" }, -- An implementation of the Popup API from vim in Neovim
+    { "nvim-lua/popup.nvim" },   -- An implementation of the Popup API from vim in Neovim
     { "nvim-lua/plenary.nvim" }, -- Useful lua functions used by lots of plugins
     { "lewis6991/impatient.nvim", config = function() require("impatient") end },
 
@@ -103,13 +103,13 @@ require("lazy").setup({
     },
 
     -- Snippets engine
-    { "L3MON4D3/LuaSnip", lazy = false },
-    { "rafamadriz/friendly-snippets", lazy = false },
+    { "L3MON4D3/LuaSnip",                        lazy = false },
+    { "rafamadriz/friendly-snippets",            lazy = false },
 
     -- LSP
-    { "williamboman/mason.nvim", config = true },
-    { "williamboman/mason-lspconfig.nvim", config = true },
-    { "neovim/nvim-lspconfig", lazy = false }, -- enable LSP
+    { "williamboman/mason.nvim",                 config = true },
+    { "williamboman/mason-lspconfig.nvim",       config = true },
+    { "neovim/nvim-lspconfig",                   lazy = false }, -- enable LSP
 
     { "nvim-telescope/telescope-ui-select.nvim", lazy = false },
     {
@@ -188,28 +188,22 @@ require("lazy").setup({
         config = true,
         branch = "2.1",
         keys = {
-            { mode = "n", "vx", '<cmd>STSSelectMasterNode<cr>', opts },
-            { mode = "n", "vn", '<cmd>STSSelectCurrentNode<cr>', opts },
-
-            { mode = "x", "<Tab>", '<cmd>STSSelectNextSiblingNode<cr>', opts },
-            { mode = "x", "<S-Tab>", '<cmd>STSSelectPrevSiblingNode<cr>', opts },
-
-            { mode = "x", "<Down>", '<cmd>STSSelectNextSiblingNode<cr>', opts },
-            { mode = "x", "<Up>", '<cmd>STSSelectPrevSiblingNode<cr>', opts },
-
-            { mode = "x", "<Left>", '<cmd>STSSelectParentNode<cr>', opts },
-            { mode = "x", "<Right>", '<cmd>STSSelectChildNode<cr>', opts },
-
-            { mode = "x", "<BS>", '<cmd>STSSelectParentNode<cr>', opts },
-            { mode = "x", "<CR>", '<cmd>STSSelectChildNode<cr>', opts },
-
-            { mode = "x", "<C-Up>", '<cmd>STSSwapPrevVisual<cr>', opts },
-            { mode = "x", "<C-Down>", '<cmd>STSSwapNextVisual<cr>', opts },
-            { mode = "x", "<C-Left>", '<cmd>STSSwapPrevVisual<cr>', opts },
-            { mode = "x", "<C-Right>", '<cmd>STSSwapNextVisual<cr>', opts },
-
-            { mode = "x", "<A-h>", '<cmd>STSSwapPrevVisual<cr>', opts },
-            { mode = "x", "<A-l>", '<cmd>STSSwapNextVisual<cr>', opts },
+            { mode = "n", "vx",        '<cmd>STSSelectMasterNode<cr>',      opts },
+            { mode = "n", "vn",        '<cmd>STSSelectCurrentNode<cr>',     opts },
+            { mode = "x", "<Tab>",     '<cmd>STSSelectNextSiblingNode<cr>', opts },
+            { mode = "x", "<S-Tab>",   '<cmd>STSSelectPrevSiblingNode<cr>', opts },
+            { mode = "x", "<Down>",    '<cmd>STSSelectNextSiblingNode<cr>', opts },
+            { mode = "x", "<Up>",      '<cmd>STSSelectPrevSiblingNode<cr>', opts },
+            { mode = "x", "<Left>",    '<cmd>STSSelectParentNode<cr>',      opts },
+            { mode = "x", "<Right>",   '<cmd>STSSelectChildNode<cr>',       opts },
+            { mode = "x", "<BS>",      '<cmd>STSSelectParentNode<cr>',      opts },
+            { mode = "x", "<CR>",      '<cmd>STSSelectChildNode<cr>',       opts },
+            { mode = "x", "<C-Up>",    '<cmd>STSSwapPrevVisual<cr>',        opts },
+            { mode = "x", "<C-Down>",  '<cmd>STSSwapNextVisual<cr>',        opts },
+            { mode = "x", "<C-Left>",  '<cmd>STSSwapPrevVisual<cr>',        opts },
+            { mode = "x", "<C-Right>", '<cmd>STSSwapNextVisual<cr>',        opts },
+            { mode = "x", "<A-h>",     '<cmd>STSSwapPrevVisual<cr>',        opts },
+            { mode = "x", "<A-l>",     '<cmd>STSSwapNextVisual<cr>',        opts },
         }
     },
 
@@ -368,7 +362,6 @@ require("lazy").setup({
                         bo = {
                             -- if the file type is one of following, the window will be ignored
                             filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
-
                             -- if the buffer type is one of following, the window will be ignored
                             buftype = { 'terminal' },
                         },
@@ -434,14 +427,13 @@ require("lazy").setup({
                 enabled = true,
                 view = "mini"
             },
-
             -- you can enable a preset for easier configuration
             presets = {
-                bottom_search = false, -- use a classic bottom cmdline for search
-                command_palette = true, -- position the cmdline and popupmenu together
+                bottom_search = false,        -- use a classic bottom cmdline for search
+                command_palette = true,       -- position the cmdline and popupmenu together
                 long_message_to_split = true, -- long messages will be sent to a split
-                inc_rename = false, -- enables an input dialog for inc-rename.nvim
-                lsp_doc_border = true, -- add a border to hover docs and signature help
+                inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+                lsp_doc_border = true,        -- add a border to hover docs and signature help
             },
         },
         dependencies = {
@@ -462,10 +454,10 @@ require("lazy").setup({
     {
         "norcalli/nvim-colorizer.lua",
         opts = {
-            "*";
+            "*",
             css = {
-                RRGGBBAA = true;
-            };
+                RRGGBBAA = true,
+            },
         },
     },
 
@@ -504,7 +496,7 @@ require("lazy").setup({
         "ggandor/leap.nvim",
         keys = {
             { mode = "n", "\\", "<Plug>(leap-forward-to)" },
-            { mode = "n", "|", "<Plug>(leap-backward-to)" },
+            { mode = "n", "|",  "<Plug>(leap-backward-to)" },
         },
         opts = {
             labeled_modes = "v",
@@ -528,13 +520,23 @@ require("lazy").setup({
     {
         "RRethy/vim-illuminate",
         keys = {
-            { mode = "n", "<Up>", function()
-                require("illuminate").goto_prev_reference(true)
-            end, "Prev node under cursor" },
+            {
+                mode = "n",
+                "<Up>",
+                function()
+                    require("illuminate").goto_prev_reference(true)
+                end,
+                "Prev node under cursor"
+            },
 
-            { mode = "n", "<Down>", function()
-                require("illuminate").goto_next_reference(true)
-            end, "Next node under cursor" }
+            {
+                mode = "n",
+                "<Down>",
+                function()
+                    require("illuminate").goto_next_reference(true)
+                end,
+                "Next node under cursor"
+            }
         },
         init = function()
             require("illuminate").configure({ opts = 200 })
