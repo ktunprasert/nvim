@@ -90,7 +90,15 @@ require("lazy").setup({
         "zbirenbaum/copilot-cmp",
         dependencies = { "copilot.lua" },
         config = function()
-            require("copilot_cmp").setup()
+            local fmt = require("copilot_cmp.format")
+
+            require("copilot_cmp").setup({
+                formatters = {
+                    insert_text = fmt.remove_existing,
+                }
+            })
+
+            vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
         end
     },
 

@@ -12,15 +12,15 @@ local check_backspace = function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
-local tabnine = require('cmp_tabnine.config')
-tabnine:setup({
-    max_lines = 1000;
-    max_num_results = 5;
-    sort = true;
-    run_on_every_keystroke = true;
-    snippet_placeholder = '..';
-    show_prediction_strength = true;
-})
+-- local tabnine = require('cmp_tabnine.config')
+-- tabnine:setup({
+--     max_lines = 1000,
+--     max_num_results = 5,
+--     sort = true,
+--     run_on_every_keystroke = true,
+--     snippet_placeholder = '..',
+--     show_prediction_strength = true,
+-- })
 
 local compare = require('cmp.config.compare')
 
@@ -50,6 +50,7 @@ local kind_icons = {
     Event = "",
     Operator = "",
     TypeParameter = "",
+    Copilot = "",
 }
 
 cmp.setup {
@@ -73,7 +74,10 @@ cmp.setup {
         },
         -- Accept currently selected item. If none selected, `select` first item.
         -- Set `select` to `false` to only confirm explicitly selected items.
-        ["<CR>"] = cmp.mapping.confirm { select = true },
+        ["<CR>"] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true
+        },
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
