@@ -60,7 +60,7 @@ lualine.setup {
     sections = {
         lualine_a = { "mode" },
         lualine_b = {
-            require('auto-session-library').current_session_name,
+            require('auto-session.lib').current_session_name,
             "branch",
             {
                 "filename",
