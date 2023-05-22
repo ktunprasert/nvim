@@ -104,6 +104,7 @@ local mappings = {
         b = { ":Telescope git_branches<CR>", "View Branches" },
         s = { ":Gitsigns setqflist<CR>", "View Hunks" },
         ['!'] = { ":Gitsigns reset_buffer<CR>", "Reset buffer to revision" },
+        r = { ":Gitsigns reset_hunk<CR>", "Reset Hunk" },
     },
     s = {
         name = "Search [Telescope]",
