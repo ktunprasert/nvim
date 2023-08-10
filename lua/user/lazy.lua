@@ -143,6 +143,12 @@ require("lazy").setup({
     },
 
     {
+        "chrisgrieser/nvim-various-textobjs",
+        lazy = false,
+        opts = { useDefaultKeymaps = true },
+    },
+
+    {
         "echasnovski/mini.ai",
         keys = {
             { "a", mode = { "x", "o" } },
