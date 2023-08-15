@@ -45,23 +45,7 @@ require("lazy").setup({
             vim.cmd([[colorscheme gruvbox]])
         end,
     },
-    { "tiagovla/tokyodark.nvim" },
-    { "rebelot/kanagawa.nvim" },
-    {
-        "sainnhe/sonokai",
-        config = function()
-            vim.g.sonokai_style = 'espresso'
-            -- vim.cmd([[colorscheme sonokai]])
-        end
-    },
-    {
-        "loctvl842/monokai-pro.nvim",
-        config = function()
-            -- require("monokai-pro").setup({
-            --     filter = "spectrum"
-            -- })
-        end
-    },
+
     -- ██╗     ███████╗██████╗     ██████╗███╗   ███╗██████╗
     -- ██║     ██╔════╝██╔══██╗   ██╔════╝████╗ ████║██╔══██╗
     -- ██║     ███████╗██████╔╝   ██║     ██╔████╔██║██████╔╝
