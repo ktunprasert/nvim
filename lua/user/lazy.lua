@@ -367,25 +367,6 @@ require("lazy").setup({
         dependencies = {
             "kyazdani42/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
-            {
-                's1n7ax/nvim-window-picker',
-                name = "window-picker",
-                version = "v1.*",
-                opts = {
-                    autoselect_one = true,
-                    include_current = false,
-                    selection_chars = 'ABCDEFGHIJK',
-                    filter_rules = {
-                        bo = {
-                            -- if the file type is one of following, the window will be ignored
-                            filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
-                            -- if the buffer type is one of following, the window will be ignored
-                            buftype = { 'terminal' },
-                        },
-                    },
-                    other_win_hl_color = '#e35e4f',
-                }
-            }
         },
         config = function() require("user.plugins.neotree") end,
     },
@@ -461,10 +442,21 @@ require("lazy").setup({
 
     {
         "s1n7ax/nvim-window-picker",
+        name = 'window-picker',
+        version = '2.*',
+        event = 'VeryLazy',
         opts = {
             selection_chars = "ABCDEFGHIJK",
-            include_current_win = true,
+            include_current = false,
             se_winbar = "always",
+            filter_rules = {
+                autoselect_one = true,
+                include_current_win = true,
+                bo = {
+                    filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
+                    buftype = { 'terminal' },
+                },
+            },
         },
     },
 
