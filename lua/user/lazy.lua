@@ -399,6 +399,8 @@ require("lazy").setup({
             },
             messages = {
                 view = "mini",
+                view_error = "mini",
+                view_warn = "mini",
             },
             notify = {
                 enabled = true,
