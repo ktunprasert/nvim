@@ -460,10 +460,6 @@ require("lazy").setup({
             host = "localhost",
         }
     },
-    {
-        "subnut/nvim-ghost.nvim",
-        build = ":call nvim_ghost#installer#install()"
-    },
 
     {
         "mg979/vim-visual-multi",
