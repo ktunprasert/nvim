@@ -537,6 +537,11 @@ require("lazy").setup({
         end
     },
 
+    {
+        "ThePrimeagen/harpoon",
+        lazy = false,
+    },
+
     -- Own Plugins
     {
         "ktunprasert/gui-font-resize.nvim",

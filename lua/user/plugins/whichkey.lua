@@ -128,6 +128,8 @@ local mappings = {
     b = {
         d = { "<Cmd>bd!<CR>", "Force delete buffer" },
     },
+    h = { function() require("harpoon.mark").add_file() end, "Harpoon File" },
+    H = { function() require("harpoon.ui").toggle_quick_menu() end, "Harpoon List" },
 }
 
 whichkey.register(mappings, opts)
