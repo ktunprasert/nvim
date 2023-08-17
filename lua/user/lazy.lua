@@ -333,11 +333,6 @@ require("lazy").setup({
         },
     },
     {
-        "xiyaowong/nvim-transparent",
-        cond = false,
-        -- config = function() require("transparent").setup({ enable = false }) end,
-    },
-    {
         "jinh0/eyeliner.nvim",
         lazy = false,
         dependencies = {
