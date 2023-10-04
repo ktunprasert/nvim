@@ -59,14 +59,14 @@ local is_wsl = (
     function() local output = vim.fn.systemlist "uname -r" return not not string.find(output[1] or "", "WSL") end
     )()
 
-if is_wsl then
-    vim.cmd [[
-      augroup Yank
-      autocmd!
-      autocmd TextYankPost * :call system('/c/windows/system32/clip.exe ',@")
-      augroup END
-    ]]
-end
+-- if is_wsl then
+--     vim.cmd [[
+--       augroup Yank
+--       autocmd!
+--       autocmd TextYankPost * :call system('/c/windows/system32/clip.exe ',@")
+--       augroup END
+--     ]]
+-- end
 
 vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 -- Turn off relative number when in command mode
