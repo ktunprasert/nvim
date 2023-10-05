@@ -260,11 +260,8 @@ require("lazy").setup({
     },
     {
         "lukas-reineke/indent-blankline.nvim",
-        opts = {
-            show_current_context = true,
-            show_current_context_start = true,
-            filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
-        },
+        name = "ibl",
+        config = true,
     },
     {
         "akinsho/bufferline.nvim",
