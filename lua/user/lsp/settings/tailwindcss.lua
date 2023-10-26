@@ -1,9 +1,5 @@
 local opts = {
-    root_dir = function(fname)
-        local util = require("lspconfig.util")
-        return util.root_pattern("tailwind.config.cjs")(fname)
-    end,
-    filetypes = { "html", "elixir", "eelixir", "heex" },
+    filetypes = { "html", "elixir", "eelixir", "heex", "eex" },
     init_options = {
         userLanguages = {
             elixir = "html-eex",
@@ -15,7 +11,7 @@ local opts = {
         tailwindCSS = {
             experimental = {
                 classRegex = {
-                    'class[:]\\s*"([^"]*)"',
+                    'class[:=]\\s*"([^"]*)"',
                 },
             },
         },
