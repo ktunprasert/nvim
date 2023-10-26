@@ -12,16 +12,6 @@ local check_backspace = function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
--- local tabnine = require('cmp_tabnine.config')
--- tabnine:setup({
---     max_lines = 1000,
---     max_num_results = 5,
---     sort = true,
---     run_on_every_keystroke = true,
---     snippet_placeholder = '..',
---     show_prediction_strength = true,
--- })
-
 local compare = require('cmp.config.compare')
 
 local kind_icons = {
@@ -106,7 +96,6 @@ cmp.setup {
         format = function(entry, vim_item)
             local source_name = ({
                 copilot = "[AI]",
-                cmp_tabnine = "[AI]",
                 nvim_lsp = "[LSP]",
                 luasnip = "[SNIP]",
                 buffer = "[BUFF]",
@@ -144,7 +133,6 @@ cmp.setup {
         priority_weight = 2,
         comparators = {
             require('copilot_cmp.comparators').prioritize,
-            require('cmp_tabnine.compare'),
             compare.offset,
             compare.exact,
             compare.score,

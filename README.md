@@ -64,14 +64,3 @@ In order to use the Copilot AI autocompletion you must run the following command
 
 Follow the instructions
 
-
-### TabNine [Deprecated]
-
-In order to use the TabNine AI autocompletion you must run the following command
-
-```vim
-:CmpTabNineHub
-```
-
-This will automatically open a TabNine configuration page in your browser which
-will require authentication

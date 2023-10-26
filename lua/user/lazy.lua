@@ -60,7 +60,6 @@ require("lazy").setup({
     { "saadparwaiz1/cmp_luasnip", lazy = false }, -- snippet completions
     { "hrsh7th/cmp-nvim-lsp",     lazy = false },
     { "hrsh7th/cmp-nvim-lua",     lazy = false },
-    { "tzachar/cmp-tabnine",      lazy = false, build = './install.sh' },
     {
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
