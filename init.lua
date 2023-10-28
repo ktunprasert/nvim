@@ -7,6 +7,3 @@ require "user.lazy"
 require "user.cmp"
 require "user.lsp.init"
 require "user.abbreviations"
-
--- Set Theme
-vim.cmd("colorscheme gruvbox")
