@@ -340,9 +340,7 @@ require("lazy").setup({
     {
         "jinh0/eyeliner.nvim",
         lazy = false,
-        dependencies = {
-            "ellisonleao/gruvbox.nvim",
-        },
+        priority = 999,
         config = function() require("user.plugins.eyeliner") end
     },
     {
