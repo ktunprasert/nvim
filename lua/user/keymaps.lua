@@ -68,11 +68,6 @@ keymap("n", "<C-l>", "<C-w>l")
 keymap("n", "<A-h>", function() require("harpoon.ui").nav_prev() end)
 keymap("n", "<A-l>", function() require("harpoon.ui").nav_next() end)
 
-keymap("n", "<A-a>", function() require("harpoon.ui").nav_next(1) end)
-keymap("n", "<A-s>", function() require("harpoon.ui").nav_next(2) end)
-keymap("n", "<A-d>", function() require("harpoon.ui").nav_next(3) end)
-
-
 -- Easily split vert and horizontal
 keymap("n", "<C-\\>", ":vs<CR>")
 keymap("n", "<C-_>", ":sp<CR>")
