@@ -93,7 +93,10 @@ require("lazy").setup({
     { "williamboman/mason.nvim",                 config = true },
     { "williamboman/mason-lspconfig.nvim",       config = true },
     { "neovim/nvim-lspconfig",                   lazy = false }, -- enable LSP
-
+    {
+        "hinell/lsp-timeout.nvim",
+        dependencies = { "neovim/nvim-lspconfig" },
+    },
     { "nvim-telescope/telescope-ui-select.nvim", lazy = false },
     {
         "ray-x/lsp_signature.nvim",
