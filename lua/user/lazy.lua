@@ -103,6 +103,9 @@ require("lazy").setup({
         lazy = false,
         opts = {
             toggle_key = '<C-k>',
+            noice = true,
+            bind = true,
+            handler_opts = { border = "none" }
         },
     },
 
