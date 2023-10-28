@@ -83,6 +83,7 @@ require("lazy").setup({
                     local dapui = require("dapui")
 
                     require("user.dap.elixir")
+                    require("user.dap.php")
 
                     dapui.setup(opts)
                     dap.listeners.after.event_initialized["dapui_config"] = function()
