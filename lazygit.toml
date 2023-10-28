@@ -3,8 +3,8 @@ gui:
   scrollHeight: 4
   scrollOffMargin: 4
 os:
-  editCommand: 'nvim --server $NVIM'
-  editCommandTemplate: "{{editor}} --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, {{line}})<CR>'"
+  edit: "nvim --server $NVIM --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, 0)<CR>'"
+  editAtLine: "nvim --server $NVIM --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, {{line}})<CR>'"
 
 git:
   paging:
