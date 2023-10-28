@@ -76,7 +76,11 @@ local vopts = {
 }
 
 local vmappings = {
-    ["c"] = { "<Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment" },
+    c = { "<Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment" },
+    g = {
+        name = "Git",
+        ["<Enter>"] = { "<Cmd>Gitsigns stage_hunk<CR>", "Stage Hunk" },
+    },
 }
 
 local mappings = {
