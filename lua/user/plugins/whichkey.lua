@@ -96,7 +96,6 @@ local mappings = {
     F = { "<Cmd>Format<CR>", "Format current file" },
     ["p"] = { "<Cmd>Telescope projects<CR>", "Projects" },
     r = { "<Cmd>Telescope oldfiles<CR>", "Recent Files" },
-    d = { "<Cmd>bp | sp | bn | bd<CR>", "Delete Buffer" },
     D = { "<Cmd>%bd<CR>", "Delete ALL Buffers" },
     G = { name = "LazyGit" },
     g = {
@@ -132,7 +131,8 @@ local mappings = {
     },
     ["/"] = { "<Cmd>HopPattern<CR>", "Hop by Pattern" },
     b = {
-        d = { "<Cmd>bd!<CR>", "Force delete buffer" },
+        q = { "<Cmd>bd!<CR>", "Force delete buffer" },
+        d = { "<Cmd>bp | sp | bn | bd<CR>", "Delete Buffer" },
     },
     h = { function() require("harpoon.mark").add_file() end, "Harpoon File" },
     H = { function() require("harpoon.ui").toggle_quick_menu() end, "Harpoon List" },
