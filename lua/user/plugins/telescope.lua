@@ -89,6 +89,13 @@ telescope.setup {
         live_grep = {
             only_sort_text = true,
         },
+        buffers = {
+            mappings = {
+                i = {
+                    ["<c-d>"] = actions.delete_buffer,
+                }
+            }
+        }
     },
     extensions = {
         ['ui-select'] = {
