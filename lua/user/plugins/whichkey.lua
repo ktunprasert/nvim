@@ -107,6 +107,7 @@ local mappings = {
         b = { "<Cmd>Telescope git_branches<CR>", "View Branches" },
         B = { "<Cmd>Gitsigns blame_line<CR>", "Blame current line" },
         s = { "<Cmd>Gitsigns setqflist<CR>", "View Hunks" },
+        S = { "<Cmd>Telescope git_status<CR>", "View Git Status" },
         ["<Enter>"] = { "<Cmd>Gitsigns stage_hunk<CR>", "Stage Hunk" },
         ['!'] = { "<Cmd>Gitsigns reset_buffer<CR>", "Reset buffer to revision" },
         r = { "<Cmd>Gitsigns reset_hunk<CR>", "Reset Hunk" },
