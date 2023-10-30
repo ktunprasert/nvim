@@ -2,6 +2,8 @@ gui:
   nerdFontsVersion: "3"
   scrollHeight: 4
   scrollOffMargin: 4
+  showFileTree: false
+
 os:
   edit: "nvim --server $NVIM --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, 0)<CR>'"
   editAtLine: "nvim --server $NVIM --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, {{line}})<CR>'"
