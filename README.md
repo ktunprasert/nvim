@@ -15,6 +15,7 @@ The following requirements are required for running the configuration distro
 | [rg](https://github.com/BurntSushi/ripgrep)          | Live text search within the project            |
 | [fd](https://github.com/sharkdp/fd)                  | File searching with Telescope                  |
 | [lazygit](https://github.com/jesseduffield/lazygit/) | Managing Git repositories                      |
+| [delta](https://github.com/dandavison/delta)         | Git diff within LazyGit                        |
 
 Neovim version `0.8` and above is required
 
