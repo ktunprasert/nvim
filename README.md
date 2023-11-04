@@ -1,5 +1,9 @@
 # Nvim-config
 
+<a href="https://dotfyle.com/ktunprasert/nvim-config"><img src="https://dotfyle.com/ktunprasert/nvim-config/badges/plugins?style=flat" /></a>
+<a href="https://dotfyle.com/ktunprasert/nvim-config"><img src="https://dotfyle.com/ktunprasert/nvim-config/badges/leaderkey?style=flat" /></a>
+<a href="https://dotfyle.com/ktunprasert/nvim-config"><img src="https://dotfyle.com/ktunprasert/nvim-config/badges/plugin-manager?style=flat" /></a>
+
 ## System dependencies
 
 The following requirements are required for running the configuration distro
