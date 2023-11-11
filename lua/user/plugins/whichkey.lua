@@ -135,6 +135,7 @@ local mappings = {
         q = { "<Cmd>bd!<CR>", "Force delete buffer" },
         d = { "<Cmd>bp | sp | bn | bd<CR>", "Delete Buffer" },
     },
+    B = { "<Cmd>bp | sp | bn | bd<CR>", "Delete Buffer" },
     h = { function() require("harpoon.mark").add_file() end, "Harpoon File" },
     H = { function() require("harpoon.ui").toggle_quick_menu() end, "Harpoon List" },
 }
