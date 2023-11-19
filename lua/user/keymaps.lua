@@ -144,6 +144,9 @@ keymap("n", "<BS>", function() require("treesitter-context").go_to_context() end
 keymap("n", "(", "<cmd>cprev<CR>")
 keymap("n", ")", "<cmd>cnext<CR>")
 
+-- C-l as delete key
+keymap("i", "<C-l>", "<Del>")
+
 -- Change the suggestion scrolling - toggling suggestion with Ctrl + Space in Insert mode
 -- Insert --
 vim.keymap.set("i", "<C-Space>", function() return vim.fn.pumvisible() == 0 and '<C-N>' or '<C-Space>' end,
