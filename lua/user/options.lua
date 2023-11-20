@@ -68,7 +68,6 @@ local is_wsl = (
 --     ]]
 -- end
 
-vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 -- Turn off relative number when in command mode
 vim.cmd [[
 augroup numbertoggle
