@@ -42,6 +42,7 @@ telescope.setup {
                 end,
 
                 ["<C-u>"] = false,
+                ["<A-;>"] = actions.send_selected_to_qflist + actions.open_qflist,
             },
             n = {
                 ['<C-j>'] = actions.move_selection_next,
