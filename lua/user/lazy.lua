@@ -535,12 +535,10 @@ require("lazy").setup({
     },
 
     {
-        "mg979/vim-visual-multi",
     },
 
     {
-        "b0o/incline.nvim",
-        config = true,
+        "mg979/vim-visual-multi",
     },
 
     -- ███╗   ██╗ █████╗ ██╗   ██╗██╗ ██████╗  █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
