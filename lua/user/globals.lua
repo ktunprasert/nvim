@@ -1,1 +1,1 @@
-MASON_PATH = os.getenv("HOME") .. "/share/nvim/mason/packages"
+MASON_PATH = os.getenv("HOME") .. "/.local/share/nvim/mason/packages"
