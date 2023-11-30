@@ -100,7 +100,7 @@ local mappings = {
     G = { name = "LazyGit" },
     g = {
         name = "Git",
-        g = { "<Cmd>Telescope git_files<CR>", "Git Files" },
+        g = { "<Cmd>Gitsigns stage_buffer<CR>", "Git Files" },
         h = { "<Cmd>Gitsigns preview_hunk<CR>", "Preview Hunk" },
         H = { "<Cmd>Telescope git_bcommits<cr>", "View Git History for current buffer" },
         c = { "<Cmd>Telescope git_commits<CR>", "View Commits" },
