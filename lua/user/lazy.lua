@@ -605,7 +605,16 @@ require("lazy").setup({
             }
         },
         init = function()
-            require("illuminate").configure({ opts = 200 })
+            require("illuminate").configure({
+                opts = 200,
+                filetypes_denylist = {
+                    'dirbuf',
+                    'dirvish',
+                    'fugitive',
+                    'text',
+                },
+
+            })
         end
     },
 
