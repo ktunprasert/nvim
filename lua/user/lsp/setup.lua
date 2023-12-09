@@ -25,6 +25,7 @@ local servers = {
     "yamlls",
     "zk",
     "tailwindcss",
+    "templ",
     "elixirls",
 };
 
