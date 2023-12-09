@@ -17,5 +17,7 @@ return {
         "eex",
         "elixir",
         "eelixir",
+        "markdown",
+        "templ",
     }
 }
