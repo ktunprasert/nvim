@@ -1,3 +1,4 @@
+# add me to lazygit config location at ~/.config/lazygit/config.yml
 gui:
   nerdFontsVersion: "3"
   scrollHeight: 4
