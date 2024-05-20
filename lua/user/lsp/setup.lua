@@ -46,7 +46,7 @@ local function format()
     local has_null_ls = #null_ls_sources.get_available(ft, 'NULL_LS_FORMATTING') > 0
 
     vim.lsp.buf.format({
-        bufnr = 0,
+        -- bufnr = 0,
         filter = function(client)
             if has_null_ls then
                 return client.name == 'null-ls'
