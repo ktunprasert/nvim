@@ -82,7 +82,7 @@ telescope.setup {
     pickers = {
         find_files = {
             hidden = true,
-            find_command = { "fd", "-t", "f" },
+            find_command = { "fd", "-t", "f", "--strip-cwd-prefix" },
         },
         oldfiles = {
             prompt_title = 'History',
