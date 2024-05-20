@@ -182,7 +182,6 @@ require("lazy").setup({
         "hinell/lsp-timeout.nvim",
         dependencies = { "neovim/nvim-lspconfig" },
     },
-    { "nvim-telescope/telescope-ui-select.nvim", lazy = false },
     {
         "ray-x/lsp_signature.nvim",
         lazy = false,
@@ -306,6 +305,7 @@ require("lazy").setup({
     },
 
     { "nvim-telescope/telescope-hop.nvim" },
+    { "nvim-telescope/telescope-ui-select.nvim", lazy = false },
 
     -- ██╗   ██╗████████╗██╗██╗     ██╗████████╗██╗   ██╗
     -- ██║   ██║╚══██╔══╝██║██║     ██║╚══██╔══╝╚██╗ ██╔╝
