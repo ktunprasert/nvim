@@ -141,7 +141,7 @@ require("lazy").setup({
     -- LSP
     { "williamboman/mason.nvim",           config = true },
     { "williamboman/mason-lspconfig.nvim", config = true },
-    { "neovim/nvim-lspconfig",             lazy = false },       -- enable LSP
+    { "neovim/nvim-lspconfig",             lazy = false }, -- enable LSP
     {
         "hinell/lsp-timeout.nvim",
         dependencies = { "neovim/nvim-lspconfig" },
@@ -341,7 +341,7 @@ require("lazy").setup({
         lazy = false,
         opts = {
             log_level = 'info',
-            pre_save_cmds = { "NeoTreeClose" },
+            pre_save_cmds = { "Neotree close" },
             -- auto_session_enable_last_session = true,
         }
     },
