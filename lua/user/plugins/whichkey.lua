@@ -111,6 +111,7 @@ local mappings = {
         ["<Enter>"] = { "<Cmd>Gitsigns stage_hunk<CR>", "Stage Hunk" },
         ['!'] = { "<Cmd>Gitsigns reset_buffer<CR>", "Reset buffer to revision" },
         r = { "<Cmd>Gitsigns reset_hunk<CR>", "Reset Hunk" },
+        e = { "<Cmd>Neotree git_status focus position=float<CR>", "Git Status Neotree" },
     },
     s = {
         name = "Search [Telescope]",
@@ -134,6 +135,7 @@ local mappings = {
     b = {
         q = { "<Cmd>bd!<CR>", "Force delete buffer" },
         d = { "<Cmd>bp | sp | bn | bd<CR>", "Delete Buffer" },
+        b = { "<Cmd>Neotree buffers focus position=float<CR>", "Buffers Neotree" },
     },
     B = { "<Cmd>bp | sp | bn | bd<CR>", "Delete Buffer" },
     h = { function() require("harpoon.mark").add_file() end, "Harpoon File" },
