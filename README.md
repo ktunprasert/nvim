@@ -19,6 +19,10 @@ The following requirements are required for running the configuration distro
 
 Neovim version `0.8` and above is required
 
+### WSL Users
+
+Ensure you also get `fzf` and `wslu`
+
 ### Potential Manual Effort Required
 
 - `lua/user/lsp/null-ls.lua` disable binding for missing binary (eg. prettier)
