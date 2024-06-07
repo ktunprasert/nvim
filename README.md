@@ -21,7 +21,12 @@ Neovim version `0.8` and above is required
 
 ### WSL Users
 
-Ensure you also get `fzf` and `wslu`
+| Name  | Why?                            |
+| ----- | ------------------------------- |
+| fzf   | Fuzzy search within fish        |
+| wslu  | `xdg-open` from wsl to Windows  |
+| omf-z | Basically `rupa-z` but for fish |
+| xh    | `curl` for the 21st century     |
 
 ### Potential Manual Effort Required
 
@@ -70,6 +75,3 @@ In order to use the Copilot AI autocompletion you must run the following command
 ```vim
 :Copilot auth
 ```
-
-Follow the instructions
-
