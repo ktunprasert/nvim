@@ -79,6 +79,7 @@ require("lazy").setup({
                 },
                 lazy = false,
                 opts = {},
+
                 config = function(_, opts)
                     -- setup dap config by VsCode launch.json file
                     -- require("dap.ext.vscode").load_launchjs()
