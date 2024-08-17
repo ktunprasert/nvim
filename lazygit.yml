@@ -4,6 +4,10 @@ gui:
   scrollHeight: 4
   scrollOffMargin: 4
   showFileTree: false
+  customCommands:
+    - key: o
+      command: 'gh pr view {{.SelectedBranch.Name}} --web || gh pr create {{.SelectedBranch.Name}} --web'
+      context: brances
 
 os:
   edit: "nvim --server $NVIM --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, 0)<CR>'"
