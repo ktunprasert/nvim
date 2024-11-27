@@ -22,4 +22,4 @@ git:
   overrideGpg: true
   paging:
     colorArg: always
-    pager: delta --dark --paging=never --tabs 2 -n -s
+    pager: delta --dark --tabs 2 -s --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
