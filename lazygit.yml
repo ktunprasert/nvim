@@ -19,6 +19,7 @@ keybinding:
     nextScreenMode: '='
 
 git:
+  overrideGpg: true
   paging:
     colorArg: always
     pager: delta --dark --paging=never --tabs 2 -n -s
