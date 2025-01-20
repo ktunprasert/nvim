@@ -646,6 +646,27 @@ require("lazy").setup({
 
     -- Own Plugins
     {
+        "petertriho/nvim-scrollbar",
+        init = function()
+            local colors = require('gruvbox')
+            require("scrollbar").setup({
+                handle = {
+                    color = colors.palette.light4,
+                },
+                marks = {
+                    Search = { color = colors.palette.bright_orange },
+                    Error = { color = colors.palette.bright_red },
+                    Warn = { color = colors.palette.bright_yellow },
+                    Info = { color = colors.palette.bright_blue },
+                    Hint = { color = colors.palette.light0 },
+                    Misc = { color = colors.palette.faded_purple },
+                }
+            })
+
+            require("scrollbar.handlers.gitsigns").setup()
+        end
+    },
+    {
         "ktunprasert/gui-font-resize.nvim",
         config = true,
     },
