@@ -83,9 +83,6 @@ keymap("n", "<A-e>", ":Neotree last float toggle<CR>")
 
 keymap("n", "<C-p>", ":Telescope find_files<CR>")
 
--- Toggle Symbols Outline
-keymap("n", "<A-o>", ":SymbolsOutline<CR>")
-
 -- Navigate buffers
 keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>")
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>")
