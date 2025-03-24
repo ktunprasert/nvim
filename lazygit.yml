@@ -4,6 +4,12 @@ gui:
   scrollHeight: 4
   scrollOffMargin: 4
   showFileTree: false
+  tabWidth: 2
+  sidePanelWidth: 0.25
+  showNumstatInFilesView: true
+  commandLogSize: 8
+  # filterMode: fuzzy
+  statusPanelView: allBranchesLog
 
 customCommands:
   - key: o
@@ -17,10 +23,15 @@ os:
 
 keybinding:
   universal:
-    nextScreenMode: '='
+    nextScreenMode: '+'
 
 git:
   overrideGpg: true
   paging:
     colorArg: always
     pager: delta --dark --tabs 2 -s --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  commitPrefix:
+    - pattern: "^\\w+\\/(\\w+-\\w+).*"
+      replace: '[$1] '
+    - pattern: "^([^_]+)_.*" # Take all text prior to the first underscore
+      replace: '($1) '
