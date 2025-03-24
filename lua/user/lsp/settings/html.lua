@@ -1,6 +1,6 @@
 return {
     filetypes = {
         "html",
-        "heex",
+        -- "heex",
     }
 }
