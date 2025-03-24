@@ -644,6 +644,15 @@ require("lazy").setup({
         lazy = false,
     },
 
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        opts = {
+            bigfile = { enabled = true },
+        },
+    },
+
     -- Own Plugins
     {
         "petertriho/nvim-scrollbar",
