@@ -206,14 +206,14 @@ require("lazy").setup({
         cmd = "Copilot",
         event = "InsertEnter",
         opts = {
-            suggestion = { enabled = false },
+            suggestion = { enabled = true },
             panel = { enabled = false },
             copilot_model = "gpt-4o-copilot",
         },
     },
     {
         "zbirenbaum/copilot-cmp",
-        dependencies = { "copilot.lua" },
+        dependencies = { "zbirenbaum/copilot.lua" },
         config = function()
             local fmt = require("copilot_cmp.format")
 
