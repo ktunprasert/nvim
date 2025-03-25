@@ -77,6 +77,41 @@ require("lazy").setup({
             --     max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
             --     --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
             -- },
+            copilot = {
+                endpoint = "https://api.githubcopilot.com",
+                -- endpoint = "https://api.individual.githubcopilot.com",
+                -- model = "gpt-4o-2024-08-06",
+                -- available models
+                -- "gpt-3.5-turbo" OK
+                -- "gpt-3.5-turbo-0613" OK
+                -- "gpt-4o-mini" OK
+                -- "gpt-4o-mini-2024-07-18" OK
+                -- "gpt-4" OK
+                -- "gpt-4-0613" OK
+                -- "gpt-4o" OK
+                -- "gpt-4o-2024-05-13" OK
+                -- "gpt-4-o-preview" OK
+                -- "gpt-4o-2024-08-06" OK
+                -- "gpt-4o-2024-11-20" OK
+                -- "claude-3.5-sonnet" OK
+                -- "claude-3.7-sonnet" OK
+                -- "claude-3.7-sonnet-thought" OK
+                -- "gemini-2.0-flash-001" OK
+                --
+                -- Untested
+                -- "text-embedding-ada-002"
+                -- "text-embedding-3-small"
+                -- "text-embedding-3-small-inference"
+                --
+                -- Not OK
+                -- The following are found in the API for the Immersive chat mode in GitHub copilot
+                -- "o1" NOT OK
+                -- "o1-2024-12-17" NOT OK
+                -- "o3-mini" NOT OK
+                -- "o3-mini-2025-01-31" NOT OK
+                -- "o3-mini-paygo" NOT OK
+                model = "claude-3.7-sonnet-thought",
+            },
         },
         -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
         build = "make",
