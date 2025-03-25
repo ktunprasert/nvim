@@ -1,8 +1,8 @@
-local comment_color = vim.api.nvim_get_hl_by_name('Comment', true)
+local comment_color = vim.api.nvim_get_hl(0, {name = 'Comment', link = false})
 
 local opts = {
     primary = {
-        fg = comment_color.foreground,
+        fg = comment_color.fg,
         bold = true,
         underline = true,
     },
