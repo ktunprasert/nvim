@@ -39,7 +39,7 @@ vim.opt.shortmess:append "c"
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
-
+vim.opt.laststatus = 3
 
 -- For auto-session
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
