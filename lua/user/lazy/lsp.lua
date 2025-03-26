@@ -193,11 +193,13 @@ return {
         build = ":TSUpdate",
     },
     {
-        "simrat39/symbols-outline.nvim",
+        "hedyhli/outline.nvim",
         lazy = false,
-        opts = {
-            auto_close = true,
+        keys = {
+            { "<leader>o", "<cmd>Outline<cr>",      desc = "Outline" },
+            { "<A-o>",     "<cmd>OutlineFocus<cr>", desc = "Outline" },
         },
+        opts = {},
     },
 
     {
@@ -208,7 +210,7 @@ return {
     {
         "chrisgrieser/nvim-various-textobjs",
         lazy = false,
-        opts = { useDefaultKeymaps = true },
+        opts = { keymaps = { useDefaults = true } },
     },
 
     {

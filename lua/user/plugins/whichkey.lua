@@ -140,7 +140,7 @@ local mappings = {
     B = { "<Cmd>bp | sp | bn | bd<CR>", "Delete Buffer" },
     h = { function() require("harpoon.mark").add_file() end, "Harpoon File" },
     H = { function() require("harpoon.ui").toggle_quick_menu() end, "Harpoon List" },
-    o = { ":SymbolsOutline<CR>", "Symbols Outline" },
+    -- o = { ":SymbolsOutline<CR>", "Symbols Outline" },
 }
 
 whichkey.register(mappings, opts)
