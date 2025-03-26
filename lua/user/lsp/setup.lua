@@ -21,7 +21,7 @@ local servers = {
     "marksman",
     "pyright",
     "svelte",
-    "tsserver",
+    "ts_ls",
     "yamlls",
     "zk",
     "tailwindcss",
