@@ -54,13 +54,13 @@ require("lazy").setup({
     -- ╚══════╝╚══════╝╚═╝╚══════╝ ╚═════╝╚═╝     ╚═╝╚═╝     ~ LSP and Autocompletion
     -- CMP dependencies
     -- TODO: Check all things regarding colorful-menu
-    { "xzbdmw/colorful-menu.nvim", config = true, },
-    { "giuxtaposition/blink-cmp-copilot", after = { "copilot.lua"} },
+    { "xzbdmw/colorful-menu.nvim",        config = true, },
+    { "giuxtaposition/blink-cmp-copilot", after = { "copilot.lua" } },
     {
         'saghen/blink.cmp',
         dependencies = { 'rafamadriz/friendly-snippets' },
         version = '1.*',
-        config = function ()
+        config = function()
             local blink_opts = require("user.blinkcmp")
             require("blink.cmp").setup(blink_opts)
         end,
