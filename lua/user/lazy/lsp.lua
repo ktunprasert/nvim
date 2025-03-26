@@ -13,7 +13,7 @@ return {
     { "giuxtaposition/blink-cmp-copilot", after = { "copilot.lua" } },
     {
         'saghen/blink.cmp',
-        dependencies = { 'rafamadriz/friendly-snippets' },
+        dependencies = { 'rafamadriz/friendly-snippets', 'Kaiser-Yang/blink-cmp-avante' },
         version = '1.*',
         config = function()
             local blink_opts = require("user.blinkcmp")
@@ -63,6 +63,10 @@ return {
                 -- model = "claude-3.7-sonnet-thought",
                 model = "claude-3.7-sonnet",
             },
+            file_selector = {
+                provider = "fzf",
+                provider_opts = {},
+            },
         },
         build = "make",
         dependencies = {
@@ -73,7 +77,7 @@ return {
             --- The below dependencies are optional,
             "echasnovski/mini.pick",         -- for file_selector provider mini.pick
             "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-            "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
+            -- "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
             "ibhagwan/fzf-lua",              -- for file_selector provider fzf
             "nvim-tree/nvim-web-devicons",   -- or echasnovski/mini.icons
             {
