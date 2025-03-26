@@ -20,7 +20,7 @@ null_ls.setup({
         -- formatting.blue.with({ extra_args = { "--fast" } }),
         -- formatting.yamlfmt.with({ extra_args = { "-conf=~/.config/.yamlfmt" } }),
         -- formatting.stylua,
-        -- diagnostics.flake8
+        diagnostics.golangci_lint,
         -- null_ls.builtins.code_actions.gitsigns,
         h.make_builtin(
             {

@@ -246,7 +246,7 @@ require("lazy").setup({
 
     -- Linter/Formatter
     {
-        "jose-elias-alvarez/null-ls.nvim", -- for formatters and linter
+        "nvimtools/none-ls.nvim", -- for formatters and linter
         lazy = false,
         config = function() require("user.lsp.null-ls") end
     },
