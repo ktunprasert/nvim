@@ -241,6 +241,11 @@ require("lazy").setup({
     },
 
     {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
+    },
+
+    {
         "chrisgrieser/nvim-various-textobjs",
         lazy = false,
         opts = { useDefaultKeymaps = true },
