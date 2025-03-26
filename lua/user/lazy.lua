@@ -255,10 +255,6 @@ require("lazy").setup({
         dependencies = {
             {
                 "nvim-treesitter/nvim-treesitter-textobjects",
-                init = function()
-                    -- no need to load the plugin, since we only need its queries
-                    require("lazy.core.loader").disable_rtp_plugin("nvim-treesitter-textobjects")
-                end,
             },
         },
         config = function()
@@ -281,8 +277,8 @@ require("lazy").setup({
     {
         "drybalka/tree-climber.nvim",
         keys = {
-            { mode = {"n", "o"}, '<Left>', function() require('tree-climber').goto_prev() end, opts },
-            { mode = {"n", "o"}, '<Right>', function() require('tree-climber').goto_next() end, opts },
+            { mode = { "n", "o" }, '<Left>', function() require('tree-climber').goto_prev() end, opts },
+            { mode = { "n", "o" }, '<Right>', function() require('tree-climber').goto_next() end, opts },
         },
     },
 
