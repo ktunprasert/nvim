@@ -36,6 +36,8 @@ for _, s in pairs(servers) do
     else
         server_opts = opts
     end
+
+    server_opts.capabilities = require("blink.cmp").get_lsp_capabilities()
     require("lspconfig")[s].setup(server_opts)
 end
 
