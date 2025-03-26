@@ -42,7 +42,6 @@ return {
 			})
 		end)(),
 	},
-
 	appearance = {
 		nerd_font_variant = "mono",
 	},
@@ -54,11 +53,10 @@ return {
 					{
 						"label",
 						"label_description",
-						gap = 20,
+						gap = 40,
 					},
 					{ "kind_icon" },
 					{ "kind" },
-					-- { 'source_name' },
 				},
 				components = {
 					item_idx = {
