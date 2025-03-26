@@ -1,6 +1,6 @@
 local accept = function(n)
 	return function(cmp)
-		cmp.accept(n)
+		cmp.accept({ index = n })
 	end
 end
 
