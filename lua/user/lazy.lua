@@ -211,7 +211,7 @@ require("lazy").setup({
         cmd = "Copilot",
         event = "InsertEnter",
         opts = {
-            suggestion = { enabled = true },
+            suggestion = { enabled = false },
             panel = { enabled = false },
             copilot_model = "gpt-4o-copilot",
         },
