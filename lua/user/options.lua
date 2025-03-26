@@ -42,7 +42,7 @@ vim.opt.cursorline = true
 vim.opt.laststatus = 3
 
 -- For auto-session
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 if os.getenv('SHELL') == "C:\\Program Files\\Git\\usr\\bin\\bash.exe" then
     print("Windows Git Bash Found - setting shell compatibility")
