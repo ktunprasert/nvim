@@ -23,11 +23,9 @@ tsconfigs.setup {
             enable = true,
             swap_next = {
                 ["<leader>a"] = "@parameter.inner",
-                ["<A-l>"] = "@parameter.inner",
             },
             swap_previous = {
                 ["<leader>A"] = "@parameter.inner",
-                ["<A-h>"] = "@parameter.inner",
             },
         },
         select = {
@@ -67,7 +65,7 @@ tsconfigs.setup {
             -- * query_string: eg '@function.inner'
             -- * selection_mode: eg 'v'
             -- and should return true of false
-            include_surrounding_whitespace = true,
+            include_surrounding_whitespace = false,
         },
         move = {
             enable = true,
