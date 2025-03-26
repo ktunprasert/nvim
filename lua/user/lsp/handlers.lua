@@ -55,7 +55,7 @@ local function lsp_highlight_document(client)
             end,
         })
         vim.api.nvim_create_autocmd("CursorMoved", {
-        group = "lsp_document_highlight",
+            group = "lsp_document_highlight",
             buffer = 0,
             callback = function()
                 vim.lsp.buf.clear_references()
