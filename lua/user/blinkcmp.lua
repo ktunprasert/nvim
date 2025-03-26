@@ -27,19 +27,20 @@ return {
 	cmdline = {
 		enabled = true,
 		completion = {
-            list = {
-                selection = {
-                    preselect = false,
-                }
-            },
-			-- menu = {
-			-- 	auto_show = true,
-			-- },
+			list = {
+				selection = {
+					preselect = false,
+				},
+			},
+			menu = {
+				auto_show = true,
+			},
 		},
-		keymap = vim.tbl_deep_extend("force", keymaps, {
-            ["<CR>"] = { "accept_and_enter", "fallback_to_mappings" },
-        }),
-
+		keymap = (function()
+			return vim.tbl_deep_extend("force", keymaps, {
+				["<CR>"] = { "fallback" },
+			})
+		end)(),
 	},
 
 	appearance = {
