@@ -12,7 +12,6 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local opts = { noremap = true, silent = true }
 local lazyOpts = {
     install = {
         colorscheme = { "gruvbox" },
