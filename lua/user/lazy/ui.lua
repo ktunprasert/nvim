@@ -25,6 +25,11 @@ return {
         }
     },
     {
+        "nvim-lualine/lualine.nvim",
+        dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
+        config = function() require("user.plugins.lualine") end
+    },
+    {
         "folke/zen-mode.nvim",
         opts = {
             window = {
@@ -152,5 +157,11 @@ return {
 
             require("scrollbar.handlers.gitsigns").setup()
         end
+    },
+
+    {
+        "folke/edgy.nvim",
+        event = "VeryLazy",
+        opts = {},
     },
 }

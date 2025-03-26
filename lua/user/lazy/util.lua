@@ -25,11 +25,6 @@ return {
         }
     },
     {
-        "nvim-lualine/lualine.nvim",
-        dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
-        config = function() require("user.plugins.lualine") end
-    },
-    {
         "akinsho/toggleterm.nvim",
         lazy = false,
         version = '*',
