@@ -341,11 +341,7 @@ require("lazy").setup({
     --  ╚═════╝    ╚═╝   ╚═╝╚══════╝╚═╝   ╚═╝      ╚═╝   ~ Utility
     {
         "kylechui/nvim-surround",
-        opts = {
-            aliases = {
-                ["<"] = "t",
-            },
-        }
+        opts = { aliases = { ["<"] = "t", }, }
     },
     {
         "lewis6991/gitsigns.nvim",
@@ -669,23 +665,8 @@ require("lazy").setup({
     {
         "RRethy/vim-illuminate",
         keys = {
-            {
-                mode = "n",
-                "<Up>",
-                function()
-                    require("illuminate").goto_prev_reference(true)
-                end,
-                "Prev node under cursor"
-            },
-
-            {
-                mode = "n",
-                "<Down>",
-                function()
-                    require("illuminate").goto_next_reference(true)
-                end,
-                "Next node under cursor"
-            }
+            { mode = "n", "<Up>",   function() require("illuminate").goto_prev_reference(true) end, "Prev node under cursor" },
+            { mode = "n", "<Down>", function() require("illuminate").goto_next_reference(true) end, "Next node under cursor" }
         },
         init = function()
             require("illuminate").configure({
