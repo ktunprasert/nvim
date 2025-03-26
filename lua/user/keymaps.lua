@@ -144,19 +144,6 @@ keymap("n", ")", "<cmd>cnext<CR>")
 -- C-l as delete key
 keymap("i", "<C-l>", "<Del>")
 
--- Change the suggestion scrolling - toggling suggestion with Ctrl + Space in Insert mode
--- Insert --
-vim.keymap.set("i", "<C-Space>", function() return vim.fn.pumvisible() == 0 and '<C-N>' or '<C-Space>' end,
-    { expr = true })
-vim.keymap.set("i", "<Tab>", function() return vim.fn.pumvisible() == 1 and '<C-N>' or '<Tab>' end, { expr = true })
-vim.keymap.set("i", "<S-Tab>", function() return vim.fn.pumvisible() == 1 and '<C-P>' or '<S-Tab>' end, { expr = true })
-vim.keymap.set("i", "<C-j>", function() return vim.fn.pumvisible() == 1 and '<C-N>' or '<C-j>' end, { expr = true })
-vim.keymap.set("i", "<C-k>", function() return vim.fn.pumvisible() == 1 and '<C-P>' or '<C-k>' end, { expr = true })
-
--- -- Command --
-vim.keymap.set("c", "<C-j>", 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true })
-vim.keymap.set("c", "<C-k>", 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true })
-
 keymap("n", "<A-Up>", "<cmd>GUIFontSizeUp<CR>")
 keymap("n", "<A-Down>", "<cmd>GUIFontSizeDown<CR>")
 keymap("n", "<A-0>", "<cmd>GUIFontSizeSet<CR>")
