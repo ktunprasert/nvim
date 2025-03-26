@@ -25,6 +25,14 @@ return {
         }
     },
     {
+        'b0o/incline.nvim',
+        config = function()
+            require("user.plugins.incline")
+        end,
+        -- Optional: Lazy load Incline
+        event = 'VeryLazy',
+    },
+    {
         "nvim-lualine/lualine.nvim",
         dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function() require("user.plugins.lualine") end

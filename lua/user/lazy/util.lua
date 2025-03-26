@@ -91,15 +91,6 @@ return {
     {
         "mg979/vim-visual-multi",
     },
-
-    {
-        'b0o/incline.nvim',
-        config = function()
-            require("user.plugins.incline")
-        end,
-        -- Optional: Lazy load Incline
-        event = 'VeryLazy',
-    },
     {
         'stevearc/quicker.nvim',
         event = "FileType qf",
