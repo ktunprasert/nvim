@@ -204,23 +204,6 @@ require("lazy").setup({
             copilot_model = "gpt-4o-copilot",
         },
     },
-    {
-        "zbirenbaum/copilot-cmp",
-        dependencies = { "zbirenbaum/copilot.lua" },
-        config = function()
-            local fmt = require("copilot_cmp.format")
-
-            require("copilot_cmp").setup({
-                formatters = {
-                    insert_text = fmt.remove_existing,
-                },
-                event = { "InsertEnter", "LspAttach" },
-                fix_pairs = true,
-            })
-
-            vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
-        end
-    },
 
     -- Snippets engine
     { "L3MON4D3/LuaSnip",                  lazy = false },
@@ -233,15 +216,6 @@ require("lazy").setup({
     {
         "hinell/lsp-timeout.nvim",
         dependencies = { "neovim/nvim-lspconfig" },
-    },
-    {
-        "ray-x/lsp_signature.nvim",
-        lazy = false,
-        opts = {
-            toggle_key = '<C-k>',
-            bind = true,
-            handler_opts = { border = "none" }
-        },
     },
 
     -- Linter/Formatter
