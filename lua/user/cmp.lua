@@ -1,3 +1,5 @@
+-- deprecation notice
+-- this is no longer needed as we swap to blink.cmp
 local cmp_ok, cmp = pcall(require, "cmp")
 local luasnip_ok, luasnip = pcall(require, "luasnip")
 if (not cmp_ok) and (not luasnip_ok) then
