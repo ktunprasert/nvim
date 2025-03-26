@@ -53,30 +53,25 @@ require("lazy").setup({
     -- ███████╗███████║██║███████╗╚██████╗██║ ╚═╝ ██║██║
     -- ╚══════╝╚══════╝╚═╝╚══════╝ ╚═════╝╚═╝     ╚═╝╚═╝     ~ LSP and Autocompletion
     -- CMP dependencies
-    { "hrsh7th/nvim-cmp",         lazy = false }, -- The completion plugin
-    { "hrsh7th/cmp-buffer",       lazy = false }, -- buffer completions
-    { "hrsh7th/cmp-path",         lazy = false }, -- path completions
-    { "hrsh7th/cmp-cmdline",      lazy = false }, -- cmdline completions
-    { "saadparwaiz1/cmp_luasnip", lazy = false }, -- snippet completions
-    { "hrsh7th/cmp-nvim-lsp",     lazy = false },
-    { "hrsh7th/cmp-nvim-lua",     lazy = false },
-
+    -- TODO: Check all things regarding colorful-menu
+    { "xzbdmw/colorful-menu.nvim", config = true, },
+    { "giuxtaposition/blink-cmp-copilot", after = { "copilot.lua"} },
+    {
+        'saghen/blink.cmp',
+        dependencies = { 'rafamadriz/friendly-snippets' },
+        version = '1.*',
+        config = function ()
+            local blink_opts = require("user.blinkcmp")
+            require("blink.cmp").setup(blink_opts)
+        end,
+        opts_extend = { "sources.default" }
+    },
     {
         "yetone/avante.nvim",
         event = "VeryLazy",
         version = false, -- Never set this value to "*"! Never!
         opts = {
-            -- add any opts here
-            -- for example
             provider = "copilot",
-            -- openai = {
-            --     endpoint = "https://api.openai.com/v1",
-            --     model = "gpt-4o",   -- your desired model (or use gpt-4o, etc.)
-            --     timeout = 30000,    -- Timeout in milliseconds, increase this for reasoning models
-            --     temperature = 0,
-            --     max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-            --     --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
-            -- },
             copilot = {
                 endpoint = "https://api.githubcopilot.com",
                 -- endpoint = "https://api.individual.githubcopilot.com",
@@ -113,9 +108,7 @@ require("lazy").setup({
                 model = "claude-3.7-sonnet-thought",
             },
         },
-        -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
         build = "make",
-        -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
             "stevearc/dressing.nvim",
@@ -204,9 +197,9 @@ require("lazy").setup({
     {
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
-        event = "InsertEnter",
+        -- event = "InsertEnter",
         opts = {
-            suggestion = { enabled = true },
+            suggestion = { enabled = false },
             panel = { enabled = false },
             copilot_model = "gpt-4o-copilot",
         },
