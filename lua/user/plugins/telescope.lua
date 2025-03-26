@@ -9,7 +9,7 @@ local keymap = require 'lib.utils'.keymap
 telescope.setup {
     defaults = {
         path_display = { truncate = 1, shorten = 5 },
-        file_ignore_patterns = { '.git/', 'node_modules/', 'vendor/', '*.exe' },
+        file_ignore_patterns = { '.git/', 'node_modules/', 'vendor/', '*.exe', "*.lock", "*.sum", "*-lock.json" },
         vimgrep_arguments = {
             "rg",
             "--color=never",
