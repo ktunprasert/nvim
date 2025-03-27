@@ -97,8 +97,6 @@ return {
             local success, node = pcall(vim.treesitter.get_node)
             if success and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
                 return { "copilot", "path", "snippets", "buffer" }
-            elseif vim.bo.filetype == "lua" then
-                return { "copilot", "lsp", "path", "snippets" }
             else
                 return { "copilot", "lsp", "path", "snippets", "buffer" }
             end
