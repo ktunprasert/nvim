@@ -81,7 +81,7 @@ keymap("n", "<A-Left>", "gT")
 -- keymap("n", "<C-e>", ":Neotree last focus<CR>")
 keymap("n", "<C-e>", function() require("edgy").toggle() end)
 keymap("n", "<Leader>e", ":Neotree focus<CR>")
-keymap("n", "<A-e>", ":Neotree position=float filesystem<CR>")
+keymap("n", "<A-e>", ":Neotree toggle position=float filesystem<CR>")
 
 keymap("n", "<C-p>", ":Telescope find_files<CR>")
 

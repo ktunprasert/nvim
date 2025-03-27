@@ -15,19 +15,23 @@ local opts = {
             ft = "help",
             size = { width = 0.3 },
         },
+        {
+            ft = "man",
+            size = { width = 0.3 },
+        },
     },
     right = {
-        {
-            title = "Files",
-            ft = "neo-tree",
-            filter = function(buf_n)
-                local buf = vim.b[buf_n]
-                return buf.neo_tree_source == "filesystem" and buf.neo_tree_position ~= "float"
-            end,
-            pinned = true,
-            collapsed = false,
-            open = "Neotree position=bottom filesystem dir=."
-        },
+        -- {
+        --     title = "Files",
+        --     ft = "neo-tree",
+        --     filter = function(buf_n)
+        --         local buf = vim.b[buf_n]
+        --         return buf.neo_tree_source == "filesystem" and buf.neo_tree_position ~= "float"
+        --     end,
+        --     pinned = true,
+        --     collapsed = false,
+        --     open = "Neotree position=bottom filesystem dir=."
+        -- },
         {
             title = "Buffers",
             ft = "neo-tree",
@@ -38,7 +42,6 @@ local opts = {
             pinned = true,
             collapsed = false,
             open = "Neotree position=right buffers",
-            size = { height = 0.2 },
         },
         -- {
         --     title = "Git",
