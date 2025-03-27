@@ -68,14 +68,58 @@ local is_wsl = (
 --     ]]
 -- end
 
--- Turn off relative number when in command mode
-vim.cmd [[
-augroup numbertoggle
-  autocmd!
-      autocmd CmdlineLeave * :set rnu
-      autocmd CmdlineEnter * :set nornu | redraw
-augroup END
-]]
+-- Turn off relative number when in command mode, but exclude special buffer types
+vim.api.nvim_create_augroup("numbertoggle", { clear = true })
+
+-- Define excluded filetypes
+local excluded_filetypes = {
+    ["toggleterm"] = true,
+    ["avanteinput"] = true,
+    ["avanteselectedfiles"] = true,
+    ["avante"] = true,
+    ["neo-tree"] = true,
+}
+
+local excluded_buftypes = {
+    ["nofile"] = true,
+    ["prompt"] = true,
+    ["quickfix"] = true,
+    ["help"] = true,
+    ["terminal"] = true,
+}
+
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+    group = "numbertoggle",
+    callback = function()
+        local buf = vim.api.nvim_get_current_buf()
+        local buftype = vim.bo[buf].buftype
+        local filetype = vim.bo[buf].filetype
+
+        -- Skip for excluded buffer types
+        if excluded_buftypes[buftype] or excluded_filetypes[filetype] then
+            return
+        end
+
+        vim.opt.relativenumber = false
+        vim.cmd("redraw")
+    end,
+})
+
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+    group = "numbertoggle",
+    callback = function()
+        local buf = vim.api.nvim_get_current_buf()
+        local buftype = vim.bo[buf].buftype
+        local filetype = vim.bo[buf].filetype
+
+        -- Skip for excluded buffer types
+        if excluded_buftypes[buftype] or excluded_filetypes[filetype] then
+            return
+        end
+
+        vim.opt.relativenumber = true
+    end,
+})
 
 vim.api.nvim_create_autocmd('BufReadPost', {
     callback = function()
