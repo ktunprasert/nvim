@@ -203,6 +203,9 @@ return {
                 down_and_jump = '<Down>',
                 up_and_jump = '<Up>',
             },
+            outline_window = {
+                focus_on_open = false,
+            }
         },
     },
 
