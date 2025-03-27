@@ -14,7 +14,7 @@ neotree.setup {
         winbar = false,
         statusline = false,
     },
-    open_files_do_not_replace_types = { "terminal", "Trouble", "qf", "edgy" },
+    open_files_do_not_replace_types = { "terminal", "Trouble", "qf", "edgy", "help", "avante"  },
     close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
     popup_border_style = "rounded",
     enable_git_status = true,

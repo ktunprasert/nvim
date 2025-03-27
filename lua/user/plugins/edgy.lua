@@ -10,15 +10,11 @@ local opts = {
     animate = {
         enabled = false,
     },
+    options = {
+        left = { size = 0.3 },
+    },
     left = {
-        {
-            ft = "help",
-            size = { width = 0.3 },
-        },
-        {
-            ft = "man",
-            size = { width = 0.3 },
-        },
+        { ft = "help", }, { ft = "man", },
     },
     right = {
         -- {
