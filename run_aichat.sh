@@ -59,6 +59,7 @@ aichat -m copilot:gemini-2.0-flash-001 "Please suggest 10 commit messages, given
     test(unit): add new test cases
     style: remove unused imports
     refactor(pages): extract common code to \`utils/wait.ts\`
+    feat(module): implemented some new feature
 
     **Instructions:**
 
