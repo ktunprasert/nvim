@@ -170,6 +170,8 @@ return {
     {
         "folke/edgy.nvim",
         event = "VeryLazy",
-        opts = {},
+        config = function()
+            require("user.plugins.edgy")
+        end,
     },
 }

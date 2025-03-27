@@ -4,6 +4,17 @@ if not ok then
 end
 
 neotree.setup {
+    sources = {
+        "filesystem",
+        "buffers",
+        "git_status",
+        "document_symbols",
+    },
+    source_selector = {
+        winbar = false,
+        statusline = false,
+    },
+
     close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
     popup_border_style = "rounded",
     enable_git_status = true,
@@ -153,7 +164,7 @@ neotree.setup {
         bind_to_cwd = false,
         follow_current_file = { enabled = false }, -- This will find and focus the file in the active buffer every
         -- time the current file is changed while the tree is open.
-        group_empty_dirs = true,                  -- when true, empty folders will be grouped together
+        group_empty_dirs = true,                   -- when true, empty folders will be grouped together
         show_unloaded = true,
         window = {
             mappings = {

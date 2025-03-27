@@ -196,10 +196,14 @@ return {
         "hedyhli/outline.nvim",
         lazy = false,
         keys = {
-            { "<leader>o", "<cmd>Outline<cr>",      desc = "Outline" },
-            { "<A-o>",     "<cmd>OutlineFocus<cr>", desc = "Outline" },
+            { "<leader>o", "<cmd>OutlineFocus<cr>", desc = "Outline" },
         },
-        opts = {},
+        opts = {
+            keymaps = {
+                down_and_jump = '<Down>',
+                up_and_jump = '<Up>',
+            },
+        },
     },
 
     {
