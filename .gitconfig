@@ -4,7 +4,7 @@
     ui = true
 [core]
     editor = nvim
-	autocrlf = input
+	autocrlf = false
 	eol = lf
     pager = delta
 [alias]
