@@ -16,6 +16,13 @@ customCommands:
     command: 'gh pr view {{.SelectedLocalBranch.Name}} --web || gh pr create {{.SelectedLocalBranch.Name}} --web'
     context: remoteBranches
 
+  - key: '<c-a>'
+    description: Pick AI commit
+    context: files
+    subprocess: true
+    # command: ~/run_aichat.sh
+    command: $NVIM_DIR/run_aichat.sh
+
 os:
   edit: "nvim --server $NVIM --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, 0)<CR>'"
   editAtLine: "nvim --server $NVIM --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, {{line}})<CR>'"

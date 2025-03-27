@@ -5,13 +5,13 @@ end
 
 local keymap = require('lib.utils').keymap
 
-function checkWin()
-    return vim.fn.has('win64') == 1 and 'bash' or 'fish'
-end
+-- function checkWin()
+--     return vim.fn.has('win64') == 1 and 'bash' or 'fish'
+-- end
 
 toggleterm.setup {
     direction = "float",
-    shell = checkWin(),
+    shell = 'fish',
     open_mapping = [[<C-t>]],
     shading_factor = 2,
     float_opts = {
@@ -35,7 +35,7 @@ function _edit(fn, line_number)
     vim.cmd(edit_cmd)
 end
 
-function _lazygit_toggle()
+function Lazygit_toggle()
     local git_root_cmd = "git rev-parse --show-toplevel"
     local lg_cmd = string.format("lg -p $(%s)", git_root_cmd)
     if vim.v.servername ~= nil then
@@ -48,13 +48,17 @@ function _lazygit_toggle()
     end
 
     local lazygit = Terminal:new({
+        shell = 'fish',
         count = 5,
         cmd = lg_cmd,
+        env = {
+            NVIM_DIR = vim.fn.stdpath('config'),
+        },
     })
     lazygit:toggle()
 end
 
-keymap("n", "<leader>G", "<cmd>lua _lazygit_toggle()<CR>")
+keymap("n", "<leader>G", "<cmd>lua Lazygit_toggle()<CR>")
 
 keymap("n", "<Leader>t", "<cmd>ToggleTerm<CR>")
 keymap("n", "1<Leader>t", "<cmd>ToggleTerm 1<CR>")
