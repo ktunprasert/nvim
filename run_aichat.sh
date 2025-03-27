@@ -23,7 +23,7 @@ diff=$(git diff --cached)
 log=$(git log -n 10 --pretty=format:'%h %s')
 
 # Run aichat with all arguments passed to this script
-aichat -m copilot:claude-3.5-sonnet "Please suggest 10 commit messages, given the following diff:
+aichat -m copilot:gpt-4o-mini-2024-07-18 "Please suggest 10 commit messages, given the following diff:
     \`\`\`diff
     $diff
     \`\`\`
