@@ -64,8 +64,10 @@ return {
         dependencies = {
             "kyazdani42/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
         },
         config = function() require("user.plugins.neotree") end,
+        lazy = false,
     },
 
     {
