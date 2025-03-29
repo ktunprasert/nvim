@@ -8,7 +8,7 @@
   - [Initial setup](#initial-setup)
     - [TreeSitter](#treesitter)
     - [LSP & Linters & Formatters & Dap](#lsp-linters-formatters-dap)
-    - [Null-ls](#null-ls)
+    - [~~Null-ls~~ None-ls](#null-ls-none-ls)
     - [Copilot](#copilot)
 <!--toc:end-->
 
@@ -75,10 +75,10 @@ more information
 Sources installed via Mason will be available through Null-ls as well
 for example installing python's black formatter then setting up a null-ls source
 
-### Null-ls
+### ~~Null-ls~~ None-ls
 
 Use providers such as `prettier` to format JSON, YAML, TypeScript and JavaScript
-files. See more information at [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim/)
+files. Since `null-ls` is deprecated it's recommended to use `none-ls` instead  [https://github.com/nvimtools/none-ls.nvim](https://github.com/nvimtools/none-ls.nvim)
 
 ### Copilot
 
