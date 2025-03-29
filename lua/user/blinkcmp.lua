@@ -130,7 +130,7 @@ return {
                 module = "blink-cmp-copilot",
                 score_offset = 100,
                 async = true,
-                transform_items = function(ctx, items)
+                transform_items = function(_, items)
                     for _, item in ipairs(items) do
                         item.kind_icon = ""
                         item.kind_name = "Copilot"
@@ -145,8 +145,4 @@ return {
         },
     },
     fuzzy = { implementation = "prefer_rust_with_warning" },
-
-    signature = {
-        enabled = true,
-    },
 }
