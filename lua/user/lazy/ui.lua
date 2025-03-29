@@ -52,6 +52,7 @@ return {
         "shortcuts/no-neck-pain.nvim",
         lazy = false,
         opts = {
+            width = 150,
             buffers = {
                 scratchPad = {
                     enabled = true,
