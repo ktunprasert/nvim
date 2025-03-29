@@ -28,6 +28,7 @@ The following requirements are required for running the configuration distro
 | [fd](https://github.com/sharkdp/fd)                  | File searching with Telescope                  |
 | [lazygit](https://github.com/jesseduffield/lazygit/) | Managing Git repositories                      |
 | [delta](https://github.com/dandavison/delta)         | Git diff within LazyGit                        |
+| [aichat](https://github.com/sigoden/aichat)          | For generating AI commits 😉                   |
 
 Neovim version `0.8` and above is required
 
@@ -78,7 +79,7 @@ for example installing python's black formatter then setting up a null-ls source
 ### ~~Null-ls~~ None-ls
 
 Use providers such as `prettier` to format JSON, YAML, TypeScript and JavaScript
-files. Since `null-ls` is deprecated it's recommended to use `none-ls` instead  [https://github.com/nvimtools/none-ls.nvim](https://github.com/nvimtools/none-ls.nvim)
+files. Since `null-ls` is deprecated it's recommended to use `none-ls` instead [https://github.com/nvimtools/none-ls.nvim](https://github.com/nvimtools/none-ls.nvim)
 
 ### Copilot
 
