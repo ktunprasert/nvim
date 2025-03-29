@@ -111,7 +111,7 @@ neotree.setup {
             ["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
             ["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
             ["q"] = "close_window",
-            ["<C-e>"] = "close_window",
+            -- ["<C-e>"] = "close_window",
             ["R"] = "refresh",
             ["?"] = "show_help",
         }
