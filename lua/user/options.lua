@@ -55,9 +55,9 @@ if vim.g.neovide then
     require("user.gui.neovide")
 end
 
-local is_wsl = (
-    function() local output = vim.fn.systemlist "uname -r" return not not string.find(output[1] or "", "WSL") end
-    )()
+-- local is_wsl = (
+--     function() local output = vim.fn.systemlist "uname -r" return not not string.find(output[1] or "", "WSL") end
+--     )()
 
 -- if is_wsl then
 --     vim.cmd [[
