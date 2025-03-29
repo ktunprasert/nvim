@@ -41,6 +41,20 @@ return {
                 ["<CR>"] = { "fallback" },
             })
         end)(),
+        sources = function()
+            local type = vim.fn.getcmdtype()
+            -- Search forward and backward
+            if type == '/' or type == '?' then return { 'buffer' } end
+            -- Commands
+            if type == ':' or type == '@' then
+                if vim.fn.getcmdline():match("!") ~= nil then
+                    return {}
+                end
+
+                return { 'cmdline' }
+            end
+            return {}
+        end,
     },
     appearance = {
         nerd_font_variant = "mono",
