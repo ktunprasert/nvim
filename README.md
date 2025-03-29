@@ -1,5 +1,17 @@
 # Nvim-config
 
+<!--toc:start-->
+- [Nvim-config](#nvim-config)
+  - [System dependencies](#system-dependencies)
+    - [WSL Users](#wsl-users)
+    - [Potential Manual Effort Required](#potential-manual-effort-required)
+  - [Initial setup](#initial-setup)
+    - [TreeSitter](#treesitter)
+    - [LSP & Linters & Formatters & Dap](#lsp-linters-formatters-dap)
+    - [Null-ls](#null-ls)
+    - [Copilot](#copilot)
+<!--toc:end-->
+
 <a href="https://dotfyle.com/ktunprasert/nvim-config"><img src="https://dotfyle.com/ktunprasert/nvim-config/badges/plugins?style=flat" /></a>
 <a href="https://dotfyle.com/ktunprasert/nvim-config"><img src="https://dotfyle.com/ktunprasert/nvim-config/badges/leaderkey?style=flat" /></a>
 <a href="https://dotfyle.com/ktunprasert/nvim-config"><img src="https://dotfyle.com/ktunprasert/nvim-config/badges/plugin-manager?style=flat" /></a>
