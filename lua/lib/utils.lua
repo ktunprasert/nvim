@@ -4,9 +4,7 @@ local default_opts = { noremap = true, silent = true }
 
 -- Shorten function name
 local function keymap(mode, key, cmd, options, desc)
-    if options == nil then
-        options = default_opts
-    end
+    options = options or default_opts
 
     if desc ~= nil then
         options.desc = desc
