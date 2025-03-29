@@ -79,7 +79,11 @@ keymap("n", "<A-Left>", "gT")
 -- Toggle File Explorer
 -- keymap("n", "<C-e>", ":Neotree last position=right focus<CR>")
 -- keymap("n", "<C-e>", ":Neotree last focus<CR>")
-keymap("n", "<C-e>", function() require("edgy").toggle() end)
+keymap("n", "<C-e>", function()
+    require("edgy").toggle()
+    vim.schedule(function() require("edgy").goto_main() end)
+end)
+
 keymap("n", "<Leader>e", ":Neotree focus<CR>")
 keymap("n", "<A-e>", ":Neotree toggle position=float filesystem<CR>")
 
