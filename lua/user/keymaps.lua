@@ -139,9 +139,10 @@ keymap("n", "<C-Del>", "<cmd>e!<CR>")
 -- Context up
 keymap("n", "<BS>", function() require("treesitter-context").go_to_context() end)
 
--- Quickfix
-keymap("n", "(", "<cmd>cprev<CR>")
-keymap("n", ")", "<cmd>cnext<CR>")
+-- Quickfix with fallback to loclist
+local utils = require("lib.utils")
+keymap("n", "(", utils.smart_qf_navigation("prev"), nil, "Navigate to previous quickfix or loclist item")
+keymap("n", ")", utils.smart_qf_navigation("next"), nil, "Navigate to next quickfix or loclist item")
 
 -- C-l as delete key
 keymap("i", "<C-l>", "<Del>")
