@@ -141,7 +141,7 @@ keymap("n", "<F5>", "<cmd>noh<CR>")
 keymap("n", "<C-Del>", "<cmd>e!<CR>")
 
 -- Context up
-keymap("n", "<BS>", function() require("treesitter-context").go_to_context() end)
+keymap("n", "<BS>", function() require("barbecue.ui").navigate(-1) end)
 
 -- Quickfix with fallback to loclist
 local utils = require("lib.utils")
