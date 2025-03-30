@@ -101,7 +101,6 @@ return {
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
-    -- TODO: bring in copilot
     sources = {
         default = function(_)
             if vim.bo.filetype == "AvanteInput" then

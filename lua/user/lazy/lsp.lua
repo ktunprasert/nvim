@@ -8,7 +8,6 @@ return {
     -- ███████╗███████║██║███████╗╚██████╗██║ ╚═╝ ██║██║
     -- ╚══════╝╚══════╝╚═╝╚══════╝ ╚═════╝╚═╝     ╚═╝╚═╝     ~ LSP and Autocompletion
     -- CMP dependencies
-    -- TODO: Check all things regarding colorful-menu
     { "xzbdmw/colorful-menu.nvim",        config = true, },
     { "giuxtaposition/blink-cmp-copilot", after = { "copilot.lua" } },
     {
@@ -104,6 +103,13 @@ return {
                     file_types = { "markdown", "Avante" },
                 },
                 ft = { "markdown", "Avante" },
+                overrides = {
+                    buftype = {
+                        nofile = {
+                            code = { left_pad = 0, right_pad = 0 },
+                        },
+                    },
+                },
             },
         },
     },
@@ -134,6 +140,7 @@ return {
 
                     require("user.dap.elixir")
                     require("user.dap.php")
+                    require("user.dap.go")
 
                     dapui.setup(opts)
                     dap.listeners.after.event_initialized["dapui_config"] = function()
