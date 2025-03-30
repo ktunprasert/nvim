@@ -129,4 +129,12 @@ return {
             bigfile = { enabled = true },
         },
     },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = true,
+        keys = {
+            { mode = "n", "<leader>sT", "<cmd>TodoTelescope<cr>", desc = "Search TODO comments" },
+        }
+    },
 }
