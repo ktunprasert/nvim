@@ -35,7 +35,9 @@ return {
         lazy = false,
         opts = {
             log_level = 'info',
-            pre_save_cmds = { "Neotree close", "helpclose" },
+            pre_save_cmds = { "Neotree close", "helpclose", function ()
+                require("incline").disable()
+            end },
             -- auto_session_enable_last_session = true,
         }
     },
