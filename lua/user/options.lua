@@ -157,10 +157,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 
 -- ensure filetype is set for help buffers
 vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  callback = function(args)
-    if vim.bo[args.buf].buftype == "help" then
-      vim.bo[args.buf].filetype = "help"
-    end
-  end,
+    pattern = "*",
+    callback = function(args)
+        if vim.bo[args.buf].buftype == "help" then
+            vim.bo[args.buf].filetype = "help"
+        end
+    end,
 })
