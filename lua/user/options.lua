@@ -41,6 +41,20 @@ vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
 vim.opt.laststatus = 3
 
+-- check for windows
+if vim.fn.has("win32") ~= 1 then
+    vim.opt.fileformat = "unix"
+    -- vim.api.nvim_create_augroup("ConvertToLF", { clear = true })
+    -- vim.api.nvim_create_autocmd("BufWritePre", {
+    --     group = "ConvertToLF",
+    --     pattern = "*",
+    --     callback = function()
+    --
+    --     end,
+    -- })
+end
+
+
 -- For auto-session
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
@@ -133,10 +147,10 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 
 -- automatically remove trailing whitespace
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = {"*"},
+    pattern = { "*" },
     callback = function(_)
         local save_cursor = vim.fn.getpos(".")
-        vim.cmd([[%s/\s\+$//e]])
+        vim.cmd([[%s/\v(\s\+)|\r//e]])
         vim.fn.setpos(".", save_cursor)
     end,
 })
