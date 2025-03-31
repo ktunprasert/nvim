@@ -147,10 +147,10 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 
 -- automatically remove trailing whitespace
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = { "*" },
+    pattern = {"*"},
     callback = function(_)
         local save_cursor = vim.fn.getpos(".")
-        vim.cmd([[%s/\v(\s\+)|\r//e]])
+        vim.cmd([[%s/\s\+$//e]])
         vim.fn.setpos(".", save_cursor)
     end,
 })
