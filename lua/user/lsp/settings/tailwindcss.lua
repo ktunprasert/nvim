@@ -1,5 +1,8 @@
 local opts = {
-    filetypes = { "html", "elixir", "eelixir", "heex", "eex", "svelte" },
+    filetypes = {
+        "html", "elixir", "eelixir", "heex", "eex", "svelte",
+        "typescriptreact", "javascriptreact"
+    },
     init_options = {
         userLanguages = {
             elixir = "html-eex",
