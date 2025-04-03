@@ -34,7 +34,7 @@ vim.opt.termguicolors = true
 vim.opt.guifont = "Iosevka:h12,Iosevka_Nerd_Font:h12,Garuda:h12"
 vim.opt.guifontwide = "Garuda:h12"
 vim.opt.tm = 500 -- for faster WhichKey toggle
-vim.opt.autochdir = true
+vim.opt.autochdir = false
 vim.opt.shortmess:append "c"
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "80"
@@ -147,7 +147,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 
 -- automatically remove trailing whitespace
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = {"*"},
+    pattern = { "*" },
     callback = function(_)
         local save_cursor = vim.fn.getpos(".")
         vim.cmd([[%s/\s\+$//e]])
