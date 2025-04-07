@@ -139,6 +139,30 @@ return {
     },
     {
         "monaqa/dial.nvim",
+        lazy = true,
+        config = function()
+            local augend = require("dial.augend")
+            require("dial.config").augends:register_group {
+                default = {
+                    augend.constant.alias.bool,
+                    augend.constant.alias.de_weekday,
+                    augend.constant.alias.de_weekday_full,
+                    augend.date.alias["%Y/%m/%d"],
+                    augend.date.alias['%Y-%m-%d'],
+                    augend.date.alias['%Y/%m/%d'],
+                    augend.hexcolor.new({ case = 'upper' }),
+                    augend.integer.alias.decimal,
+                    augend.integer.alias.decimal_int,
+                    augend.integer.alias.hex,
+                    augend.case.new({
+                        types = { 'camelCase', 'snake_case', 'PascalCase' },
+                        cyclic = true,
+                    }),
+                    -- a and b
+                    augend.semver.alias.semver,
+                }
+            }
+        end,
         keys = {
             { mode = "n", "<C-a>",  function() require("dial.map").manipulate("increment", "normal") end,  remap = true },
             { mode = "n", "<C-x>",  function() require("dial.map").manipulate("decrement", "normal") end,  remap = true },
