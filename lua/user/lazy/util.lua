@@ -137,4 +137,17 @@ return {
             { mode = "n", "<leader>sT", "<cmd>TodoTelescope<cr>", desc = "Search TODO comments" },
         }
     },
+    {
+        "monaqa/dial.nvim",
+        keys = {
+            { mode = "n", "<C-a>",  function() require("dial.map").manipulate("increment", "normal") end,  remap = true },
+            { mode = "n", "<C-x>",  function() require("dial.map").manipulate("decrement", "normal") end,  remap = true },
+            { mode = "n", "g<C-a>", function() require("dial.map").manipulate("increment", "gnormal") end, remap = true },
+            { mode = "n", "g<C-x>", function() require("dial.map").manipulate("decrement", "gnormal") end, remap = true },
+            { mode = "v", "<C-a>",  function() require("dial.map").manipulate("increment", "visual") end,  remap = true },
+            { mode = "v", "<C-x>",  function() require("dial.map").manipulate("decrement", "visual") end,  remap = true },
+            { mode = "v", "g<C-a>", function() require("dial.map").manipulate("increment", "gvisual") end, remap = true },
+            { mode = "v", "g<C-x>", function() require("dial.map").manipulate("decrement", "gvisual") end, remap = true },
+        },
+    },
 }
