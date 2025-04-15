@@ -74,7 +74,7 @@ telescope.setup {
                 mirror = false,
             },
             -- width = .80,
-            -- height = .99,
+            -- height = 500,
             -- preview_cutoff = 120,
         },
         sorting_strategy = "ascending",
@@ -101,12 +101,13 @@ telescope.setup {
             only_sort_text = true,
         },
         buffers = {
+            theme = "ivy",
             mappings = {
                 i = {
                     ["<c-d>"] = actions.delete_buffer,
                 }
             }
-        }
+        },
     },
     extensions = {
         ['ui-select'] = {
