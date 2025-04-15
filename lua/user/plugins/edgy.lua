@@ -11,7 +11,7 @@ local opts = {
         enabled = false,
     },
     options = {
-        left = { size = 0.3 },
+        left = { size = 0.4 },
     },
     left = {
         { ft = "help", }, { ft = "man", },
