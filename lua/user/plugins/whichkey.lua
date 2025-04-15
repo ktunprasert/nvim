@@ -130,6 +130,7 @@ local mappings = {
         c = { "<Cmd>Telescope commands<CR>", "Commands" },
         d = { "<Cmd>Telescope diagnostics bufnr=0<CR>", "Diagnostics current buffer" },
         D = { "<Cmd>Telescope diagnostics<CR>", "Global diagnostics" },
+        m = { "<Cmd>Telescope treesitter theme=ivy symbols=function,method<CR>", "mearch methods" }
     },
     ["/"] = { "<Cmd>HopPattern<CR>", "Hop by Pattern" },
     b = {
