@@ -13,7 +13,7 @@ local ensure = {
 tsconfigs.setup {
     ensure_installed = ensure,
     highlight = {
-        enable = false,
+        enable = true,
     },
     indent = {
         enable = true
@@ -51,7 +51,7 @@ tsconfigs.setup {
             -- mapping query_strings to modes.
             selection_modes = {
                 ['@parameter.outer'] = 'v', -- charwise
-                ['@function.outer'] = 'V',  -- linewise
+                ['@function.outer'] = 'V', -- linewise
                 ['@class.outer'] = '<c-v>', -- blockwise
             },
             -- If you set this to `true` (default is `false`) then any textobject is
@@ -101,22 +101,3 @@ tsconfigs.setup {
         },
     }
 }
-
-vim.api.nvim_create_autocmd("BufEnter", {
-    callback = function()
-        local current_bufnr = vim.api.nvim_get_current_buf()
-        local file_path = vim.api.nvim_buf_get_name(current_bufnr)
-        if file_path ~= "" then
-            local file_size = vim.fn.getfsize(file_path)
-            local max_size_bytes = 1024 * 1000 -- Example: 1MB
-            if file_size > max_size_bytes then
-                -- ts_highlight.disable(current_bufnr)
-                vim.cmd("TSBufDisable " .. current_bufnr .. "")
-                vim.notify("Tree-sitter highlighting disabled for this large file.", vim.log.levels.WARN)
-            else
-                vim.cmd("TSBufEnable " .. current_bufnr .. "")
-                -- ts_highlight.enable(current_bufnr) -- Ensure it's enabled if it was disabled globally
-            end
-        end
-    end
-})
