@@ -118,7 +118,10 @@ local mappings = {
         name = "Search [Telescope]",
         g = { "<Cmd>Telescope git_files<CR>", "Git Files" },
         f = { "<Cmd>Telescope find_files<CR>", "Find All Files" },
-        t = { "<Cmd>Telescope live_grep<cr>", "Text" },
+        -- t = { "<Cmd>Telescope live_grep<cr>", "Text" },
+        t = { function()
+            require("user.telescope.multigrep").setup()
+        end, "Text" },
         h = { "<Cmd>Telescope help_tags<cr>", "Find Help" },
         b = { "<Cmd>Telescope buffers<CR>", "Buffers" },
         k = { "<Cmd>Telescope keymaps<CR>", "Keymaps" },
