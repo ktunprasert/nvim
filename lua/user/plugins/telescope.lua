@@ -8,7 +8,13 @@ local keymap = require 'lib.utils'.keymap
 
 telescope.setup {
     defaults = {
-        path_display = { truncate = 1, shorten = 5 },
+        preview = {
+            filesize_limit = 0.5,
+        },
+        -- border = false,
+        -- wrap_results = true,
+        -- path_display = { truncate = 1, shorten = 5 },
+        path_display = { "filename_first", truncate = 1 },
         file_ignore_patterns = { '.git/', 'node_modules/', 'vendor/', '*.exe', "*.lock", "*.sum", "*-lock.json" },
         vimgrep_arguments = {
             "rg",
@@ -58,16 +64,20 @@ telescope.setup {
         layout_strategy = "horizontal",
         layout_config = {
             horizontal = {
-                preview_width = 0.55,
-                results_width = 0.8,
+                preview_width = 0.6,
+                width = { padding = 0 },
+                -- width = .99,
+                height = { padding = 0 },
+                prompt_position = "top",
             },
             vertical = {
                 mirror = false,
             },
-            width = 0.87,
-            height = 0.80,
-            preview_cutoff = 120,
+            -- width = .80,
+            -- height = .99,
+            -- preview_cutoff = 120,
         },
+        sorting_strategy = "ascending",
         file_sorter = require("telescope.sorters").get_fuzzy_file,
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
         winblend = 0,
