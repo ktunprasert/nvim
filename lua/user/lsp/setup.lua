@@ -7,27 +7,7 @@ local opts = {
     capabilities = capabilities,
 }
 
-local servers = {
-    "bashls",
-    "cssls",
-    "emmet_ls",
-    "eslint",
-    "gopls",
-    "html",
-    "intelephense",
-    "jdtls",
-    "jsonls",
-    "lua_ls",
-    "marksman",
-    "pyright",
-    "svelte",
-    "ts_ls",
-    "yamlls",
-    "zk",
-    "tailwindcss",
-    "templ",
-    "elixirls",
-};
+local servers = require("config").servers
 
 for _, s in pairs(servers) do
     local ok, server_opts = pcall(require, "user.lsp.settings." .. s)
