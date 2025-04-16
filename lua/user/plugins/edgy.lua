@@ -28,17 +28,17 @@ local opts = {
         --     collapsed = false,
         --     open = "Neotree position=bottom filesystem dir=."
         -- },
-        {
-            title = "Buffers",
-            ft = "neo-tree",
-            filter = function(buf_n)
-                local buf = vim.b[buf_n]
-                return buf.neo_tree_source == "buffers"
-            end,
-            pinned = true,
-            collapsed = false,
-            open = "Neotree position=right buffers",
-        },
+        -- {
+        --     title = "Buffers",
+        --     ft = "neo-tree",
+        --     filter = function(buf_n)
+        --         local buf = vim.b[buf_n]
+        --         return buf.neo_tree_source == "buffers"
+        --     end,
+        --     pinned = true,
+        --     collapsed = true,
+        --     open = "Neotree position=right buffers",
+        -- },
         -- {
         --     title = "Git",
         --     ft = "neo-tree",
