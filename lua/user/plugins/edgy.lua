@@ -17,6 +17,9 @@ local opts = {
     left = {
         { ft = "help", }, { ft = "man", },
     },
+    wo = {
+        winfixwidth = false,
+    },
     right = {
         -- {
         --     title = "Files",
@@ -68,7 +71,20 @@ local opts = {
             title = "Quickfix",
             ft = "qf",
             open = "cope"
-        }
+        },
+    },
+    keys = {
+        ["<c-w>="] = function(win)
+            win.view.edgebar:equalize()
+        end,
+        ["="] = function(win)
+            win:resize("width", 2)
+        end,
+        -- decrease width
+        ["_"] = function(win)
+            win:resize("width", -2)
+        end,
+
     },
 }
 
