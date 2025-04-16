@@ -154,18 +154,13 @@ return {
     {
         "petertriho/nvim-scrollbar",
         init = function()
-            local colors = require('gruvbox')
+            local colors = require('ashen.colors')
             require("scrollbar").setup({
                 handle = {
-                    color = colors.palette.light4,
+                    color = colors.g_7,
                 },
                 marks = {
-                    Search = { color = colors.palette.bright_orange },
-                    Error = { color = colors.palette.bright_red },
-                    Warn = { color = colors.palette.bright_yellow },
-                    Info = { color = colors.palette.bright_blue },
-                    Hint = { color = colors.palette.light0 },
-                    Misc = { color = colors.palette.faded_purple },
+                    Search = { color = colors.orange_glow },
                 }
             })
 
