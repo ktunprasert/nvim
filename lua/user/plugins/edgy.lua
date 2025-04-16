@@ -63,6 +63,13 @@ local opts = {
             open = "InspectTree",
         },
     },
+    bottom = {
+        {
+            title = "Quickfix",
+            ft = "qf",
+            open = "cope"
+        }
+    },
 }
 
 edgy.setup(opts)
