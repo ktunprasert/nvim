@@ -50,8 +50,8 @@ local function is_git_repo()
     return vim.v.shell_error == 0
 end
 
-lualine.setup {
-    options = {
+local opts = {
+    {
         icons_enabled = true,
         component_separators = { left = '|', right = '|' },
         section_separators = { left = '', right = '' },
@@ -77,3 +77,6 @@ lualine.setup {
         "toggleterm",
     }
 }
+
+local ashen_opts = require("ashen.plugins.lualine").lualine_opts
+lualine.setup(vim.tbl_deep_extend("force", ashen_opts, opts))

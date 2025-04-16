@@ -35,8 +35,12 @@ return {
     },
     {
         "nvim-lualine/lualine.nvim",
-        dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
+        dependencies = {
+            { 'kyazdani42/nvim-web-devicons', opt = true },
+            { 'ficcdaf/ashen.nvim' }
+        },
         config = function() require("user.plugins.lualine") end
+
     },
     {
         "folke/zen-mode.nvim",
