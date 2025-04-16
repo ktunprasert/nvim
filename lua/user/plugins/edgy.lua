@@ -11,7 +11,8 @@ local opts = {
         enabled = false,
     },
     options = {
-        left = { size = 0.4 },
+        left = { size = 80 },
+        right = { size = 60 },
     },
     left = {
         { ft = "help", }, { ft = "man", },
@@ -55,6 +56,11 @@ local opts = {
             pinned = true,
             collapsed = false,
             open = "Outline",
+        },
+        {
+            title = "Treesitter Inspect",
+            ft = "query",
+            open = "InspectTree",
         },
     },
 }
