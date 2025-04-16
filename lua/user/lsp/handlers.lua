@@ -17,9 +17,10 @@ M.setup = function()
         -- virtual_text = true,
         virtual_lines = true,
         -- show signs
-        signs = {
-            active = signs,
-        },
+        signs = false,
+        -- signs = {
+        --     active = signs,
+        -- },
         update_in_insert = true,
         underline = true,
         severity_sort = true,
