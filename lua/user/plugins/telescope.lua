@@ -65,10 +65,12 @@ telescope.setup {
         layout_config = {
             horizontal = {
                 preview_width = 0.6,
-                width = { padding = 0 },
-                -- width = .99,
-                height = { padding = 0 },
+                width = 175,
+                height = 45,
+                -- width = { padding = 0 },
+                -- height = { padding = 0 },
                 prompt_position = "top",
+                -- mirror = true,
             },
             vertical = {
                 mirror = false,
