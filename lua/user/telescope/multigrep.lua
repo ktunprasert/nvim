@@ -26,7 +26,7 @@ local live_multigrep = function(opts)
             if pieces[2] then
                 table.insert(args, "-g")
                 -- table.insert(args, pieces[2])
-                table.insert(args, string.format("%s*", pieces[2]))
+                table.insert(args, string.format("*%s*", pieces[2]))
             end
 
             return vim.iter({ args, { "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" } })
