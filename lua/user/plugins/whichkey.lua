@@ -95,7 +95,8 @@ local mappings = {
     ["f"] = { "<Cmd>Neotree reveal<CR>", "Find Files" },
     F = { "<Cmd>Format<CR>", "Format current file" },
     ["p"] = { "<Cmd>Telescope projects<CR>", "Projects" },
-    r = { "<Cmd>Telescope oldfiles<CR>", "Recent Files" },
+    R = { "<Cmd>Telescope oldfiles<CR>", "Recent Files (Global)" },
+    r = { "<Cmd>Telescope oldfiles cwd_only=true<CR>", "Recent Files" },
     D = { "<Cmd>%bd<CR>", "Delete ALL Buffers" },
     G = { name = "LazyGit" },
     g = {
@@ -123,7 +124,7 @@ local mappings = {
             require("user.telescope.multigrep").setup()
         end, "Text" },
         h = { "<Cmd>Telescope help_tags<cr>", "Find Help" },
-        b = { "<Cmd>Telescope buffers<CR>", "Buffers" },
+        b = { "<Cmd>Telescope buffers sort_mru=true<CR>", "Buffers" },
         k = { "<Cmd>Telescope keymaps<CR>", "Keymaps" },
         ['"'] = { "<Cmd>Telescope registers<CR>", "Registers" },
         p = { [[<Cmd>lua require'telescope.builtin'.colorscheme({enable_preview = true})<CR>]], "Colourscheme Preview" },
