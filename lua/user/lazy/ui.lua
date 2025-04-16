@@ -26,6 +26,7 @@ return {
     },
     {
         'b0o/incline.nvim',
+        enabled = false,
         config = function()
             require("user.plugins.incline")
         end,
