@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local lazyOpts = {
     install = {
-        colorscheme = { "gruvbox" },
+        colorscheme = { "ashen" },
     }
 }
 
