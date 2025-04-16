@@ -10,6 +10,7 @@ telescope.setup {
     defaults = {
         preview = {
             filesize_limit = 0.5,
+            treesitter = { disable = { "javascript" } },
         },
         -- border = false,
         -- wrap_results = true,
