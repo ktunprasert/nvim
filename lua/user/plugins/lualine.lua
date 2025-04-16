@@ -41,7 +41,16 @@ local components = {
     filetype = {
         "filetype",
         colored = false,
-        fmt = string.upper
+        -- fmt = string.upper
+    },
+    wintype = {
+        function()
+            if vim.bo.buftype ~= "" then
+                return " " .. vim.bo.buftype
+            end
+
+            return ""
+        end
     }
 }
 
@@ -69,7 +78,7 @@ local opts = {
         },
         lualine_c = { "diff" },
         lualine_x = { components.diagnostics },
-        lualine_y = { "fileformat", components.lsp, components.filetype },
+        lualine_y = { "fileformat", components.lsp, components.filetype, components.wintype },
         lualine_z = { "progress", "os.date('%H:%M')" },
     },
     extensions = {
