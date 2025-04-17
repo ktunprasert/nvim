@@ -7,6 +7,7 @@ return {
     --    ╚═╝   ╚══════╝╚══════╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝ ~ Telescope
     {
         "nvim-telescope/telescope.nvim",
+        lazy = true,
         dependencies = {
             { 'kyazdani42/nvim-web-devicons' },
             { 'nvim-telescope/telescope-live-grep-raw.nvim' },
