@@ -42,6 +42,8 @@ vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
 vim.opt.laststatus = 3
 
+vim.go.lazyredraw = true
+
 -- check for windows
 if vim.fn.has("win32") ~= 1 then
     vim.opt.fileformat = "unix"
