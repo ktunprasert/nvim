@@ -22,7 +22,7 @@ local keymaps = {
     ["<A-9>"] = { accept(9) },
 }
 
-return {
+local opts = {
     keymap = keymaps,
     cmdline = {
         enabled = true,
@@ -91,7 +91,12 @@ return {
             },
         },
         ghost_text = { enabled = false },
-        documentation = { auto_show = true },
+        documentation = {
+            auto_show = true,
+            window = {
+                max_height = 100,
+            },
+        },
         list = {
             selection = {
                 preselect = true,
@@ -145,3 +150,5 @@ return {
     },
     fuzzy = { implementation = "prefer_rust_with_warning" },
 }
+
+require("blink.cmp").setup(opts)

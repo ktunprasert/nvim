@@ -15,8 +15,7 @@ return {
         dependencies = { 'rafamadriz/friendly-snippets', 'Kaiser-Yang/blink-cmp-avante' },
         version = '1.*',
         config = function()
-            local blink_opts = require("user.blinkcmp")
-            require("blink.cmp").setup(blink_opts)
+            require("user.blinkcmp")
         end,
         opts_extend = { "sources.default" }
     },
