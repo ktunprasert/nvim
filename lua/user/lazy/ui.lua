@@ -99,6 +99,13 @@ return {
                     },
                     opts = { skip = true },
                 },
+                -- {
+                --     filter = {
+                --         event = "msg_show",
+                --         kind = "search_count",
+                --     },
+                --     -- opts = { skip = true },
+                -- },
             },
             lsp = {
                 signature = {
@@ -111,6 +118,7 @@ return {
                     ["cmp.entry.get_documentation"] = true,
                 },
                 hover = {
+                    enabled = false,
                     opts = {
                         size = {
                             max_width = 150,
