@@ -20,11 +20,11 @@ if [ -z "$COPILOT_API_KEY" ]; then
 fi
 
 diff=$(git diff --cached)
-log=$(git log -n 10 --pretty=format:'%h %s')
+log=$(git log -n 30 --pretty=format:'%h %s')
 
 # Run aichat with all arguments passed to this script
-# aichat -m copilot:gemini-2.0-flash-001 "Please suggest 10 commit messages, given the following diff:
-aichat -m openrouter:google/gemini-2.0-flash-exp:free "Please suggest 10 commit messages, given the following diff:
+# aichat -m openrouter:google/gemini-2.0-flash-exp:free "Please suggest 10 commit messages, given the following diff:
+aichat -m copilot:gemini-2.0-flash-001 "Please suggest 10 commit messages, given the following diff:
     \`\`\`diff
     $diff
     \`\`\`
