@@ -146,6 +146,11 @@ local opts = {
                 module = "blink-cmp-avante",
                 name = "Avante",
             },
+            snippets = {
+                opts = {
+                    search_paths = { vim.fn.stdpath("config") .. "/snippets" }
+                },
+            },
         },
     },
     fuzzy = { implementation = "prefer_rust_with_warning" },

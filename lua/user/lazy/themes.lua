@@ -19,7 +19,6 @@ return {
             -- vim.cmd([[colorscheme gruvbox]])
         end,
     },
-
     {
         "ficcdaf/ashen.nvim",
         -- optional but recommended,
