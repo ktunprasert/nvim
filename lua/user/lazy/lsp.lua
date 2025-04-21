@@ -13,7 +13,7 @@ return {
     {
         'saghen/blink.cmp',
         dependencies = { 'rafamadriz/friendly-snippets', 'Kaiser-Yang/blink-cmp-avante' },
-        version = '1.*',
+        version = '*',
         config = function()
             require("user.blinkcmp")
         end,
