@@ -1,0 +1,1 @@
+{"ifer1":{"prefix":"ifer1","body":["if err != nil {","    return err","}"]},"ifer2":{"body":["if err != nil {","    return ${1:}, err","}"],"prefix":"ifer2"}}
