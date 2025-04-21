@@ -141,7 +141,10 @@ keymap("n", "<F5>", "<cmd>noh<CR>")
 keymap("n", "<C-Del>", "<cmd>e!<CR>")
 
 -- Context up
-keymap("n", "<BS>", function() require("barbecue.ui").navigate(-1) end)
+-- keymap("n", "<BS>", function() require("barbecue.ui").navigate(-1) end)
+
+-- TreeSitter node parent navigation
+keymap("n", "<BS>", function() require("user.functions").ts_parent_node() end, nil, "Go to parent TreeSitter node")
 
 -- Quickfix with fallback to loclist
 local utils = require("lib.utils")
