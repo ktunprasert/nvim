@@ -48,8 +48,15 @@ M.on_attach = function(client, bufnr)
     end
 end
 
-local capabilities = require('blink.cmp').get_lsp_capabilities()
+local capabilities_override = {
+    workspace = {
+        didChangeWatchedFiles = {
+            dynamicRegistration = true,
+            relativePatternSupport = true,
+        },
+    }
+}
 
-M.capabilities = capabilities
+M.capabilities = require('blink.cmp').get_lsp_capabilities(capabilities_override)
 
 return M
