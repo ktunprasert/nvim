@@ -23,6 +23,7 @@ local keymaps = {
 }
 
 local opts = {
+    signature = { enabled = true },
     keymap = keymaps,
     cmdline = {
         enabled = true,
