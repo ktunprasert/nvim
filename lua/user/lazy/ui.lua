@@ -185,5 +185,13 @@ return {
             show_dirname = false,
             show_basename = false,
         },
-    }
+    },
+    {
+        "sphamba/smear-cursor.nvim",
+        opts = {
+            stiffness = .8,
+            trailing_stiffness = .5,
+            distance_stop_animating = .5,
+        },
+    },
 }
