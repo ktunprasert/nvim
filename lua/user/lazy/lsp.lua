@@ -12,7 +12,7 @@ return {
     { "giuxtaposition/blink-cmp-copilot", after = { "copilot.lua" } },
     {
         'saghen/blink.cmp',
-        dependencies = { 'rafamadriz/friendly-snippets', 'Kaiser-Yang/blink-cmp-avante' },
+        dependencies = { 'rafamadriz/friendly-snippets', 'Kaiser-Yang/blink-cmp-avante', 'ribru17/blink-cmp-spell' },
         version = '*',
         config = function()
             require("user.blinkcmp")

@@ -41,6 +41,9 @@ vim.opt.relativenumber = true
 vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
 vim.opt.laststatus = 3
+-- spellings
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_gb' }
 
 -- check for windows
 if vim.fn.has("win32") ~= 1 then
