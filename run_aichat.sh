@@ -89,6 +89,6 @@ aichat -m copilot:gemini-2.0-flash-001 "Please suggest 10 commit messages, given
         scenarios than include a lot of overlap.
 
     Write your 10 commit messages below in the format shown in Output Template section above." \
-| sed 's/\n+//g' \
+| awk 'NF > 0' \
 | fzf --height 100% --border --ansi --bind 'space:jump-accept' \
 | xargs -I {} bash -c 'git commit -m "{}"'
