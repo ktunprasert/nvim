@@ -214,3 +214,9 @@ end, { expr = true, desc = 'Duplicate [count] lines and comment out the first in
 -- search within visual selection - this is magic
 -- https://www.reddit.com/r/neovim/comments/1k4efz8/share_your_proudest_config_oneliners/mo9nalp/
 vim.keymap.set("x", "/", "<Esc>/\\%V", nil, "Search within visual selection")
+
+-- visual block editing
+-- Block insert in line visual mode
+-- https://www.reddit.com/r/neovim/comments/1k4efz8/share_your_proudest_config_oneliners/moelhto/
+vim.keymap.set('x', 'I', function() return vim.fn.mode() == 'V' and '^<C-v>I' or 'I' end, { expr = true })
+vim.keymap.set('x', 'A', function() return vim.fn.mode() == 'V' and '$<C-v>A' or 'A' end, { expr = true })
