@@ -61,6 +61,8 @@ aichat -m copilot:gemini-2.0-flash-001 "Please suggest 10 commit messages, given
     style: remove unused imports
     refactor(pages): extract common code to \`utils/wait.ts\`
     feat(module): implemented some new feature
+    chore: update dependencies
+    config(avante): change AI provider
 
     **Instructions:**
 
@@ -87,5 +89,6 @@ aichat -m copilot:gemini-2.0-flash-001 "Please suggest 10 commit messages, given
         scenarios than include a lot of overlap.
 
     Write your 10 commit messages below in the format shown in Output Template section above." \
-| fzf --height 40% --border --ansi --preview "echo {}" --preview-window=up:wrap \
+| sed 's/\n+//g' \
+| fzf --height 100% --border --ansi --preview "echo {}" --preview-window=up:wrap \
 | xargs -I {} bash -c 'git commit -m "{}"'
