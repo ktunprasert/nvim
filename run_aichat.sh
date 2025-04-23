@@ -90,5 +90,5 @@ aichat -m copilot:gemini-2.0-flash-001 "Please suggest 10 commit messages, given
 
     Write your 10 commit messages below in the format shown in Output Template section above." \
 | sed 's/\n+//g' \
-| fzf --height 100% --border --ansi --preview "echo {}" --preview-window=up:wrap \
+| fzf --height 100% --border --ansi --bind 'space:jump-accept' \
 | xargs -I {} bash -c 'git commit -m "{}"'
