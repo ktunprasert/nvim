@@ -201,22 +201,22 @@ function _G.duplicate_and_comment_lines()
     vim.api.nvim_win_set_cursor(0, { end_line + 1, cursor[2] })
 end
 
-vim.keymap.set('n', 'yc', function()
+keymap('n', 'yc', function()
     vim.opt.operatorfunc = 'v:lua.duplicate_and_comment_lines'
     return 'g@'
 end, { expr = true, desc = 'Duplicate selection and comment out the first instance' })
 
-vim.keymap.set('n', 'ycc', function()
+keymap('n', 'ycc', function()
     vim.opt.operatorfunc = 'v:lua.duplicate_and_comment_lines'
     return 'g@_'
 end, { expr = true, desc = 'Duplicate [count] lines and comment out the first instance' })
 
 -- search within visual selection - this is magic
 -- https://www.reddit.com/r/neovim/comments/1k4efz8/share_your_proudest_config_oneliners/mo9nalp/
-vim.keymap.set("x", "/", "<Esc>/\\%V", nil, "Search within visual selection")
+keymap("x", "/", "<Esc>/\\%V", nil, "Search within visual selection")
 
 -- visual block editing
 -- Block insert in line visual mode
 -- https://www.reddit.com/r/neovim/comments/1k4efz8/share_your_proudest_config_oneliners/moelhto/
-vim.keymap.set('x', 'I', function() return vim.fn.mode() == 'V' and '^<C-v>I' or 'I' end, { expr = true })
-vim.keymap.set('x', 'A', function() return vim.fn.mode() == 'V' and '$<C-v>A' or 'A' end, { expr = true })
+keymap('x', 'I', function() return vim.fn.mode() == 'V' and '^<C-v>I' or 'I' end, { expr = true })
+keymap('x', 'A', function() return vim.fn.mode() == 'V' and '$<C-v>A' or 'A' end, { expr = true })
