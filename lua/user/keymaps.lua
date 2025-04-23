@@ -209,3 +209,7 @@ vim.keymap.set('n', 'ycc', function()
     vim.opt.operatorfunc = 'v:lua.duplicate_and_comment_lines'
     return 'g@_'
 end, { expr = true, desc = 'Duplicate [count] lines and comment out the first instance' })
+
+-- search within visual selection - this is magic
+-- https://www.reddit.com/r/neovim/comments/1k4efz8/share_your_proudest_config_oneliners/mo9nalp/
+vim.keymap.set("x", "/", "<Esc>/\\%V", nil, "Search within visual selection")
