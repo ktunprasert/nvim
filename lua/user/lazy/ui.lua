@@ -46,7 +46,7 @@ return {
         "folke/zen-mode.nvim",
         opts = {
             window = {
-                width = 150,
+                width = 120,
                 options = {
                     wrap = true,
                 }
