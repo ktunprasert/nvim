@@ -297,4 +297,14 @@ return {
             snippetDir = vim.fn.stdpath("config") .. "/snippets",
         },
     },
+    {
+        'Chaitanyabsprip/fastaction.nvim',
+        opts = {
+            priority = {
+                go = {
+                    { pattern = "organize import", key = "1", order = 1 },
+                },
+            },
+        },
+    },
 }
