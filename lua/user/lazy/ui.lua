@@ -156,6 +156,9 @@ return {
         init = function()
             local colors = require('ashen.colors')
             require("scrollbar").setup({
+                show_in_active_only = true,
+                hide_if_all_visible = true,
+                max_lines = 1000,
                 handle = {
                     color = colors.g_7,
                 },
