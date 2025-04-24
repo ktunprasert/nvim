@@ -41,7 +41,8 @@ function Lazygit_toggle()
     if vim.v.servername ~= nil then
         local config_path = vim.fn.stdpath('config'):gsub('\\', '/')
         lg_cmd = string.format(
-            'lg -ucf %s/lazygit.yml -p $(%s)',
+            'lg -ucf "%s/lazygit.yml,%s/lg_ashen.yaml" -p $(%s)',
+            config_path,
             config_path,
             git_root_cmd
         )
