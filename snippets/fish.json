@@ -1,0 +1,1 @@
+{"guard":{"prefix":"guard","body":["if test -z \"\\$(which ${1:prog})\"","    return","end"]}}
