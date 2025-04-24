@@ -19,7 +19,7 @@ if [ -z "$COPILOT_API_KEY" ]; then
     load_copilot_key
 fi
 
-diff=$(git diff --cached)
+diff=$(git diff -U10 --cached)
 log=$(git log -n 30 --pretty=format:'%h %s')
 
 # Run aichat with all arguments passed to this script
