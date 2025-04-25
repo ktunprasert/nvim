@@ -174,6 +174,7 @@ return {
     {
         "folke/edgy.nvim",
         event = "VeryLazy",
+        ---@diagnostic disable-next-line: different-requires
         config = function() require("user.plugins.edgy") end,
     },
     {

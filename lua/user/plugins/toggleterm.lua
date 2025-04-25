@@ -28,7 +28,7 @@ toggleterm.setup {
 local Terminal = require('toggleterm.terminal').Terminal
 
 -- For Editing back from LazyGit
-function _edit(fn, line_number)
+function _G._edit(fn, line_number)
     local edit_cmd = string.format(":e %s", fn)
     if line_number ~= nil then
         edit_cmd = string.format(":e +%d %s", line_number, fn)
