@@ -78,7 +78,7 @@ local leader = {
         group = "[Window]",
         {
             "<Leader>W",
-            "<Cmd>lua require('window-picker').pick_window() or vim.api.nvim_get_current_win()<CR>",
+            function() return require('window-picker').pick_window() or vim.api.nvim_get_current_win() end,
             desc = "Pick Window",
         },
     },
@@ -141,6 +141,21 @@ local leader = {
         group = "[Harpoon]",
         { "<Leader>h", function() require("harpoon.mark").add_file() end,        desc = "Harpoon File" },
         { "<Leader>H", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Harpoon List" },
+    },
+    {
+        group = "[LSP]",
+        { "gD",        "<cmd>lua vim.lsp.buf.declaration()<CR>",                                        desc = "LSP Declaration" },
+        { "gd",        "<cmd>lua vim.lsp.buf.definition()<CR>",                                         desc = "LSP Definition" },
+        { "K",         "<cmd>lua vim.lsp.buf.hover()<CR>",                                              desc = "LSP Hover" },
+        { "gi",        "<cmd>lua vim.lsp.buf.implementation()<CR>",                                     desc = "LSP Implementation" },
+        { "<Leader>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>",                                     desc = "LSP Signature Help" },
+        { "gs",        "<cmd>lua vim.lsp.buf.signature_help()<CR>",                                     desc = "LSP Signature Help" },
+        { "<F2>",      "<cmd>lua vim.lsp.buf.rename()<CR>",                                             desc = "LSP Rename" },
+        { "gr",        "<cmd>lua vim.lsp.buf.references()<CR>",                                         desc = "LSP References" },
+        { "<F3>",      function() require("fastaction").code_action() end,                              desc = "LSP Code Action" },
+        { "gh",        "<cmd>lua vim.diagnostic.open_float()<CR>",                                      desc = "LSP Diagnostic Float" },
+        { "<Leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>",                                      desc = "LSP Set Loclist" },
+        { "gl",        '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>', desc = "LSP Line Diagnostics" },
     },
 }
 
