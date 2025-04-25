@@ -72,11 +72,6 @@ keymap("n", "<C-e>", function()
     vim.schedule(function() require("edgy").goto_main() end)
 end)
 
-keymap("n", "<Leader>e", ":Neotree focus<CR>")
-keymap("n", "<A-e>", ":Neotree toggle position=float filesystem<CR>")
-
-keymap("n", "<C-p>", ":Telescope find_files<CR>")
-
 -- Navigate buffers
 keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>")
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>")

@@ -98,16 +98,17 @@ local leader = {
     },
     {
         group = "[Buffers]",
-        { "<Leader>Q",  "<Cmd>qa<CR>",                                   desc = "Quit" },
-        { "<Leader>D",  "<Cmd>%bd<CR>",                                  desc = "Delete ALL Buffers" },
-        { "<Leader>bd", "<Cmd>bp | sp | bn | bd<CR>",                    desc = "Delete Buffer" },
-        { "<Leader>bq", "<Cmd>bd!<CR>",                                  desc = "Force delete buffer" },
-        { "<Leader>bb", "<Cmd>Neotree buffers focus position=float<CR>", desc = "Buffers Neotree" },
-        { "<Leader>B",  "<Cmd>bp | sp | bn | bd<CR>",                    desc = "Delete Buffer" },
+        { "<Leader>Q",  "<Cmd>qa<CR>",                desc = "Quit" },
+        { "<Leader>D",  "<Cmd>%bd<CR>",               desc = "Delete ALL Buffers" },
+        { "<Leader>bd", "<Cmd>bp | sp | bn | bd<CR>", desc = "Delete Buffer" },
+        { "<Leader>bq", "<Cmd>bd!<CR>",               desc = "Force delete buffer" },
+        { "<Leader>B",  "<Cmd>bp | sp | bn | bd<CR>", desc = "Delete Buffer" },
     },
     {
         group = "[Explore]",
-        { "<Leader>f", "<Cmd>Neotree float reveal<CR>", desc = "Reveal current file" },
+        { "<Leader>f",  "<Cmd>Neotree float reveal<CR>",                 desc = "Reveal current file" },
+        { "<Leader>bb", "<Cmd>Neotree buffers focus position=float<CR>", desc = "Buffers" },
+        { "<A-e>",      "<Cmd>Neotree toggle float filesystem<CR>",      desc = "Explore" }
     },
     {
         group = "[Git]",
@@ -157,6 +158,7 @@ local leader = {
         { "<Leader>sD", "<Cmd>Telescope diagnostics<CR>",                                  desc = "Global diagnostics" },
         { "<Leader>sm", "<Cmd>Telescope treesitter theme=ivy symbols=function,method<CR>", desc = "Search methods" },
         { "<Leader>sq", "<Cmd>Telescope quickfixhistory theme=ivy <CR>",                   desc = "Quickfix History" },
+        { "<C-p>",      "<Cmd>Telescope find_files<CR>",                                   desc = "Fuzzy find files" },
     },
     {
         group = "[Search] Hop",
