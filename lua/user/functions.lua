@@ -7,6 +7,11 @@ M.ts_parent_node = function()
     -- Get current cursor position before any movement
     local initial_pos = vim.api.nvim_win_get_cursor(0)
 
+    -- If we're already leftmost we stop
+    if initial_pos[2] == 0 then
+        return
+    end
+
     local current_node = ts_utils.get_node_at_cursor()
     if not current_node then
         print("No treesitter node found at cursor position")
