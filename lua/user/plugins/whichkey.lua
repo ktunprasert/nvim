@@ -81,6 +81,20 @@ local leader = {
             function() return require('window-picker').pick_window() or vim.api.nvim_get_current_win() end,
             desc = "Pick Window",
         },
+        { "<A-f>", "<cmd>ZenMode<CR>",    desc = "Zen Mode" },
+        { "<A-g>", "<cmd>NoNeckPain<CR>", desc = "No Neck Pain" },
+        {
+            "1<A-f>",
+            function()
+                require("zen-mode").toggle({
+                    window = {
+                        width = 100,
+                        options = { wrap = true }
+                    }
+                })
+            end,
+            desc = "Zen Mode - less width"
+        },
     },
     {
         group = "[Buffers]",
@@ -112,26 +126,37 @@ local leader = {
     },
     {
         group = "[Search] Telescope",
-        { "<Leader>p",   "<Cmd>Telescope projects<CR>",                                                    desc = "Projects" },
-        { "<Leader>R",   "<Cmd>Telescope oldfiles<CR>",                                                    desc = "Recent Files (Global)" },
-        { "<Leader>r",   "<Cmd>Telescope oldfiles cwd_only=true<CR>",                                      desc = "Recent Files" },
-        { "<Leader>sg",  "<Cmd>Telescope git_files<CR>",                                                   desc = "Git Files" },
-        { "<Leader>sf",  "<Cmd>Telescope find_files<CR>",                                                  desc = "Find All Files" },
-        { "<Leader>st",  function() require("user.telescope.multigrep").setup() end,                       desc = "Text" },
-        { "<Leader>sh",  "<Cmd>Telescope help_tags<cr>",                                                   desc = "Find Help" },
-        { "<Leader>sb",  "<Cmd>Telescope buffers sort_mru=true<CR>",                                       desc = "Buffers" },
-        { "<Leader>sk",  "<Cmd>Telescope keymaps<CR>",                                                     desc = "Keymaps" },
-        { "<Leader>s\"", "<Cmd>Telescope registers<CR>",                                                   desc = "Registers" },
-        { "<Leader>sp",  [[<Cmd>lua require'telescope.builtin'.colorscheme({enable_preview = true})<CR>]], desc = "Colourscheme Preview" },
-        { "<Leader>ss",  "<Cmd>Telescope session-lens search_session<CR>",                                 desc = "Sessions" },
-        { "<Leader>so",  "<Cmd>Telescope lsp_document_symbols theme=ivy<CR>",                              desc = "Document Symbols" },
-        { "<Leader>sO",  "<Cmd>Telescope lsp_workspace_symbols<CR>",                                       desc = "Workspace Symbols" },
-        { "<Leader>sr",  "<Cmd>Telescope lsp_references<CR>",                                              desc = "References" },
-        { "<Leader>sc",  "<Cmd>Telescope commands<CR>",                                                    desc = "Commands" },
-        { "<Leader>sd",  "<Cmd>Telescope diagnostics bufnr=0 theme=ivy<CR>",                               desc = "Diagnostics current buffer" },
-        { "<Leader>sD",  "<Cmd>Telescope diagnostics<CR>",                                                 desc = "Global diagnostics" },
-        { "<Leader>sm",  "<Cmd>Telescope treesitter theme=ivy symbols=function,method<CR>",                desc = "Search methods" },
-        { "<Leader>sq",  "<Cmd>Telescope quickfixhistory theme=ivy <CR>",                                  desc = "Quickfix History" },
+        { "<Leader>p",   "<Cmd>Telescope projects<CR>",                              desc = "Projects" },
+        { "<Leader>R",   "<Cmd>Telescope oldfiles<CR>",                              desc = "Recent Files (Global)" },
+        { "<Leader>r",   "<Cmd>Telescope oldfiles cwd_only=true<CR>",                desc = "Recent Files" },
+        { "<Leader>sg",  "<Cmd>Telescope git_files<CR>",                             desc = "Git Files" },
+        { "<Leader>sf",  "<Cmd>Telescope find_files<CR>",                            desc = "Find All Files" },
+        { "<Leader>st",  function() require("user.telescope.multigrep").setup() end, desc = "Text" },
+        { "<Leader>sh",  "<Cmd>Telescope help_tags<cr>",                             desc = "Find Help" },
+        { "<Leader>sb",  "<Cmd>Telescope buffers sort_mru=true<CR>",                 desc = "Buffers" },
+        { "<Leader>sk",  "<Cmd>Telescope keymaps<CR>",                               desc = "Keymaps" },
+        { "<Leader>s\"", "<Cmd>Telescope registers<CR>",                             desc = "Registers" },
+        {
+            "<Leader>sp",
+            function()
+                require('telescope.builtin').colorscheme({
+                    enable_preview = true,
+                    prompt_title = "Colourscheme Preview",
+                    layout_strategy = "vertical",
+                    layout_config = { height = 0.8 },
+                })
+            end,
+            desc = "Colourscheme Preview"
+        },
+        { "<Leader>ss", "<Cmd>Telescope session-lens search_session<CR>",                  desc = "Sessions" },
+        { "<Leader>so", "<Cmd>Telescope lsp_document_symbols theme=ivy<CR>",               desc = "Document Symbols" },
+        { "<Leader>sO", "<Cmd>Telescope lsp_workspace_symbols<CR>",                        desc = "Workspace Symbols" },
+        { "<Leader>sr", "<Cmd>Telescope lsp_references<CR>",                               desc = "References" },
+        { "<Leader>sc", "<Cmd>Telescope commands<CR>",                                     desc = "Commands" },
+        { "<Leader>sd", "<Cmd>Telescope diagnostics bufnr=0 theme=ivy<CR>",                desc = "Diagnostics current buffer" },
+        { "<Leader>sD", "<Cmd>Telescope diagnostics<CR>",                                  desc = "Global diagnostics" },
+        { "<Leader>sm", "<Cmd>Telescope treesitter theme=ivy symbols=function,method<CR>", desc = "Search methods" },
+        { "<Leader>sq", "<Cmd>Telescope quickfixhistory theme=ivy <CR>",                   desc = "Quickfix History" },
     },
     {
         group = "[Search] Hop",
@@ -157,6 +182,10 @@ local leader = {
         { "<Leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>",                                      desc = "LSP Set Loclist" },
         { "gl",        '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })<CR>', desc = "LSP Line Diagnostics" },
     },
+    {
+        group = "[Hacks]",
+        -- { ";", ":", mode = "vn", desc = "Command Mode" },
+    }
 }
 
 whichkey.add(leader)
