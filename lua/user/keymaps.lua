@@ -1,4 +1,5 @@
 local keymap = require('lib.utils').keymap
+local cmd = require("lib.utils").cmdcr
 
 -- Space as <Leader>
 keymap("", "<Space>", "<Nop>")
@@ -114,14 +115,14 @@ keymap("n", "<C-Left>", ":vert resize -4<CR>")
 keymap("n", "<C-Right>", ":vert resize +4<CR>")
 
 -- Edit config from anywhere
-keymap("n", "<Leader><Leader>ec", "<cmd>exe 'edit' stdpath('config')<CR>")
-keymap("n", "<Leader><Leader>ed", "<cmd>exe 'cd' stdpath('config')<CR>")
+keymap("n", "<Leader><Leader>ec", cmd("exe 'edit' stdpath('config')"))
+keymap("n", "<Leader><Leader>ed", cmd("exe 'cd' stdpath('config')"))
 
 -- Clear all the search highlight from the screen
-keymap("n", "<F5>", "<cmd>noh<CR>")
+keymap("n", "<F5>", cmd("noh"))
 
 -- Return current buffer to last edited stage
-keymap("n", "<C-Del>", "<cmd>e!<CR>")
+keymap("n", "<Del>", cmd("e!"))
 
 -- Context up
 -- keymap("n", "<BS>", function() require("barbecue.ui").navigate(-1) end)
@@ -137,9 +138,9 @@ keymap("n", ")", utils.smart_qf_navigation("next"), nil, "Navigate to next quick
 -- C-l as delete key
 keymap("i", "<C-l>", "<Del>")
 
-keymap("n", "<A-Up>", "<cmd>GUIFontSizeUp<CR>")
-keymap("n", "<A-Down>", "<cmd>GUIFontSizeDown<CR>")
-keymap("n", "<A-0>", "<cmd>GUIFontSizeSet<CR>")
+keymap("n", "<A-Up>", cmd("GUIFontSizeUp"))
+keymap("n", "<A-Down>", cmd("GUIFontSizeDown"))
+keymap("n", "<A-0>", cmd("GUIFontSizeSet"))
 
 -- yoink
 -- https://www.reddit.com/r/neovim/comments/1k4efz8/share_your_proudest_config_oneliners/mo9t5xq/

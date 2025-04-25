@@ -8,6 +8,7 @@ if not sok then
     return
 end
 
+local cmd = require("lib.utils").cmdcr
 local keymap = require 'lib.utils'.keymap
 
 hop.setup {
@@ -29,25 +30,25 @@ local function hop_keymap(km, exec, opts)
     return keymap(modes, hop_leader .. km, exec, _opts)
 end
 
-hop_keymap("s", "<cmd>HopChar2<CR>")
-hop_keymap("d", "<cmd>HopChar2<CR>")
-hop_keymap("<Space>", "<cmd>HopChar2<CR>")
+hop_keymap("s", cmd("HopChar2"))
+hop_keymap("d", cmd("HopChar2"))
+hop_keymap("<Space>", cmd("HopChar2"))
 
-hop_keymap("w", "<cmd>HopWordCurrentLine<CR>")
-hop_keymap("W", "<cmd>HopWord<CR>")
-hop_keymap(hop_leader, "<cmd>HopWord<CR>")
+hop_keymap("w", cmd("HopWordCurrentLine"))
+hop_keymap("W", cmd("HopWord"))
+hop_keymap(hop_leader, cmd("HopWord"))
 
-hop_keymap("h", "<cmd>HopAnywhereCurrentLineBC<CR>")
-hop_keymap("l", "<cmd>HopAnywhereCurrentLineAC<CR>")
+hop_keymap("h", cmd("HopAnywhereCurrentLineBC"))
+hop_keymap("l", cmd("HopAnywhereCurrentLineAC"))
 
-hop_keymap("k", "<cmd>HopLineBC<CR>")
-hop_keymap("j", "<cmd>HopLineAC<CR>")
-hop_keymap("0", "<cmd>HopLine<CR>")
-hop_keymap("<CR>", "<cmd>HopLineMW<CR>")
+hop_keymap("k", cmd("HopLineBC"))
+hop_keymap("j", cmd("HopLineAC"))
+hop_keymap("0", cmd("HopLine"))
+hop_keymap("<CR>", cmd("HopLineMW"))
 
-hop_keymap("g", "<cmd>HopWordMW<CR>")
+hop_keymap("g", cmd("HopWordMW"))
 
-hop_keymap("/", "<cmd>HopPattern<CR>")
+hop_keymap("/", cmd("HopPattern"))
 
 hop_keymap("a", function()
     sts.targeted_jump({

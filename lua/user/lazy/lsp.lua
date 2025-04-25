@@ -1,4 +1,5 @@
 local keymap_opts = require("lib.utils")
+local cmd = require("lib.utils").cmdcr
 
 return {
     -- ██╗     ███████╗██████╗     ██████╗███╗   ███╗██████╗
@@ -202,7 +203,7 @@ return {
         "hedyhli/outline.nvim",
         lazy = false,
         keys = {
-            { "<leader>o", "<cmd>OutlineFocus<cr>", desc = "Outline" },
+            { "<leader>o", cmd("OutlineFocus"), desc = "Outline" },
         },
         opts = {
             keymaps = {
@@ -268,22 +269,22 @@ return {
         config = true,
         branch = "2.1",
         keys = {
-            { mode = "n", "vx",      '<cmd>STSSelectMasterNode<cr>',      keymap_opts },
-            { mode = "n", "vn",      '<cmd>STSSelectCurrentNode<cr>',     keymap_opts },
-            { mode = "x", "<Tab>",   '<cmd>STSSelectNextSiblingNode<cr>', keymap_opts },
-            { mode = "x", "<S-Tab>", '<cmd>STSSelectPrevSiblingNode<cr>', keymap_opts },
-            { mode = "x", "<Right>", '<cmd>STSSelectNextSiblingNode<cr>', keymap_opts },
-            { mode = "x", "<Left>",  '<cmd>STSSelectPrevSiblingNode<cr>', keymap_opts },
-            { mode = "x", "<Up>",    '<cmd>STSSelectParentNode<cr>',      keymap_opts },
-            { mode = "x", "<Down>",  '<cmd>STSSelectChildNode<cr>',       keymap_opts },
-            { mode = "x", "<BS>",    '<cmd>STSSelectParentNode<cr>',      keymap_opts },
-            { mode = "x", "<CR>",    '<cmd>STSSelectChildNode<cr>',       keymap_opts },
-            { mode = "x", "<A-h>",   '<cmd>STSSwapPrevVisual<cr>',        keymap_opts },
-            { mode = "x", "<A-l>",   '<cmd>STSSwapNextVisual<cr>',        keymap_opts },
-            -- { mode = "x", "<C-Up>",    '<cmd>STSSwapPrevVisual<cr>',        keymap_opts },
-            -- { mode = "x", "<C-Down>",  '<cmd>STSSwapNextVisual<cr>',        keymap_opts },
-            -- { mode = "x", "<C-Left>",  '<cmd>STSSwapPrevVisual<cr>',        keymap_opts },
-            -- { mode = "x", "<C-Right>", '<cmd>STSSwapNextVisual<cr>',        keymap_opts },
+            { mode = "n", "vx",      cmd("STSSelectMasterNode"),      keymap_opts },
+            { mode = "n", "vn",      cmd("STSSelectCurrentNode"),     keymap_opts },
+            { mode = "x", "<Tab>",   cmd("STSSelectNextSiblingNode"), keymap_opts },
+            { mode = "x", "<S-Tab>", cmd("STSSelectPrevSiblingNode"), keymap_opts },
+            { mode = "x", "<Right>", cmd("STSSelectNextSiblingNode"), keymap_opts },
+            { mode = "x", "<Left>",  cmd("STSSelectPrevSiblingNode"), keymap_opts },
+            { mode = "x", "<Up>",    cmd("STSSelectParentNode"),      keymap_opts },
+            { mode = "x", "<Down>",  cmd("STSSelectChildNode"),       keymap_opts },
+            { mode = "x", "<BS>",    cmd("STSSelectParentNode"),      keymap_opts },
+            { mode = "x", "<CR>",    cmd("STSSelectChildNode"),       keymap_opts },
+            { mode = "x", "<A-h>",   cmd("STSSwapPrevVisual"),        keymap_opts },
+            { mode = "x", "<A-l>",   cmd("STSSwapNextVisual"),        keymap_opts },
+            -- { mode = "x", "<C-Up>",    cmd("STSSwapPrevVisual"),        keymap_opts },
+            -- { mode = "x", "<C-Down>",  cmd("STSSwapNextVisual"),        keymap_opts },
+            -- { mode = "x", "<C-Left>",  cmd("STSSwapPrevVisual"),        keymap_opts },
+            -- { mode = "x", "<C-Right>", cmd("STSSwapNextVisual"),        keymap_opts },
         }
     },
 

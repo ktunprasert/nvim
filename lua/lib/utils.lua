@@ -13,7 +13,7 @@ local function keymap(mode, key, cmd, options, desc)
     vim.keymap.set(mode, key, cmd, options)
 end
 
-local safe_call = function (cmd, arg)
+local safe_call = function(cmd, arg)
     local ok, _ = pcall(cmd, arg)
     return ok
 end
@@ -53,6 +53,12 @@ M.buf_keymap = function(bufnr, mode, lhs, rhs, opts)
         rhs,
         vim.tbl_extend('keep', opts or {}, { noremap = true, silent = true })
     )
+end
+
+M.cmdcr = function(cmd)
+    return function()
+        vim.cmd(cmd)
+    end
 end
 
 return M

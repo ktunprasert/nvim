@@ -4,6 +4,7 @@ if not ok then
 end
 
 local keymap = require('lib.utils').keymap
+local cmd = require("lib.utils").cmdcr
 
 -- function checkWin()
 --     return vim.fn.has('win64') == 1 and 'bash' or 'fish'
@@ -59,10 +60,10 @@ function Lazygit_toggle()
     lazygit:toggle()
 end
 
-keymap("n", "<leader>G", "<cmd>lua Lazygit_toggle()<CR>")
+keymap("n", "<leader>G", cmd("lua Lazygit_toggle()"))
 
-keymap("n", "<Leader>t", "<cmd>ToggleTerm<CR>")
-keymap("n", "1<Leader>t", "<cmd>ToggleTerm 1<CR>")
-keymap("n", "2<Leader>t", "<cmd>ToggleTerm 2<CR>")
-keymap("n", "3<Leader>t", "<cmd>ToggleTerm 3<CR>")
-keymap("n", "4<Leader>t", "<cmd>ToggleTerm 4<CR>")
+keymap("n", "<Leader>t", cmd("ToggleTerm"))
+keymap("n", "1<Leader>t", cmd("ToggleTerm 1"))
+keymap("n", "2<Leader>t", cmd("ToggleTerm 2"))
+keymap("n", "3<Leader>t", cmd("ToggleTerm 3"))
+keymap("n", "4<Leader>t", cmd("ToggleTerm 4"))
