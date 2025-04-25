@@ -5,6 +5,8 @@ end
 
 
 whichkey.setup {
+    preset = "helix",
+    notify = false,
     plugins = {
         marks = true,     -- shows a list of your marks on ' and `
         registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -21,132 +23,125 @@ whichkey.setup {
         },
         spelling = { enabled = true, suggestions = 20 }, -- use which-key for spelling hints
     },
-    icons = {
-        breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-        separator = "-",  -- symbol used between a key and it's label
-        group = "+",      -- symbol prepended to a group
-    },
-    popup_mappings = {
-        scroll_down = "<c-d>", -- binding to scroll down inside the popup
-        scroll_up = "<c-u>",   -- binding to scroll up inside the popup
-    },
-    window = {
-        border = "none",          -- none, single, double, shadow
-        position = "bottom",      -- bottom, top
-        margin = { 0, 0, 0, 0 },  -- extra window margin [top, right, bottom, left]
-        padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
-        winblend = 0,
+    win = {
+        no_overlap = true,
+        height = { min = 4, max = 25 },
+        padding = { 0, 1 }, -- extra window padding [top/bottom, right/left]
+        title = true,
+        title_pos = "center",
+        zindex = 1000,
+        wo = { winblend = 10 },
     },
     layout = {
-        height = { min = 4, max = 25 },                                           -- min and max height of the columns
-        width = { min = 20, max = 50 },                                           -- min and max width of the columns
-        spacing = 3,                                                              -- spacing between columns
-        align = "center",                                                         -- align columns left, center or right
+        height = { min = 4, max = 25 },  -- min and max height of the columns
+        width = { min = 20, max = 100 }, -- min and max width of the columns
+        spacing = 3,                     -- spacing between columns
+        align = "center",                -- align columns left, center or right
     },
-    hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-    ignore_missing = false,                                                       -- enable this to hide mappings for which you didn't specify a label
-    show_help = true,                                                             -- show help message on the command line when the popup is visible
-    triggers = "auto",                                                            -- automatically setup triggers
-    -- triggers = {"<leader>"} -- or specify a list manually
-    triggers_blacklist = {
-        -- list of mode / prefixes that should never be hooked by WhichKey
-        -- this is mostly relevant for key maps that start with a native binding
-        -- most people should not need to change this
-        i = { "j", "k" },
-        v = { "j", "k" },
-    }
+    filter = function() return true end,
+    triggers = { { "<auto>", mode = "nxso" }, },
 }
 
-local opts = {
-    mode = "n",
-    prefix = "<Leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nmowait = true,
-}
-
-local vopts = {
-    mode = "v",
-    prefix = "<Leader>",
-    buffer = nil,
-    silent = true,
-    noremap = true,
-    nmowait = true,
-}
-
-local vmappings = {
-    c = { "<Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment" },
-    g = {
-        name = "Git",
-        ["<Enter>"] = { "<Cmd>Gitsigns stage_hunk<CR>", "Stage Hunk" },
+local leader = {
+    { "<Leader>", group = "Power Mode", },
+    {
+        group = "[Code]",
+        icon = "//",
+        {
+            "<Leader>c",
+            -- disgusting that they haven't fixed this by now
+            "<Esc><Cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+            desc = "Comment",
+            mode = { "v" },
+        },
+        {
+            "<Leader>c",
+            "<Esc><Cmd>lua require('Comment.api').toggle.linewise()<CR>",
+            desc = "Comment",
+        },
+        {
+            "<Leader>F",
+            "<Cmd>Format<CR>",
+            desc = "Format current file",
+        },
+    },
+    {
+        group = "[Dependencies]",
+        { "<Leader>l", "<Cmd>Lazy<CR>",  desc = "Lazy",  icon = "LZ" },
+        { "<Leader>m", "<Cmd>Mason<CR>", desc = "Mason", icon = "MS" },
+    },
+    {
+        group = "[External]",
+        { "<Leader>G", desc = "LazyGit", icon = "LG" },
+    },
+    {
+        group = "[Window]",
+        {
+            "<Leader>W",
+            "<Cmd>lua require('window-picker').pick_window() or vim.api.nvim_get_current_win()<CR>",
+            desc = "Pick Window",
+        },
+    },
+    {
+        group = "[Buffers]",
+        { "<Leader>Q",  "<Cmd>qa<CR>",                                   desc = "Quit" },
+        { "<Leader>D",  "<Cmd>%bd<CR>",                                  desc = "Delete ALL Buffers" },
+        { "<Leader>bd", "<Cmd>bp | sp | bn | bd<CR>",                    desc = "Delete Buffer" },
+        { "<Leader>bq", "<Cmd>bd!<CR>",                                  desc = "Force delete buffer" },
+        { "<Leader>bb", "<Cmd>Neotree buffers focus position=float<CR>", desc = "Buffers Neotree" },
+        { "<Leader>B",  "<Cmd>bp | sp | bn | bd<CR>",                    desc = "Delete Buffer" },
+    },
+    {
+        group = "[Explore]",
+        { "<Leader>f", "<Cmd>Neotree float reveal<CR>", desc = "Reveal current file" },
+    },
+    {
+        group = "[Git]",
+        { "<Leader>gg",    "<Cmd>Gitsigns stage_buffer<CR>",                   desc = "Stage buffer" },
+        { "<Leader>gh",    "<Cmd>Gitsigns preview_hunk<CR>",                   desc = "Preview hunk" },
+        { "<Leader>gH",    "<Cmd>Telescope git_bcommits<cr>",                  desc = "View Git History for current buffer" },
+        { "<Leader>gc",    "<Cmd>Telescope git_commits theme=ivy<CR>",         desc = "View Commits" },
+        { "<Leader>gb",    "<Cmd>Telescope git_branches theme=ivy<CR>",        desc = "View Branches" },
+        { "<Leader>gB",    "<Cmd>Gitsigns blame<CR>",                          desc = "Blame sidebar" },
+        { "<Leader>gq",    "<Cmd>Gitsigns setqflist<CR>",                      desc = "View Hunks" },
+        { "<Leader>gs",    "<Cmd>Telescope git_status theme=ivy<CR>",          desc = "View Git Status" },
+        { "<Leader>gr",    "<Cmd>Gitsigns reset_hunk<CR>",                     desc = "Reset Hunk" },
+        { "<Leader>ge",    "<Cmd>Neotree git_status focus position=float<CR>", desc = "Git Status Neotree" },
+        { "<Leader>g<CR>", "<Cmd>Gitsigns stage_hunk<CR>",                     desc = "Stage Hunk" },
+        { "<Leader>g!",    "<Cmd>Gitsigns reset_buffer<CR>",                   desc = "Reset buffer to revision" },
+    },
+    {
+        group = "[Search] Telescope",
+        { "<Leader>p",   "<Cmd>Telescope projects<CR>",                                                    desc = "Projects" },
+        { "<Leader>R",   "<Cmd>Telescope oldfiles<CR>",                                                    desc = "Recent Files (Global)" },
+        { "<Leader>r",   "<Cmd>Telescope oldfiles cwd_only=true<CR>",                                      desc = "Recent Files" },
+        { "<Leader>sg",  "<Cmd>Telescope git_files<CR>",                                                   desc = "Git Files" },
+        { "<Leader>sf",  "<Cmd>Telescope find_files<CR>",                                                  desc = "Find All Files" },
+        { "<Leader>st",  function() require("user.telescope.multigrep").setup() end,                       desc = "Text" },
+        { "<Leader>sh",  "<Cmd>Telescope help_tags<cr>",                                                   desc = "Find Help" },
+        { "<Leader>sb",  "<Cmd>Telescope buffers sort_mru=true<CR>",                                       desc = "Buffers" },
+        { "<Leader>sk",  "<Cmd>Telescope keymaps<CR>",                                                     desc = "Keymaps" },
+        { "<Leader>s\"", "<Cmd>Telescope registers<CR>",                                                   desc = "Registers" },
+        { "<Leader>sp",  [[<Cmd>lua require'telescope.builtin'.colorscheme({enable_preview = true})<CR>]], desc = "Colourscheme Preview" },
+        { "<Leader>ss",  "<Cmd>Telescope session-lens search_session<CR>",                                 desc = "Sessions" },
+        { "<Leader>so",  "<Cmd>Telescope lsp_document_symbols theme=ivy<CR>",                              desc = "Document Symbols" },
+        { "<Leader>sO",  "<Cmd>Telescope lsp_workspace_symbols<CR>",                                       desc = "Workspace Symbols" },
+        { "<Leader>sr",  "<Cmd>Telescope lsp_references<CR>",                                              desc = "References" },
+        { "<Leader>sc",  "<Cmd>Telescope commands<CR>",                                                    desc = "Commands" },
+        { "<Leader>sd",  "<Cmd>Telescope diagnostics bufnr=0 theme=ivy<CR>",                               desc = "Diagnostics current buffer" },
+        { "<Leader>sD",  "<Cmd>Telescope diagnostics<CR>",                                                 desc = "Global diagnostics" },
+        { "<Leader>sm",  "<Cmd>Telescope treesitter theme=ivy symbols=function,method<CR>",                desc = "Search methods" },
+        { "<Leader>sq",  "<Cmd>Telescope quickfixhistory theme=ivy <CR>",                                  desc = "Quickfix History" },
+    },
+    {
+        group = "[Search] Hop",
+        { "<Leader>/", "<Cmd>HopPattern<CR>", desc = "Hop by Pattern" },
+    },
+    {
+        group = "[Harpoon]",
+        { "<Leader>h", function() require("harpoon.mark").add_file() end,        desc = "Harpoon File" },
+        { "<Leader>H", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Harpoon List" },
     },
 }
 
-local mappings = {
-    W = { function()
-        local window_id = require("window-picker").pick_window() or vim.api.nvim_get_current_win()
-        vim.api.nvim_set_current_win(window_id)
-    end, "Pick Window" },
-    Q = { "<Cmd>qa<CR>", "Quit" },
-    l = { "<Cmd>Lazy<CR>", "Lazy" },
-    m = { "<Cmd>Mason<CR>", "Mason" },
-    ["c"] = { "<Esc><Cmd>lua require('Comment.api').toggle.linewise()<CR>", "Comment" },
-    ["f"] = { "<Cmd>Neotree float reveal<CR>", "Find Files" },
-    F = { "<Cmd>Format<CR>", "Format current file" },
-    ["p"] = { "<Cmd>Telescope projects<CR>", "Projects" },
-    R = { "<Cmd>Telescope oldfiles<CR>", "Recent Files (Global)" },
-    r = { "<Cmd>Telescope oldfiles cwd_only=true<CR>", "Recent Files" },
-    D = { "<Cmd>%bd<CR>", "Delete ALL Buffers" },
-    G = { name = "LazyGit" },
-    g = {
-        name = "Git",
-        g = { "<Cmd>Gitsigns stage_buffer<CR>", "Git Files" },
-        h = { "<Cmd>Gitsigns preview_hunk<CR>", "Preview Hunk" },
-        H = { "<Cmd>Telescope git_bcommits<cr>", "View Git History for current buffer" },
-        c = { "<Cmd>Telescope git_commits theme=ivy<CR>", "View Commits" },
-        b = { "<Cmd>Telescope git_branches theme=ivy<CR>", "View Branches" },
-        -- B = { "<Cmd>Gitsigns blame_line<CR>", "Blame current line" },
-        B = { "<Cmd>Gitsigns blame<CR>", "Blame sidebar" },
-        q = { "<Cmd>Gitsigns setqflist<CR>", "View Hunks" },
-        s = { "<Cmd>Telescope git_status theme=ivy<CR>", "View Git Status" },
-        ["<Enter>"] = { "<Cmd>Gitsigns stage_hunk<CR>", "Stage Hunk" },
-        ['!'] = { "<Cmd>Gitsigns reset_buffer<CR>", "Reset buffer to revision" },
-        r = { "<Cmd>Gitsigns reset_hunk<CR>", "Reset Hunk" },
-        e = { "<Cmd>Neotree git_status focus position=float<CR>", "Git Status Neotree" },
-    },
-    s = {
-        name = "Search [Telescope]",
-        g = { "<Cmd>Telescope git_files<CR>", "Git Files" },
-        f = { "<Cmd>Telescope find_files<CR>", "Find All Files" },
-        -- t = { "<Cmd>Telescope live_grep<cr>", "Text" },
-        t = { function() require("user.telescope.multigrep").setup() end, "Text" },
-        h = { "<Cmd>Telescope help_tags<cr>", "Find Help" },
-        b = { "<Cmd>Telescope buffers sort_mru=true<CR>", "Buffers" },
-        k = { "<Cmd>Telescope keymaps<CR>", "Keymaps" },
-        ['"'] = { "<Cmd>Telescope registers<CR>", "Registers" },
-        p = { [[<Cmd>lua require'telescope.builtin'.colorscheme({enable_preview = true})<CR>]], "Colourscheme Preview" },
-        s = { "<Cmd>Telescope session-lens search_session<CR>", "Sessions" },
-        o = { "<Cmd>Telescope lsp_document_symbols theme=ivy<CR>", "Document Symbols" },
-        O = { "<Cmd>Telescope lsp_workspace_symbols<CR>", "Workspace Symbols" },
-        r = { "<Cmd>Telescope lsp_references<CR>", "References" },
-        c = { "<Cmd>Telescope commands<CR>", "Commands" },
-        d = { "<Cmd>Telescope diagnostics bufnr=0 theme=ivy<CR>", "Diagnostics current buffer" },
-        D = { "<Cmd>Telescope diagnostics<CR>", "Global diagnostics" },
-        m = { "<Cmd>Telescope treesitter theme=ivy symbols=function,method<CR>", "Search methods" },
-        q = { "<Cmd>Telescope quickfixhistory theme=ivy <CR>", "Quickfix History" },
-    },
-    ["/"] = { "<Cmd>HopPattern<CR>", "Hop by Pattern" },
-    b = {
-        q = { "<Cmd>bd!<CR>", "Force delete buffer" },
-        d = { "<Cmd>bp | sp | bn | bd<CR>", "Delete Buffer" },
-        b = { "<Cmd>Neotree buffers focus position=float<CR>", "Buffers Neotree" },
-    },
-    B = { "<Cmd>bp | sp | bn | bd<CR>", "Delete Buffer" },
-    h = { function() require("harpoon.mark").add_file() end, "Harpoon File" },
-    H = { function() require("harpoon.ui").toggle_quick_menu() end, "Harpoon List" },
-    -- o = { ":SymbolsOutline<CR>", "Symbols Outline" },
-}
-
-whichkey.register(mappings, opts)
-whichkey.register(vmappings, vopts)
+whichkey.add(leader)
