@@ -83,20 +83,7 @@ local leader = {
             function() return require('window-picker').pick_window() or vim.api.nvim_get_current_win() end,
             desc = "Pick Window",
         },
-        { "<A-f>", cmd("ZenMode"),    desc = "Zen Mode" },
         { "<A-g>", cmd("NoNeckPain"), desc = "No Neck Pain" },
-        {
-            "1<A-f>",
-            function()
-                require("zen-mode").toggle({
-                    window = {
-                        width = 100,
-                        options = { wrap = true }
-                    }
-                })
-            end,
-            desc = "Zen Mode - less width"
-        },
     },
     {
         group = "[Buffers]",

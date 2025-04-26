@@ -55,18 +55,6 @@ return {
 
     },
     {
-        "folke/zen-mode.nvim",
-        event = "VeryLazy",
-        opts = {
-            window = {
-                width = 120,
-                options = {
-                    wrap = true,
-                }
-            }
-        }
-    },
-    {
         "shortcuts/no-neck-pain.nvim",
         event = "VeryLazy",
         opts = {
