@@ -115,8 +115,8 @@ keymap("n", "<C-Left>", ":vert resize -4<CR>")
 keymap("n", "<C-Right>", ":vert resize +4<CR>")
 
 -- Edit config from anywhere
-keymap("n", "<Leader><Leader>ec", cmd("exe 'edit' stdpath('config')"))
-keymap("n", "<Leader><Leader>ed", cmd("exe 'cd' stdpath('config')"))
+-- keymap("n", "<Leader><Leader>ec", cmd("exe 'edit' stdpath('config')"))
+-- keymap("n", "<Leader><Leader>ed", cmd("exe 'cd' stdpath('config')"))
 
 -- Clear all the search highlight from the screen
 keymap("n", "<F5>", cmd("noh"))
