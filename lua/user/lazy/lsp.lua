@@ -233,8 +233,8 @@ return {
     {
         "chrisgrieser/nvim-various-textobjs",
         event = "VeryLazy",
-        -- lazy = false,
-        opts = { keymaps = { useDefaults = true } },
+        opts = { keymaps = { useDefaults = false } },
+        config = function() require("user.lazy.various") end,
     },
 
     {
