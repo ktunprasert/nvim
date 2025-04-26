@@ -152,7 +152,7 @@ local leader = {
             end,
             desc = "Colourscheme Preview"
         },
-        { "<Leader>ss", cmd("Telescope session-lens search_session"),                  desc = "Sessions" },
+        { "<Leader>ss", cmd("SessionSearch"),                                          desc = "Sessions" },
         { "<Leader>so", cmd("Telescope lsp_document_symbols theme=ivy"),               desc = "Document Symbols" },
         { "<Leader>sO", cmd("Telescope lsp_workspace_symbols"),                        desc = "Workspace Symbols" },
         { "<Leader>sr", cmd("Telescope lsp_references"),                               desc = "References" },

@@ -146,6 +146,5 @@ telescope.setup {
 telescope.load_extension('hop')
 telescope.load_extension('ui-select')
 telescope.load_extension('noice')
-telescope.load_extension('session-lens')
 
 keymap("n", "<C-f>", ":Telescope current_buffer_fuzzy_find<CR>")

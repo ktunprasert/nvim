@@ -35,23 +35,10 @@ return {
     },
     {
         'rmagatti/auto-session',
-        lazy = false,
         opts = {
+            lazy_support = true,
             log_level = 'info',
             pre_save_cmds = { "Neotree close", "helpclose" },
-            -- auto_session_enable_last_session = true,
-        }
-    },
-    {
-        'rmagatti/session-lens',
-        event = "VeryLazy",
-        dependencies = { 'rmagatti/auto-session', 'nvim-telescope/telescope.nvim' },
-        opts = {
-            path_display = { "shorten" },
-            previewer = false,
-            theme_conf = {
-                prompt_title = "Sessions",
-            },
         }
     },
     {
