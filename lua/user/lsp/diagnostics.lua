@@ -9,10 +9,22 @@ for _, sign in ipairs(signs) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
 
+local width = vim.api.nvim_win_get_width(0)
+
 local config = {
+    virtual_text = false,
     -- disable virtual text
-    -- virtual_text = true,
-    virtual_lines = true,
+    -- virtual_text = {
+    -- spacing = 100,
+    -- virt_text_pos = "right_align",
+    -- suffix = function(d)
+    --     print(vim.inspect(d))
+    --     -- repeat spaces
+    --     --
+    --     return "hi"
+    -- end,
+    -- },
+    -- virtual_lines = true,
     -- show signs
     signs = false,
     -- signs = {
