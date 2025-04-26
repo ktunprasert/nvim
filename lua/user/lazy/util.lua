@@ -190,8 +190,8 @@ return {
 
             -- for expressions
             -- e.g. ga3j, gaR
-            set("n", "ga", mc.addCursorOperator, { desc = "[MULTC] Operator" })
-            set("n", "<leader><leader>m", mc.addCursorOperator, { desc = "[MULTC] Operator" })
+            set({ "n", "x" }, "ga", mc.addCursorOperator, { desc = "[MULTC] Operator" })
+            set({ "n", "x" }, "<leader><leader>m", mc.addCursorOperator, { desc = "[MULTC] Operator" })
 
             -- Split visual selections by regex.
             set("x", "zs", mc.splitCursors, { desc = "[MULTC] Split Regex" })
