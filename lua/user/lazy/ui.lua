@@ -21,7 +21,6 @@ return {
     },
     {
         "akinsho/bufferline.nvim",
-        event = "VeryLazy",
         branch = "main",
         dependencies = "kyazdani42/nvim-web-devicons",
         opts = {
