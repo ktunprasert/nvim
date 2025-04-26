@@ -1,6 +1,18 @@
 -- :help options
 vim.opt.backup = false
-vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
+
+-- ok i dont know what the fuck happened here but before making clipboard change
+-- the startup time was bogged by "clipboard.vim" adding an extra
+-- 294.883ms
+-- https://www.reddit.com/r/neovim/comments/uqa947/clipboard_setup_startuptime/i8qa7el/
+vim.g.clipboard = {
+    name = "xsel",
+    copy = { ["+"] = "xsel --nodetach -i -b", ["*"] = "xsel --nodetach -i -p", },
+    paste = { ["+"] = "xsel -o -b", ["*"] = "xsel -o -b", },
+    cache_enabled = 1,
+}
+vim.opt.clipboard = "unnamedplus"
+
 vim.opt.cmdheight = 2
 vim.opt.completeopt = { "menuone", "noselect" } -- for cmp
 vim.opt.conceallevel = 0
