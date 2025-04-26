@@ -183,8 +183,6 @@ return {
                     Search = { color = colors.orange_glow },
                 }
             })
-
-            require("scrollbar.handlers.gitsigns").setup()
         end
     },
 
