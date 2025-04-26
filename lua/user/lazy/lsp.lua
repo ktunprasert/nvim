@@ -9,7 +9,7 @@ return {
     -- ███████╗███████║██║███████╗╚██████╗██║ ╚═╝ ██║██║
     -- ╚══════╝╚══════╝╚═╝╚══════╝ ╚═════╝╚═╝     ╚═╝╚═╝     ~ LSP and Autocompletion
     -- CMP dependencies
-    { "xzbdmw/colorful-menu.nvim",         config = true, },
+    { "xzbdmw/colorful-menu.nvim", config = true, },
     {
         'saghen/blink.cmp',
         event = "InsertEnter",
@@ -150,14 +150,13 @@ return {
     },
 
     -- LSP
-    { "williamboman/mason.nvim",           config = true, event = "VeryLazy" },
-    { "williamboman/mason-lspconfig.nvim", config = true, event = "VeryLazy" },
-    { "neovim/nvim-lspconfig",             lazy = false }, -- enable LSP
+    { "neovim/nvim-lspconfig",     lazy = true, },
     {
-        "hinell/lsp-timeout.nvim",
+        "williamboman/mason.nvim",
+        config = true,
         event = "VeryLazy",
-        dependencies = { "neovim/nvim-lspconfig" },
     },
+    { "hinell/lsp-timeout.nvim", event = "LspAttach" },
 
     -- Linter/Formatter
     {

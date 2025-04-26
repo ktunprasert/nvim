@@ -81,7 +81,6 @@ return {
     },
     {
         "SmiteshP/nvim-navic",
-        dependencies = "neovim/nvim-lspconfig",
         event = "BufRead",
         init = function()
             vim.g.navic_silence = true
