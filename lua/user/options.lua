@@ -152,6 +152,7 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
     end,
 })
 
+-- this is for restoring the cursor position when reopening a file
 vim.api.nvim_create_autocmd('BufReadPost', {
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')
