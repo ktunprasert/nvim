@@ -7,15 +7,18 @@ return {
     --  ╚═════╝    ╚═╝   ╚═╝╚══════╝╚═╝   ╚═╝      ╚═╝   ~ Utility
     {
         "kylechui/nvim-surround",
+        event = "VeryLazy",
         opts = { aliases = { ["<"] = "t", }, }
     },
     {
         "lewis6991/gitsigns.nvim",
+        event = "VeryLazy",
         dependencies = "nvim-lua/plenary.nvim",
         config = function() require("user.plugins.gitsigns") end
     },
     {
         "numToStr/Comment.nvim",
+        event = "VeryLazy",
         opts = {
             ignore = "^$",
             mappings = {
@@ -41,6 +44,7 @@ return {
     },
     {
         'rmagatti/session-lens',
+        event = "VeryLazy",
         dependencies = { 'rmagatti/auto-session', 'nvim-telescope/telescope.nvim' },
         opts = {
             path_display = { "shorten" },
@@ -52,10 +56,12 @@ return {
     },
     {
         "ahmedkhalf/project.nvim",
+        event = "VeryLazy",
         config = function() require("user.plugins.project") end
     },
     {
         "windwp/nvim-autopairs",
+        event = "VeryLazy",
         config = function() require("user.plugins.autopairs") end
     },
     {
@@ -67,7 +73,7 @@ return {
             "nvim-lua/plenary.nvim",
         },
         config = function() require("user.plugins.neotree") end,
-        lazy = false,
+        event = "VeryLazy",
     },
 
     {
@@ -127,7 +133,8 @@ return {
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        lazy = false,
+        event = "VeryLazy",
+        -- lazy = false,
         config = true,
         keys = {
             { mode = "n", "<leader>sT", "<cmd>TodoTelescope<cr>", desc = "Search TODO comments" },
@@ -135,7 +142,7 @@ return {
     },
     {
         "monaqa/dial.nvim",
-        lazy = true,
+        event = "VeryLazy",
         config = function()
             local augend = require("dial.augend")
             require("dial.config").augends:register_group {
@@ -174,6 +181,7 @@ return {
     {
         "jake-stewart/multicursor.nvim",
         branch = "1.0",
+        event = "VeryLazy",
         config = function()
             local mc = require("multicursor-nvim")
             mc.setup()

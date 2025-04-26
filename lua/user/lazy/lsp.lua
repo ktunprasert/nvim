@@ -116,21 +116,24 @@ return {
     -- DAP Debugger
     {
         "mfussenegger/nvim-dap",
+        event = "VeryLazy",
         dependencies = {
             {
                 "nvim-neotest/nvim-nio",
+                event = "VeryLazy",
             },
             {
                 "theHamsta/nvim-dap-virtual-text",
+                event = "VeryLazy",
                 opts = {},
             },
             {
                 "rcarriga/nvim-dap-ui",
+                event = "VeryLazy",
                 keys = {
                     { "<F7>", function() require("dapui").toggle({}) end, desc = "Dap UI" },
                     { "<F8>", function() require("dapui").eval() end,     desc = "Eval",  mode = { "n", "v" } },
                 },
-                lazy = false,
                 opts = {},
                 config = function(_, opts)
                     -- setup dap config by VsCode launch.json file
@@ -177,18 +180,20 @@ return {
     { "rafamadriz/friendly-snippets",      lazy = false },
 
     -- LSP
-    { "williamboman/mason.nvim",           config = true },
-    { "williamboman/mason-lspconfig.nvim", config = true },
+    { "williamboman/mason.nvim",           config = true, event = "VeryLazy" },
+    { "williamboman/mason-lspconfig.nvim", config = true, event = "VeryLazy" },
     { "neovim/nvim-lspconfig",             lazy = false }, -- enable LSP
     {
         "hinell/lsp-timeout.nvim",
+        event = "VeryLazy",
         dependencies = { "neovim/nvim-lspconfig" },
     },
 
     -- Linter/Formatter
     {
         "nvimtools/none-ls.nvim", -- for formatters and linter
-        lazy = false,
+        -- lazy = false,
+        event = "VeryLazy",
         config = function() require("user.lsp.null-ls") end
     },
 
@@ -196,12 +201,14 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         config = function() require("user.plugins.treesitter") end,
-        lazy = false,
+        -- lazy = false,
+        event = { "BufReadPre" },
         build = ":TSUpdate",
     },
     {
         "hedyhli/outline.nvim",
-        lazy = false,
+        event = "VeryLazy",
+        -- lazy = false,
         keys = {
             { "<leader>o", cmd("OutlineFocus"), desc = "Outline" },
         },
@@ -218,17 +225,20 @@ return {
 
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
+        event = "VeryLazy",
         after = "nvim-treesitter",
     },
 
     {
         "chrisgrieser/nvim-various-textobjs",
-        lazy = false,
+        event = "VeryLazy",
+        -- lazy = false,
         opts = { keymaps = { useDefaults = true } },
     },
 
     {
         "echasnovski/mini.ai",
+        event = "VeryLazy",
         keys = {
             { "a", mode = { "x", "o" } },
             { "i", mode = { "x", "o" } },
@@ -257,6 +267,7 @@ return {
 
     {
         "drybalka/tree-climber.nvim",
+        event = "VeryLazy",
         keys = {
             { mode = { "n", "o" }, '<Left>',  function() require('tree-climber').goto_prev() end, keymap_opts },
             { mode = { "n", "o" }, '<Right>', function() require('tree-climber').goto_next() end, keymap_opts },
@@ -265,6 +276,7 @@ return {
 
     {
         "ziontee113/syntax-tree-surfer",
+        event = "VeryLazy",
         name = "sts",
         config = true,
         branch = "2.1",
@@ -293,6 +305,7 @@ return {
     },
     {
         "chrisgrieser/nvim-scissors",
+        event = "VeryLazy",
         dependencies = { "nvim-telescope/telescope.nvim" },
         opts = {
             snippetDir = vim.fn.stdpath("config") .. "/snippets",

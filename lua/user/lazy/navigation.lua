@@ -12,11 +12,13 @@ return {
     },
     {
         "chaoren/vim-wordmotion",
-        lazy = false,
+        -- lazy = false,
+        event = "VeryLazy",
         init = function() vim.g.wordmotion_prefix = "<Space>" end
     },
     {
         "ggandor/leap.nvim",
+        event = "VeryLazy",
         keys = {
             { mode = "n", "\\", "<Plug>(leap-forward-to)" },
             { mode = "n", "|",  "<Plug>(leap-backward-to)" },
@@ -27,6 +29,7 @@ return {
     },
     {
         "ggandor/flit.nvim",
+        event = "VeryLazy",
         dependencies = "ggandor/leap.nvim",
         opts = {
             keys = { f = 'f', F = 'F', t = 't', T = 'T' },
@@ -42,6 +45,7 @@ return {
     },
     {
         "RRethy/vim-illuminate",
+        event = "BufRead",
         keys = {
             { mode = "n", "<Up>",   function() require("illuminate").goto_prev_reference(true) end, "Prev node under cursor" },
             { mode = "n", "<Down>", function() require("illuminate").goto_next_reference(true) end, "Next node under cursor" }
@@ -63,7 +67,7 @@ return {
     { "ThePrimeagen/harpoon", lazy = false, },
     {
         "jinh0/eyeliner.nvim",
-        lazy = false,
+        event = "BufRead",
         priority = 999,
         config = function() require("user.plugins.eyeliner") end
     },

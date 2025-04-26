@@ -7,9 +7,11 @@ return {
         "lukas-reineke/indent-blankline.nvim",
         name = "ibl",
         config = true,
+        event = "VeryLazy",
     },
     {
         "akinsho/bufferline.nvim",
+        event = "VeryLazy",
         branch = "main",
         dependencies = "kyazdani42/nvim-web-devicons",
         opts = {
@@ -35,6 +37,7 @@ return {
     },
     {
         "nvim-lualine/lualine.nvim",
+        event = "VeryLazy",
         dependencies = {
             { 'kyazdani42/nvim-web-devicons', opt = true },
             { 'ficcdaf/ashen.nvim' }
@@ -44,6 +47,7 @@ return {
     },
     {
         "folke/zen-mode.nvim",
+        event = "VeryLazy",
         opts = {
             window = {
                 width = 120,
@@ -55,7 +59,7 @@ return {
     },
     {
         "shortcuts/no-neck-pain.nvim",
-        lazy = false,
+        event = "VeryLazy",
         opts = {
             width = 150,
             buffers = {
@@ -68,7 +72,7 @@ return {
     {
         "SmiteshP/nvim-navic",
         dependencies = "neovim/nvim-lspconfig",
-        lazy = false,
+        event = "BufRead",
         init = function()
             vim.g.navic_silence = true
             require("nvim-navic").setup({ highlight = true, depth_limit = 8 })
@@ -144,6 +148,8 @@ return {
     },
     {
         "norcalli/nvim-colorizer.lua",
+        event = "VeryLazy",
+        ft = { "lua", "html", "css", "scss", "javascript", "typescript", "typescriptreact" },
         opts = {
             "*",
             css = {
@@ -153,7 +159,8 @@ return {
     },
     {
         "petertriho/nvim-scrollbar",
-        init = function()
+        event = "VeryLazy",
+        config = function()
             local colors = require('ashen.colors')
             require("scrollbar").setup({
                 show_in_active_only = true,
@@ -180,6 +187,7 @@ return {
     {
         "utilyre/barbecue.nvim",
         name = "barbecue",
+        event = "VeryLazy",
         version = "*",
         dependencies = {
             "SmiteshP/nvim-navic",
@@ -192,6 +200,7 @@ return {
     },
     {
         "sphamba/smear-cursor.nvim",
+        event = "VeryLazy",
         opts = {
             stiffness = .8,
             trailing_stiffness = .5,
