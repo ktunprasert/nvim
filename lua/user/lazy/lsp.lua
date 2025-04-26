@@ -101,6 +101,7 @@ return {
                 'MeanderingProgrammer/render-markdown.nvim',
                 opts = {
                     file_types = { "markdown", "Avante" },
+                    debounce = 2000,
                 },
                 ft = { "markdown", "Avante" },
                 overrides = {
