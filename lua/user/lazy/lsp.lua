@@ -9,11 +9,11 @@ return {
     -- ███████╗███████║██║███████╗╚██████╗██║ ╚═╝ ██║██║
     -- ╚══════╝╚══════╝╚═╝╚══════╝ ╚═════╝╚═╝     ╚═╝╚═╝     ~ LSP and Autocompletion
     -- CMP dependencies
-    { "xzbdmw/colorful-menu.nvim",        config = true, },
-    { "giuxtaposition/blink-cmp-copilot", after = { "copilot.lua" } },
+    { "xzbdmw/colorful-menu.nvim",         config = true, },
     {
         'saghen/blink.cmp',
-        dependencies = { 'rafamadriz/friendly-snippets', 'Kaiser-Yang/blink-cmp-avante', 'ribru17/blink-cmp-spell' },
+        event = "InsertEnter",
+        dependencies = { 'rafamadriz/friendly-snippets', 'Kaiser-Yang/blink-cmp-avante', 'ribru17/blink-cmp-spell', "giuxtaposition/blink-cmp-copilot" },
         version = '*',
         config = function()
             require("user.blinkcmp")
@@ -175,10 +175,6 @@ return {
             copilot_model = "gpt-4o-copilot",
         },
     },
-
-    -- Snippets engine
-    { "L3MON4D3/LuaSnip",                  lazy = false },
-    { "rafamadriz/friendly-snippets",      lazy = false },
 
     -- LSP
     { "williamboman/mason.nvim",           config = true, event = "VeryLazy" },
