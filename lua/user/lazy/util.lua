@@ -137,6 +137,7 @@ return {
                 },
                 minimal = true,
             },
+            statuscolumn = {},
         },
     },
     {
