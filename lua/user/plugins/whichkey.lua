@@ -129,7 +129,7 @@ local leader = {
     },
     {
         group = "[Search] Telescope",
-        { "<Leader>!",   cmd("Telescope resume"),                                    desc = "Resume" },
+        { "<Leader>1",   cmd("Telescope resume"),                                    desc = "Resume" },
         { "<Leader>p",   cmd("Telescope projects"),                                  desc = "Projects" },
         { "<Leader>R",   cmd("Telescope oldfiles"),                                  desc = "Recent Files (Global)" },
         { "<Leader>r",   cmd("Telescope oldfiles cwd_only=true"),                    desc = "Recent Files" },
