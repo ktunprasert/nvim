@@ -4,10 +4,20 @@ return {
         config = function() require("user.plugins.whichkey") end
     },
     {
-        "lukas-reineke/indent-blankline.nvim",
-        name = "ibl",
-        config = true,
-        event = "VeryLazy",
+        'echasnovski/mini.indentscope',
+        version = '*',
+        config = function()
+            require('mini.indentscope').setup({
+                draw = {
+                    delay = 0,
+                    animation = require('mini.indentscope').gen_animation.none(),
+                },
+                options = {
+                    try_as_border = true,
+                },
+                symbol = '│',
+            })
+        end,
     },
     {
         "akinsho/bufferline.nvim",
@@ -205,6 +215,7 @@ return {
             stiffness = .8,
             trailing_stiffness = .5,
             distance_stop_animating = .5,
+            smear_to_cmd = false,
         },
     },
 }
