@@ -29,14 +29,17 @@ return {
             require("leap").setup(opts)
 
             do
+                local group = vim.api.nvim_create_augroup("Leap", { clear = true })
                 local smear = require('smear_cursor')
                 vim.api.nvim_create_autocmd('User', {
+                    group = group,
                     pattern = 'LeapEnter',
                     callback = function()
                         smear.toggle()
                     end,
                 })
                 vim.api.nvim_create_autocmd('User', {
+                    group = group,
                     pattern = 'LeapLeave',
                     callback = function()
                         smear.toggle()

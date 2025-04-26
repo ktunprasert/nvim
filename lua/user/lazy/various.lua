@@ -41,7 +41,7 @@ local ftMaps = {
     { map = { htmlAttribute = "x" },        fts = { "html", "css", "scss", "xml", "vue" } },
 }
 
-local group = vim.api.nvim_create_augroup("VariousTextobjs", {})
+local group = vim.api.nvim_create_augroup("VariousTextobjs", { clear = true })
 for _, textobj in pairs(ftMaps) do
     vim.api.nvim_create_autocmd("FileType", {
         group = group,
