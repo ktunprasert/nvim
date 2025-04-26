@@ -164,10 +164,6 @@ local leader = {
         { "<C-p>",      cmd("Telescope find_files"),                                   desc = "Fuzzy find files" },
     },
     {
-        group = "[Search] Hop",
-        { "<Leader>/", cmd("HopPattern"), desc = "Hop by Pattern" },
-    },
-    {
         group = "[Harpoon]",
         { "<Leader>h", function() require("harpoon.mark").add_file() end,        desc = "Harpoon File" },
         { "<Leader>H", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Harpoon List" },
