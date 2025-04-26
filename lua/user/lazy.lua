@@ -29,6 +29,7 @@ require("lazy").setup({
     -- Own Plugins
     {
         "ktunprasert/gui-font-resize.nvim",
+        enabled = vim.g.neovide or false,
         config = true,
     },
 }, lazyOpts)
