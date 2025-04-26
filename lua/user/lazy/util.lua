@@ -209,7 +209,8 @@ return {
             set({ "n", "x" }, "<C-n>", function() mc.matchAddCursor(1) end, { desc = "[MULTC] Next Match" })
 
             -- Add a cursor for all matches of cursor word/selection in the document.
-            set({ "n", "x" }, "<C-m>", mc.matchAllAddCursors, { desc = "[MULTC] All Matches" })
+            set({ "n", "x" }, "<leader><leader>M", mc.matchAllAddCursors, { desc = "[MULTC] All Matches" })
+            set({ "n", "x" }, "<leader>M", mc.matchAllAddCursors, { desc = "[MULTC] All Matches" })
 
             -- Pressing `<leader>miwap` will create a cursor in every match of the
             -- string captured by `iw` inside range `ap`.
