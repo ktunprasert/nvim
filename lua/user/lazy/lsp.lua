@@ -311,7 +311,7 @@ return {
     {
         'Chaitanyabsprip/fastaction.nvim',
         opts = {
-            dismiss_keys = { "j", "k", "<c-c>", "q" },
+            dismiss_keys = { "j", "k", "<c-c>", "q", "<Esc>" },
             -- override_function = function()end, -- TODO: implement a "number-first" key quick jump
             priority = {
                 go = {
