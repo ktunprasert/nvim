@@ -174,7 +174,6 @@ local leader = {
         { "gd",        function() vim.lsp.buf.definition() end,                                         desc = "LSP Definition" },
         { "K",         function() vim.lsp.buf.hover() end,                                              desc = "LSP Hover" },
         { "gi",        function() vim.lsp.buf.implementation() end,                                     desc = "LSP Implementation" },
-        { "<Leader>k", function() vim.lsp.buf.signature_help() end,                                     desc = "LSP Signature Help" },
         { "gs",        function() vim.lsp.buf.signature_help() end,                                     desc = "LSP Signature Help" },
         { "<F2>",      function() vim.lsp.buf.rename() end,                                             desc = "LSP Rename" },
         { "gr",        function() vim.lsp.buf.references() end,                                         desc = "LSP References" },
