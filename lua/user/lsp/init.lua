@@ -4,4 +4,4 @@ if not ok then
 end
 
 require("user.lsp.setup")
-require("user.lsp.handlers").setup()
+require("user.lsp.diagnostics")
