@@ -18,7 +18,6 @@ return {
     },
     {
         "ggandor/leap.nvim",
-        event = "VeryLazy",
         keys = {
             { mode = "n", "\\", "<Plug>(leap-forward-to)" },
             { mode = "n", "|",  "<Plug>(leap-backward-to)" },
@@ -26,11 +25,35 @@ return {
         opts = {
             labeled_modes = "v",
         },
+        config = function(opts)
+            require("leap").setup(opts)
+
+            do
+                local smear = require('smear_cursor')
+                vim.api.nvim_create_autocmd('User', {
+                    pattern = 'LeapEnter',
+                    callback = function()
+                        smear.toggle()
+                    end,
+                })
+                vim.api.nvim_create_autocmd('User', {
+                    pattern = 'LeapLeave',
+                    callback = function()
+                        smear.toggle()
+                    end,
+                })
+
+
+                vim.api.nvim_set_hl(0, 'LeapLabel', { fg = 'black', bg = "#D7A933" })
+            end
+        end,
     },
     {
         "ggandor/flit.nvim",
-        event = "VeryLazy",
-        dependencies = "ggandor/leap.nvim",
+        after = "ggandor/leap.nvim",
+        keys = {
+            { 'f' }, { 'F' }, { 't' }, { 'T' },
+        },
         opts = {
             keys = { f = 'f', F = 'F', t = 't', T = 'T' },
             -- A string like "nv", "nvo", "o", etc.
@@ -39,9 +62,9 @@ return {
             -- Like `leap`s similar argument (call-specific overrides).
             -- E.g.: opts = { equivalence_classes = {} }
             opts = {
-                max_highlighted_traversal_targets = 50,
+                max_highlighted_traversal_targets = 10,
             }
-        }
+        },
     },
     {
         "RRethy/vim-illuminate",

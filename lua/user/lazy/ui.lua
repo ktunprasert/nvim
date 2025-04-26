@@ -210,12 +210,13 @@ return {
     },
     {
         "sphamba/smear-cursor.nvim",
-        event = "VeryLazy",
+        event = "CursorMoved",
         opts = {
             stiffness = .8,
             trailing_stiffness = .5,
             distance_stop_animating = .5,
             smear_to_cmd = false,
+            cursor_color = "#D7A933",
         },
     },
 }
