@@ -120,6 +120,7 @@ local excluded_buftypes = {
 }
 
 vim.api.nvim_create_autocmd("CmdlineEnter", {
+    desc = "Disable relative number in command mode",
     group = "numbertoggle",
     callback = function()
         local buf = vim.api.nvim_get_current_buf()
@@ -137,6 +138,7 @@ vim.api.nvim_create_autocmd("CmdlineEnter", {
 })
 
 vim.api.nvim_create_autocmd("CmdlineLeave", {
+    desc = "Turn on relative number when leaving command mode",
     group = "numbertoggle",
     callback = function()
         local buf = vim.api.nvim_get_current_buf()
@@ -154,6 +156,7 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
 
 -- this is for restoring the cursor position when reopening a file
 vim.api.nvim_create_autocmd('BufReadPost', {
+    desc = "Restore cursor position",
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')
         local lcount = vim.api.nvim_buf_line_count(0)
@@ -165,6 +168,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 
 -- automatically remove trailing whitespace
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    desc = "Remove trailing whitespace or CRLF",
     pattern = { "*" },
     callback = function(_)
         local save_cursor = vim.fn.getpos(".")
@@ -175,6 +179,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 
 -- ensure filetype is set for help buffers
 vim.api.nvim_create_autocmd("BufEnter", {
+    desc = "Set filetype for help buffers",
     pattern = "*",
     callback = function(args)
         if vim.bo[args.buf].buftype == "help" then
