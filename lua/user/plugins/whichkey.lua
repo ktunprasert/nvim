@@ -87,7 +87,7 @@ local leader = {
     },
     {
         group = "[Buffers]",
-        { "<Leader>Q",  cmd("qa"),                     desc = "Quit" },
+        { "<Leader>Q",  cmd("qa!"),                    desc = "Force Quit" },
         { "<Leader>D",  function() vim.cmd("%bd") end, desc = "Delete ALL Buffers" },
         { "<Leader>bd", cmd("bp | sp | bn | bd"),      desc = "Delete Buffer" },
         { "<Leader>bq", cmd("bd!"),                    desc = "Force delete buffer" },
@@ -117,9 +117,9 @@ local leader = {
     {
         group = "[Search] Telescope",
         { "<Leader>1",   cmd("Telescope resume"),                                    desc = "Resume" },
-        { "<Leader>p",   cmd("Telescope projects"),                                  desc = "Projects" },
         { "<Leader>R",   cmd("Telescope oldfiles"),                                  desc = "Recent Files (Global)" },
         { "<Leader>r",   cmd("Telescope oldfiles cwd_only=true"),                    desc = "Recent Files" },
+        { "<Leader>sp",  cmd("Telescope projects"),                                  desc = "Projects" },
         { "<Leader>sg",  cmd("Telescope git_files"),                                 desc = "Git Files" },
         { "<Leader>sf",  cmd("Telescope find_files"),                                desc = "Find All Files" },
         { "<Leader>st",  function() require("user.telescope.multigrep").setup() end, desc = "Text" },
