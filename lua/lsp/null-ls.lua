@@ -14,28 +14,24 @@ local FMT = require("null-ls.methods").internal.FORMATTING
 null_ls.setup({
     debug = true,
     sources = {
-        -- formatting.prettier.with({ extra_args = {} }),
+        formatting.prettier.with({ extra_args = {} }),
         formatting.black.with({ extra_args = { "--fast" } }),
-        formatting.fantomas,
         formatting.biome,
-        -- formatting.stylua,
-        -- formatting.blue.with({ extra_args = { "--fast" } }),
-        -- formatting.yamlfmt.with({ extra_args = { "-conf=~/.config/.yamlfmt" } }),
-        -- formatting.stylua,
         diagnostics.golangci_lint,
         -- null_ls.builtins.code_actions.gitsigns,
-        h.make_builtin(
-            {
-                name = "v fmt",
-                method = FMT,
-                filetypes = { "v" },
-                generator_opts = {
-                    command = "v",
-                    args = { "fmt" },
-                    to_stdin = true,
-                },
-                factory = h.formatter_factory,
-            }
-        ),
+        null_ls.builtins.code_actions.ts_node_action,
+        -- h.make_builtin(
+        --     {
+        --         name = "v fmt",
+        --         method = FMT,
+        --         filetypes = { "v" },
+        --         generator_opts = {
+        --             command = "v",
+        --             args = { "fmt" },
+        --             to_stdin = true,
+        --         },
+        --         factory = h.formatter_factory,
+        --     }
+        -- ),
     },
 })

@@ -299,4 +299,9 @@ return {
 
         },
     },
+    {
+        'ckolkey/ts-node-action',
+        opts = {},
+        lazy = true,
+    },
 }
