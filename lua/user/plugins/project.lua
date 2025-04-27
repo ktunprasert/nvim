@@ -33,6 +33,12 @@ project.setup {
     ---@type string
     ---@usage path to store the project history for use in telescope
     datapath = vim.fn.stdpath('data'),
+
+    exclude_dirs = {
+        vim.fn.stdpath('data'),
+        "~/go/pkg/",
+        "node_modules",
+    },
 }
 
 require("telescope").load_extension("projects")
