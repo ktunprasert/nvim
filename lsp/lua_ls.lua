@@ -77,6 +77,7 @@ return {
                 library = {
                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                     [vim.fn.stdpath("config") .. "/lua"] = true,
+                    [vim.fn.stdpath("data") .. "/lazy/snacks.nvim/lua"] = true,
                     -- Depending on the usage, you might want to add additional paths here.
                     -- "${3rd}/luv/library"
                     -- "${3rd}/busted/library",
