@@ -14,7 +14,7 @@ local FMT = require("null-ls.methods").internal.FORMATTING
 null_ls.setup({
     debug = true,
     sources = {
-        formatting.prettier.with({ extra_args = {} }),
+        formatting.prettier.with({ extra_args = {}, filetypes = { "markdown", "md" } }),
         formatting.black.with({ extra_args = { "--fast" } }),
         formatting.biome,
         diagnostics.golangci_lint,
