@@ -109,6 +109,8 @@ return {
                     end,
                     desc = "Collapse quickfix context",
                 },
+                { "+", function() require("quicker").expand({ before = 0, after = 1, add_to_existing = true }) end },
+                { "-", function() require("quicker").expand({ before = 1, after = 0, add_to_existing = true }) end },
             },
         },
     },
