@@ -159,12 +159,7 @@ return {
     { "hinell/lsp-timeout.nvim", event = "LspAttach" },
 
     -- Linter/Formatter
-    {
-        "nvimtools/none-ls.nvim", -- for formatters and linter
-        -- lazy = false,
-        event = "VeryLazy",
-        config = function() require("user.lsp.null-ls") end
-    },
+    { "nvimtools/none-ls.nvim",  event = "VeryLazy", },
 
     -- Treesitter
     {

@@ -7,6 +7,8 @@ require "user.globals"
 require "user.options"
 require "user.keymaps"
 require "user.lazy"
-require "user.lsp.init"
 require "user.abbreviations"
 require "user.colors"
+
+-- lsp related
+require "lsp"

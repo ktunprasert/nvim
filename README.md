@@ -46,7 +46,7 @@ Neovim version `0.8` and above is required
 - `lua/user/lsp/null-ls.lua` disable binding for missing binary (eg. prettier)
 - `lua/user/plugins/toggleterm.lua`: define alternative shell if not using `fish`
 - `lua/user/keymaps.lua`: resolve any keymap conflicts
-- `config.example.lua`: configure the servers you want to use in `M.servers` table, this file is not tracked
+- `lua/lsp/config`: configure the servers you want to use in `M.servers` table, this file is not tracked
 
 ## Initial setup
 

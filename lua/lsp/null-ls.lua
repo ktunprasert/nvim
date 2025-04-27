@@ -12,10 +12,13 @@ local h = require("null-ls.helpers")
 local FMT = require("null-ls.methods").internal.FORMATTING
 
 null_ls.setup({
-    debug = false,
+    debug = true,
     sources = {
-        formatting.prettier.with({ extra_args = {} }),
+        -- formatting.prettier.with({ extra_args = {} }),
         formatting.black.with({ extra_args = { "--fast" } }),
+        formatting.fantomas,
+        formatting.biome,
+        -- formatting.stylua,
         -- formatting.blue.with({ extra_args = { "--fast" } }),
         -- formatting.yamlfmt.with({ extra_args = { "-conf=~/.config/.yamlfmt" } }),
         -- formatting.stylua,

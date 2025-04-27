@@ -1,9 +1,7 @@
 -- NOTE: copy this to your config root
 -- cp config.example.lua config.lua
 -- required for using lsps
-local M = {}
-
-M.servers = {
+return {
     "bashls",
     "cssls",
     "emmet_ls",
@@ -25,5 +23,3 @@ M.servers = {
     "rust_analyzer",
     "zls",
 }
-
-return M

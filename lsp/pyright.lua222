@@ -2,6 +2,7 @@ return {
     settings = {
         python = {
             analysis = {
+                reportUnusedVariable = "none",
                 typeCheckingMode = "off",
                 diagnosticSeverityOverrides = {
                     reportGeneralTypeIssues = "warning",

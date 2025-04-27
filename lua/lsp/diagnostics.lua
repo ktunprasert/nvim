@@ -9,8 +9,6 @@ for _, sign in ipairs(signs) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
 
-local width = vim.api.nvim_win_get_width(0)
-
 local config = {
     virtual_text = false,
     -- disable virtual text
