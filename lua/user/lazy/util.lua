@@ -38,7 +38,7 @@ return {
         opts = {
             lazy_support = true,
             log_level = 'info',
-            pre_save_cmds = { "Neotree close", "helpclose" },
+            pre_save_cmds = { "Neotree close" },
             session_lens = {
                 load_on_setup = false,
             }

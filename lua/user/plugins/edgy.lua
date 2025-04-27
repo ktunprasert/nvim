@@ -15,7 +15,7 @@ local opts = {
         right = { size = .2 },
     },
     left = {
-        { ft = "help", }, { ft = "man", },
+        -- { ft = "help", }, { ft = "man", },
     },
     wo = {
         winfixwidth = false,
