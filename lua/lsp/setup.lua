@@ -23,6 +23,8 @@ require("lspconfig")
 
 local servers = require("lsp.config") or require("lsp.config_example")
 
+require("lsp.overrides")(servers)
+
 -- PERF: potential for optimisation
 -- by dynamically disabling servers
 -- and allow certain servers during
