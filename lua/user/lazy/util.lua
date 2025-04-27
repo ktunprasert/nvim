@@ -100,14 +100,14 @@ return {
                     function()
                         require("quicker").expand({ before = 2, after = 2, add_to_existing = true })
                     end,
-                    desc = "[MULTC] Expand quickfix context",
+                    desc = "Expand quickfix context",
                 },
                 {
                     "<",
                     function()
                         require("quicker").collapse()
                     end,
-                    desc = "[MULTC] Collapse quickfix context",
+                    desc = "Collapse quickfix context",
                 },
             },
         },
@@ -147,7 +147,7 @@ return {
         -- lazy = false,
         config = true,
         keys = {
-            { mode = "n", "<leader>sT", "<cmd>TodoTelescope<cr>", desc = "[MULTC] Search TODO comments" },
+            { mode = "n", "<leader>sT", "<cmd>TodoTelescope<cr>", desc = "Search TODO comments" },
         }
     },
     {
