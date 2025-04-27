@@ -37,15 +37,11 @@ keymap("", "gf", ":e <cfile><CR>")
 -- Command mode without shift
 keymap({ "n", "v" }, ";", ":")
 
--- Replay macro
-keymap("n", ",,", "@@")
+-- Command mode without shift
+-- keymap({ "n", "v" }, ";", ":")
 
 -- Quickly escape from insert mode
 keymap("i", "jk", "<Esc>")
-
--- Force paste from yank with comma
-keymap("n", ",p", "\"0p")
-keymap("n", ",P", "\"0P")
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h")

@@ -171,7 +171,9 @@ local leader = {
     },
     {
         group = "[Hacks]",
-        -- { ";", ":", mode = "vn", desc = "Command Mode" },
+        { "<Leader>p", '"0p', desc = "Paste from register 0" },
+        { "<Leader>P", '"0P', desc = "Paste from register 0" },
+        { "<Leader>,", '@@',  desc = "Replay macro" },
     }
 }
 
