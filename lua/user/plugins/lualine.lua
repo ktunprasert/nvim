@@ -13,24 +13,26 @@ local components = {
     lsp = {
         function(msg)
             msg = msg or ""
-            local buf_clients = vim.lsp.get_clients()
+            local buf_clients = vim.lsp.get_clients({
+                bufnr = vim.api.nvim_get_current_buf(),
+            })
+
+            if #buf_clients == 0 then
+                return ""
+            end
+
             if next(buf_clients) == nil then
                 if type(msg) == "boolean" or #msg == 0 then
                     return ""
                 end
+
                 return msg
             end
-            local buf_ft = vim.bo.filetype
-            local buf_client_names = {}
 
-            for _, client in pairs(buf_clients) do
-                if client.name ~= "null-ls" then
-                    table.insert(buf_client_names, client.name)
-                end
-            end
-
-            local unique_client_names = vim.fn.uniq(buf_client_names)
-            return table.concat(unique_client_names, "|")
+            return vim.iter(buf_clients)
+                :filter(function(client) return client.name ~= "null-ls" end)
+                :map(function(client) return client.name end)
+                :join("")
         end,
     },
     encoding = {
@@ -60,7 +62,7 @@ local function is_git_repo()
 end
 
 local opts = {
-    {
+    options = {
         icons_enabled = true,
         component_separators = { left = '|', right = '|' },
         section_separators = { left = '', right = '' },
