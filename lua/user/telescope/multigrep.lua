@@ -9,6 +9,7 @@ local M = {}
 local live_multigrep = function(opts)
     opts = opts or {}
     opts.cwd = opts.cwd or vim.fn.getcwd(0, 0)
+    opts.extra_args = opts.extra_args or {}
 
     local finder = finders.new_async_job {
         command_generator = function(prompt)
@@ -29,7 +30,11 @@ local live_multigrep = function(opts)
                 table.insert(args, string.format("*%s*", pieces[2]))
             end
 
-            return vim.iter({ args, { "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" } })
+            return vim.iter({
+                    args,
+                    { "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
+                    opts.extra_args,
+                })
                 :flatten():totable()
         end,
         entry_maker = make_entry.gen_from_vimgrep(opts),
@@ -48,5 +53,7 @@ end
 M.setup = function()
     live_multigrep()
 end
+
+M.live_multigrep = live_multigrep
 
 return M

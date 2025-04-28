@@ -95,9 +95,9 @@ local leader = {
     },
     {
         group = "[Explore]",
-        { "<Leader>f",  cmd("Neotree float reveal"),                 desc = "Reveal current file" },
+        -- { "<Leader>f",  cmd("Neotree float reveal"),                 desc = "Reveal current file" },
         { "<Leader>bb", cmd("Neotree buffers focus position=float"), desc = "Buffers" },
-        { "<A-e>",      cmd("Neotree toggle float filesystem"),      desc = "Explore" }
+        -- { "<A-e>",      cmd("Neotree toggle float filesystem"),      desc = "Explore" }
     },
     {
         group = "[Git]",

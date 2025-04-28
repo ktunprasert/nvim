@@ -1,3 +1,5 @@
+local cmd = require("lib.utils").cmdcr
+
 return {
     -- ███╗   ██╗ █████╗ ██╗   ██╗██╗ ██████╗  █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
     -- ████╗  ██║██╔══██╗██║   ██║██║██╔════╝ ██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
@@ -97,4 +99,51 @@ return {
         priority = 999,
         config = function() require("user.plugins.eyeliner") end
     },
+
+    {
+        "mikavilpas/yazi.nvim",
+        event = "VeryLazy",
+        after = {
+            "folke/snacks.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+        keys = {
+            { "<leader>f", cmd("Yazi"),        desc = "Open yazi at the current file", mode = { "n", "v" }, },
+            { "<A-r>",     cmd("Yazi toggle"), desc = "Resume the last yazi session", },
+            { "<A-e>",     cmd("Yazi cwd"),    desc = "Yazi in current workdir", },
+        },
+        opts = {
+            -- if you want to open yazi instead of netrw, see below for more info
+            open_for_directories = false,
+            keymaps = {
+                show_help = "<f1>",
+                open_file_in_vertical_split = "<a-l>",
+                open_file_in_horizontal_split = "<a-j>",
+                -- open_file_in_tab = "<c-t>",
+                grep_in_directory = "<c-s>",
+                replace_in_directory = "<a-s>",
+                cycle_open_buffers = "<tab>",
+                copy_relative_path_to_selected_files = "<c-y>",
+                send_to_quickfix_list = "<c-q>",
+                change_working_directory = "<c-.>",
+            },
+
+            integrations = {
+                grep_in_directory = function(directory)
+                    require("user.telescope.multigrep").live_multigrep({ extra_args = { directory } })
+                end,
+                -- TODO: WIP
+                -- grep_in_selected_files = function(selected_files)
+                --     print(selected_files)
+                --     require("user.telescope.multigrep").live_multigrep({ extra_args = selected_files })
+                -- end,
+            },
+        },
+        -- 👇 if you use `open_for_directories=true`, this is recommended
+        init = function()
+            -- More details: https://github.com/mikavilpas/yazi.nvim/issues/802
+            -- vim.g.loaded_netrw = 1
+            vim.g.loaded_netrwPlugin = 1
+        end,
+    }
 }
