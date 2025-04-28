@@ -74,5 +74,6 @@
   "vim-illuminate": { "branch": "master", "commit": "2086527383c780983c702d0cdb304409dc0358f6" },
   "vim-wordmotion": { "branch": "master", "commit": "81d9bd298376ab0dc465c85d55afa4cb8d5f47a1" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
-  "window-picker": { "branch": "main", "commit": "6382540b2ae5de6c793d4aa2e3fe6dbb518505ec" }
+  "window-picker": { "branch": "main", "commit": "6382540b2ae5de6c793d4aa2e3fe6dbb518505ec" },
+  "yazi.nvim": { "branch": "main", "commit": "312bef6c94c5593f41650d8b1b4da921d0363a6e" }
 }
