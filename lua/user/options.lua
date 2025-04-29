@@ -56,6 +56,7 @@ vim.opt.laststatus = 3
 -- spellings
 vim.opt.spell = true
 vim.opt.spelllang = { 'en_gb' }
+vim.opt.cmdheight = 1
 
 -- check for windows
 if vim.fn.has("win32") ~= 1 then

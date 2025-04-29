@@ -157,10 +157,11 @@ return {
         lazy = false,
         keys = {
             ---@diagnostic disable-next-line: undefined-global
-            { "<leader>.", function() Snacks.scratch() end,                      desc = "Toggle Scratch Buffer" },
-            { "<leader>S", function() Snacks.scratch.select() end,               desc = "Select Scratch Buffer" },
-            { "<A-f>",     function() Snacks.zen({ win = { width = 0.8 } }) end, desc = "Zen Mode" },
-            { "1<A-f>",    function() Snacks.zen({ win = { width = 100 } }) end, desc = "Zen Mode (less width)" },
+            { "<leader>.",  function() Snacks.scratch() end,                      desc = "Toggle Scratch Buffer" },
+            { "<leader>S",  function() Snacks.scratch.select() end,               desc = "Select Scratch Buffer" },
+            { "<A-f>",      function() Snacks.zen({ win = { width = 0.8 } }) end, desc = "Zen Mode" },
+            { "1<A-f>",     function() Snacks.zen({ win = { width = 100 } }) end, desc = "Zen Mode (less width)" },
+            { "<leader>sH", function() Snacks.notifier.show_history() end,        desc = "Show notifier history" },
         },
         ---@type snacks.Config
         opts = {
@@ -211,7 +212,19 @@ return {
                 minimal = true,
             },
             statuscolumn = {},
+            notifier = {
+                style = "minimal",
+                top_down = false,
+                margin = { bottom = 1, right = 0 },
+                filter = function()
+                    return true
+                end,
+            },
         },
+        config = function(cfg)
+            require("snacks").setup(cfg.opts)
+            require("user.plugins.snacks-autocmd")
+        end
     },
     {
         "folke/todo-comments.nvim",
