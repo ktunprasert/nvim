@@ -67,6 +67,16 @@ return {
                 -- model = "claude-3.7-sonnet-thought",
                 model = "claude-3.7-sonnet",
             },
+            windows = {
+                wrap = true, -- similar to vim.o.wrap
+                width = 30,  -- default % based on available width
+                edit = { start_insert = false, },
+                ask = {
+                    floating = false,     -- Open the 'AvanteAsk' prompt in a floating window
+                    start_insert = false, -- Start insert mode when opening the ask window
+                },
+            },
+
         },
         build = "make",
         dependencies = {
