@@ -194,6 +194,7 @@ return {
                             ["source"] = {
                                 "<cr>",
                                 function(self)
+                                    -- TODO: ensure we set this up properly
                                     local name = "scratch." ..
                                         vim.fn.fnamemodify(vim.api.nvim_buf_get_name(self.buf), ":e")
                                     Snacks.debug.run({ buf = self.buf, name = name })
@@ -213,6 +214,7 @@ return {
                 minimal = true,
             },
             statuscolumn = {},
+            -- TODO: also include search count in notifier keepalive somehow
             notifier = {
                 style = "minimal",
                 top_down = false,
