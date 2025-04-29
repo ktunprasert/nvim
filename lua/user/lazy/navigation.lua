@@ -9,7 +9,9 @@ return {
     -- ╚═╝  ╚═══╝╚═╝  ╚═╝  ╚═══╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ~ Navigation
     {
         "phaazon/hop.nvim",
-        event = "BufRead",
+        keys = {
+            { mode = { "n", "v", "o" }, "<C-Space><C-Space>", "<cmd>HopWord<cr>", }
+        },
         config = function() require("user.plugins.hop") end
     },
     {
