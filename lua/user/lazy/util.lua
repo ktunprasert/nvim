@@ -211,39 +211,40 @@ return {
     },
     {
         "monaqa/dial.nvim",
-        event = "VeryLazy",
         config = function()
             local augend = require("dial.augend")
+
             require("dial.config").augends:register_group {
                 default = {
                     augend.constant.alias.bool,
-                    augend.constant.alias.de_weekday,
-                    augend.constant.alias.de_weekday_full,
+                    augend.integer.alias.decimal,
+                    augend.integer.alias.decimal_int,
+                },
+                visual = {
+                    augend.hexcolor.new({ case = 'upper' }),
+                    augend.integer.alias.hex,
                     augend.date.alias["%Y/%m/%d"],
                     augend.date.alias['%Y-%m-%d'],
                     augend.date.alias['%Y/%m/%d'],
-                    augend.hexcolor.new({ case = 'upper' }),
-                    augend.integer.alias.decimal,
-                    augend.integer.alias.decimal_int,
-                    augend.integer.alias.hex,
+                    augend.constant.alias.de_weekday,
+                    augend.constant.alias.de_weekday_full,
                     augend.case.new({
                         types = { 'camelCase', 'snake_case', 'PascalCase' },
                         cyclic = true,
                     }),
-                    -- a and b
                     augend.semver.alias.semver,
-                }
+                },
             }
         end,
         keys = {
-            { mode = "n", "<C-a>",  function() require("dial.map").manipulate("increment", "normal") end,  remap = true },
-            { mode = "n", "<C-x>",  function() require("dial.map").manipulate("decrement", "normal") end,  remap = true },
-            { mode = "n", "g<C-a>", function() require("dial.map").manipulate("increment", "gnormal") end, remap = true },
-            { mode = "n", "g<C-x>", function() require("dial.map").manipulate("decrement", "gnormal") end, remap = true },
-            { mode = "v", "<C-a>",  function() require("dial.map").manipulate("increment", "visual") end,  remap = true },
-            { mode = "v", "<C-x>",  function() require("dial.map").manipulate("decrement", "visual") end,  remap = true },
-            { mode = "v", "g<C-a>", function() require("dial.map").manipulate("increment", "gvisual") end, remap = true },
-            { mode = "v", "g<C-x>", function() require("dial.map").manipulate("decrement", "gvisual") end, remap = true },
+            { mode = "n", "<C-a>",  function() require("dial.map").manipulate("increment", "normal") end,            remap = true },
+            { mode = "n", "<C-x>",  function() require("dial.map").manipulate("decrement", "normal") end,            remap = true },
+            { mode = "n", "g<C-a>", function() require("dial.map").manipulate("increment", "gnormal") end,           remap = true },
+            { mode = "n", "g<C-x>", function() require("dial.map").manipulate("decrement", "gnormal") end,           remap = true },
+            { mode = "v", "<C-a>",  function() require("dial.map").manipulate("increment", "visual", "visual") end,  remap = true },
+            { mode = "v", "<C-x>",  function() require("dial.map").manipulate("decrement", "visual", "visual") end,  remap = true },
+            { mode = "v", "g<C-a>", function() require("dial.map").manipulate("increment", "gvisual", "visual") end, remap = true },
+            { mode = "v", "g<C-x>", function() require("dial.map").manipulate("decrement", "gvisual", "visual") end, remap = true },
         },
     },
 
