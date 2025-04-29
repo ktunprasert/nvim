@@ -223,6 +223,19 @@ return {
                     return true
                 end,
             },
+            indent = {
+                chunk = {
+                    enabled = true,
+                    only_current = true,
+                },
+                animate = {
+                    enabled = false,
+                },
+                scope = {
+                    underline = true,
+                    only_current = true,
+                },
+            },
         },
         config = function(cfg)
             require("snacks").setup(cfg.opts)

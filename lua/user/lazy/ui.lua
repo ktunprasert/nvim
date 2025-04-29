@@ -4,22 +4,6 @@ return {
         config = function() require("user.plugins.whichkey") end
     },
     {
-        'echasnovski/mini.indentscope',
-        version = '*',
-        config = function()
-            require('mini.indentscope').setup({
-                draw = {
-                    delay = 0,
-                    animation = require('mini.indentscope').gen_animation.none(),
-                },
-                options = {
-                    try_as_border = true,
-                },
-                symbol = '│',
-            })
-        end,
-    },
-    {
         "akinsho/bufferline.nvim",
         branch = "main",
         dependencies = "kyazdani42/nvim-web-devicons",
