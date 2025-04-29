@@ -51,6 +51,7 @@
   "nvim-treesitter": { "branch": "master", "commit": "4c7509e7b06cea99065e8d4a20d30e6a2e5cd924" },
   "nvim-treesitter-context": { "branch": "master", "commit": "6daca3ad780f045550b820f262002f35175a6c04" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "205e3369bc83d8cb83f7409c36120e24611f8c5c" },
+  "nvim-ts-autotag": { "branch": "main", "commit": "a1d526af391f6aebb25a8795cbc05351ed3620b5" },
   "nvim-various-textobjs": { "branch": "main", "commit": "9dfd37a7059c9f27bd2eb72af6b139b1187be459" },
   "nvim-web-devicons": { "branch": "master", "commit": "50b5b06bff13a9b4eab946de7c7033649a6618a1" },
   "outline.nvim": { "branch": "main", "commit": "321f89ef79f168a78685f70d70c52d0e7b563abb" },
@@ -75,5 +76,5 @@
   "vim-wordmotion": { "branch": "master", "commit": "81d9bd298376ab0dc465c85d55afa4cb8d5f47a1" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "window-picker": { "branch": "main", "commit": "6382540b2ae5de6c793d4aa2e3fe6dbb518505ec" },
-  "yazi.nvim": { "branch": "main", "commit": "312bef6c94c5593f41650d8b1b4da921d0363a6e" }
+  "yazi.nvim": { "branch": "main", "commit": "8cf2c9003c3cff4ab03915855de238c734d8029b" }
 }
