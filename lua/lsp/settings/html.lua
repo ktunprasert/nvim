@@ -1,6 +1,0 @@
-return {
-    filetypes = {
-        "html",
-        -- "heex",
-    }
-}
