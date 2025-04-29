@@ -29,8 +29,8 @@ return {
         opts = {
             labeled_modes = "v",
         },
-        config = function(opts)
-            require("leap").setup(opts)
+        config = function(cfg)
+            require("leap").setup(cfg.opts)
 
             do
                 local group = vim.api.nvim_create_augroup("Leap", { clear = true })
