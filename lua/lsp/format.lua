@@ -29,7 +29,7 @@ local autofmt_ft = {
 
 vim.api.nvim_create_autocmd('LspAttach', {
     pattern = autofmt_ft,
-    group = vim.api.nvim_create_augroup('my.lsp', {}),
+    group = vim.api.nvim_create_augroup('my.lsp', { clear = true }),
     callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
 
