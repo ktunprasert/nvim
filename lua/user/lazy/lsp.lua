@@ -170,8 +170,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         config = function() require("user.plugins.treesitter") end,
-        -- lazy = false,
-        event = { "BufReadPre" },
+        event = "VeryLazy",
         build = ":TSUpdate",
     },
     {
@@ -271,6 +270,7 @@ return {
 
     {
         "nvim-treesitter/nvim-treesitter-context",
+        event = "VeryLazy",
     },
     {
         "chrisgrieser/nvim-scissors",

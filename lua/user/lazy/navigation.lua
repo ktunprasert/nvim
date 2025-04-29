@@ -97,7 +97,8 @@ return {
     { "ThePrimeagen/harpoon", lazy = false, },
     {
         "jinh0/eyeliner.nvim",
-        event = "BufRead",
+        -- event = "BufRead",
+        event = "VeryLazy",
         priority = 999,
         config = function() require("user.plugins.eyeliner") end
     },
