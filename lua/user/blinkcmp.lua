@@ -115,10 +115,6 @@ local opts = {
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
         default = function(_)
-            if vim.bo.filetype == "AvanteInput" then
-                return { "avante", "path", "snippets", "buffer" }
-            end
-
             local defaults = { "copilot", "lsp", "path", "snippets", "buffer" }
 
             local success, node = pcall(vim.treesitter.get_node)
@@ -128,6 +124,9 @@ local opts = {
 
             return defaults
         end,
+        per_filetype = {
+            AvanteInput = { "avante", "path", "snippets", "buffer" },
+        },
         providers = {
             buffer = {
                 opts = {
