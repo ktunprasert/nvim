@@ -143,14 +143,16 @@ return {
         }
     },
     {
-        "norcalli/nvim-colorizer.lua",
-        ft = { "lua", "html", "css", "scss", "javascript", "typescript", "typescriptreact" },
-        opts = {
-            "*",
-            css = {
-                RRGGBBAA = true,
-            },
-        },
+        "echasnovski/mini.hipatterns",
+        -- PERF: for some reason it is slower to include filetype
+        -- ft = { "lua", "html", "css", "scss", "javascript", "typescript", "typescriptreact" },
+        config = function()
+            local hptn = require("mini.hipatterns")
+            hptn.setup({
+                highlighters = { hex_color = require("mini.hipatterns").gen_highlighter.hex_color(), },
+                delay = { text_change = 500 },
+            })
+        end,
     },
     {
         "petertriho/nvim-scrollbar",
