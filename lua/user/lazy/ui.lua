@@ -144,7 +144,6 @@ return {
     },
     {
         "norcalli/nvim-colorizer.lua",
-        event = "VeryLazy",
         ft = { "lua", "html", "css", "scss", "javascript", "typescript", "typescriptreact" },
         opts = {
             "*",
