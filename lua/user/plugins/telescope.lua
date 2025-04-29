@@ -146,5 +146,6 @@ telescope.setup {
 telescope.load_extension('hop')
 telescope.load_extension('ui-select')
 telescope.load_extension('noice')
+telescope.load_extension("projects")
 
 keymap("n", "<C-f>", ":Telescope current_buffer_fuzzy_find<CR>")

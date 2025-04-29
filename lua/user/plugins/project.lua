@@ -40,5 +40,3 @@ project.setup {
         "node_modules",
     },
 }
-
-require("telescope").load_extension("projects")

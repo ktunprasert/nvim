@@ -128,7 +128,7 @@ local leader = {
         { "<Leader>sk",  cmd("Telescope keymaps"),                                   desc = "Keymaps" },
         { "<Leader>s\"", cmd("Telescope registers"),                                 desc = "Registers" },
         {
-            "<Leader>sp",
+            "<Leader>sP",
             function()
                 require('telescope.builtin').colorscheme({
                     enable_preview = true,

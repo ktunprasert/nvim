@@ -83,7 +83,6 @@ return {
     },
     {
         "ahmedkhalf/project.nvim",
-        event = "VeryLazy",
         config = function() require("user.plugins.project") end
     },
     {
