@@ -23,7 +23,12 @@ local keymaps = {
 }
 
 local opts = {
-    signature = { enabled = true },
+    signature = {
+        enabled = true,
+        window = {
+            max_height = 100,
+        },
+    },
     keymap = keymaps,
     cmdline = {
         enabled = true,
@@ -62,6 +67,7 @@ local opts = {
     },
     completion = {
         menu = {
+            max_height = 25,
             draw = {
                 columns = {
                     { "item_idx" },
