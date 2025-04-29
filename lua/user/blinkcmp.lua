@@ -119,12 +119,14 @@ local opts = {
                 return { "avante", "path", "snippets", "buffer" }
             end
 
+            local defaults = { "copilot", "lsp", "path", "snippets", "buffer" }
+
             local success, node = pcall(vim.treesitter.get_node)
             if success and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
-                return { "copilot", "spell", "path", "snippets", "buffer" }
-            else
-                return { "copilot", "lsp", "path", "snippets", "buffer" }
+                defaults[2] = "spell"
             end
+
+            return defaults
         end,
         providers = {
             buffer = {
