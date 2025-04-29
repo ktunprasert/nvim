@@ -91,20 +91,11 @@ return {
     -- DAP Debugger
     {
         "mfussenegger/nvim-dap",
-        event = "VeryLazy",
         dependencies = {
-            {
-                "nvim-neotest/nvim-nio",
-                event = "VeryLazy",
-            },
-            {
-                "theHamsta/nvim-dap-virtual-text",
-                event = "VeryLazy",
-                opts = {},
-            },
+            { "nvim-neotest/nvim-nio", },
+            { "theHamsta/nvim-dap-virtual-text", opts = {}, },
             {
                 "rcarriga/nvim-dap-ui",
-                event = "VeryLazy",
                 keys = {
                     { "<F7>", function() require("dapui").toggle({}) end, desc = "Dap UI" },
                     { "<F8>", function() require("dapui").eval() end,     desc = "Eval",  mode = { "n", "v" } },
