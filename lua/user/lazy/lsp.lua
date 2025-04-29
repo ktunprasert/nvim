@@ -304,4 +304,9 @@ return {
         opts = {},
         lazy = true,
     },
+    {
+        'windwp/nvim-ts-autotag',
+        ft = { "typescript", "javascript", "typescriptreact", "javascriptreact", "html", "markdown", "heex" },
+        opts = {},
+    },
 }
