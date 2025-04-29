@@ -7,10 +7,7 @@ local cap_overrides = {
     }
 }
 
-local cap = require('blink.cmp').get_lsp_capabilities(cap_overrides)
-
 vim.lsp.config("*", {
-    capabilities = cap,
     flags = {
         debounce_text_changes = 500,
     },
