@@ -9,11 +9,16 @@ return {
     -- ███████╗███████║██║███████╗╚██████╗██║ ╚═╝ ██║██║
     -- ╚══════╝╚══════╝╚═╝╚══════╝ ╚═════╝╚═╝     ╚═╝╚═╝     ~ LSP and Autocompletion
     -- CMP dependencies
-    { "xzbdmw/colorful-menu.nvim", config = true, },
     {
         'saghen/blink.cmp',
         event = "InsertEnter",
-        dependencies = { 'rafamadriz/friendly-snippets', 'Kaiser-Yang/blink-cmp-avante', 'ribru17/blink-cmp-spell', "giuxtaposition/blink-cmp-copilot" },
+        dependencies = {
+            'rafamadriz/friendly-snippets',
+            'Kaiser-Yang/blink-cmp-avante',
+            'ribru17/blink-cmp-spell',
+            "giuxtaposition/blink-cmp-copilot",
+            { "xzbdmw/colorful-menu.nvim", config = true, },
+        },
         version = '*',
         config = function()
             require("user.blinkcmp")
@@ -142,7 +147,7 @@ return {
     },
 
     -- LSP
-    { "neovim/nvim-lspconfig",     lazy = true, },
+    { "neovim/nvim-lspconfig",  lazy = true, },
     {
         "williamboman/mason.nvim",
         config = true,
