@@ -399,6 +399,9 @@ return {
     },
     {
         'Chaitanyabsprip/fastaction.nvim',
+        keys = {
+            { "<F3>", function() require("fastaction").code_action() end },
+        },
         opts = {
             dismiss_keys = { "j", "k", "<c-c>", "q", "<Esc>" },
             -- override_function = function()end, -- TODO: implement a "number-first" key quick jump
