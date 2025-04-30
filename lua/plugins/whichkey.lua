@@ -67,7 +67,7 @@ return {
             },
             {
                 group = "[External]",
-                { "<Leader>G", function() Lazygit_toggle() end, desc = "LazyGit", icon = "LG" },
+                { "<Leader>G", desc = "LazyGit", icon = "LG" },
             },
             {
                 group = "[Window]",

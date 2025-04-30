@@ -14,7 +14,9 @@ end
 
 return {
     "akinsho/toggleterm.nvim",
-    lazy = false,
+    keys = {
+        { "<Leader>G" }
+    },
     version = '*',
     opts = {
         direction = "float",
@@ -30,7 +32,8 @@ return {
             },
         },
     },
-    init = function()
+    config = function(cfg)
+        require("toggleterm").setup(cfg.opts)
         local Terminal = require('toggleterm.terminal').Terminal
 
         -- For Editing back from LazyGit
@@ -58,5 +61,7 @@ return {
 
             lazygit:toggle()
         end
+
+        vim.keymap.set("n", "<Leader>G", function() _G.Lazygit_toggle() end, { desc = "Lazygit" })
     end
 }
