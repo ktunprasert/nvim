@@ -109,7 +109,6 @@ return {
                         })
                     end,
                 })
-                vim.print("loaded")
 
                 Snacks.toggle.dim():map("<leader>ud")
                 Snacks.toggle.treesitter():map("<leader>ut")
