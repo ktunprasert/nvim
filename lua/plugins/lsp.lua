@@ -228,8 +228,7 @@ return {
     },
     {
         "hedyhli/outline.nvim",
-        event = "VeryLazy",
-        -- lazy = false,
+        cmd = { "Outline", "OutlineFocus" },
         keys = {
             { "<leader>o", cmd("OutlineFocus"), desc = "Outline" },
         },
