@@ -68,12 +68,12 @@ return {
     },
     {
         "RRethy/vim-illuminate",
-        event = "BufRead",
+        event = "VeryLazy",
         keys = {
             { mode = "n", "<Up>",   function() require("illuminate").goto_prev_reference(true) end, "Prev node under cursor" },
             { mode = "n", "<Down>", function() require("illuminate").goto_next_reference(true) end, "Next node under cursor" }
         },
-        init = function()
+        config = function()
             require("illuminate").configure({
                 opts = 200,
                 filetypes_denylist = {
@@ -81,8 +81,9 @@ return {
                     'dirvish',
                     'fugitive',
                     'text',
+                    'Avante', 'AvanteInput', 'AvanteSelectedFiles',
                 },
-
+                large_file_cutoff = 1000,
             })
         end
     },
