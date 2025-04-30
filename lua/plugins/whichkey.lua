@@ -71,11 +71,6 @@ return {
             },
             {
                 group = "[Window]",
-                {
-                    "<Leader>W",
-                    function() return require('window-picker').pick_window() or vim.api.nvim_get_current_win() end,
-                    desc = "Pick Window",
-                },
                 { "<A-g>", cmd("NoNeckPain"), desc = "No Neck Pain" },
             },
             {

@@ -100,26 +100,6 @@ return {
         event = "VeryLazy",
     },
     {
-        "s1n7ax/nvim-window-picker",
-        name = 'window-picker',
-        version = '2.*',
-        event = 'VeryLazy',
-        opts = {
-            selection_chars = "ABCDEFGHIJK",
-            include_current = false,
-            se_winbar = "always",
-            filter_rules = {
-                autoselect_one = true,
-                include_current_win = true,
-                bo = {
-                    filetype = { 'neo-tree', "neo-tree-popup", "notify", "quickfix" },
-                    buftype = { 'terminal' },
-                },
-            },
-        },
-    },
-
-    {
         'stevearc/quicker.nvim',
         event = "FileType qf",
         keys = {
