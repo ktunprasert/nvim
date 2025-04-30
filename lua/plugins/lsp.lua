@@ -79,7 +79,7 @@ return {
     },
 
     -- LSP
-    { "neovim/nvim-lspconfig" },
+    { "neovim/nvim-lspconfig", lazy = true },
     {
         "williamboman/mason.nvim",
         cmd = { "Mason", "MasonUpdate" },
