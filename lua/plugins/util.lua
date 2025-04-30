@@ -12,35 +12,6 @@ return {
         opts = { aliases = { ["<"] = "t", }, }
     },
     {
-        "lewis6991/gitsigns.nvim",
-        lazy = true,
-        -- event = "VeryLazy",
-        gt = { "gitcommit", "diff" },
-        dependencies = "nvim-lua/plenary.nvim",
-        config = function() require("user.plugins.gitsigns") end,
-        init = function()
-            -- load gitsigns only when a git file is opened
-            vim.api.nvim_create_autocmd({ "BufRead" }, {
-                group = vim.api.nvim_create_augroup("GitSignsLazyLoad", { clear = true }),
-                callback = function()
-                    ---@diagnostic disable-next-line: undefined-field
-                    vim.fn.jobstart({ "git", "-C", vim.loop.cwd(), "rev-parse" },
-                        {
-                            on_exit = function(_, return_code)
-                                if return_code == 0 then
-                                    pcall(vim.api.nvim_del_augroup_by_name, "GitSignsLazyLoad")
-                                    vim.schedule(function()
-                                        require("lazy").load { plugins = { "gitsigns.nvim" } }
-                                    end)
-                                end
-                            end
-                        }
-                    )
-                end,
-            })
-        end,
-    },
-    {
         "numToStr/Comment.nvim",
         keys = {
             {
@@ -66,12 +37,6 @@ return {
         }
     },
     {
-        "akinsho/toggleterm.nvim",
-        lazy = false,
-        version = '*',
-        config = function() require("user.plugins.toggleterm") end
-    },
-    {
         'rmagatti/auto-session',
         opts = {
             lazy_support = true,
@@ -84,12 +49,43 @@ return {
     },
     {
         "ahmedkhalf/project.nvim",
-        config = function() require("user.plugins.project") end
-    },
-    {
-        "windwp/nvim-autopairs",
-        event = "VeryLazy",
-        config = function() require("user.plugins.autopairs") end
+        name = "project_nvim",
+        opts = {
+            ---@usage set to true to disable setting the current-woriking directory
+            --- Manual mode doesn't automatically change your root directory, so you have
+            --- the option to manually do so using `:ProjectRoot` command.
+            manual_mode = false,
+
+            ---@usage Methods of detecting the root directory
+            --- Allowed values: **"lsp"** uses the native neovim lsp
+            --- **"pattern"** uses vim-rooter like glob pattern matching. Here
+            --- order matters: if one is not detected, the other is used as fallback. You
+            --- can also delete or rearangne the detection methods.
+            detection_methods = { "pattern" },
+
+            ---@usage patterns used to detect root dir, when **"pattern"** is in detection_methods
+            patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" },
+
+            ---@ Show hidden files in telescope when searching for files in a project
+            show_hidden = false,
+
+            ---@usage When set to false, you will get a message when project.nvim changes your directory.
+            -- When set to false, you will get a message when project.nvim changes your directory.
+            silent_chdir = false,
+
+            ---@usage list of lsp client names to ignore when using **lsp** detection. eg: { "efm", ... }
+            ignore_lsp = {},
+
+            ---@type string
+            ---@usage path to store the project history for use in telescope
+            datapath = vim.fn.stdpath('data'),
+
+            exclude_dirs = {
+                vim.fn.stdpath('data'),
+                "~/go/pkg/",
+                "node_modules",
+            },
+        },
     },
     {
         "nvim-neo-tree/neo-tree.nvim",
@@ -100,10 +96,9 @@ return {
             "MunifTanjim/nui.nvim",
             "nvim-lua/plenary.nvim",
         },
-        config = function() require("user.plugins.neotree") end,
+        config = function() require("user.graveyard.neotree") end,
         event = "VeryLazy",
     },
-
     {
         "s1n7ax/nvim-window-picker",
         name = 'window-picker',
@@ -153,111 +148,6 @@ return {
         },
     },
     {
-        "folke/snacks.nvim",
-        priority = 1000,
-        lazy = false,
-        keys = {
-            ---@diagnostic disable-next-line: undefined-global
-            { "<leader>.",  function() Snacks.scratch() end,                      desc = "Toggle Scratch Buffer" },
-            { "<leader>'",  function() Snacks.scratch({ ft = "markdown" }) end,   desc = "Toggle Scrach Todo" },
-            { "<leader>S",  function() Snacks.scratch.select() end,               desc = "Select Scratch Buffer" },
-            { "<A-f>",      function() Snacks.zen({ win = { width = 0.8 } }) end, desc = "Zen Mode" },
-            { "1<A-f>",     function() Snacks.zen({ win = { width = 100 } }) end, desc = "Zen Mode (less width)" },
-            { "<leader>sH", function() Snacks.notifier.show_history() end,        desc = "Show notifier history" },
-        },
-        ---@type snacks.Config
-        opts = {
-            bigfile = { enabled = true },
-            quickfile = { enabled = true },
-            scratch = {
-                win = {
-                    style = "scratch",
-                    noautocmd = true,
-                    minimal = true,
-                },
-                win_by_ft = {
-                    lua = {
-                        keys = {
-                            ["source"] = {
-                                "<cr>",
-                                function(self)
-                                    local name = "scratch." ..
-                                        vim.fn.fnamemodify(vim.api.nvim_buf_get_name(self.buf), ":e")
-                                    Snacks.debug.run({ buf = self.buf, name = name })
-                                end,
-                                desc = "Source buffer",
-                                mode = { "n", "x" },
-                            },
-                        },
-                    },
-                    go = {
-                        keys = {
-                            ["source"] = {
-                                "<cr>",
-                                function(self)
-                                    -- TODO: ensure we set this up properly
-                                    local name = "scratch." ..
-                                        vim.fn.fnamemodify(vim.api.nvim_buf_get_name(self.buf), ":e")
-                                    -- Snacks.debug.run({ buf = self.buf, name = name })
-                                    vim.cmd("$r!echo -n '//' && go run %")
-                                end,
-                                desc = "Print at bottom",
-                                mode = { "n", "x" },
-                            },
-                        },
-                    },
-                },
-            },
-            zen = {
-                toggles = {
-                    dim = false,
-                },
-                minimal = true,
-            },
-            statuscolumn = {},
-            -- TODO: also include search count in notifier keepalive somehow
-            notifier = {
-                style = "minimal",
-                top_down = false,
-                margin = { bottom = 1, right = 0 },
-                filter = function()
-                    return true
-                end,
-            },
-            indent = {
-                chunk = {
-                    enabled = true,
-                    only_current = true,
-                },
-                animate = {
-                    enabled = false,
-                },
-                scope = {
-                    underline = true,
-                    only_current = true,
-                },
-            },
-            dim = {
-                enabled = false,
-            },
-        },
-        init = function()
-            vim.api.nvim_create_autocmd("User", {
-                pattern = "VeryLazy",
-                callback = function()
-                    _G.dd = Snacks.debug.inspect
-                    _G.bt = Snacks.debug.backtrace
-                    vim.print = dd
-                    require("user.plugins.snacks-autocmd")
-                    vim.print("loaded")
-
-                    Snacks.toggle.dim():map("<leader>ud")
-                    Snacks.toggle.treesitter():map("<leader>ut")
-                end,
-            })
-        end
-    },
-    {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         event = "VeryLazy",
@@ -304,12 +194,5 @@ return {
             { mode = "v", "g<C-a>", function() require("dial.map").manipulate("increment", "gvisual", "visual") end, remap = true },
             { mode = "v", "g<C-x>", function() require("dial.map").manipulate("decrement", "gvisual", "visual") end, remap = true },
         },
-    },
-
-    {
-        "jake-stewart/multicursor.nvim",
-        branch = "1.0",
-        event = "VeryLazy",
-        config = function() require("user.plugins.multicursor") end,
     },
 }

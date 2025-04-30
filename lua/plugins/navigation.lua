@@ -8,13 +8,6 @@ return {
     -- ██║ ╚████║██║  ██║ ╚████╔╝ ██║╚██████╔╝██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║
     -- ╚═╝  ╚═══╝╚═╝  ╚═╝  ╚═══╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ~ Navigation
     {
-        "phaazon/hop.nvim",
-        keys = {
-            { mode = { "n", "v", "o" }, "<C-Space><C-Space>", "<cmd>HopWord<cr>", }
-        },
-        config = function() require("user.plugins.hop") end
-    },
-    {
         "chaoren/vim-wordmotion",
         -- lazy = false,
         event = "VeryLazy",
@@ -95,13 +88,6 @@ return {
     },
 
     { "ThePrimeagen/harpoon", lazy = false, },
-    {
-        "jinh0/eyeliner.nvim",
-        event = "BufRead",
-        priority = 999,
-        config = function() require("user.plugins.eyeliner") end
-    },
-
     {
         "mikavilpas/yazi.nvim",
         dependencies = {

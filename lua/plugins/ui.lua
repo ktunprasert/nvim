@@ -1,9 +1,5 @@
 return {
     {
-        "folke/which-key.nvim",
-        config = function() require("user.plugins.whichkey") end
-    },
-    {
         "akinsho/bufferline.nvim",
         branch = "main",
         dependencies = "kyazdani42/nvim-web-devicons",
@@ -19,24 +15,15 @@ return {
             }
         }
     },
-    {
-        'b0o/incline.nvim',
-        enabled = false,
-        config = function()
-            require("user.plugins.incline")
-        end,
-        -- Optional: Lazy load Incline
-        event = 'VeryLazy',
-    },
-    {
-        "nvim-lualine/lualine.nvim",
-        dependencies = {
-            { 'kyazdani42/nvim-web-devicons', opt = true },
-            { 'ficcdaf/ashen.nvim' }
-        },
-        config = function() require("user.plugins.lualine") end
+    -- {
+    --     "nvim-lualine/lualine.nvim",
+    --     dependencies = {
+    --         { 'kyazdani42/nvim-web-devicons', opt = true },
+    --         { 'ficcdaf/ashen.nvim' }
+    --     },
+    --     config = function() require("user.plugins.lualine") end
 
-    },
+    -- },
     {
         "shortcuts/no-neck-pain.nvim",
         event = "VeryLazy",
@@ -87,13 +74,6 @@ return {
                 }
             })
         end
-    },
-
-    {
-        "folke/edgy.nvim",
-        event = "VeryLazy",
-        ---@diagnostic disable-next-line: different-requires
-        config = function() require("user.plugins.edgy") end,
     },
     {
         "utilyre/barbecue.nvim",

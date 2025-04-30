@@ -169,7 +169,94 @@ return {
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
-        config = function() require("user.plugins.treesitter") end,
+        main = "nvim-treesitter.configs",
+        opts = {
+            ensure_installed = {
+                "lua", "json",
+                "javascript", "python", "dockerfile", "bash",
+                "php", "phpdoc",
+                "go", "gomod",
+            },
+            highlight = {
+                enable = true,
+            },
+            indent = {
+                enable = true
+            },
+            textobjects = {
+                select = {
+                    enable = true,
+                    lookahead = true,
+                    keymaps = {
+                        -- You can use the capture groups defined in textobjects.scm
+                        ["af"] = "@function.outer",
+                        ["if"] = "@function.inner",
+                        ["ac"] = "@class.outer",
+                        -- You can optionally set descriptions to the mappings (used in the desc parameter of
+                        -- nvim_buf_set_keymap) which plugins like which-key display
+                        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+                        ["gab"] = "@block.outer",
+                        ["gib"] = "@block.inner",
+                    },
+                    -- You can choose the select mode (default is charwise 'v')
+                    --
+                    -- Can also be a function which gets passed a table with the keys
+                    -- * query_string: eg '@function.inner'
+                    -- * method: eg 'v' or 'o'
+                    -- and should return the mode ('v', 'V', or '<c-v>') or a table
+                    -- mapping query_strings to modes.
+                    selection_modes = {
+                        ['@parameter.outer'] = 'v', -- charwise
+                        ['@function.outer'] = 'V',  -- linewise
+                        ['@class.outer'] = '<c-v>', -- blockwise
+                    },
+                    -- If you set this to `true` (default is `false`) then any textobject is
+                    -- extended to include preceding or succeeding whitespace. Succeeding
+                    -- whitespace has priority in order to act similarly to eg the built-in
+                    -- `ap`.
+                    --
+                    -- Can also be a function which gets passed a table with the keys
+                    -- * query_string: eg '@function.inner'
+                    -- * selection_mode: eg 'v'
+                    -- and should return true of false
+                    include_surrounding_whitespace = false,
+                },
+                move = {
+                    enable = true,
+                    set_jumps = true, -- whether to set jumps in the jumplist
+                    goto_next_start = {
+                        ["]m"] = "@function.outer",
+                        ["]f"] = "@function.outer",
+                        ["]b"] = "@block.outer",
+                        ["]t"] = "@conditional.outer",
+                        ["]?"] = "@comment.outer",
+                        ["]l"] = "@variable",
+                        ["]]"] = { query = "@class.outer", desc = "Next class start" },
+                    },
+                    goto_next_end = {
+                        ["]M"] = "@function.outer",
+                        ["]F"] = "@function.outer",
+                        ["]B"] = "@block.outer",
+                        ["]T"] = "@conditional.outer",
+                        ["]["] = "@class.outer",
+                    },
+                    goto_previous_start = {
+                        ["[m"] = "@function.outer",
+                        ["[f"] = "@function.outer",
+                        ["[t"] = "@conditional.outer",
+                        ["[b"] = "@block.outer",
+                        ["[?"] = "@comment.outer",
+                        ["[["] = "@class.outer",
+                    },
+                    goto_previous_end = {
+                        ["[M"] = "@function.outer",
+                        ["[F"] = "@function.outer",
+                        ["[B"] = "@block.outer",
+                        ["[]"] = "@class.outer",
+                    },
+                },
+            }
+        },
         -- lazy = false,
         event = { "BufReadPre" },
         build = ":TSUpdate",
@@ -202,7 +289,76 @@ return {
         "chrisgrieser/nvim-various-textobjs",
         event = "VeryLazy",
         opts = { keymaps = { useDefaults = false } },
-        config = function() require("user.plugins.various") end,
+        -- config = function() require("user.plugins.various") end,
+        init = function()
+            local various = require("various-textobjs")
+            local keymap = require("lib.utils").keymap
+
+            local inoutMaps = {
+                subword = "S",
+                number = "n",
+                lineCharacterwise = "_",
+                greedyOuterIndentation = "g",
+                anyQuote = "q",
+                value = "v",
+                key = "k",
+            }
+
+            for fn, map in pairs(inoutMaps) do
+                keymap({ "o", "x" }, "a" .. map, function() various[fn]("outer") end, nil, "[TOBJ] outer " .. fn)
+                keymap({ "o", "x" }, "i" .. map, function() various[fn]("inner") end, nil, "[TOBJ] inner " .. fn)
+            end
+
+            local oneMaps = {
+                nearEoL = "n",
+                visibleInWindow = "gw",
+                toNextQuotationMark = '"',
+                restOfIndentation = "R",
+                column = "|",
+                entireBuffer = "gG",
+                url = "L",
+            }
+
+            for fn, map in pairs(oneMaps) do
+                keymap({ "o", "x" }, map, function() various[fn]() end, nil, "[TOBJ] " .. fn)
+            end
+
+            local ftMaps = {
+                { map = { mdLink = "l" },               fts = { "markdown" } },
+                { map = { mdEmphasis = "e" },           fts = { "markdown" } },
+                { map = { mdFencedCodeBlock = "C" },    fts = { "markdown" } },
+                { map = { doubleSquareBrackets = "D" }, fts = { "lua", "norg", "sh", "fish", "zsh", "bash", "markdown" } },
+                { map = { cssSelector = "c" },          fts = { "css", "scss" } },
+                { map = { cssColor = "#" },             fts = { "css", "scss" } },
+                { map = { shellPipe = "P" },            fts = { "sh", "bash", "zsh", "fish" } },
+                { map = { htmlAttribute = "x" },        fts = { "html", "css", "scss", "xml", "vue" } },
+            }
+
+            local group = vim.api.nvim_create_augroup("VariousTextobjs", { clear = true })
+            for _, textobj in pairs(ftMaps) do
+                vim.api.nvim_create_autocmd("FileType", {
+                    group = group,
+                    pattern = textobj.fts,
+                    callback = function()
+                        for objName, map in pairs(textobj.map) do
+                            local name = " " .. objName .. " textobj"
+                            keymap(
+                                { "o", "x" },
+                                "a" .. map,
+                                function() various[objName]("outer") end, { buffer = true },
+                                "[TOBJ] outer " .. name)
+
+                            keymap(
+                                { "o", "x" },
+                                "i" .. map,
+                                function() various[objName]("inner") end,
+                                { buffer = true },
+                                "[TOBJ] inner " .. name)
+                        end
+                    end,
+                })
+            end
+        end,
     },
 
     {
