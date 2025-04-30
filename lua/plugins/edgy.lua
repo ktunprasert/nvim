@@ -3,7 +3,7 @@ return {
     event = "VeryLazy",
     ---@diagnostic disable-next-line: different-requires
     -- config = function() require("user.plugins.edgy") end,
-    init = function()
+    config = function()
         local edgy = require("edgy")
         vim.opt.laststatus = 3
         vim.opt.splitkeep = "screen"
