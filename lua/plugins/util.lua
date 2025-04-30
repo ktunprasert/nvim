@@ -130,8 +130,7 @@ return {
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        event = "VeryLazy",
-        -- lazy = false,
+        cmd = "TodoTelescope",
         config = true,
         keys = {
             { mode = "n", "<leader>sT", "<cmd>TodoTelescope<cr>", desc = "Search TODO comments" },
