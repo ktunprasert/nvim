@@ -38,7 +38,7 @@ return {
     },
     {
         "SmiteshP/nvim-navic",
-        event = "BufRead",
+        event = "LspAttach",
         init = function()
             vim.g.navic_silence = true
             require("nvim-navic").setup({ highlight = true, depth_limit = 8 })
@@ -78,7 +78,7 @@ return {
     {
         "utilyre/barbecue.nvim",
         name = "barbecue",
-        event = "VeryLazy",
+        event = "LspAttach",
         version = "*",
         dependencies = {
             "SmiteshP/nvim-navic",
