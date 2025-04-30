@@ -4,6 +4,7 @@ return {
     {
         "akinsho/bufferline.nvim",
         branch = "main",
+        event = "BufEnter",
         dependencies = "kyazdani42/nvim-web-devicons",
         opts = {
             options = {
@@ -13,7 +14,7 @@ return {
                 separator_style = "thin",
                 enforce_regular_tabs = false,
                 always_show_bufferline = true,
-                sort_by = "id",
+                sort_by = "relative_directory",
             }
         }
     },
