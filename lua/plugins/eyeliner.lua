@@ -2,9 +2,8 @@ return {
     "jinh0/eyeliner.nvim",
     event = "VeryLazy",
     priority = 999,
-    init = function()
+    config = function()
         local comment_color = vim.api.nvim_get_hl(0, { name = 'Comment', link = false })
-
         local opts = {
             primary = {
                 fg = comment_color.fg,
@@ -14,7 +13,7 @@ return {
         }
 
         vim.api.nvim_set_hl(0, 'EyelinerPrimary', opts.primary)
-        vim.api.nvim_set_hl(0, 'EyelinerSecondary', {})
+        -- vim.api.nvim_set_hl(0, 'EyelinerSecondary', {})
 
         -- vim.api.nvim_create_autocmd('ColorScheme', {
         --     pattern = '*',
