@@ -8,7 +8,19 @@ return {
     --  ╚═════╝    ╚═╝   ╚═╝╚══════╝╚═╝   ╚═╝      ╚═╝   ~ Utility
     {
         "kylechui/nvim-surround",
-        event = "VeryLazy",
+        keys = {
+            { mode = { "o", "n" }, "ys",     desc = "Add surround" },
+            { mode = { "o", "n" }, "yss",    desc = "Add surround to line" },
+            { mode = { "o", "n" }, "yS",     desc = "Add surround with new line" },
+            { mode = { "o", "n" }, "ySS",    desc = "Add surround to line with new line" },
+            { mode = { "o", "n" }, "ds",     desc = "Delete surround" },
+            { mode = { "o", "n" }, "cs",     desc = "Change surround" },
+            { mode = { "o", "n" }, "cS",     desc = "Change surround with new line" },
+            { mode = { "o", "i" }, "<C-g>s", desc = "Add surround in insert mode" },
+            { mode = { "o", "i" }, "<C-g>S", desc = "Add surround with new line in insert mode" },
+            { mode = { "o", "v" }, "S",      desc = "Add surround in visual mode" },
+            { mode = { "o", "v" }, "gS",     desc = "Add surround with new line in visual mode" },
+        },
         opts = { aliases = { ["<"] = "t", }, }
     },
     {
