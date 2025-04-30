@@ -40,13 +40,18 @@ return {
             { "gc", desc = "Comment", },
             { "gc", desc = "Comment", mode = { "v" } }
         },
+        dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
         opts = {
             ignore = "^$",
             mappings = {
                 basic = true,
                 extra = false,
             },
-        }
+        },
+        config = function(cfg)
+            cfg.opts.pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
+            require("Comment").setup(cfg.opts)
+        end
     },
     {
         'rmagatti/auto-session',
