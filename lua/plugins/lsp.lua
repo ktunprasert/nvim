@@ -254,10 +254,11 @@ return {
         "chrisgrieser/nvim-various-textobjs",
         event = "VeryLazy",
         opts = { keymaps = { useDefaults = false } },
-        -- config = function() require("user.plugins.various") end,
-        init = function()
+        config = function(cfg)
             local various = require("various-textobjs")
             local keymap = require("lib.utils").keymap
+
+            various.setup(cfg.opts)
 
             local inoutMaps = {
                 subword = "S",
@@ -366,9 +367,9 @@ return {
 
     {
         "ziontee113/syntax-tree-surfer",
-        event = "VeryLazy",
         name = "sts",
         config = true,
+        cmd = { "STSSelectMasterNode", "STSSelectCurrentNode", "STSSelectNextSiblingNode", "STSSelectPrevSiblingNode", "STSSelectNextSiblingNode", "STSSelectPrevSiblingNode", "STSSelectParentNode", "STSSelectChildNode", "STSSelectParentNode", "STSSelectChildNode", "STSSwapPrevVisual", "STSSwapNextVisual", },
         branch = "2.1",
         keys = {
             { mode = "n", "vx",      cmd("STSSelectMasterNode"),      keymap_opts },
@@ -383,10 +384,6 @@ return {
             { mode = "x", "<CR>",    cmd("STSSelectChildNode"),       keymap_opts },
             { mode = "x", "<A-h>",   cmd("STSSwapPrevVisual"),        keymap_opts },
             { mode = "x", "<A-l>",   cmd("STSSwapNextVisual"),        keymap_opts },
-            -- { mode = "x", "<C-Up>",    cmd("STSSwapPrevVisual"),        keymap_opts },
-            -- { mode = "x", "<C-Down>",  cmd("STSSwapNextVisual"),        keymap_opts },
-            -- { mode = "x", "<C-Left>",  cmd("STSSwapPrevVisual"),        keymap_opts },
-            -- { mode = "x", "<C-Right>", cmd("STSSwapNextVisual"),        keymap_opts },
         }
     },
 
