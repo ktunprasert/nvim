@@ -1,3 +1,5 @@
+local cmd = require("lib.utils").cmdcr
+
 return {
     {
         "akinsho/bufferline.nvim",
@@ -15,18 +17,12 @@ return {
             }
         }
     },
-    -- {
-    --     "nvim-lualine/lualine.nvim",
-    --     dependencies = {
-    --         { 'kyazdani42/nvim-web-devicons', opt = true },
-    --         { 'ficcdaf/ashen.nvim' }
-    --     },
-    --     config = function() require("user.plugins.lualine") end
-
-    -- },
     {
         "shortcuts/no-neck-pain.nvim",
-        event = "VeryLazy",
+        cmd = "NoNeckPain",
+        keys = {
+            { "<A-g>", cmd("NoNeckPain") },
+        },
         opts = {
             width = 150,
             buffers = {
