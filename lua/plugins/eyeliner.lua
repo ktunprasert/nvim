@@ -1,6 +1,6 @@
 return {
     "jinh0/eyeliner.nvim",
-    event = "BufRead",
+    event = "VeryLazy",
     priority = 999,
     init = function()
         local comment_color = vim.api.nvim_get_hl(0, { name = 'Comment', link = false })
