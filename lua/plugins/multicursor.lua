@@ -1,10 +1,31 @@
 return {
     "jake-stewart/multicursor.nvim",
     branch = "1.0",
-    event = "VeryLazy",
-    opts = {},
-    init = function()
+    keys = {
+        { mode = { "n", "x" }, "ga", },
+        { mode = { "n", "x" }, "<leader><leader>m", },
+        { mode = "x",          "zs", },
+        { mode = "n",          "gV", },
+        { mode = { "n", "x" }, "<C-up>", },
+        { mode = { "n", "x" }, "<C-down>", },
+        { mode = { "n", "x" }, "<leader>k", },
+        { mode = { "n", "x" }, "<leader>j", },
+        { mode = { "n", "x" }, "<C-n>", },
+        { mode = { "n", "x" }, "<leader><leader>M", },
+        { mode = { "n", "x" }, "<leader>M", },
+        { mode = { "n", "x" }, "<leader><leader>s", },
+        { mode = "n",          "<leader>/", },
+        { mode = "n",          "<c-leftmouse>", },
+        { mode = "n",          "<c-leftdrag>", },
+        { mode = "n",          "<c-leftrelease>", },
+        { mode = { "n", "x" }, "<c-q>", },
+        { mode = { "n", "x" }, "<leader><leader>]d", },
+        { mode = { "n", "x" }, "<leader><leader>[d", },
+    },
+    config = function()
         local mc = require("multicursor-nvim")
+
+        mc.setup()
 
         local set = vim.keymap.set
 
