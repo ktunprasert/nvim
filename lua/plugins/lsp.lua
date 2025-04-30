@@ -195,14 +195,14 @@ return {
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
         event = "VeryLazy",
-        after = "nvim-treesitter",
+        dependencies = "nvim-treesitter",
     },
 
     {
         "chrisgrieser/nvim-various-textobjs",
         event = "VeryLazy",
         opts = { keymaps = { useDefaults = false } },
-        config = function() require("user.lazy.various") end,
+        config = function() require("user.plugins.various") end,
     },
 
     {

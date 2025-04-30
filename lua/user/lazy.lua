@@ -12,24 +12,19 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local lazyOpts = {
-    install = {
-        colorscheme = { "ashen" },
-    }
-}
-
 require("lazy").setup({
-    require("user.lazy.setup"),
-    require("user.lazy.themes"),
-    require("user.lazy.lsp"),
-    require("user.lazy.telescope"),
-    require("user.lazy.util"),
-    require("user.lazy.navigation"),
-    require("user.lazy.ui"),
-    -- Own Plugins
-    {
-        "ktunprasert/gui-font-resize.nvim",
-        enabled = vim.g.neovide or false,
-        config = true,
+    spec = {
+        { import = "plugins", },
+        -- Own Plugins
+        {
+            "ktunprasert/gui-font-resize.nvim",
+            enabled = vim.g.neovide or false,
+            config = true,
+        },
     },
-}, lazyOpts)
+    install = { colorscheme = { "ashen" } },
+    -- profiling = {
+    --     loader = true,
+    --     require = true,
+    -- },
+})

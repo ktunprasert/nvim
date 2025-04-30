@@ -198,7 +198,7 @@ return {
                                     -- TODO: ensure we set this up properly
                                     local name = "scratch." ..
                                         vim.fn.fnamemodify(vim.api.nvim_buf_get_name(self.buf), ":e")
-                                    Snacks.debug.run({ buf = self.buf, name = name })
+                                    -- Snacks.debug.run({ buf = self.buf, name = name })
                                     vim.cmd("$r!echo -n '//' && go run %")
                                 end,
                                 desc = "Print at bottom",
@@ -237,10 +237,24 @@ return {
                     only_current = true,
                 },
             },
+            dim = {
+                enabled = false,
+            },
         },
-        config = function(cfg)
-            require("snacks").setup(cfg.opts)
-            require("user.plugins.snacks-autocmd")
+        init = function()
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "VeryLazy",
+                callback = function()
+                    _G.dd = Snacks.debug.inspect
+                    _G.bt = Snacks.debug.backtrace
+                    vim.print = dd
+                    require("user.plugins.snacks-autocmd")
+                    vim.print("loaded")
+
+                    Snacks.toggle.dim():map("<leader>ud")
+                    Snacks.toggle.treesitter():map("<leader>ut")
+                end,
+            })
         end
     },
     {

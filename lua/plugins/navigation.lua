@@ -57,7 +57,7 @@ return {
     },
     {
         "ggandor/flit.nvim",
-        after = "ggandor/leap.nvim",
+        dependencies = "ggandor/leap.nvim",
         keys = {
             { 'f' }, { 'F' }, { 't' }, { 'T' },
         },
@@ -104,7 +104,7 @@ return {
 
     {
         "mikavilpas/yazi.nvim",
-        after = {
+        dependencies = {
             "folke/snacks.nvim",
             "nvim-telescope/telescope.nvim",
         },
