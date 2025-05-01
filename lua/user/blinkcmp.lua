@@ -126,6 +126,7 @@ local opts = {
         end,
         per_filetype = {
             AvanteInput = { "avante", "path", "snippets", "buffer" },
+            ["dap-repl"] = {},
         },
         providers = {
             buffer = {
