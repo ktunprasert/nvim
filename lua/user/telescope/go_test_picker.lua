@@ -61,7 +61,7 @@ function M.pick_go_test_function()
     local chosen = picker(test_names, "Select Go Test Function to Debug:")
 
     if chosen ~= nil and chosen ~= "" then
-        local escaped_test_name = "^" .. chosen .. "$"
+        local escaped_test_name = "^" .. chosen
         vim.notify("Selected test: " .. chosen .. " (using pattern: " .. escaped_test_name .. ")", vim.log.levels.INFO)
         return escaped_test_name
     else
