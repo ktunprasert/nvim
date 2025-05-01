@@ -132,6 +132,7 @@ return {
                 { "<Leader>sO", cmd("Telescope lsp_workspace_symbols"),                        desc = "Workspace Symbols" },
                 { "<Leader>sr", cmd("Telescope lsp_references"),                               desc = "References" },
                 { "<Leader>sc", cmd("Telescope commands"),                                     desc = "Commands" },
+                { "<Leader>sC", cmd("Telescope command_history"),                              desc = "Command History" },
                 { "<Leader>sd", cmd("Telescope diagnostics bufnr=0 theme=ivy"),                desc = "Diagnostics current buffer" },
                 { "<Leader>sD", cmd("Telescope diagnostics"),                                  desc = "Global diagnostics" },
                 { "<Leader>sm", cmd("Telescope treesitter theme=ivy symbols=function,method"), desc = "Search methods" },
