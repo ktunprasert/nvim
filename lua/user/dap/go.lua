@@ -5,7 +5,7 @@ dap.adapters.go = {
     port = '${port}',
     executable = {
         command = vim.fn.exepath('dlv'),
-        args = {'dap', '--listen', '127.0.0.1:${port}'},
+        args = { 'dap', '--listen', '127.0.0.1:${port}' },
     },
     options = {
         initialize_timeout_sec = 20,
@@ -19,9 +19,9 @@ dap.configurations.go = {
         request = 'launch',
         program = "${file}",
         dlvToolPath = vim.fn.exepath('dlv'),
-        showLog = true,  -- Enable logging to help debug issues
+        showLog = true, -- Enable logging to help debug issues
         console = "integratedTerminal",
-        trace = true,    -- Enable trace to get more detailed debug logs
+        trace = true,   -- Enable trace to get more detailed debug logs
     },
     {
         type = 'go',
@@ -75,6 +75,26 @@ dap.configurations.go = {
         end,
         dlvToolPath = vim.fn.exepath('dlv'),
         showLog = false,
+        console = "integratedTerminal",
+    },
+    {
+        type = 'go',
+        name = 'Debug Specific Test',
+        request = 'launch',
+        mode = 'test',
+        program = "${fileDirname}",
+        cwd = "${fileDirname}",
+        args = function()
+            local testName = require("user.telescope.go_test_picker").pick_go_test_function()
+
+            vim.notify("Selected test name: " .. testName)
+            if testName ~= '' then
+                return { '-test.run', testName }
+            end
+            return {}
+        end,
+        dlvToolPath = vim.fn.exepath('dlv'),
+        showLog = true,
         console = "integratedTerminal",
     },
 }
