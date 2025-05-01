@@ -82,7 +82,6 @@ return {
                             height = 45,
                             -- width = { padding = 0 },
                             -- height = { padding = 0 },
-                            prompt_position = "top",
                             -- mirror = true,
                         },
                         vertical = {
@@ -92,7 +91,6 @@ return {
                         -- height = 500,
                         -- preview_cutoff = 120,
                     },
-                    sorting_strategy = "ascending",
                     file_sorter = require("telescope.sorters").get_fuzzy_file,
                     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
                     winblend = 0,
