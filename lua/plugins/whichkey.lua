@@ -27,7 +27,7 @@ return {
             title = true,
             title_pos = "center",
             zindex = 1000,
-            wo = { winblend = 10 },
+            wo = { winblend = winblend() },
         },
         layout = {
             height = { min = 4, max = 25 },  -- min and max height of the columns
@@ -137,6 +137,7 @@ return {
                 { "<Leader>sD", cmd("Telescope diagnostics"),                                  desc = "Global diagnostics" },
                 { "<Leader>sm", cmd("Telescope treesitter theme=ivy symbols=function,method"), desc = "Search methods" },
                 { "<Leader>sq", cmd("Telescope quickfixhistory theme=ivy "),                   desc = "Quickfix History" },
+                { "<Leader>sl", cmd("Telescope highlights theme=ivy "),                        desc = "Highlights" },
                 { "<C-p>",      cmd("Telescope find_files"),                                   desc = "Fuzzy find files" },
             },
             {

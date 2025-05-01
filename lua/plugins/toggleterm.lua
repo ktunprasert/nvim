@@ -25,7 +25,7 @@ return {
         shading_factor = 2,
         float_opts = {
             border = "curved",
-            winblend = 10,
+            winblend = winblend(),
             highlights = {
                 border = "Normal",
                 background = "Normal",

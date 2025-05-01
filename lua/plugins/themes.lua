@@ -29,10 +29,15 @@ return {
         priority = 1000,
         -- configuration is optional!
         opts = {
-            -- your settings here
+            style_presets = {
+                bold_functions = true,
+                italic_comments = true,
+            },
+            transparent = TRANSPARENT,
         },
 
-        config = function()
+        config = function(cfg)
+            require("ashen").setup(cfg.opts)
             vim.cmd("colorscheme ashen")
         end
     }
