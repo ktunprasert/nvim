@@ -14,59 +14,6 @@ return {
         init = function() vim.g.wordmotion_prefix = "<Space>" end
     },
     {
-        "ggandor/leap.nvim",
-        keys = {
-            { mode = "n", "\\", "<Plug>(leap-forward-to)" },
-            { mode = "n", "|",  "<Plug>(leap-backward-to)" },
-        },
-        opts = {
-            labeled_modes = "v",
-        },
-        config = function(cfg)
-            require("leap").setup(cfg.opts)
-
-            do
-                local group = vim.api.nvim_create_augroup("Leap", { clear = true })
-                local smear = require('smear_cursor')
-                vim.api.nvim_create_autocmd('User', {
-                    group = group,
-                    pattern = 'LeapEnter',
-                    callback = function()
-                        smear.toggle()
-                    end,
-                })
-                vim.api.nvim_create_autocmd('User', {
-                    group = group,
-                    pattern = 'LeapLeave',
-                    callback = function()
-                        smear.toggle()
-                    end,
-                })
-
-
-                vim.api.nvim_set_hl(0, 'LeapLabel', { fg = 'black', bg = "#D7A933" })
-            end
-        end,
-    },
-    {
-        "ggandor/flit.nvim",
-        dependencies = "ggandor/leap.nvim",
-        keys = {
-            { 'f' }, { 'F' }, { 't' }, { 'T' },
-        },
-        opts = {
-            keys = { f = 'f', F = 'F', t = 't', T = 'T' },
-            -- A string like "nv", "nvo", "o", etc.
-            labeled_modes = "nx",
-            multiline = true,
-            -- Like `leap`s similar argument (call-specific overrides).
-            -- E.g.: opts = { equivalence_classes = {} }
-            opts = {
-                max_highlighted_traversal_targets = 10,
-            }
-        },
-    },
-    {
         "RRethy/vim-illuminate",
         event = "VeryLazy",
         keys = {
