@@ -63,6 +63,17 @@ aichat -m copilot:gemini-2.0-flash-001 "Please suggest 10 commit messages, given
     feat(module): implemented some new feature
     chore: update dependencies
     config(avante): change AI provider
+    perf: speed up loading time
+    perf(fish): optimised sourcing to increase startup time
+
+    **BAD**
+    DO NOT include any of the following in your commit messages:
+
+    prefix numbers
+    1. feat(xxx): add new feature
+
+    better
+    feat(xxx): add new feature
 
     **Instructions:**
 
