@@ -10,7 +10,7 @@ end
 vim.api.nvim_set_hl(0, "LineNr", { link = "AshenG6" })
 vim.api.nvim_set_hl(0, "Added", { link = "AshenGreen" })
 
-vim.api.nvim_set_hl(0, "Cursor", { link = "AshenOrangeGolden" })
-vim.api.nvim_set_hl(0, "CursorIM", { link = "AshenOrangeGolden" })
-vim.api.nvim_set_hl(0, "ICursor", { link = "AshenOrangeGolden" })
-vim.api.nvim_set_hl(0, "TermCursor", { link = "AshenOrangeGolden" })
+-- vim.api.nvim_set_hl(0, "Cursor", { link = "AshenOrangeGolden" })
+-- vim.api.nvim_set_hl(0, "CursorIM", { link = "AshenOrangeGolden" })
+-- vim.api.nvim_set_hl(0, "ICursor", { link = "AshenOrangeGolden" })
+-- vim.api.nvim_set_hl(0, "TermCursor", { link = "AshenOrangeGolden" })
