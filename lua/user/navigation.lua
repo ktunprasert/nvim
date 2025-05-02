@@ -83,8 +83,4 @@ do
     end
 end
 
--- vim.keymap.set("n", "<leader>l", M.lastbuf, { desc = "Last Buffer" })
--- lastwin as + in normal
--- vim.keymap.set("n", "+", M.lastwin, { desc = "Last Window" })
-
 return M
