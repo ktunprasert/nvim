@@ -165,6 +165,9 @@ return {
                     augend.integer.alias.decimal_int,
                 },
                 visual = {
+                    augend.constant.alias.bool,
+                    augend.integer.alias.decimal,
+                    augend.integer.alias.decimal_int,
                     augend.hexcolor.new({ case = 'upper' }),
                     augend.integer.alias.hex,
                     augend.date.alias["%Y/%m/%d"],
