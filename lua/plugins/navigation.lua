@@ -30,7 +30,7 @@ return {
                     'text',
                     'Avante', 'AvanteInput', 'AvanteSelectedFiles',
                 },
-                large_file_cutoff = 1000,
+                large_file_cutoff = 5000,
             })
         end
     },
