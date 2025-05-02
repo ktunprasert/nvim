@@ -5,13 +5,17 @@ vim.opt.backup = false
 -- the startup time was bogged by "clipboard.vim" adding an extra
 -- 294.883ms
 -- https://www.reddit.com/r/neovim/comments/uqa947/clipboard_setup_startuptime/i8qa7el/
-vim.g.clipboard = {
-    name = "xsel",
-    copy = { ["+"] = "xsel --nodetach -i -b", ["*"] = "xsel --nodetach -i -p", },
-    paste = { ["+"] = "xsel -o -b", ["*"] = "xsel -o -b", },
-    cache_enabled = 1,
-}
-vim.opt.clipboard = "unnamedplus"
+-- vim.g.clipboard = {
+--     name = "xsel",
+--     copy = { ["+"] = "xsel --nodetach -i -b", ["*"] = "xsel --nodetach -i -p", },
+--     paste = { ["+"] = "xsel -o -b", ["*"] = "xsel -o -b", },
+--     cache_enabled = 1,
+-- }
+-- vim.opt.clipboard = "unnamedplus"
+-- let's use OSC52 signal instead
+-- see :h clipboard-osc52
+vim.g.clipboard = 'osc52'
+vim.opt.clipboard = vim.opt.clipboard + { 'unnamedplus' }
 
 vim.opt.cmdheight = 2
 vim.opt.completeopt = { "menuone", "noselect" } -- for cmp
