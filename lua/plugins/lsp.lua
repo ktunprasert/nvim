@@ -481,7 +481,7 @@ return {
     {
         'Chaitanyabsprip/fastaction.nvim',
         keys = {
-            { "<F3>", function() require("fastaction").code_action() end },
+            { "<F3>", function() require("fastaction").code_action() end, mode = { "v", "n" } },
         },
         opts = {
             dismiss_keys = { "j", "k", "<c-c>", "q", "<Esc>" },
