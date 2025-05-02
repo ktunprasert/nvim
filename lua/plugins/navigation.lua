@@ -80,6 +80,17 @@ return {
         "folke/flash.nvim",
         event = "VeryLazy",
         opts = {
+            exclude = {
+                "notify",
+                "cmp_menu",
+                "noice",
+                "flash_prompt",
+                "fastaction_popup",
+                function(win)
+                    -- exclude non-focusable windows
+                    return not vim.api.nvim_win_get_config(win).focusable
+                end,
+            },
             jump = {
                 autojump = true,
             },
