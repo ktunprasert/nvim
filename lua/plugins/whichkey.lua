@@ -83,9 +83,7 @@ return {
             },
             {
                 group = "[Explore]",
-                -- { "<Leader>f",  cmd("Neotree float reveal"),                 desc = "Reveal current file" },
-                { "<Leader>bb", cmd("Neotree buffers focus position=float"), desc = "Buffers" },
-                -- { "<A-e>",      cmd("Neotree toggle float filesystem"),      desc = "Explore" }
+                -- see lua/plugins/navigation.lua
             },
             {
                 group = "[Git]",
@@ -98,7 +96,6 @@ return {
                 { "<Leader>gq",    cmd("Gitsigns setqflist"),                      desc = "View Hunks" },
                 { "<Leader>gs",    cmd("Telescope git_status theme=ivy"),          desc = "View Git Status" },
                 { "<Leader>gr",    cmd("Gitsigns reset_hunk"),                     desc = "Reset Hunk" },
-                { "<Leader>ge",    cmd("Neotree git_status focus position=float"), desc = "Git Status Neotree" },
                 { "<Leader>g<CR>", cmd("Gitsigns stage_hunk"),                     desc = "Stage Hunk" },
                 { "<Leader>g!",    cmd("Gitsigns reset_buffer"),                   desc = "Reset buffer to revision" },
             },
