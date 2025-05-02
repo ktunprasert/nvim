@@ -231,6 +231,15 @@ return {
             indent = {
                 enable = true
             },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = "vx",
+                    node_incremental = "<BS>",
+                    node_decremental = "<CR>",
+                    scope_incremental = "<TAB>",
+                },
+            },
             textobjects = {
                 select = {
                     enable = true,
@@ -438,23 +447,14 @@ return {
     },
 
     {
-        "drybalka/tree-climber.nvim",
-        event = "VeryLazy",
-        keys = {
-            { mode = { "n", "o" }, '<Left>',  function() require('tree-climber').goto_prev() end, keymap_opts },
-            { mode = { "n", "o" }, '<Right>', function() require('tree-climber').goto_next() end, keymap_opts },
-        },
-    },
-
-    {
         "ziontee113/syntax-tree-surfer",
         name = "sts",
         config = true,
         cmd = { "STSSelectMasterNode", "STSSelectCurrentNode", "STSSelectNextSiblingNode", "STSSelectPrevSiblingNode", "STSSelectNextSiblingNode", "STSSelectPrevSiblingNode", "STSSelectParentNode", "STSSelectChildNode", "STSSelectParentNode", "STSSelectChildNode", "STSSwapPrevVisual", "STSSwapNextVisual", },
         branch = "2.1",
         keys = {
-            { mode = "n", "vx",      cmd("STSSelectMasterNode"),      keymap_opts },
-            { mode = "n", "vn",      cmd("STSSelectCurrentNode"),     keymap_opts },
+            -- { mode = "n", "vx",      cmd("STSSelectMasterNode"),      keymap_opts },
+            -- { mode = "n", "vn",      cmd("STSSelectCurrentNode"),     keymap_opts },
             { mode = "x", "<Tab>",   cmd("STSSelectNextSiblingNode"), keymap_opts },
             { mode = "x", "<S-Tab>", cmd("STSSelectPrevSiblingNode"), keymap_opts },
             { mode = "x", "<Right>", cmd("STSSelectNextSiblingNode"), keymap_opts },
