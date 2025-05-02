@@ -74,5 +74,55 @@ return {
                 -- end,
             },
         },
+    },
+
+    {
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        opts = {
+            jump = {
+                autojump = true,
+            },
+            label = {
+                rainbow = {
+                    enable = true,
+                },
+                style = "inline",
+            },
+            modes = {
+                char = {
+                    keys = { "f", "F", "t", "T" },
+                    char_actions = function(motion)
+                        return {
+                            [";"] = "next",
+                            [","] = "prev",
+                            [motion:lower()] = "next",
+                            [motion:upper()] = "prev",
+                        }
+                    end,
+                    jump_labels = true,
+                },
+            },
+        },
+        keys = {
+            { "\\",    mode = { "n", "x", "o" }, function() require("flash").jump() end,                               desc = "Flash" },
+            { "|",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,                         desc = "Flash Treesitter" },
+            { "gr",    mode = "o",               function() require("flash").remote() end,                             desc = "Remote Flash" },
+            { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,                             desc = "Toggle Flash Search" },
+            { "gt",    mode = { "o", "x" },      function() require("flash").treesitter_search({ pattern = "." }) end, desc = "Treesitter Search" },
+            -- emulate hop stuff
+            {
+                "<c-space>1",
+                function() require("flash").jump({ continue = true }) end,
+                desc = "Flash continue"
+            },
+            {
+                "<c-space>t",
+                function()
+                    require("flash").treesitter({})
+                end,
+                desc = "Flash global"
+            },
+        },
     }
 }
