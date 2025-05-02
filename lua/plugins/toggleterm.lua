@@ -36,30 +36,38 @@ return {
         require("toggleterm").setup(cfg.opts)
         local Terminal = require('toggleterm.terminal').Terminal
 
-        -- For Editing back from LazyGit
-        function _G.Lazygit_toggle()
-            local git_root_cmd = "git rev-parse --show-toplevel"
-            local lg_cmd = string.format("lg -p $(%s)", git_root_cmd)
-            if vim.v.servername ~= nil then
-                local config_path = vim.fn.stdpath('config'):gsub('\\', '/')
-                lg_cmd = string.format(
-                    'lg -ucf "%s/lazygit.yml,%s/lg_ashen.yaml" -p $(%s)',
-                    config_path,
-                    config_path,
-                    git_root_cmd
-                )
+        do
+            local lazygit
+            -- For Editing back from LazyGit
+            function _G.Lazygit_toggle()
+                -- local git_root_cmd = "git rev-parse --show-toplevel"
+                -- local lg_cmd = string.format("lg -p $(%s)", git_root_cmd)
+                local lg_cmd = "lg"
+                if vim.v.servername ~= nil then
+                    local config_path = vim.fn.stdpath('config'):gsub('\\', '/')
+                    lg_cmd = string.format(
+                        'lg -ucf "%s/lazygit.yml,%s/lg_ashen.yaml"',
+                        config_path,
+                        config_path
+                    )
+                end
+
+                if lazygit ~= nil then
+                    vim.notify("cache hit")
+                else
+                    vim.notify("cache miss")
+                    lazygit = Terminal:new({
+                        shell = 'fish',
+                        count = 5,
+                        cmd = lg_cmd,
+                        env = {
+                            NVIM_DIR = vim.fn.stdpath('config'),
+                        },
+                    })
+                end
+
+                lazygit:toggle()
             end
-
-            local lazygit = Terminal:new({
-                shell = 'fish',
-                count = 5,
-                cmd = lg_cmd,
-                env = {
-                    NVIM_DIR = vim.fn.stdpath('config'),
-                },
-            })
-
-            lazygit:toggle()
         end
 
         vim.keymap.set("n", "<Leader>G", function() _G.Lazygit_toggle() end, { desc = "Lazygit" })

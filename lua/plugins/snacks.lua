@@ -11,6 +11,7 @@ return {
         { "<A-f>",      function() Snacks.zen({ win = { width = 0.8 } }) end, desc = "Zen Mode" },
         { "1<A-f>",     function() Snacks.zen({ win = { width = 100 } }) end, desc = "Zen Mode (less width)" },
         { "<leader>sH", function() Snacks.notifier.show_history() end,        desc = "Show notifier history" },
+        -- { "<leader>;",  function() Snacks.lazygit() end,                      desc = "LazyGit" },
     },
     ---@type snacks.Config
     opts = {
@@ -87,6 +88,18 @@ return {
         dim = {
             enabled = false,
         },
+        input = {},
+        -- lazygit = {
+        --     -- configure = true,
+        --     -- theme_path = vim.fs.normalize(vim.fn.stdpath("config") .. "/lg_ashen.yml"),
+        --     args = { "-ucf",
+        --         string.format(
+        --             "%s/lazygit.yml,%s/lg_ashen.yaml",
+        --             vim.fn.stdpath("config"),
+        --             vim.fn.stdpath("config")
+        --         ),
+        --     },
+        -- },
     },
     init = function()
         vim.api.nvim_create_autocmd("User", {
@@ -116,3 +129,7 @@ return {
         })
     end
 }
+
+-- │fish: command substitutions not allowed in command position. Try var=(your-cmd) $var ...
+-- │[ -z "$NVIM" ] && (nvim -- "/root/.config/nvim/lua/plugins/avante.lua") || (nvim --server "$NVIM" --remote-send "q" &&
+-- │nvim --server "$NVIM" --remote-tab "/root/.config/nvim/lua/plugins/avante.lua")
