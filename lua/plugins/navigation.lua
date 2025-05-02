@@ -96,9 +96,9 @@ return {
             "nvim-telescope/telescope.nvim",
         },
         keys = {
-            { "<leader>f", cmd("Yazi"),        desc = "Open yazi at the current file", mode = { "n", "v" }, },
-            { "<A-r>",     cmd("Yazi toggle"), desc = "Resume the last yazi session", },
-            { "<A-e>",     cmd("Yazi cwd"),    desc = "Yazi in current workdir", },
+            { "<leader>f", cmd("Yazi"),        desc = "Yazi Reveal", mode = { "n", "v" }, },
+            { "<A-r>",     cmd("Yazi toggle"), desc = "Yazi Toggle", },
+            { "<A-e>",     cmd("Yazi cwd"),    desc = "Yazi CWD", },
         },
         opts = {
             -- if you want to open yazi instead of netrw, see below for more info
