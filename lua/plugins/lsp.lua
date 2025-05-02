@@ -246,14 +246,14 @@ return {
                     lookahead = true,
                     keymaps = {
                         -- You can use the capture groups defined in textobjects.scm
-                        ["af"] = "@function.outer",
-                        ["if"] = "@function.inner",
-                        ["ac"] = "@class.outer",
+                        -- ["af"] = "@function.outer",
+                        -- ["if"] = "@function.inner",
+                        -- ["ac"] = "@class.outer",
                         -- You can optionally set descriptions to the mappings (used in the desc parameter of
                         -- nvim_buf_set_keymap) which plugins like which-key display
-                        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-                        ["gab"] = "@block.outer",
-                        ["gib"] = "@block.inner",
+                        -- ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+                        -- ["gab"] = "@block.outer",
+                        -- ["gib"] = "@block.inner",
                     },
                     -- You can choose the select mode (default is charwise 'v')
                     --
@@ -424,11 +424,7 @@ return {
             { "a", mode = { "x", "o" } },
             { "i", mode = { "x", "o" } },
         },
-        dependencies = {
-            {
-                "nvim-treesitter/nvim-treesitter-textobjects",
-            },
-        },
+        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects", },
         config = function()
             local ai = require("mini.ai")
             ai.setup({
@@ -439,8 +435,8 @@ return {
                         i = { "@block.inner", "@conditional.inner", "@loop.inner" },
                     }, {}),
                     f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
-                    c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
-                    C = ai.gen_spec.treesitter({ a = "@comment.outer", i = "@comment.inner" }, {}),
+                    c = ai.gen_spec.treesitter({ a = "@comment.outer", i = "@comment.inner" }, {}),
+                    C = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
                 },
             })
         end,
