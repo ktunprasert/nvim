@@ -30,7 +30,7 @@ The following requirements are required for running the configuration distro
 | [delta](https://github.com/dandavison/delta)         | Git diff within LazyGit                        |
 | [aichat](https://github.com/sigoden/aichat)          | For generating AI commits 😉                   |
 
-Neovim version `0.8` and above is required
+Neovim version `0.11` and above is required
 
 ### WSL Users
 
