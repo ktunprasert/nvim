@@ -61,6 +61,9 @@ return {
                 dim = false,
             },
             minimal = true,
+            win = {
+                wo = { wrap = true }
+            },
         },
         statuscolumn = {},
         -- TODO: also include search count in notifier keepalive somehow
