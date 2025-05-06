@@ -51,6 +51,10 @@ local components = {
             return cwd:gsub(".*/", "")
         end,
     },
+    searchcount = {
+        "searchcount",
+        color = 'AshenG3',
+    },
 }
 
 return {
@@ -63,9 +67,11 @@ return {
     opts = {
         options = {
             icons_enabled = true,
-            component_separators = { left = '|', right = '|' },
+            -- component_separators = { left = '|', right = '|' },
+            component_separators = { left = '', right = '' },
             section_separators = { left = '', right = '' },
             globalstatus = true,
+            always_divide_middle = false,
         },
         sections = {
             lualine_a = { "mode" },
@@ -75,10 +81,11 @@ return {
                 {
                     "filename",
                     path = 1,
+                    shorting_target = 20,
                 },
             },
             lualine_c = { "diff" },
-            lualine_x = { "searchcount", components.diagnostics },
+            lualine_x = { components.searchcount, components.diagnostics },
             lualine_y = { "fileformat", components.lsp, "filetype", components.wintype },
             lualine_z = { "progress", "os.date('%H:%M')" },
         },
