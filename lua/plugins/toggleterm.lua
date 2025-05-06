@@ -52,10 +52,7 @@ return {
                     )
                 end
 
-                if lazygit ~= nil then
-                    vim.notify("cache hit")
-                else
-                    vim.notify("cache miss")
+                if lazygit == nil then
                     lazygit = Terminal:new({
                         shell = 'fish',
                         count = 5,
