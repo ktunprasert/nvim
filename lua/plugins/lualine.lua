@@ -87,7 +87,7 @@ return {
             lualine_c = { "diff" },
             lualine_x = { components.searchcount, components.diagnostics },
             lualine_y = { "fileformat", components.lsp, "filetype", components.wintype },
-            lualine_z = { "progress", "os.date('%H:%M')" },
+            lualine_z = { "os.date('%H:%M')" },
         },
         extensions = {
             "toggleterm",
