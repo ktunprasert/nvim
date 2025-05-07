@@ -8,6 +8,7 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         cmd = "Telescope",
+        enabled = false,
         dependencies = {
             'kyazdani42/nvim-web-devicons',
             'nvim-telescope/telescope-live-grep-raw.nvim',
