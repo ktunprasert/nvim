@@ -64,7 +64,7 @@ return {
         { "<Leader>sq", function() Snacks.picker.qflist() end,                desc = "Quickfix List" },
         { "<Leader>sL", function() Snacks.picker.lsp_config() end,            desc = "LSP Config" },
         { "<Leader>sl", function() Snacks.picker.highlights() end,            desc = "Highlights" },
-        { "<leader>sw", function() Snacks.picker.grep_word() end,             desc = "Visual selection or word", mode = { "n", "x" } },
+        { "<leader>sw", function() Snacks.picker.grep_word():word() end,      desc = "Visual selection or word", mode = { "n", "x" } },
         { "<leader>so", function() Snacks.picker.lsp_symbols() end,           desc = "Document Symbols" },
         { "<leader>sO", function() Snacks.picker.lsp_workspace_symbols() end, desc = "Workspace Symbols" },
         { "<leader>si", function() Snacks.picker.icons() end,                 desc = "Icons" },
