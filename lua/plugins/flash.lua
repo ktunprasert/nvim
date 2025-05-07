@@ -59,7 +59,7 @@ return {
                 function()
                     require("flash").treesitter({})
                 end,
-                desc = "Flash global"
+                desc = "Flash treesitter"
             },
         },
         config = function(cfg)
