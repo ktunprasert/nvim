@@ -151,6 +151,9 @@ return {
                         -- jump to entry where hoop loop was started from
                         reset_selection = true,
                     },
+                    frecency = {
+                        path_display = { "filename_first" },
+                    },
                 },
             })
 

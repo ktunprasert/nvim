@@ -3,6 +3,7 @@ local finders = require("telescope.finders")
 local themes = require("telescope.themes")
 local make_entry = require("telescope.make_entry")
 local conf = require("telescope.config").values
+local frecency = require("telescope").extensions.frecency
 
 local M = {}
 
@@ -34,6 +35,7 @@ local live_multigrep = function(opts)
                     args,
                     { "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
                     opts.extra_args,
+                    frecency.query({ workspace = "CWD" }),
                 })
                 :flatten():totable()
         end,

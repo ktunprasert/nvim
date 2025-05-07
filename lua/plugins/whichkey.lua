@@ -135,7 +135,7 @@ return {
                 { "<Leader>sm", cmd("Telescope treesitter theme=ivy symbols=function,method"), desc = "Search methods" },
                 { "<Leader>sq", cmd("Telescope quickfixhistory theme=ivy "),                   desc = "Quickfix History" },
                 { "<Leader>sl", cmd("Telescope highlights theme=ivy "),                        desc = "Highlights" },
-                { "<C-p>",      cmd("Telescope find_files"),                                   desc = "Fuzzy find files" },
+                { "<C-p>",      cmd("Telescope frecency workspace=CWD"),                       desc = "Fuzzy find files" },
             },
             {
                 group = "[Harpoon]",
