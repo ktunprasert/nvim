@@ -70,19 +70,23 @@ return {
         { "<leader>si", function() Snacks.picker.icons() end,                 desc = "Icons" },
         { "<leader>sj", function() Snacks.picker.jumps() end,                 desc = "Jumps" },
         { "<Leader>sr", function() Snacks.picker.lsp_references() end,        desc = "References" },
-        { "<leader>sm", function()
-            Snacks.picker.treesitter({ filter = { default = { "Function", "Method" } } })
-        end, "Methods" },
-        { "<leader>su", function() Snacks.picker.undo() end,                 desc = "Undo History" },
+        -- {
+        --     "<leader>sm",
+        --     function()
+        --         Snacks.picker.treesitter({ filter = { default = { "Function", "Method" } } })
+        --     end,
+        --     desc = "Methods"
+        -- },
+        { "<leader>sm", function() Snacks.picker.treesitter() end,            desc = "Treesitter" },
+        { "<leader>su", function() Snacks.picker.undo() end,                  desc = "Undo History" },
 
-        { "<Leader>gf", function() Snacks.picker.git_log_file() end,         desc = "Git Log File" },
-        { "<Leader>gb", function() Snacks.picker.git_branches() end,         desc = "Git Branches" },
-        { "<Leader>gl", function() Snacks.picker.git_log_line() end,         desc = "Git Log Line" },
-        { "<Leader>gc", function() Snacks.picker.git_log() end,              desc = "Git Commits" },
-        { "<Leader>gs", function() Snacks.picker.git_status() end,           desc = "Git Status" },
-        { "<Leader>gd", function() Snacks.picker.git_diff() end,             desc = "Git Diff" },
+        { "<Leader>gf", function() Snacks.picker.git_log_file() end,          desc = "Git Log File" },
+        { "<Leader>gb", function() Snacks.picker.git_branches() end,          desc = "Git Branches" },
+        { "<Leader>gl", function() Snacks.picker.git_log_line() end,          desc = "Git Log Line" },
+        { "<Leader>gc", function() Snacks.picker.git_log() end,               desc = "Git Commits" },
+        { "<Leader>gs", function() Snacks.picker.git_status() end,            desc = "Git Status" },
+        { "<Leader>gd", function() Snacks.picker.git_diff() end,              desc = "Git Diff" },
 
-        { "<C-p>",      function() Snacks.picker.smart(cwd_opts) end,        desc = "Smart picker" },
         { "<C-p>",      function() Snacks.picker.smart(cwd_opts) end,         desc = "Smart picker" },
 
         { "gd",         function() Snacks.picker.lsp_definitions() end,       desc = "Goto Definition" },
