@@ -1,7 +1,7 @@
 return {
     {
         "folke/flash.nvim",
-        event = "VeryLazy",
+        lazy = true,
         opts = {
             search = {
 
@@ -61,22 +61,19 @@ return {
                 end,
                 desc = "Flash treesitter"
             },
-        },
-        config = function(cfg)
-            require("flash").setup(cfg.opts)
-
-            local Flash = require("flash")
-
-            local function format(opts)
-                -- always show first and second label
-                return {
-                    { opts.match.label1, "FlashLabel" },
-                    { opts.match.label2, "FlashLabel" },
-                }
-            end
-
-            local fn =
+            {
+                "<c-space><c-space>",
                 function()
+                    local Flash = require("flash")
+
+                    local function format(opts)
+                        -- always show first and second label
+                        return {
+                            { opts.match.label1, "FlashLabel" },
+                            { opts.match.label2, "FlashLabel" },
+                        }
+                    end
+
                     Flash.jump({
                         search = { mode = "search" },
                         label = { style = "overlay", after = false, before = { 0, 0 }, uppercase = false, format = format },
@@ -109,10 +106,9 @@ return {
                             end
                         end,
                     })
-                end
-
-            vim.keymap.set("n", "<C-space><C-space>", fn)
-        end,
-
+                end,
+                desc = "Hop everywhere"
+            },
+        },
     }
 }
