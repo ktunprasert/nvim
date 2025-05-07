@@ -4,7 +4,6 @@ return {
         lazy = true,
         opts = {
             search = {
-
                 exclude = {
                     "notify",
                     "cmp_menu",
@@ -107,7 +106,7 @@ return {
                         end,
                     })
                 end,
-                desc = "Hop everywhere"
+                desc = "Flash everywhere"
             },
         },
     }
