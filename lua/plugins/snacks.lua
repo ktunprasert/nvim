@@ -33,6 +33,7 @@ return {
         { "<Leader>sa", function() Snacks.picker.autocmds() end,              desc = "Autocmds" },
         { "<Leader>sp", function() Snacks.picker.projects() end,              desc = "Projects" },
         { "<Leader>sg", function() Snacks.picker.git_files() end,             desc = "Git Files" },
+        { "<leader>se", function() Snacks.picker.explorer() end,              desc = "Explorer" },
         { "<Leader>sf", function() Snacks.picker.lines() end,                 desc = "Search Lines" },
         { "<leader>st", function() Snacks.picker.grep() end,                  desc = "Grep" },
         {
