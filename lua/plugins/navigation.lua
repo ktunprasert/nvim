@@ -40,7 +40,6 @@ return {
         "mikavilpas/yazi.nvim",
         dependencies = {
             "folke/snacks.nvim",
-            "nvim-telescope/telescope.nvim",
         },
         keys = {
             { "<leader>f", cmd("Yazi"),        desc = "Yazi Reveal", mode = { "n", "v" }, },
@@ -64,9 +63,8 @@ return {
             },
 
             integrations = {
-                grep_in_directory = function(directory)
-                    require("user.telescope.multigrep").live_multigrep({ extra_args = { directory } })
-                end,
+                grep_in_directory = "snacks.picker",
+                picker_add_copy_relative_path_action = "snacks.picker",
                 -- TODO: WIP
                 -- grep_in_selected_files = function(selected_files)
                 --     print(selected_files)
