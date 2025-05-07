@@ -115,6 +115,7 @@
 -- end, { silent = true, desc = "Hop end of word global buffer" })
 return {
     "phaazon/hop.nvim",
+    enabled = false,
     opts = {
         case_insensitive = false,
     },
