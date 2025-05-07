@@ -78,7 +78,7 @@ end
 
 -- For auto-session
 -- vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-vim.o.sessionoptions = "buffers,curdir,folds,winsize,winpos,localoptions"
+vim.o.sessionoptions = "buffers,curdir,folds,winsize,help,winpos,localoptions"
 
 if os.getenv('SHELL') == "C:\\Program Files\\Git\\usr\\bin\\bash.exe" then
     print("Windows Git Bash Found - setting shell compatibility")
