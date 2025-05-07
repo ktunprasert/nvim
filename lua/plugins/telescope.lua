@@ -9,10 +9,11 @@ return {
         "nvim-telescope/telescope.nvim",
         cmd = "Telescope",
         dependencies = {
-            { 'kyazdani42/nvim-web-devicons' },
-            { 'nvim-telescope/telescope-live-grep-raw.nvim' },
-            { "nvim-telescope/telescope-hop.nvim", },
-            { "nvim-telescope/telescope-ui-select.nvim", },
+            'kyazdani42/nvim-web-devicons',
+            'nvim-telescope/telescope-live-grep-raw.nvim',
+            "nvim-telescope/telescope-hop.nvim",
+            "nvim-telescope/telescope-ui-select.nvim",
+            "nvim-telescope/telescope-frecency.nvim",
         },
         config = function()
             local actions = require('telescope.actions')
@@ -156,6 +157,7 @@ return {
             telescope.load_extension('hop')
             telescope.load_extension('ui-select')
             telescope.load_extension("projects")
+            telescope.load_extension("frecency")
         end
     },
 }
