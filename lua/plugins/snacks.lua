@@ -83,17 +83,22 @@ return {
         { "<Leader>gd", function() Snacks.picker.git_diff() end,             desc = "Git Diff" },
 
         { "<C-p>",      function() Snacks.picker.smart(cwd_opts) end,        desc = "Smart picker" },
+        { "<C-p>",      function() Snacks.picker.smart(cwd_opts) end,         desc = "Smart picker" },
 
-        { "gd",         function() Snacks.picker.lsp_definitions() end,      desc = "Goto Definition" },
-        { "gD",         function() Snacks.picker.lsp_declarations() end,     desc = "Goto Declaration" },
-        { "gr",         function() Snacks.picker.lsp_references() end,       nowait = true,                  desc = "References" },
-        { "gI",         function() Snacks.picker.lsp_implementations() end,  desc = "Goto Implementation" },
-        { "gy",         function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
+        { "gd",         function() Snacks.picker.lsp_definitions() end,       desc = "Goto Definition" },
+        { "gD",         function() Snacks.picker.lsp_declarations() end,      desc = "Goto Declaration" },
+        { "gr",         function() Snacks.picker.lsp_references() end,        nowait = true,                     desc = "References" },
+        { "gI",         function() Snacks.picker.lsp_implementations() end,   desc = "Goto Implementation" },
+        { "gy",         function() Snacks.picker.lsp_type_definitions() end,  desc = "Goto T[y]pe Definition" },
     },
     ---@type snacks.Config
     opts = {
         picker = {
             enabled = true,
+            layout = {
+                preset = "ivy",
+            },
+
             win = {
                 input = {
                     keys = {
@@ -114,7 +119,7 @@ return {
             previewers = {
                 diff = {
                     builtin = false,
-                    cmd = { "delta", "--side-by-side" },
+                    cmd = { "delta", "--tabs", "2" },
                 },
             },
             actions = {
