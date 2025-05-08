@@ -278,24 +278,34 @@ return {
 
         local group = vim.api.nvim_create_augroup("CodeCompanionFidgetHooks", { clear = true })
         vim.api.nvim_create_autocmd({ "User" }, {
-            pattern = "CodeCompanionRequest*",
+            pattern = "CodeCompanion*",
             group = group,
             callback = function(request)
                 local msg
 
-                if request.match == "CodeCompanionRequestStarted" then
-                    msg = "[CodeCompanion] starting..."
-                elseif request.match == "CodeCompanionRequestStreaming" then
-                    msg = "[CodeCompanion] streaming..."
-                else
-                    msg = "[CodeCompanion] finished"
-                end
+                msg = "[CodeCompanion] " .. request.match:gsub("CodeCompanion", "")
 
                 vim.notify(msg, "info", {
+                    keep = function()
+                        local value = request.match
+
+                        local matched = vim.iter({
+                            value:match("Finished$"),
+                            value:match("Opened$"),
+                            value:match("Hidden$"),
+                            value:match("Closed$"),
+                            value:match("Cleared$"),
+                            value:match("Created$"),
+                        }):fold(false, function(acc, cond)
+                            return acc or cond ~= ""
+                        end)
+
+                        return not matched
+                    end,
                     id = "code_companion_status",
                     title = "Code Companion Status",
                     opts = function(notif)
-                        notif.icon = request.match == "CodeCompanionRequestFinished" and " "
+                        notif.icon = request.match:match(".*Finished") and " "
                             ---@diagnostic disable-next-line: undefined-field
                             or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
                     end,
