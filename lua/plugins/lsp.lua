@@ -11,7 +11,7 @@ return {
     -- CMP dependencies
     {
         'saghen/blink.cmp',
-        event = "InsertEnter",
+        event = { "InsertEnter", "CmdlineEnter" },
         dependencies = {
             'rafamadriz/friendly-snippets',
             'Kaiser-Yang/blink-cmp-avante',
