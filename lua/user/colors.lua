@@ -6,8 +6,8 @@ if winblend() == 0 then
     vim.api.nvim_set_hl(0, "Statusline", { link = "AshenBackground" })
     vim.api.nvim_set_hl(0, "TabLine", { link = "AshenBackground" })
     vim.api.nvim_set_hl(0, "TabLineFill", { link = "AshenBackground" })
-    vim.api.nvim_set_hl(0, "WinBar", { link = "AshenBackground" })
-    vim.api.nvim_set_hl(0, "WinBarNC", { link = "AshenBackground" })
+    vim.api.nvim_set_hl(0, "WinBar", { link = "AshenG3" })
+    vim.api.nvim_set_hl(0, "WinBarNC", { link = "AshenG3" })
     vim.api.nvim_set_hl(0, "WinSeparator", { link = "AshenBackground" })
 end
 
