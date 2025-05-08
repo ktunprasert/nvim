@@ -1,8 +1,9 @@
 return {
     "yetone/avante.nvim",
+    commit = "0b78b58760a5fd257797936e74e0bf5ddb445de1",
     cmd = { "AvanteToggle" },
     keys = {
-        { "<leader>at", "<Cmd>AvanteToggle<CR>", desc = "avante: toggle" },
+        { "<leader>aT", "<Cmd>AvanteToggle<CR>", desc = "avante: toggle" },
     },
     version = false, -- Never set this value to "*"! Never!
     opts = {
