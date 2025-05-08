@@ -114,7 +114,7 @@ return {
             win = {
                 input = {
                     keys = {
-                        ["<a-s>"] = { "flash", mode = { "n", "i" } },
+                        ["<c-space>"] = { "flash", mode = { "n", "i" } },
                         ["s"] = { "flash" },
                         ["<M-j>"] = { "edit_split", mode = { "i", "n" } },
                         [""] = { "toggle_help_list", mode = { "i" } },
@@ -150,6 +150,7 @@ return {
                         action = function(match)
                             local idx = picker.list:row2idx(match.pos[1])
                             picker.list:_move(idx, true, true)
+                            picker:action("confirm")
                         end,
                     })
                 end,
