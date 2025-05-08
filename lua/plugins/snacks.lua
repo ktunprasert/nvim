@@ -281,33 +281,33 @@ return {
             pattern = "CodeCompanion*",
             group = group,
             callback = function(request)
+                if request.match == "CodeCompanionChatSubmitted" then
+                    return
+                end
+
                 local msg
 
                 msg = "[CodeCompanion] " .. request.match:gsub("CodeCompanion", "")
 
                 vim.notify(msg, "info", {
+                    timeout = 1000,
                     keep = function()
-                        local value = request.match
-
-                        local matched = vim.iter({
-                            value:match("Finished$"),
-                            value:match("Opened$"),
-                            value:match("Hidden$"),
-                            value:match("Closed$"),
-                            value:match("Cleared$"),
-                            value:match("Created$"),
-                        }):fold(false, function(acc, cond)
-                            return acc or cond ~= ""
-                        end)
-
-                        return not matched
+                        return not vim.iter({ "Finished", "Opened", "Hidden", "Closed", "Cleared", "Created", }):fold(
+                            false,
+                            function(acc, cond)
+                                return acc or vim.endswith(request.match, cond)
+                            end)
                     end,
                     id = "code_companion_status",
                     title = "Code Companion Status",
                     opts = function(notif)
-                        notif.icon = request.match:match(".*Finished") and " "
+                        notif.icon = ""
+                        if vim.endswith(request.match, "Started") then
                             ---@diagnostic disable-next-line: undefined-field
-                            or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+                            notif.icon = spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+                        elseif vim.endswith(request.match, "Finished") then
+                            notif.icon = " "
+                        end
                     end,
                 })
             end,
@@ -315,6 +315,6 @@ return {
     end
 }
 
--- │fish: command substitutions not allowed in command position. Try var=(your-cmd) $var ...
+-- │returnfish: command substitutions not allowed in command position. Try var=(your-cmd) $var ...
 -- │[ -z "$NVIM" ] && (nvim -- "/root/.config/nvim/lua/plugins/avante.lua") || (nvim --server "$NVIM" --remote-send "q" &&
 -- │nvim --server "$NVIM" --remote-tab "/root/.config/nvim/lua/plugins/avante.lua")
