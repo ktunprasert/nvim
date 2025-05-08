@@ -69,15 +69,15 @@ return {
             opts = {
                 file_types = { "markdown", "Avante" },
                 debounce = 2000,
-            },
-            ft = { "markdown", "Avante" },
-            overrides = {
-                buftype = {
-                    nofile = {
-                        code = { left_pad = 0, right_pad = 0 },
+                overrides = {
+                    buftype = {
+                        nofile = {
+                            code = { left_pad = 0, right_pad = 0 },
+                        },
                     },
                 },
             },
+            ft = { "markdown", "Avante" },
         },
     },
 }
