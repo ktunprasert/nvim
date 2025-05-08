@@ -28,6 +28,9 @@ return {
             extensions = {
                 history = {
                     enabled = true,
+                    opts = {
+                        picker = "snacks",
+                    },
                 },
             },
         },
