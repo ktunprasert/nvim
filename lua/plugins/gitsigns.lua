@@ -3,7 +3,7 @@ local cmd = require("lib.utils").cmdcr
 return {
     "lewis6991/gitsigns.nvim",
     lazy = true,
-    gt = { "gitcommit", "diff" },
+    ft = { "gitcommit", "diff" },
     dependencies = "nvim-lua/plenary.nvim",
     opts = {
         current_line_blame = true,
