@@ -42,11 +42,22 @@ return {
             },
         },
         keys = {
-            { "\\",    mode = { "n", "x", "o" }, function() require("flash").jump() end,                               desc = "Flash" },
-            { "|",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,                         desc = "Flash Treesitter" },
-            { "gr",    mode = "o",               function() require("flash").remote() end,                             desc = "Remote Flash" },
-            { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,                             desc = "Toggle Flash Search" },
-            { "gt",    mode = { "o", "x" },      function() require("flash").treesitter_search({ pattern = "." }) end, desc = "Treesitter Search" },
+            { "\\",    mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
+            { "|",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+            { "gr",    mode = "o",               function() require("flash").remote() end,     desc = "Remote Flash" },
+            { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,     desc = "Toggle Flash Search" },
+            {
+                "gt",
+                mode = { "o", "x" },
+                function()
+                    require("flash").treesitter_search({
+                        label = { style = "overlay" },
+                        pattern =
+                        "."
+                    })
+                end,
+                desc = "Treesitter Search"
+            },
             -- emulate hop stuff
             {
                 "<c-space>1",
