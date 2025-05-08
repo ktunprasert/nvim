@@ -250,6 +250,7 @@ return {
         },
     },
     init = function()
+        local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
         vim.api.nvim_create_autocmd("User", {
             pattern = "VeryLazy",
             callback = function()
@@ -258,7 +259,6 @@ return {
                 vim.print = dd
                 vim.api.nvim_create_autocmd("LspProgress", {
                     callback = function(ev)
-                        local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
                         vim.notify(vim.lsp.status(), "info", {
                             id = "lsp_progress",
                             title = "LSP Progress",
@@ -276,15 +276,30 @@ return {
             end,
         })
 
-        local group = vim.api.nvim_create_augroup("CodeCompanionFidgetHooks", {})
-
+        local group = vim.api.nvim_create_augroup("CodeCompanionFidgetHooks", { clear = true })
         vim.api.nvim_create_autocmd({ "User" }, {
             pattern = "CodeCompanionRequest*",
             group = group,
             callback = function(request)
+                local msg
+
                 if request.match == "CodeCompanionRequestStarted" then
-                    vim.notify(vim.inspect(request.data))
+                    msg = "[CodeCompanion] starting..."
+                elseif request.match == "CodeCompanionRequestStreaming" then
+                    msg = "[CodeCompanion] streaming..."
+                else
+                    msg = "[CodeCompanion] finished"
                 end
+
+                vim.notify(msg, "info", {
+                    id = "code_companion_status",
+                    title = "Code Companion Status",
+                    opts = function(notif)
+                        notif.icon = request.match == "CodeCompanionRequestFinished" and " "
+                            ---@diagnostic disable-next-line: undefined-field
+                            or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+                    end,
+                })
             end,
         })
     end
