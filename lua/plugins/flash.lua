@@ -24,7 +24,6 @@ return {
                 rainbow = {
                     enable = true,
                 },
-                style = "inline",
             },
             modes = {
                 char = {
@@ -43,7 +42,8 @@ return {
         },
         keys = {
             { "\\",    mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
-            { "|",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+            { "|",     mode = "n",               function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+            { "gT",    mode = { "x", "o" },      function() require("flash").treesitter() end, desc = "Flash Treesitter" },
             { "gr",    mode = "o",               function() require("flash").remote() end,     desc = "Remote Flash" },
             { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,     desc = "Toggle Flash Search" },
             {
@@ -51,7 +51,6 @@ return {
                 mode = { "o", "x" },
                 function()
                     require("flash").treesitter_search({
-                        label = { style = "overlay" },
                         pattern =
                         "."
                     })
@@ -86,7 +85,7 @@ return {
 
                     Flash.jump({
                         search = { mode = "search" },
-                        label = { style = "overlay", after = false, before = { 0, 0 }, uppercase = false, format = format },
+                        label = { after = false, before = { 0, 0 }, uppercase = false, format = format },
                         pattern = [[\<]],
                         action = function(match, state)
                             state:hide()
