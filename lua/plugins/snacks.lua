@@ -275,6 +275,18 @@ return {
                 Snacks.toggle.treesitter():map("<leader>ut")
             end,
         })
+
+        local group = vim.api.nvim_create_augroup("CodeCompanionFidgetHooks", {})
+
+        vim.api.nvim_create_autocmd({ "User" }, {
+            pattern = "CodeCompanionRequest*",
+            group = group,
+            callback = function(request)
+                if request.match == "CodeCompanionRequestStarted" then
+                    vim.notify(vim.inspect(request.data))
+                end
+            end,
+        })
     end
 }
 
