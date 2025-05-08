@@ -34,14 +34,6 @@ return {
         },
     },
     {
-        "SmiteshP/nvim-navic",
-        lazy = true,
-        config = function()
-            vim.g.navic_silence = true
-            require("nvim-navic").setup({ highlight = true, depth_limit = 8 })
-        end,
-    },
-    {
         "echasnovski/mini.hipatterns",
         -- PERF: for some reason it is slower to include filetype
         -- ft = { "lua", "html", "css", "scss", "javascript", "typescript", "typescriptreact" },
@@ -70,20 +62,6 @@ return {
                 }
             })
         end
-    },
-    {
-        "utilyre/barbecue.nvim",
-        name = "barbecue",
-        event = "LspAttach",
-        version = "*",
-        dependencies = {
-            "SmiteshP/nvim-navic",
-            "nvim-tree/nvim-web-devicons", -- optional dependency
-        },
-        opts = {
-            show_dirname = false,
-            show_basename = false,
-        },
     },
     {
         "sphamba/smear-cursor.nvim",
