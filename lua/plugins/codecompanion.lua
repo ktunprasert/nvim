@@ -33,6 +33,11 @@ return {
                     },
                 },
             },
+            display = {
+                chat = {
+                    auto_scroll = true,
+                },
+            },
         },
         cmd = {
             "CodeCompanionActions",
@@ -45,13 +50,29 @@ return {
             { "<Leader>aa", "<cmd>CodeCompanionActions<cr>",     desc = "[CC] Actions", mode = { "n", "v" } },
             { "<Leader>ae", "<cmd>CodeCompanion /et<cr>",        desc = "[CC] Edit",    mode = { "n", "v" } },
             { "<Leader>at", "<cmd>CodeCompanionChat Toggle<cr>", desc = "[CC] Toggle",  mode = { "n", "v" } },
-            { "<Leader>ac", "<cmd>CodeCompanionChat Add<cr>",    desc = "[CC] Add",     mode = { "n", "v" } },
+            { "<Leader>ac", "<cmd>CodeCompanionChat Add<cr>",    desc = "[CC] Add",     mode = { "v" } },
             { "<Leader>ah", "<cmd>CodeCompanionHistory<cr>",     desc = "[CC] History", mode = { "n", "v" } },
         },
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
             "ravitemer/codecompanion-history.nvim",
+            {
+                -- Make sure to set this up properly if you have lazy=true
+                'MeanderingProgrammer/render-markdown.nvim',
+                opts = {
+                    file_types = { "markdown", "codecompanion" },
+                    debounce = 2000,
+                    overrides = {
+                        buftype = {
+                            nofile = {
+                                code = { left_pad = 0, right_pad = 0 },
+                            },
+                        },
+                    },
+                },
+                ft = { "markdown", "codecompanion" },
+            },
         },
 
     },
