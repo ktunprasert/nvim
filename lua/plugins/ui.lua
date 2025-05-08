@@ -93,7 +93,9 @@ return {
             trailing_stiffness = .5,
             distance_stop_animating = .5,
             smear_to_cmd = false,
-            cursor_color = "#D7A933",
+            cterm_cursor_colors = { 240, 245, 250, 255 },
+            cterm_bg = 235,
+            -- cursor_color = "#D7A933",
         },
     },
 }
