@@ -41,7 +41,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
                 buffer = args.buf,
                 callback = function()
-                    format()
+                    if vim.v.cmdbang == 0 then
+                        format()
+                    end
                 end,
             })
         end
