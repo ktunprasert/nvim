@@ -39,6 +39,7 @@ return {
                 autoload = false,
                 override = {
                     "blink",
+                    "flash",
                     "render-markdown",
                     "which-key",
                     "lazy",
