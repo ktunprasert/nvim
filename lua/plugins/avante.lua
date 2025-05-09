@@ -46,7 +46,7 @@ return {
             -- "o3-mini-paygo" NOT OK
             -- model = "claude-3.7-sonnet-thought",
             -- model = "claude-3.7-sonnet",
-            model = "gemini-2.5-pro-preview-03-25",
+            model = "gemini-2.5-pro-preview-05-06",
         },
         windows = {
             wrap = true, -- similar to vim.o.wrap
