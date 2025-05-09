@@ -68,6 +68,7 @@ local opts = {
     completion = {
         menu = {
             max_height = 25,
+            winblend = winblend(),
             draw = {
                 columns = {
                     { "item_idx" },
@@ -84,7 +85,7 @@ local opts = {
                         text = function(ctx)
                             return ctx.idx == 10 and "0" or ctx.idx >= 10 and " " or tostring(ctx.idx)
                         end,
-                        highlight = "BlinkCmpItemIdx", -- optional, only if you want to change its color
+                        highlight = "AshenOrangeGolden",
                     },
                     label = {
                         text = function(ctx)
@@ -93,6 +94,9 @@ local opts = {
                         highlight = function(ctx)
                             return require("colorful-menu").blink_components_highlight(ctx)
                         end,
+                    },
+                    kind_icon = {
+                        highlight = "AshenBlue",
                     },
                 },
             },
@@ -201,7 +205,10 @@ local opts = {
             'score',
             'kind',
             'label',
-        }
+        },
+        prebuilt_binaries = {
+            download = false,
+        },
     },
 }
 
