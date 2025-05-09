@@ -21,7 +21,8 @@ return {
         enabled = false,
     },
     {
-        "ficcdaf/ashen.nvim",
+        "ktunprasert/ashen.nvim",
+        dir = "~/workspace/lua/ashen.nvim",
         -- optional but recommended,
         -- pin to the latest stable release:
         -- tag = "*",
@@ -34,8 +35,16 @@ return {
                 italic_comments = true,
             },
             transparent = TRANSPARENT,
+            plugins = {
+                autoload = false,
+                override = {
+                    "blink",
+                    "render-markdown",
+                    "which-key",
+                    "lazy",
+                },
+            },
         },
-
         config = function(cfg)
             require("ashen").setup(cfg.opts)
             vim.cmd("colorscheme ashen")
