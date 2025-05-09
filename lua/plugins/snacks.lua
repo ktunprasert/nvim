@@ -102,6 +102,7 @@ return {
                         ["<M-j>"] = { "edit_split", mode = { "i", "n" } },
                         [""] = { "toggle_help_list", mode = { "i" } },
                         ["<M-l>"] = { "edit_vsplit", mode = { "i", "n" } },
+                        ["<C-u>"] = { "<c-s-u>", mode = { "i" }, expr = true },
                     }
                 }
             },
