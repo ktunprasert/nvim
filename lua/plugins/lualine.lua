@@ -2,7 +2,7 @@ local components = {
     diagnostics = {
         "diagnostics",
         sources = { "nvim_diagnostic" },
-        symbols = { error = " ", warn = " ", info = " ", hint = " " },
+        symbols = { error = " ", warn = " ", info = "󰙎 ", hint = " " },
         component_separators = { left = '', right = '' },
     },
     lsp = {
@@ -62,7 +62,6 @@ return {
     dependencies = {
         { 'kyazdani42/nvim-web-devicons', opt = true },
         { 'ficcdaf/ashen.nvim' },
-        { 'rmagatti/auto-session' },
     },
     opts = {
         options = {
@@ -89,9 +88,6 @@ return {
             lualine_y = { "fileformat", components.lsp, "filetype", components.wintype },
             lualine_z = { "os.date('%H:%M')" },
         },
-        extensions = {
-            "toggleterm",
-        }
     },
     config = function(cfg)
         local ashen_opts = require("ashen.plugins.lualine").lualine_opts
