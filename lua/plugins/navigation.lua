@@ -8,12 +8,6 @@ return {
     -- ██║ ╚████║██║  ██║ ╚████╔╝ ██║╚██████╔╝██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║
     -- ╚═╝  ╚═══╝╚═╝  ╚═╝  ╚═══╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ~ Navigation
     {
-        "chaoren/vim-wordmotion",
-        -- lazy = false,
-        event = "VeryLazy",
-        init = function() vim.g.wordmotion_prefix = "<Space>" end
-    },
-    {
         "RRethy/vim-illuminate",
         event = "VeryLazy",
         keys = {
