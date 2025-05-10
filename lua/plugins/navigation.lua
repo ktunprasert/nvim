@@ -37,10 +37,10 @@ return {
         },
         keys = {
             { "<leader>f", cmd("Yazi"),        desc = "Yazi Reveal", mode = { "n", "v" }, },
-            { "<A-r>",     cmd("Yazi toggle"), desc = "Yazi Toggle", },
-            { "<A-e>",     cmd("Yazi cwd"),    desc = "Yazi CWD", },
+            { "<A-e>",     cmd("Yazi toggle"), desc = "Yazi Toggle", },
         },
         opts = {
+            yazi_floating_window_winblend = winblend(),
             -- if you want to open yazi instead of netrw, see below for more info
             open_for_directories = false,
             keymaps = {
