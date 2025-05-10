@@ -488,6 +488,12 @@ return {
                     { pattern = "organize import", key = "o", order = 1 },
                 },
             },
+            popup = {
+                highlight = {
+                    action = "",
+                    key = "AshenRedFlame",
+                },
+            },
         },
     },
     {
