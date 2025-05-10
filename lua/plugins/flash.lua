@@ -27,16 +27,17 @@ return {
             },
             modes = {
                 char = {
-                    keys = { "f", "F", "t", "T" },
-                    char_actions = function(motion)
-                        return {
-                            [";"] = "next",
-                            [","] = "prev",
-                            [motion:lower()] = "next",
-                            [motion:upper()] = "prev",
-                        }
-                    end,
-                    jump_labels = true,
+                    enabled = false,
+                    -- keys = { "f", "F", "t", "T" },
+                    -- char_actions = function(motion)
+                    --     return {
+                    --         [";"] = "next",
+                    --         [","] = "prev",
+                    --         [motion:lower()] = "next",
+                    --         [motion:upper()] = "prev",
+                    --     }
+                    -- end,
+                    -- jump_labels = true,
                 },
             },
         },
