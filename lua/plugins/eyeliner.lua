@@ -2,7 +2,16 @@ return {
     "jinh0/eyeliner.nvim",
     event = "VeryLazy",
     priority = 999,
-    config = function()
+    opts = {
+        highlight_on_key = false,
+        disabled_filetypes = {
+            "fastaction_popup",
+        },
+        default_keymaps = false,
+    },
+    config = function(cfg)
+        require("eyeliner").setup(cfg.opts)
+
         local comment_color = vim.api.nvim_get_hl(0, { name = 'Comment', link = false })
         local opts = {
             primary = {
