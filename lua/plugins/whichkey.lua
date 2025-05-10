@@ -75,11 +75,11 @@ return {
             },
             {
                 group = "[Buffers]",
-                { "<Leader>Q",  cmd("qa!"),                    desc = "Force Quit" },
-                { "<Leader>D",  function() vim.cmd("%bd") end, desc = "Delete ALL Buffers" },
-                { "<Leader>bd", cmd("bp | sp | bn | bd"),      desc = "Delete Buffer" },
-                { "<Leader>bq", cmd("bd!"),                    desc = "Force delete buffer" },
-                { "<Leader>B",  cmd("bp | sp | bn | bd"),      desc = "Delete Buffer" },
+                { "<Leader>Q",  cmd("qa!"),                     desc = "Force Quit" },
+                { "<Leader>D",  function() vim.cmd("%bd!") end, desc = "Delete ALL Buffers" },
+                { "<Leader>bd", cmd("bp | sp | bn | bd"),       desc = "Delete Buffer" },
+                { "<Leader>bq", cmd("bd!"),                     desc = "Force delete buffer" },
+                { "<Leader>B",  cmd("bp | sp | bn | bd"),       desc = "Delete Buffer" },
             },
             {
                 group = "[Explore]",
