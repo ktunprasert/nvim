@@ -171,12 +171,18 @@ return {
                 end,
             },
         },
-        styles = {
-            terminal = {
+        terminal = {
+            enabled = true,
+            win = {
                 wo = {
                     winblend = winblend(),
-                }
+                },
             }
+            -- ---@field override? fun(cmd?: string|string[], opts?: snacks.terminal.Opts) Use this to use a different terminal implementation
+            -- override = function(cmd, opts)
+            --     vim.notify("hello bitches")
+            --     return { auto_insert = false }
+            -- end,
         },
         bigfile = { enabled = true },
         quickfile = { enabled = true },
