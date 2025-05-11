@@ -28,13 +28,24 @@ return {
     keys = {
         ---@diagnostic disable-next-line: undefined-global
         -- Non Pickers
-        { "<leader>.",  function() Snacks.scratch() end,                                            desc = "Toggle Scratch Buffer" },
-        { "<leader>'",  function() Snacks.scratch({ ft = "markdown" }) end,                         desc = "Toggle Scrach Todo" },
-        { "<leader>S",  function() Snacks.scratch.select() end,                                     desc = "Select Scratch Buffer" },
-        { "<A-f>",      function() Snacks.zen({ win = { width = 0.8 } }) end,                       desc = "Zen Mode" },
-        { "1<A-f>",     function() Snacks.zen({ win = { width = 100 } }) end,                       desc = "Zen Mode (less width)" },
-        { "<leader>sH", function() Snacks.notifier.show_history() end,                              desc = "Show notifier history" },
-        { "<C-t>",      function() Snacks.terminal() end,                                           desc = "Terminal" },
+        { "<leader>.",  function() Snacks.scratch() end,                      desc = "Toggle Scratch Buffer" },
+        { "<leader>'",  function() Snacks.scratch({ ft = "markdown" }) end,   desc = "Toggle Scrach Todo" },
+        { "<leader>S",  function() Snacks.scratch.select() end,               desc = "Select Scratch Buffer" },
+        { "<A-f>",      function() Snacks.zen({ win = { width = 0.8 } }) end, desc = "Zen Mode" },
+        { "1<A-f>",     function() Snacks.zen({ win = { width = 100 } }) end, desc = "Zen Mode (less width)" },
+        { "<leader>sH", function() Snacks.notifier.show_history() end,        desc = "Show notifier history" },
+        {
+            "<C-t>",
+            function()
+                Snacks.terminal("fish", {
+                    auto_insert = false,
+                    win = {
+                        position = "bottom",
+                    }
+                })
+            end,
+            desc = "Terminal"
+        },
         -- Pickers
         { "<leader>ss", function() Snacks.picker.pickers() end,                                     desc = "Pickers" },
         { "<Leader>sh", function() Snacks.picker.help() end,                                        desc = "Help" },
@@ -177,6 +188,7 @@ return {
                 wo = {
                     winblend = winblend(),
                 },
+                border = "rounded",
             }
             -- TODO: figure dis out
             -- ---@field override? fun(cmd?: string|string[], opts?: snacks.terminal.Opts) Use this to use a different terminal implementation
