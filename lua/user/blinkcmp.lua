@@ -72,11 +72,7 @@ local opts = {
             draw = {
                 columns = {
                     { "item_idx" },
-                    {
-                        "label",
-                        "label_description",
-                        gap = 40,
-                    },
+                    { "label", },
                     { "kind_icon" },
                     { "kind" },
                 },
