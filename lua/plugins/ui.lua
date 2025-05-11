@@ -66,6 +66,7 @@ return {
     {
         "sphamba/smear-cursor.nvim",
         event = "CursorMoved",
+        enabled = not vim.g.neovide,
         opts = {
             stiffness = .8,
             trailing_stiffness = .5,
