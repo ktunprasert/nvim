@@ -16,3 +16,10 @@ function _G._edit(fn, line_number)
     end
     vim.cmd(edit_cmd)
 end
+
+-- Space as <Leader>
+vim.keymap.set("", "<Space>", "<Nop>")
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

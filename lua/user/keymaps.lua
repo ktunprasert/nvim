@@ -1,11 +1,6 @@
 local keymap = require('lib.utils').keymap
 local cmd = require("lib.utils").cmdcr
 
--- Space as <Leader>
-keymap("", "<Space>", "<Nop>")
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- Modes
 --   n : Normal
 --   i : Insert
