@@ -178,6 +178,7 @@ return {
                     winblend = winblend(),
                 },
             }
+            -- TODO: figure dis out
             -- ---@field override? fun(cmd?: string|string[], opts?: snacks.terminal.Opts) Use this to use a different terminal implementation
             -- override = function(cmd, opts)
             --     vim.notify("hello bitches")
