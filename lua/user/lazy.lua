@@ -13,15 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    spec = {
-        { import = "plugins", },
-        -- Own Plugins
-        {
-            "ktunprasert/gui-font-resize.nvim",
-            enabled = vim.g.neovide or false,
-            config = true,
-        },
-    },
+    spec = { { import = "plugins", }, },
     install = { colorscheme = { "ashen" } },
     -- profiling = {
     --     loader = true,
