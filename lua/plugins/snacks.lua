@@ -300,7 +300,3 @@ return {
         })
     end
 }
-
--- │returnfish: command substitutions not allowed in command position. Try var=(your-cmd) $var ...
--- │[ -z "$NVIM" ] && (nvim -- "/root/.config/nvim/lua/plugins/avante.lua") || (nvim --server "$NVIM" --remote-send "q" &&
--- │nvim --server "$NVIM" --remote-tab "/root/.config/nvim/lua/plugins/avante.lua")
