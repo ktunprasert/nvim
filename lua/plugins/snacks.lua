@@ -97,8 +97,8 @@ return {
                     ), {
                         env = {
                             NVIM_DIR = vim.fn.stdpath("config"),
-                        }
-
+                        },
+                        auto_close = true,
                     })
             end,
             desc = "LazyGit"

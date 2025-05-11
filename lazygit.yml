@@ -24,8 +24,10 @@ customCommands:
     command: $NVIM_DIR/run_aichat.sh
 
 os:
-  edit: "nvim --server $NVIM --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, 0)<CR>'"
-  editAtLine: "nvim --server $NVIM --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, {{line}})<CR>'"
+  # edit: "nvim --server $NVIM --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, 0)<CR>'"
+  # editAtLine: "nvim --server $NVIM --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, {{line}})<CR>'"
+  edit: "nvim --server $NVIM --remote-send '<Esc><Esc><Esc>q<CR>:lua _edit({{filename}}, 0)<CR>'"
+  editAtLine: "nvim --server $NVIM --remote-send '<Esc><Esc><Esc>q<CR>:lua _edit({{filename}}, {{line}})<CR>'"
   openLink: 'open {{link}} >/dev/null'
   # edit:  nvim --server "$NVIM" --remote-send "q:lua _edit({{filename}}, {{line}})"
   # edit:  nvim --server "$NVIM" --remote-send "q:lua _edit({{filename}}, {{line}})<CR>"
