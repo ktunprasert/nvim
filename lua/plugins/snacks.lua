@@ -123,7 +123,18 @@ return {
                         [""] = { "toggle_help_list", mode = { "i" } },
                         ["<M-l>"] = { "edit_vsplit", mode = { "i", "n" } },
                         ["<C-u>"] = { "<c-s-u>", mode = { "i" }, expr = true },
-                    }
+                    },
+                    wo = {
+                        winblend = winblend(),
+                    },
+                },
+                list = {
+                    wo = {
+                        winblend = winblend(),
+                    },
+                },
+                preview = {
+                    winblend = winblend(),
                 }
             },
             matcher = {
@@ -159,9 +170,13 @@ return {
                     })
                 end,
             },
+        },
+        styles = {
             terminal = {
-                enabled = true,
-            },
+                wo = {
+                    winblend = winblend(),
+                }
+            }
         },
         bigfile = { enabled = true },
         quickfile = { enabled = true },
