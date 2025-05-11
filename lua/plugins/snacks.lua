@@ -34,6 +34,7 @@ return {
         { "<A-f>",      function() Snacks.zen({ win = { width = 0.8 } }) end,                       desc = "Zen Mode" },
         { "1<A-f>",     function() Snacks.zen({ win = { width = 100 } }) end,                       desc = "Zen Mode (less width)" },
         { "<leader>sH", function() Snacks.notifier.show_history() end,                              desc = "Show notifier history" },
+        { "<C-t>",      function() Snacks.terminal() end,                                           desc = "Terminal" },
         -- Pickers
         { "<leader>ss", function() Snacks.picker.pickers() end,                                     desc = "Pickers" },
         { "<Leader>sh", function() Snacks.picker.help() end,                                        desc = "Help" },
@@ -74,19 +75,36 @@ return {
         { "<Leader>gc", function() Snacks.picker.git_log() end,                                     desc = "Git Commits" },
         { "<Leader>gs", function() Snacks.picker.git_status() end,                                  desc = "Git Status" },
         { "<Leader>gd", function() Snacks.picker.git_diff() end,                                    desc = "Git Diff" },
+        {
+            "<Leader>G",
+            function()
+                Snacks.terminal(
+                    string.format(
+                        'lg -ucf "%s/lazygit.yml,%s/lg_ashen.yaml"',
+                        vim.fn.stdpath("config"),
+                        vim.fn.stdpath("config")
+                    ), {
+                        env = {
+                            NVIM_DIR = vim.fn.stdpath("config"),
+                        }
+
+                    })
+            end,
+            desc = "LazyGit"
+        },
 
         -- LSP
-        { "<Leader>sd", function() Snacks.picker.diagnostics_buffer() end,                          desc = "Diagnostic Buffer" },
-        { "<Leader>sD", function() Snacks.picker.diagnostics() end,                                 desc = "Diagnostqc" },
-        { "<Leader>sL", function() Snacks.picker.lsp_config() end,                                  desc = "LSP Config" },
-        { "<leader>so", function() Snacks.picker.lsp_symbols() end,                                 desc = "Document Symbols" },
-        { "<leader>sO", function() Snacks.picker.lsp_workspace_symbols() end,                       desc = "Workspace Symbols" },
-        { "<Leader>sr", function() Snacks.picker.lsp_references() end,                              desc = "References" },
-        { "gd",         function() Snacks.picker.lsp_definitions() end,                             desc = "Goto Definition" },
-        { "gD",         function() Snacks.picker.lsp_declarations() end,                            desc = "Goto Declaration" },
-        { "gr",         function() Snacks.picker.lsp_references() end,                              nowait = true,                     desc = "References" },
-        { "gI",         function() Snacks.picker.lsp_implementations() end,                         desc = "Goto Implementation" },
-        { "gy",         function() Snacks.picker.lsp_type_definitions() end,                        desc = "Goto T[y]pe Definition" }
+        { "<Leader>sd", function() Snacks.picker.diagnostics_buffer() end,    desc = "Diagnostic Buffer" },
+        { "<Leader>sD", function() Snacks.picker.diagnostics() end,           desc = "Diagnostqc" },
+        { "<Leader>sL", function() Snacks.picker.lsp_config() end,            desc = "LSP Config" },
+        { "<leader>so", function() Snacks.picker.lsp_symbols() end,           desc = "Document Symbols" },
+        { "<leader>sO", function() Snacks.picker.lsp_workspace_symbols() end, desc = "Workspace Symbols" },
+        { "<Leader>sr", function() Snacks.picker.lsp_references() end,        desc = "References" },
+        { "gd",         function() Snacks.picker.lsp_definitions() end,       desc = "Goto Definition" },
+        { "gD",         function() Snacks.picker.lsp_declarations() end,      desc = "Goto Declaration" },
+        { "gr",         function() Snacks.picker.lsp_references() end,        nowait = true,                  desc = "References" },
+        { "gI",         function() Snacks.picker.lsp_implementations() end,   desc = "Goto Implementation" },
+        { "gy",         function() Snacks.picker.lsp_type_definitions() end,  desc = "Goto T[y]pe Definition" }
     },
     ---@type snacks.Config
     opts = {
@@ -141,8 +159,10 @@ return {
                     })
                 end,
             },
-        }
-        ,
+            terminal = {
+                enabled = true,
+            },
+        },
         bigfile = { enabled = true },
         quickfile = { enabled = true },
         scratch = {

@@ -1,5 +1,5 @@
 MASON_PATH = os.getenv("HOME") .. "/.local/share/nvim/mason/packages"
-TRANSPARENT = true
+TRANSPARENT = false
 
 _G.winblend = function()
     if TRANSPARENT then
@@ -7,4 +7,12 @@ _G.winblend = function()
     end
 
     return 10
+end
+
+function _G._edit(fn, line_number)
+    local edit_cmd = string.format(":e %s", fn)
+    if line_number ~= nil then
+        edit_cmd = string.format(":e +%d %s", line_number, fn)
+    end
+    vim.cmd(edit_cmd)
 end
