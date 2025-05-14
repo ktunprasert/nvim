@@ -10,6 +10,9 @@ local menus = {
         " continue",
         "󰇀 all <cword>",
         "󰇀 all search term",
+        "󰇀 restore",
+        "󰇀 prev match",
+        "󰇀 next match",
     },
     fns = {
         function() flash_util.flash_word() end,
@@ -20,12 +23,18 @@ local menus = {
         function() require("flash").jump({ continue = true }) end,
         function() require("multicursor-nvim").matchAllAddCursors() end,
         function() require("multicursor-nvim").searchAllAddCursors() end,
+        function() require("multicursor-nvim").restoreCursors() end,
+        function() require("multicursor-nvim").matchAddCursor(-1) end,
+        function() require("multicursor-nvim").matchAddCursor(1) end,
     },
     keys = {
         [" hop"] = "<C-Space>",
         [" jump"] = "j",
         ["󰇀 all <cword>"] = "m",
         ["󰇀 all search term"] = "s",
+        ["󰇀 restore"] = "v",
+        ["󰇀 prev match"] = "N",
+        ["󰇀 next match"] = "n",
     },
 }
 
