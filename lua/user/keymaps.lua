@@ -25,6 +25,7 @@ keymap("n", "<A-S-n>", "<Esc>mz<Esc>O<Esc>`z")
 
 -- Ctrl + S to save file :)
 keymap("n", "<C-s>", ":w<CR>")
+keymap("n", "<A-s>", ":w!<CR>", nil, "Save no fmt")
 
 -- Force create file if doesn't exist
 keymap("", "gf", ":e <cfile><CR>")
