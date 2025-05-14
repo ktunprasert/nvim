@@ -369,7 +369,6 @@ return {
             local oneMaps = {
                 nearEoL = "n",
                 visibleInWindow = "gw",
-                toNextQuotationMark = '"',
                 restOfIndentation = "R",
                 column = "|",
                 entireBuffer = "gG",
@@ -378,6 +377,15 @@ return {
 
             for fn, map in pairs(oneMaps) do
                 keymap({ "o", "x" }, map, function() various[fn]() end, nil, "[TOBJ] " .. fn)
+            end
+
+            local opMode = {
+                entireBuffer = "<C-a>",
+                toNextQuotationMark = '"',
+            }
+
+            for fn, map in pairs(opMode) do
+                keymap({ "o" }, map, function() various[fn]() end, nil, "[TOBJ] " .. fn)
             end
 
             local ftMaps = {
