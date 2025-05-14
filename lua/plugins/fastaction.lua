@@ -13,6 +13,7 @@ local menus = {
         "󰇀 restore",
         "󰇀 prev match",
         "󰇀 next match",
+        "󰇀 operator in range",
     },
     fns = {
         function() flash_util.flash_word() end,
@@ -26,6 +27,7 @@ local menus = {
         function() require("multicursor-nvim").restoreCursors() end,
         function() require("multicursor-nvim").matchAddCursor(-1) end,
         function() require("multicursor-nvim").matchAddCursor(1) end,
+        function() require("multicursor-nvim").operator() end,
     },
     keys = {
         [" hop"] = "<C-Space>",
@@ -35,6 +37,7 @@ local menus = {
         ["󰇀 restore"] = "v",
         ["󰇀 prev match"] = "N",
         ["󰇀 next match"] = "n",
+        ["󰇀 operator (iwap)"] = "S",
     },
 }
 
@@ -62,6 +65,7 @@ return {
                         function(_, idx) menus.fns[idx]() end
                     )
                 end,
+                mode = { "n", "v" },
             },
         },
         opts = {

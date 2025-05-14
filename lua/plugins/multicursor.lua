@@ -3,7 +3,6 @@ return {
     branch = "1.0",
     keys = {
         { mode = { "n", "x" }, "ga", },
-        { mode = { "n", "x" }, "<leader><leader>m", },
         { mode = "x",          "zs", },
         { mode = "n",          "gV", },
         { mode = { "n", "x" }, "<C-up>", },
@@ -11,16 +10,17 @@ return {
         { mode = { "n", "x" }, "<leader>k", },
         { mode = { "n", "x" }, "<leader>j", },
         { mode = { "n", "x" }, "<C-n>", },
-        { mode = { "n", "x" }, "<leader><leader>M", },
         { mode = { "n", "x" }, "<leader>M", },
-        { mode = { "n", "x" }, "<leader><leader>s", },
         { mode = "n",          "<leader>/", },
         { mode = "n",          "<c-leftmouse>", },
         { mode = "n",          "<c-leftdrag>", },
         { mode = "n",          "<c-leftrelease>", },
         { mode = { "n", "x" }, "<c-q>", },
-        { mode = { "n", "x" }, "<leader><leader>]d", },
-        { mode = { "n", "x" }, "<leader><leader>[d", },
+        { mode = { "n", "x" }, "<leader>|", },
+        -- { mode = { "n", "x" }, "<leader><leader>]d", },
+        -- { mode = { "n", "x" }, "<leader><leader>[d", },
+        -- { mode = { "n", "x" }, "<leader><leader>m", },
+        -- { mode = { "n", "x" }, "<leader><leader>M", },
     },
     config = function()
         local mc = require("multicursor-nvim")
@@ -32,7 +32,7 @@ return {
         -- for expressions
         -- e.g. ga3j, gaR
         set({ "n", "x" }, "ga", mc.addCursorOperator, { desc = "[MULTC] Operator" })
-        set({ "n", "x" }, "<leader><leader>m", mc.addCursorOperator, { desc = "[MULTC] Operator" })
+        -- set({ "n", "x" }, "<leader><leader>m", mc.addCursorOperator, { desc = "[MULTC] Operator" })
 
         -- Split visual selections by regex.
         set("x", "zs", mc.splitCursors, { desc = "[MULTC] Split Regex" })
@@ -50,13 +50,13 @@ return {
         set({ "n", "x" }, "<C-n>", function() mc.matchAddCursor(1) end, { desc = "[MULTC] Next Match" })
 
         -- Add a cursor for all matches of cursor word/selection in the document.
-        set({ "n", "x" }, "<leader><leader>M", mc.matchAllAddCursors, { desc = "[MULTC] All Matches" })
+        -- set({ "n", "x" }, "<leader><leader>M", mc.matchAllAddCursors, { desc = "[MULTC] All Matches" })
         set({ "n", "x" }, "<leader>M", mc.matchAllAddCursors, { desc = "[MULTC] All Matches" })
 
         -- Pressing `<leader>miwap` will create a cursor in every match of the
         -- string captured by `iw` inside range `ap`.
         -- This action is highly customizable, see `:h multicursor-operator`.
-        set({ "n", "x" }, "<leader><leader>s", mc.operator, { desc = "[MULTC] Operator in Range" })
+        set({ "n", "x" }, "<leader>|", mc.operator, { desc = "[MULTC] Operator in Range" })
 
         -- Add a cursor to every search result in the buffer.
         set("n", "<leader>/", mc.searchAllAddCursors, { desc = "[MULTC] All Search Matches" })
@@ -70,14 +70,14 @@ return {
         set({ "n", "x" }, "<c-q>", mc.toggleCursor, { desc = "[MULTC] Manual" })
 
         -- Add or skip adding a new cursor by matching diagnostics.
-        set({ "n", "x" },
-            "<leader><leader>]d",
-            function() mc.diagnosticAddCursor(1) end,
-            { desc = "[MULTC] Next Diagnostic" })
-        set({ "n", "x" },
-            "<leader><leader>[d",
-            function() mc.diagnosticAddCursor(-1) end,
-            { desc = "[MULTC] Prev Diagnostic" })
+        -- set({ "n", "x" },
+        --     "<leader><leader>]d",
+        --     function() mc.diagnosticAddCursor(1) end,
+        --     { desc = "[MULTC] Next Diagnostic" })
+        -- set({ "n", "x" },
+        --     "<leader><leader>[d",
+        --     function() mc.diagnosticAddCursor(-1) end,
+        --     { desc = "[MULTC] Prev Diagnostic" })
 
         -- Mappings defined in a keymap layer only apply when there are
         -- multiple cursors. This lets you have overlapping mappings.
