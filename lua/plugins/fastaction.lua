@@ -14,6 +14,7 @@ local menus = {
         "󰇀 prev match",
         "󰇀 next match",
         "󰇀 operator in range",
+        " buffer pick",
     },
     fns = {
         function() flash_util.flash_word() end,
@@ -28,6 +29,7 @@ local menus = {
         function() require("multicursor-nvim").matchAddCursor(-1) end,
         function() require("multicursor-nvim").matchAddCursor(1) end,
         function() require("multicursor-nvim").operator() end,
+        function() return vim.cmd("BufferLinePick") end,
     },
     keys = {
         [" hop"] = "<C-Space>",

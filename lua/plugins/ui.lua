@@ -8,9 +8,6 @@ return {
         dependencies = "kyazdani42/nvim-web-devicons",
         opts = {
             options = {
-                numbers = function(opts)
-                    return string.format('%s{%s}', opts.raise(opts.ordinal), opts.id)
-                end,
                 separator_style = "thin",
                 enforce_regular_tabs = false,
                 always_show_bufferline = true,
