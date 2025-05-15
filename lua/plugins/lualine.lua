@@ -55,21 +55,6 @@ local components = {
         "searchcount",
         color = 'AshenG3',
     },
-
-    filename = {
-        function()
-            if vim.bo.buftype == "terminal" then
-                return " terminal"
-            elseif vim.bo.buftype ~= "" then
-                return vim.fn.expand("%:t")
-            elseif vim.bo.buftype == "nofile" then
-                return ""
-            else
-                return vim.fn.expand("%"):gsub(vim.fn.getcwd() .. "/", "")
-            end
-        end
-    }
-    ,
 }
 
 return {
@@ -92,7 +77,11 @@ return {
             lualine_b = {
                 components.cwd,
                 "branch",
-                components.filename,
+                {
+                    "filename",
+                    path = 1,
+                    shorting_target = 20,
+                },
             },
             lualine_c = { "diff" },
             lualine_x = { components.searchcount, components.diagnostics },
