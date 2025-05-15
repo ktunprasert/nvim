@@ -18,17 +18,18 @@ return {
                     return require("codecompanion.adapters").extend("copilot", {
                         schema = {
                             model = {
-                                default = "gemini-2.5-pro-preview-05-06"
+                                default = "gpt-4.1",
                             }
                         }
                     })
                 end
             },
-            log_level = "debug",
+            log_level = "trace",
             extensions = {
                 history = {
                     enabled = true,
                     opts = {
+                        auto_generate_title = false,
                         picker = "snacks",
                     },
                 },
