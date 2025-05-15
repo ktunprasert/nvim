@@ -204,6 +204,9 @@ return {
                 style = "scratch",
                 noautocmd = true,
                 minimal = true,
+                bo = {
+                    buftype = "nofile",
+                },
             },
             win_by_ft = {
                 lua = {
