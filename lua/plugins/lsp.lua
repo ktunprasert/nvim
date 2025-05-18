@@ -506,4 +506,9 @@ return {
         ft = { "typescript", "javascript", "typescriptreact", "javascriptreact", "html", "markdown", "heex" },
         opts = {},
     },
+    {
+        "davidmh/mdx.nvim",
+        config = true,
+        dependencies = { "nvim-treesitter/nvim-treesitter" }
+    },
 }
