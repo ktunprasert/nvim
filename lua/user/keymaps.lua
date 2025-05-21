@@ -173,6 +173,8 @@ keymap('n', 'ycc', function()
     return 'g@_'
 end, { expr = true, desc = 'Duplicate [count] lines and comment out the first instance' })
 
+keymap('n', 'yC', 'ycc', { remap = true })
+
 -- search within visual selection - this is magic
 -- https://www.reddit.com/r/neovim/comments/1k4efz8/share_your_proudest_config_oneliners/mo9nalp/
 keymap("x", "/", "<Esc>/\\%V", nil, "Search within visual selection")
