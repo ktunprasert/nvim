@@ -24,7 +24,8 @@ log=$(git log -n 30 --pretty=format:'%h %s')
 
 # Run aichat with all arguments passed to this script
 # aichat -m openrouter:google/gemini-2.0-flash-exp:free "Please suggest 10 commit messages, given the following diff:
-aichat -m copilot:gemini-2.0-flash-001 "Please suggest 10 commit messages, given the following diff:
+# aichat -m copilot:gemini-2.0-flash-001 "Please suggest 10 commit messages, given the following diff:
+aichat -m copilot:gpt-4.1-2025-04-14 "Please suggest 10 commit messages, given the following diff:
     \`\`\`diff
     $diff
     \`\`\`
