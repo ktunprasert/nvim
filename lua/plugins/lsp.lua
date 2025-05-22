@@ -352,7 +352,7 @@ return {
             various.setup(cfg.opts)
 
             local inoutMaps = {
-                subword = "S",
+                subword = "s",
                 number = "n",
                 lineCharacterwise = "_",
                 greedyOuterIndentation = "g",
