@@ -41,11 +41,12 @@ return {
                     local dap = require("dap")
                     local dapui = require("dapui")
 
-                    dap.set_log_level('DEBUG')
+                    dap.set_log_level('TRACE')
 
                     require("user.dap.elixir")
                     require("user.dap.php")
                     require("user.dap.go")
+                    require("user.dap.rust")
 
                     dapui.setup(opts)
                     dap.listeners.after.event_initialized["dapui_config"] = function()
