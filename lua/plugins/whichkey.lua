@@ -124,6 +124,12 @@ return {
                 -- { "-",         require("user.navigation").lastwin,       desc = "Last Window" },
                 -- { "+",         require("user.navigation").lastbuf,       desc = "Last Buffer" },
                 { "0",         require("user.navigation").zero_or_first, desc = "Zero or First" },
+                {
+                    "0",
+                    "^",
+                    mode = { "o" },
+                    opts = { remap = "true" }
+                },
             },
         },
     },
