@@ -147,10 +147,10 @@ return {
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        cmd = "TodoTelescope",
+        cmd = "TodoLocList",
         config = true,
         keys = {
-            { mode = "n", "<leader>sT", "<cmd>TodoTelescope<cr>", desc = "Search TODO comments" },
+            { mode = "n", "<leader>sT", "<cmd>TodoLocList<cr>", desc = "Search TODO comments" },
         }
     },
     {
