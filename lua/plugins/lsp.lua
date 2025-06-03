@@ -191,10 +191,11 @@ return {
             null_ls.setup({
                 debug = true,
                 sources = {
-                    formatting.prettier.with({ extra_args = {}, filetypes = { "markdown", "md" } }),
+                    formatting.prettier.with({ extra_args = {}, filetypes = { "markdown", "md", "mdx", "astro" } }),
                     formatting.black.with({ extra_args = { "--fast" } }),
                     formatting.biome,
                     formatting.ocamlformat,
+                    -- formatting.prettypst,
                     diagnostics.golangci_lint,
                     -- null_ls.builtins.code_actions.gitsigns,
                     null_ls.builtins.code_actions.ts_node_action,
