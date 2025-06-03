@@ -194,6 +194,7 @@ return {
                     formatting.prettier.with({ extra_args = {}, filetypes = { "markdown", "md" } }),
                     formatting.black.with({ extra_args = { "--fast" } }),
                     formatting.biome,
+                    formatting.ocamlformat,
                     diagnostics.golangci_lint,
                     -- null_ls.builtins.code_actions.gitsigns,
                     null_ls.builtins.code_actions.ts_node_action,
