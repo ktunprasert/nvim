@@ -199,6 +199,18 @@ return {
                     diagnostics.golangci_lint,
                     -- null_ls.builtins.code_actions.gitsigns,
                     null_ls.builtins.code_actions.ts_node_action,
+                    h.make_builtin(
+                        {
+                            name = "racket raco fmt",
+                            method = FMT,
+                            filetypes = { "rkt", "racket" },
+                            generator_opts = {
+                                command = "raco",
+                                args = { "fmt" },
+                                to_stdin = true,
+                            },
+                            factory = h.formatter_factory,
+                        }),
                     -- h.make_builtin(
                     --     {
                     --         name = "v fmt",
