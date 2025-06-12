@@ -211,6 +211,18 @@ return {
                             },
                             factory = h.formatter_factory,
                         }),
+                    h.make_builtin(
+                        {
+                            name = "roc fmt",
+                            method = FMT,
+                            filetypes = { "roc" },
+                            generator_opts = {
+                                command = "roc",
+                                args = { "format", "--migrate", "--stdin", "--stdout" },
+                                to_stdin = true,
+                            },
+                            factory = h.formatter_factory,
+                        }),
                     -- h.make_builtin(
                     --     {
                     --         name = "v fmt",
