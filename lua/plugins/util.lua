@@ -182,6 +182,26 @@ return {
                     augend.semver.alias.semver,
                 },
             }
+
+            require("dial.config").augends:on_filetype {
+                racket = {
+                    augend.constant.new {
+                        elements = { "lambda", "λ" },
+                        word = true,
+                        cyclic = true,
+                    },
+                    augend.constant.new {
+                        elements = { "#t", "#f" },
+                        word = true,
+                        cyclic = true,
+                    },
+                    augend.constant.new {
+                        elements = { "=", "eq?", "eqv?", "equal?" },
+                        word = true,
+                        cyclic = true,
+                    },
+                },
+            }
         end,
         keys = {
             { mode = "n", "<C-a>",  function() require("dial.map").manipulate("increment", "normal") end,            remap = true },
