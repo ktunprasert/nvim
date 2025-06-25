@@ -18,8 +18,8 @@ return {
                     return require("codecompanion.adapters").extend("copilot", {
                         schema = {
                             model = {
-                                -- default = "gemini-2.5-pro-preview-05-06"
-                                default = "claude-sonnet-4"
+                                default = "gemini-2.5-pro-preview-05-06"
+                                -- default = "claude-sonnet-4"
                             }
                         }
                     })
