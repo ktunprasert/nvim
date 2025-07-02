@@ -62,6 +62,10 @@ vim.opt.spell = true
 vim.opt.spelllang = { 'en_gb' }
 vim.opt.cmdheight = 1
 
+-- project based .nvim.lua
+vim.o.exrc = true
+vim.o.secure = true
+
 -- check for windows
 if vim.fn.has("win32") ~= 1 then
     vim.opt.fileformat = "unix"
