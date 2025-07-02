@@ -1,6 +1,6 @@
 local flash_util = require("lib.flash_util")
 
-local menus = {
+Menus = {
     items = {
         " hop",
         " jump",
@@ -43,10 +43,21 @@ local menus = {
     },
 }
 
+Menus.append = function(item, fn, key)
+    if item ~= nil and fn ~= nil then
+        table.insert(Menus.items, item)
+        table.insert(Menus.fns, fn)
+    end
+
+    if key ~= nil then
+        Menus.keys[item] = key
+    end
+end
+
 local override = function(params)
     if params.kind == "actions" then
-        if menus.keys[params.title] ~= nil then
-            return { key = menus.keys[params.title] }
+        if Menus.keys[params.title] ~= nil then
+            return { key = Menus.keys[params.title] }
         end
     end
 end
@@ -62,9 +73,9 @@ return {
                 "<c-space>",
                 function()
                     vim.ui.select(
-                        menus.items,
+                        Menus.items,
                         { prompt = 'Actions', kind = "actions", },
-                        function(_, idx) menus.fns[idx]() end
+                        function(_, idx) Menus.fns[idx]() end
                     )
                 end,
                 mode = { "n", "v" },
