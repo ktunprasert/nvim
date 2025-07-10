@@ -61,6 +61,7 @@ vim.opt.laststatus = 3
 vim.opt.spell = true
 vim.opt.spelllang = { 'en_gb' }
 vim.opt.cmdheight = 1
+vim.opt.smoothscroll = true
 
 -- project based .nvim.lua
 vim.o.exrc = true
