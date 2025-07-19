@@ -3,7 +3,7 @@ return {
     branch = "1.0",
     keys = {
         { mode = { "n", "x" }, "ga", },
-        { mode = "x",          "zs", },
+        { mode = "x",          "<leader>s", },
         { mode = "n",          "gV", },
         { mode = { "n", "x" }, "<C-up>", },
         { mode = { "n", "x" }, "<C-down>", },
@@ -35,7 +35,7 @@ return {
         -- set({ "n", "x" }, "<leader><leader>m", mc.addCursorOperator, { desc = "[MULTC] Operator" })
 
         -- Split visual selections by regex.
-        set("x", "zs", mc.splitCursors, { desc = "[MULTC] Split Regex" })
+        set("x", "<leader>s", mc.splitCursors, { desc = "[MULTC] Split Regex" })
 
         -- bring back cursors if you accidentally clear them
         set("n", "gV", mc.restoreCursors, { desc = "[MULTC] Restore Cursors" })
