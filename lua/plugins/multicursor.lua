@@ -18,6 +18,9 @@ return {
         { mode = { "n", "x" }, "<c-q>", },
         { mode = { "n", "x" }, "<leader>|", },
         { mode = { "v", "x" }, "s", },
+        { mode = "x",          "I", },
+        { mode = "x",          "A", },
+
         -- { mode = { "n", "x" }, "<leader><leader>]d", },
         -- { mode = { "n", "x" }, "<leader><leader>[d", },
         -- { mode = { "n", "x" }, "<leader><leader>m", },
@@ -72,6 +75,10 @@ return {
 
         -- Disable and enable cursors.
         set({ "n", "x" }, "<c-q>", mc.toggleCursor, { desc = "[MULTC] Manual" })
+
+        -- Multicursor [I]nsert and [A]ppend
+        set("x", "I", mc.insertVisual, { desc = "[MULTC] Insert Cursors" })
+        set("x", "A", mc.appendVisual, { desc = "[MULTC] Append Cursors" })
 
         -- Add or skip adding a new cursor by matching diagnostics.
         -- set({ "n", "x" },

@@ -33,9 +33,6 @@ keymap("", "gf", ":e <cfile><CR>")
 -- Command mode without shift
 keymap({ "n", "v" }, ";", ":")
 
--- Command mode without shift
--- keymap({ "n", "v" }, ";", ":")
-
 -- Quickly escape from insert mode
 keymap("i", "jk", "<Esc>")
 
@@ -198,5 +195,5 @@ keymap("x", "/", "<Esc>/\\%V", nil, "Search within visual selection")
 -- visual block editing
 -- Block insert in line visual mode
 -- https://www.reddit.com/r/neovim/comments/1k4efz8/share_your_proudest_config_oneliners/moelhto/
-keymap('x', 'I', function() return vim.fn.mode() == 'V' and '^<C-v>I' or 'I' end, { expr = true })
-keymap('x', 'A', function() return vim.fn.mode() == 'V' and '$<C-v>A' or 'A' end, { expr = true })
+-- keymap('x', 'I', function() return vim.fn.mode() == 'V' and '^<C-v>I' or 'I' end, { expr = true })
+-- keymap('x', 'A', function() return vim.fn.mode() == 'V' and '$<C-v>A' or 'A' end, { expr = true })
