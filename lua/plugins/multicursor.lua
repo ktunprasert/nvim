@@ -119,6 +119,9 @@ return {
             layerSet({ "v", "x" }, ")", function()
                 mc.transposeCursors(1)
             end, { desc = "[MULTC] Rotate content right" })
+
+            -- Helix style align cursor
+            layerSet({ "v", "x" }, "&", mc.alignCursors, { desc = "[MULTC] Align contents" })
         end)
 
         -- Customize how cursors look.
