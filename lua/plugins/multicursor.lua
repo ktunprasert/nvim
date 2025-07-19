@@ -20,11 +20,6 @@ return {
         { mode = { "v", "x" }, "s", },
         { mode = "x",          "I", },
         { mode = "x",          "A", },
-
-        -- { mode = { "n", "x" }, "<leader><leader>]d", },
-        -- { mode = { "n", "x" }, "<leader><leader>[d", },
-        -- { mode = { "n", "x" }, "<leader><leader>m", },
-        -- { mode = { "n", "x" }, "<leader><leader>M", },
     },
     config = function()
         local mc = require("multicursor-nvim")
@@ -79,16 +74,6 @@ return {
         -- Multicursor [I]nsert and [A]ppend
         set("x", "I", mc.insertVisual, { desc = "[MULTC] Insert Cursors" })
         set("x", "A", mc.appendVisual, { desc = "[MULTC] Append Cursors" })
-
-        -- Add or skip adding a new cursor by matching diagnostics.
-        -- set({ "n", "x" },
-        --     "<leader><leader>]d",
-        --     function() mc.diagnosticAddCursor(1) end,
-        --     { desc = "[MULTC] Next Diagnostic" })
-        -- set({ "n", "x" },
-        --     "<leader><leader>[d",
-        --     function() mc.diagnosticAddCursor(-1) end,
-        --     { desc = "[MULTC] Prev Diagnostic" })
 
         -- Mappings defined in a keymap layer only apply when there are
         -- multiple cursors. This lets you have overlapping mappings.
