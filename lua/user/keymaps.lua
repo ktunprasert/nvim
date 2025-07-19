@@ -89,6 +89,10 @@ keymap("n", "<Leader>x", "<C-w>q")
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
+-- Helix style normal indent
+keymap("n", "<", "<<")
+keymap("n", ">", ">>")
+
 -- Move lines up and down
 -- Normal --
 keymap("n", "<A-k>", ":m .-2<CR>==")
