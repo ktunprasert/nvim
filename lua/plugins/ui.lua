@@ -72,6 +72,7 @@ return {
             cterm_cursor_colors = { 240, 245, 250, 255 },
             cterm_bg = 235,
             -- cursor_color = "#D7A933",
+            time_interval = 7, -- milliseconds
         },
     },
 }
