@@ -37,6 +37,11 @@ return {
                 "<Esc><Cmd>lua require('Comment.api').toggle.linewise()<CR>",
                 desc = "Comment",
             },
+            {
+                "<C-c>",
+                "<Esc><Cmd>lua require('Comment.api').toggle.linewise()<CR>",
+                desc = "Comment",
+            },
             { "gc", desc = "Comment", },
             { "gc", desc = "Comment", mode = { "v" } }
         },
