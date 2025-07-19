@@ -109,6 +109,7 @@ return {
             layerSet("n", "<CR>", mc.enableCursors, { desc = "[MULTC] Confirm" })
             -- Enable and clear cursors using escape.
             layerSet("n", "<esc>", mc.clearCursors, { desc = "[MULTC] Clear" })
+            layerSet("n", ",", mc.clearCursors, { desc = "[MULTC] Clear" })
 
             -- Helix style rotate content
             layerSet({ "v", "x" }, "(", function()
