@@ -61,17 +61,9 @@ return {
 
         -- Add a cursor to every search result in the buffer.
         set({ "n", "x" }, "<leader>/", mc.searchAllAddCursors, { desc = "[MULTC] All Search Matches" })
-        set({ "v", "x" }, "s",
-            function()
-                local input = vim.fn.input("Select: ")
-                if input ~= nil and input ~= "" then
-                    vim.fn.setreg('/', input)
-                    require("multicursor-nvim").searchAllAddCursors()
-                else
-                    require("multicursor-nvim").matchAllAddCursors()
-                end
-            end,
-            { desc = "[MULTC] All Search Matches" })
+
+        -- Helix style search
+        set({ "n", "x" }, "s", mc.matchCursors, { desc = "[MULTC] All Search Matches" })
 
         -- Add and remove cursors with control + left click.
         set("n", "<c-leftmouse>", mc.handleMouse, { desc = "[MULTC] Mouse" })

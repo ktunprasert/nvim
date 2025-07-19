@@ -24,19 +24,7 @@ Menus = {
         function() require("flash").treesitter_search() end,
         function() require("flash").jump({ continue = true }) end,
         function() require("multicursor-nvim").matchAllAddCursors() end,
-        function()
-            vim.ui.input(
-                { prompt = "Search term: ", default = vim.fn.expand("<cword>") },
-                function(input)
-                    if input ~= nil and input ~= "" then
-                        vim.fn.setreg('/', input)
-                        require("multicursor-nvim").searchAllAddCursors()
-                    else
-                        require("multicursor-nvim").matchAllAddCursors()
-                    end
-                end
-            )
-        end,
+        function() require("multicursor-nvim").matchCursors() end,
         function() require("multicursor-nvim").restoreCursors() end,
         function() require("multicursor-nvim").matchAddCursor(-1) end,
         function() require("multicursor-nvim").matchAddCursor(1) end,
