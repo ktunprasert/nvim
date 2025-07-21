@@ -61,7 +61,7 @@ return {
         set({ "n", "x" }, "<leader>/", mc.searchAllAddCursors, { desc = "[MULTC] All Search Matches" })
 
         -- Helix style search
-        set({ "n", "x" }, "s", mc.matchCursors, { desc = "[MULTC] All Search Matches" })
+        set({ "v", "x" }, "s", mc.matchCursors, { desc = "[MULTC] All Search Matches" })
 
         -- Add and remove cursors with control + left click.
         set("n", "<c-leftmouse>", mc.handleMouse, { desc = "[MULTC] Mouse" })
