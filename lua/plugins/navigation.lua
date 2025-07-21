@@ -78,5 +78,8 @@ return {
             { "<C-b>", "<cmd>lua require('spider').motion('b')<CR>", mode = { "i" } },
             { "<C-e>", "<cmd>lua require('spider').motion('e')<CR>", mode = { "i" } },
         },
+        opts = {
+            subwordMovement = false,
+        }
     },
 }
