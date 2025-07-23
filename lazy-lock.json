@@ -12,6 +12,7 @@
   "codecompanion.nvim": { "branch": "main", "commit": "28eab4386b04dc222de6c27349ea5ae0d1a92866" },
   "colorful-menu.nvim": { "branch": "master", "commit": "bc3e82609f2fcf7dad7ca87c20e65e51d5d9d87c" },
   "copilot.lua": { "branch": "master", "commit": "3680bebcc95dfd6c7509466367e66f6dc64a5140" },
+  "csvview.nvim": { "branch": "main", "commit": "1057e6cb883881577f99c6fa3429620fc459ab5c" },
   "dial.nvim": { "branch": "master", "commit": "78bd73aaf2b9c8f80715a878feaf56f7ffa8b6ff" },
   "dropbar.nvim": { "branch": "master", "commit": "e2154ba25ebe5aa3c4b1abe4ad0ad7c1190a036a" },
   "edgy.nvim": { "branch": "main", "commit": "7e8dedc39abebe40c289b8012cc89b11c69aa7a0" },
