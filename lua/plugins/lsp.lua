@@ -246,12 +246,12 @@ return {
         "nvim-treesitter/nvim-treesitter",
         main = "nvim-treesitter.configs",
         opts = {
-            ensure_installed = {
-                "lua", "json",
-                "javascript", "python", "dockerfile", "bash",
-                "php", "phpdoc",
-                "go", "gomod",
-            },
+            -- ensure_installed = {
+            --     "lua", "json",
+            --     "javascript", "python", "dockerfile", "bash",
+            --     "php", "phpdoc",
+            --     "go", "gomod",
+            -- },
             highlight = {
                 enable = true,
             },
