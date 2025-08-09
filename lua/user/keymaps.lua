@@ -86,22 +86,6 @@ keymap("n", "<Leader>x", "<C-w>q")
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
--- Helix style normal indent
-keymap("n", ">", function()
-    local count = vim.v.count1 -- Gets the count (default 1)
-    for _ = 1, count do
-        vim.cmd('normal! >>')
-    end
-end)
-
-keymap("n", "<", function()
-    local count = vim.v.count1
-    for _ = 1, count do
-        vim.cmd('normal! <<')
-    end
-end)
-
-
 -- Move lines up and down
 -- Normal --
 keymap("n", "<A-k>", ":m .-2<CR>==")

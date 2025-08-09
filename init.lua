@@ -6,6 +6,7 @@ vim.loader.enable()
 require "user.globals"
 require "user.options"
 require "user.keymaps"
+require "user.keymaps_helix"
 require "user.lazy"
 require "user.abbreviations"
 require "user.colors"
