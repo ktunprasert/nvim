@@ -21,3 +21,6 @@ keymap({ "n", "v", "x" }, "gl", "$")
 
 -- Helix go to word 2 char
 keymap({ "n" }, "gw", flash_util.flash_word)
+
+-- When already in visual mode, v extends selection by one line
+keymap("v", "v", "j", { nowait = true })
