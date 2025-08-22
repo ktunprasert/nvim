@@ -1,4 +1,5 @@
 local keymap = require('lib.utils').keymap
+local flash_util = require('lib.flash_util')
 
 -- Helix style normal indent
 keymap("n", ">", function()
@@ -17,3 +18,6 @@ end)
 
 -- Helix goto end of line
 keymap({ "n", "v", "x" }, "gl", "$")
+
+-- Helix go to word 2 char
+keymap({ "n" }, "gw", flash_util.flash_word)
