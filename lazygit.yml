@@ -10,19 +10,16 @@ gui:
   commandLogSize: 8
   # filterMode: fuzzy
   statusPanelView: allBranchesLog
-
 customCommands:
   - key: o
     command: 'gh pr view {{.SelectedLocalBranch.Name}} --web || gh pr create {{.SelectedLocalBranch.Name}} --web'
     context: remoteBranches
-
   - key: '<c-a>'
     description: Pick AI commit
     context: files
-    subprocess: true
     # command: ~/run_aichat.sh
     command: $NVIM_DIR/run_aichat.sh
-
+    output: terminal
 os:
   # edit: "nvim --server $NVIM --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, 0)<CR>'"
   # editAtLine: "nvim --server $NVIM --remote-send '<C-\\><C-n>:5ToggleTerm<CR>:lua _edit({{filename}}, {{line}})<CR>'"
@@ -34,11 +31,9 @@ os:
   # edit:  nvim --server $NVIM --remote-send "q"
   # edit: nvim --server $NVIM --remote-send '<C-d><C-d>q:lua _edit({{filename}}, 0)<CR>'
   # edit: nvim --server $NVIM --remote-expr ":lua vim.notify('ho')"
-
 keybinding:
   universal:
     nextScreenMode: '+'
-
 git:
   overrideGpg: true
   paging:
