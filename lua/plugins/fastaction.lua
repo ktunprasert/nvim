@@ -15,6 +15,7 @@ Menus = {
         "󰇀 next match",
         "󰇀 operator in range",
         " buffer pick",
+        " edit lsp config",
     },
     fns = {
         function() flash_util.flash_word() end,
@@ -30,6 +31,7 @@ Menus = {
         function() require("multicursor-nvim").matchAddCursor(1) end,
         function() require("multicursor-nvim").operator() end,
         function() return vim.cmd("BufferLinePick") end,
+        function() vim.cmd("edit " .. vim.fn.stdpath("config") .. "/lua/lsp/config.lua") end,
     },
     keys = {
         [" hop"] = "<C-Space>",
@@ -40,6 +42,7 @@ Menus = {
         ["󰇀 prev match"] = "N",
         ["󰇀 next match"] = "n",
         ["󰇀 operator (iwap)"] = "S",
+        [" edit lsp config"] = "l",
     },
 }
 
