@@ -19,7 +19,7 @@ return {
     "zk",
     "tailwindcss",
     "golangci_lint_ls",
-    "elixirls",
+    "expert",
     "rust_analyzer",
     "zls",
 }
