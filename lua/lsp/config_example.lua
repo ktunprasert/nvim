@@ -22,4 +22,5 @@ return {
     "expert",
     "rust_analyzer",
     "zls",
+    "copilot_ls",
 }
