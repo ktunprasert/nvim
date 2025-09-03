@@ -8,7 +8,7 @@
 # Define load_copilot_key function
 load_copilot_key() {
     # Extract the OAuth token from GitHub Copilot hosts file
-    local OAUTH_TOKEN=$(jq '."github.com".oauth_token' -r ~/.config/github-copilot/hosts.json)
+    local OAUTH_TOKEN=$(jq '."github.com".oauth_token' -r ~/.config/github-copilot/apps.json)
 
     # Set the COPILOT_API_KEY environment variable
     export COPILOT_API_KEY=$(curl -s -H "Authorization: bearer $OAUTH_TOKEN" https://api.github.com/copilot_internal/v2/token | jq .token -r)
@@ -54,8 +54,10 @@ aichat -m copilot:gpt-4.1-2025-04-14 "Please suggest 10 commit messages, given t
 
     **Output Template**
 
-    Follow this output template and ONLY output raw commit messages without spacing,
-    numbers or other decorations.
+    Follow this generic output template and ONLY output raw commit messages without spacing,
+    numbers or other decorations. Use the example above to see what heuristics to follow
+    you MUST follow continuity. The commits in a row if related must follow existing one
+    given the branch. Here is the short status $(git status -sb)
 
     fix(app): add password regex pattern
     test(unit): add new test cases
