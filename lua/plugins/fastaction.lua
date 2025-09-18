@@ -16,6 +16,7 @@ Menus = {
         "󰇀 operator in range",
         " buffer pick",
         " edit lsp config",
+        " toggle wrapping",
     },
     fns = {
         function() flash_util.flash_word() end,
@@ -32,6 +33,7 @@ Menus = {
         function() require("multicursor-nvim").operator() end,
         function() return vim.cmd("BufferLinePick") end,
         function() vim.cmd("edit " .. vim.fn.stdpath("config") .. "/lua/lsp/config.lua") end,
+        function() vim.o.wrap = not vim.o.wrap end,
     },
     keys = {
         [" hop"] = "<C-Space>",
@@ -43,6 +45,7 @@ Menus = {
         ["󰇀 next match"] = "n",
         ["󰇀 operator (iwap)"] = "S",
         [" edit lsp config"] = "l",
+        [" toggle wrapping"] = "w",
     },
 }
 
