@@ -43,6 +43,11 @@ return {
                     label = {
                         style = "overlay",
                     }
+                },
+                treesitter_search = {
+                    label = {
+                        style = "overlay",
+                    }
                 }
             },
         },
@@ -56,10 +61,7 @@ return {
                 "gt",
                 mode = { "o", "x" },
                 function()
-                    require("flash").treesitter_search({
-                        pattern =
-                        "."
-                    })
+                    require("flash").treesitter_search({ pattern = "." })
                 end,
                 desc = "Treesitter Search"
             },
