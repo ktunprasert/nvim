@@ -39,6 +39,11 @@ return {
                     -- end,
                     -- jump_labels = true,
                 },
+                treesitter = {
+                    label = {
+                        style = "overlay",
+                    }
+                }
             },
         },
         keys = {
