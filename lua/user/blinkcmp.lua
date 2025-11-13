@@ -141,12 +141,17 @@ local opts = {
             },
             copilot = {
                 name = "copilot",
-                module = "blink-copilot",
+                module = "blink-cmp-copilot",
                 score_offset = 100,
                 async = true,
-                opts = { max_completions = 3, }
+                transform_items = function(_, items)
+                    for _, item in ipairs(items) do
+                        item.kind_icon = ""
+                        item.kind_name = "Copilot"
+                    end
+                    return items
+                end,
             },
-            --
             avante = {
                 module = "blink-cmp-avante",
                 name = "Avante",
