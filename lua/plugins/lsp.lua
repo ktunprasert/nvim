@@ -185,8 +185,8 @@ return {
                 enabled = true,
                 keymap = {
                     accept = "<tab>",
-                    next = "<C-]>",
-                    prev = "<C-[>",
+                    -- next = "<C-]>",
+                    -- prev = "<C-[>",
                     dismiss = "<C-c>",
                 },
             },
