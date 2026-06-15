@@ -278,7 +278,8 @@ return {
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
-        main = "nvim-treesitter.configs",
+        main = "nvim-treesitter",
+        branch = 'main',
         opts = {
             -- ensure_installed = {
             --     "lua", "json",
